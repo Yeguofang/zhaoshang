@@ -1,0 +1,115 @@
+{include file="common/meta" /} {include file="common/head" /}
+<div class="main">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="x_bottom" style="margin-bottom:8px">
+        <tbody>
+            <tr>
+                <td width="33%" height="60"> <a href="http://3158.zzcms.net"><img src="http://3158.zzcms.net/image/logo.png" border="0" onload="javascript:if(this.width>220) this.width=220;"></a></td>
+                <td width="67%" align="right" valign="bottom">
+                    <table width="87%" height="50" border="0" cellpadding="3" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td width="89%" align="right" valign="top">
+                                    <a target="blank" href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;Site=zzcms项目加盟模板演示站&amp;Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:357856668:4" alt="在线客服QQ">在线客服QQ:357856668</a>
+                                    客服电话:400-728-9861</td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="bottom" style="color:cccccc"><a href="{:url('/')}">首页</a>&nbsp;|&nbsp;<a href="{:url('/help')}">帮助</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <link href="__CDN__/assets/css/user.css?v={$Think.config.site.version}" rel="stylesheet"> -->
+<div id="content-container" class="container">
+    <div class="user-section login-section">
+        <div class="logon-tab clearfix"> <a class="active">{:__('Sign in')}</a> <a href="{:url('menber/user/register')}?url={$url|urlencode}">{:__('Sign up')}</a> </div>
+        <div class="login-main">
+            <form name="form" id="login-form" class="form-vertical" method="POST" action="">
+                <input type="hidden" name="url" value="{$url}" /> {:token()}
+                <div class="form-group">
+                    <label class="control-label" for="account">账号</label>
+                    <div class="controls">
+                        <input class="form-control input-lg" id="account" type="text" name="account" value="" data-rule="required" placeholder="{:__('Email/Mobile/Username')}" autocomplete="off">
+                        <div class="help-block"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="password">密码</label>
+                    <div class="controls">
+                        <input class="form-control input-lg" id="password" type="password" name="password" data-rule="required;password" placeholder="{:__('Password')}" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="controls">
+                        <input type="checkbox" name="keeplogin" checked="checked" value="1"> {:__('Keep login')}
+                        <div class="pull-right"><a href="javascript:;" class="btn-forgot">{:__('Forgot password')}</a></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">{:__('Sign in')}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="resetpwdtpl">
+    <form id="resetpwd-form" class="form-horizontal form-layer" method="POST" action="{:url('api/user/resetpwd')}">
+        <div class="form-body">
+            <input type="hidden" name="action" value="resetpwd" />
+            <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3">{:__('Type')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="radio">
+                        <label for="type-email"><input id="type-email" checked="checked" name="type" data-send-url="{:url('api/ems/send')}" data-check-url="{:url('api/validate/check_ems_correct')}" type="radio" value="email"> {:__('Reset password by email')}</label>
+                        <label for="type-mobile"><input id="type-mobile" name="type" type="radio" data-send-url="{:url('api/sms/send')}" data-check-url="{:url('api/validate/check_sms_correct')}" value="mobile"> {:__('Reset password by mobile')}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" data-type="email">
+                <label for="email" class="control-label col-xs-12 col-sm-3">{:__('Email')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input type="text" class="form-control" id="email" name="email" value="" data-rule="required(#type-email:checked);email;remote({:url('api/validate/check_email_exist')}, event=resetpwd, id={$user.id})" placeholder="">
+                    <span class="msg-box"></span>
+                </div>
+            </div>
+            <div class="form-group hide" data-type="mobile">
+                <label for="mobile" class="control-label col-xs-12 col-sm-3">{:__('Mobile')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input type="text" class="form-control" id="mobile" name="mobile" value="" data-rule="required(#type-mobile:checked);mobile;remote({:url('api/validate/check_mobile_exist')}, event=resetpwd, id={$user.id})" placeholder="">
+                    <span class="msg-box"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="captcha" class="control-label col-xs-12 col-sm-3">{:__('Captcha')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="input-group">
+                        <input type="text" name="captcha" class="form-control" data-rule="required;length(4);integer[+];remote({:url('api/validate/check_ems_correct')}, event=resetpwd, email:#email)" />
+                        <span class="input-group-btn" style="padding:0;border:none;">
+                            <a href="javascript:;" class="btn btn-info btn-captcha" data-url="{:url('api/ems/send')}" data-type="email" data-event="resetpwd">{:__('Send verification code')}</a>
+                        </span>
+                    </div>
+                    <span class="msg-box"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="newpassword" class="control-label col-xs-12 col-sm-3">{:__('New password')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input type="password" class="form-control" id="newpassword" name="newpassword" value="" data-rule="required;password" placeholder="">
+                    <span class="msg-box"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-footer">
+            <label class="control-label col-xs-12 col-sm-3"></label>
+            <div class="col-xs-12 col-sm-8">
+                <button type="submit" class="btn btn-md btn-info">{:__('Ok')}</button>
+            </div>
+        </div>
+    </form>
+</script>
+
+{include file="common/footer" /}

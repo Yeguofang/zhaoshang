@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>aaaaaaaaaaaa</title>
+    <meta name="keywords" content="aaaaaaaaaaaa品牌" />
+    <meta name="description" content="aaaaaaaaaaaa品牌" />
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <script language="JavaScript" type="text/JavaScript" src="static/js/zsshow.js"></script>
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script>
+        $(function() {
+            $("#getcode_math").click(function() {
+                $(this).attr("src", '/one/code_math.php?' + Math.random());
+            });
+        });
+        $(document).ready(function() {
+            $("#tel").blur(function() { //jquery 中change()函数  
+                $("#ts_tel").load(encodeURI("/ajax/dl_liuyan_check_ajax.php?action=checktel&id=" + $("#tel").val()));
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <script language="JavaScript" src="static/js/qt.js"></script>
+
+    <div class="top1">
+        <div class="main">
+            <span>
+				<div>
+					<ul class="menu">
+						<li><a href="/help.htm" target="_blank">使用帮助</a></li>
+						<li><a href="javascript:void(0)"
+								onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://3158.zzcms.net');">设为首页</a>
+						</li>
+						<li><a href="javascript:window.external.addFavorite('http://3158.zzcms.net','zzcms项目加盟模板演示站');">收藏本站</a>
+						</li>
+						<li><a>手机站</a>
+							<ol class="sub">
+								<li><img src="static/picture/ewm_xm.png" width="100">
+								</li>
+							</ol>
+						</li>
+					</ul>
+				</div>
+			</span>
+            <h3>
+
+
+                欢迎来到zzcms项目加盟模板演示站！ <a href=http://3158.zzcms.net/user/login.htm target='_blank'>登录</a> <a href=http://3158.zzcms.net/reg/userreg.htm target='_blank'>免费注册</a>
+
+            </h3>
+        </div>
+    </div>
+
+    <div class="bgcolor1">
+        <div class="main">
+            <table width="100%" border="0" cellpadding="5" cellspacing="0" class="bgcolor1">
+                <tr>
+                    <td width="300">
+                        <a href="http://3158.zzcms.net"><img src="static/picture/logo.png" border="0" alt="zzcms专业做招商网的程序源码"></a>
+                    </td>
+                    <td>
+
+                        <div id="D_con1" {#zs_style2} style='display:none'>
+                            <form name="myform" method="get" action="/zs/search.php">
+                                <input name="keyword" id="keyword" type="text" class="biaodan_search2" autocomplete="off" x-webkit-speech onfocus="javascript:if (this.value=='输入产品名称') {this.value=''}" value="输入产品名称">
+                                <input name="search" type="submit" value="搜索" class="buttons_search" />
+                            </form>
+                        </div>
+
+                        <div id="D_con6" {#zx_style2} style='display:none'>
+                            <form name="myform" method="post" action="/zx/search.php">
+                                <input name="keyword" type="text" class="biaodan_search2" autocomplete="off" x-webkit-speech onfocus="javascript:if (this.value=='输入资讯信息关键词') {this.value=''}" value="输入资讯信息关键词" /><input name="search" type="submit" value="搜索"
+                                    class="buttons_search" />
+                            </form>
+                        </div>
+
+                    </td>
+                    <td width="100" align="center">
+                        <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
+                    <td width="240" align="center">
+                        <div class="bigbigword3 red">400-728-9861</div>
+                        <div>客服电话: 8:30 - 18:00</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="nav2">
+        <div class="main">
+            <ul>
+                <li class="current"><a href='http://3158.zzcms.net'>首页</a></li>
+                <li><a href='http://3158.zzcms.net/zs/fuzhuangxiebao'>服饰鞋包</a></li>
+                <li><a href='http://3158.zzcms.net/zs/tesecanyin'>特色餐饮</a></li>
+                <li><a href='http://3158.zzcms.net/zs/meirongyangsheng'>美容养生 </a></li>
+                <li><a href='http://3158.zzcms.net/zs/lipinzhuangshi'>饰品玩具</a></li>
+                <li><a href='http://3158.zzcms.net/zs/jiajuhuanbao'>家居环保</a></li>
+                <li><a href='http://3158.zzcms.net/zs/jiancai'>建材原料</a></li>
+                <li><a href='http://3158.zzcms.net/zs/muyingyongpin'>母婴用品</a></li>
+                <li><a href='http://3158.zzcms.net/zs/jiaoyuwangluo'>教育网络</a></li>
+                <li><a href='http://3158.zzcms.net/zs/jiushuiyinliao'>酒水饮料</a></li>
+                <li><a href='http://3158.zzcms.net/zs/qichefuwu'>汽车服务</a></li>
+                <li><a href='http://3158.zzcms.net/zs/shenghuofuwu'>生活服务</a></li>
+                <li><a href='http://3158.zzcms.net/zs/huanbaoshebei'>环保设备</a></li>
+                <li><a href='http://3158.zzcms.net/zs/order.htm'>排行榜</a></li>
+                <li><a href='http://3158.zzcms.net/zx'>资讯</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="item2">
+        <div class="main">
+            <a href="http://3158.zzcms.net/zx/1">热点资讯</a> <a href="http://3158.zzcms.net/zx/2">创业指南</a> <a href="http://3158.zzcms.net/zx/3">最新动态</a> <a href="http://3158.zzcms.net/zx/4">市场行情</a>
+            <a href="http://3158.zzcms.net/zx/5">创业秘籍</a> <a href="http://3158.zzcms.net/zx/6">最佳商机</a> <a href="http://3158.zzcms.net/zx/7">项目分析</a> <a href="http://3158.zzcms.net/zx/8">草根必读</a>
+            <a href="http://3158.zzcms.net/zx/9">创业问答</a> <a href="http://3158.zzcms.net/zx/10">创业经历</a> <a href="http://3158.zzcms.net/zx/11">暴利行业</a> <a href="http://3158.zzcms.net/zx/12">项目筛选</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="station2">
+            <li class='start'><a href='http://3158.zzcms.net'>首页</a></li>
+            <li><a href='/pp/index.htm'>品牌</a></li>
+            <li><a href='/pp/tesecanyin'>特色餐饮</a></li>
+            <li><a href='/pp/tesecanyin/zhongcan'>中餐</a></li>
+        </div>
+        <div class="pagebody">
+            <div class="left">
+
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="70%" valign="top">
+                            <table width="99%" height="288" border="0" cellpadding="8" cellspacing="1" class="bgcolor3">
+                                <tr class="bgcolor1">
+                                    <td width="150" align="center">品牌名称</td>
+                                    <td bgcolor="#FFFFFF">aaaaaaaaaaaa</td>
+                                </tr>
+                                <tr class="bgcolor1">
+                                    <td align="center">公司名称</td>
+                                    <td bgcolor="#FFFFFF">河南大禹有限公司</td>
+                                </tr>
+                                <tr class="bgcolor1">
+                                    <td align="center">点击次数</td>
+                                    <td bgcolor="#FFFFFF">1</td>
+                                </tr>
+                                <tr class="bgcolor1">
+                                    <td align="center">更新时间</td>
+                                    <td bgcolor="#FFFFFF">2019-10-03 17:11:23</td>
+                                </tr>
+                                <tr class="bgcolor1">
+                                    <td align="center">&nbsp;</td>
+                                    <td bgcolor="#FFFFFF"><input name="Submit" type="button" class="button_big" value="留言咨询" onClick="location.href='#dl_liuyan'" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td align="center" bgcolor="#FFFFFF" class="box" style="padding-left:8px;">
+                            <a href='/uploadfiles/2019-10/20191003091120746.jpg'><img src='static/picture/20191003091120746.jpg' alt='aaaaaaaaaaaa' border='0' width="200" /></a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="right">
+                <div class="box">
+                    <div id='zscontact'>
+                        <ul>
+                            <li><img src='static/picture/cxqy.png' /><img src='static/picture/2.png' /></li>
+                            <li style='font-weight:bold'>河南大禹有限公司</li>
+                            <li>经营模式：未选择</li>
+                            <li style=height:36px>
+                                <a href='/zt/show-1.htm'><img src='static/picture/button_site.gif' border='0' /></a>
+                            </li>
+                            <li>联系方式<a href='#dl_liuyan'><b>留言</b></a>后在此显示。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="titles">
+            <h3>品牌介绍</h3>
+        </div>
+        <div class="content1 bigword">
+            aaaaa
+
+        </div>
+        <div class="pagebody">
+
+
+            <div class="titles">
+                <h3>加盟留言</h3>
+                <a name="dl_liuyan" id="dl_liuyan"></a>
+            </div>
+            <div class="content1">
+                <FORM onSubmit="return CheckForms();" method="post" name="ly" action="/zt/liuyan_save.php">
+                    <table class="bgcolor3" border="0" cellspacing="1" cellpadding="5" width="100%">
+                        <tbody>
+                            <tr>
+                                <td width="150" align="right" class="bgcolor1">留言内容
+                                    <font color="#ff0000">*</font>
+                                </td>
+                                <td class="bgcolor1">
+                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td width="26%"><textarea id='contents' rows=6 cols=30 name='contents' onfocus='check_contents()' onblur='check_contents()'>愿加盟“aaaaaaaaaaaa”这个品牌，请与我联系。</textarea>
+                                                    <br />
+                                                    <input name="contents2" id="contents2" style="display:none" />
+                                                    <span id="ts_contents"></span>
+                                                    <input id="saver" value="test" type="hidden" name="saver" /></td>
+                                                <td width="74%"><input id="chcontent1" onClick="showinfo('content',1);document.ly.contents.focus();" value="愿加盟“aaaaaaaaaaaa”这个品牌，请与我联系。" type="checkbox" name="chcontent" />
+                                                    <label id="content1" for="chcontent1">愿加盟“aaaaaaaaaaaa”这个品牌，请与我联系。</label>
+                                                    <br />
+                                                    <input id="chcontent2" onClick="showinfo('content',2);document.ly.contents.focus();" value="有什么支持？" type="checkbox" name="chcontent" />
+                                                    <label id="content2" for="chcontent2">有什么支持？</label>
+                                                    <br />
+                                                    <input id="chcontent3" onClick="showinfo('content',3);document.ly.contents.focus();" value="请寄给我详细资料。" type="checkbox" name="chcontent" />
+                                                    <label id="content3" for="chcontent3">请寄给我详细资料。</label>
+                                                    <br />
+                                                    <input id="chcontent4" onClick="showinfo('content',4);document.ly.contents.focus();" value="请寄给我样品。" type="checkbox" name="chcontent" />
+                                                    <label id="content4" for="chcontent4">请寄给我样品。</label></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="padding: 5px;" class="bgcolor1">填写联系方式</div>
+
+                    <table class="bgcolor3" border="0" cellspacing="1" cellpadding="5" width="100%">
+                        <tbody>
+
+                            <tr>
+                                <td width="150" align="right" class="bgcolor1">联 系 人
+                                    <font color="#ff0000">*</font>
+                                </td>
+                                <td class="bgcolor1"><input name="name" id="name" onblur="check_somane()" value="" size="30" maxlength="50" />
+                                    <input name="name2" id="name2" style="display:none" />
+                                    <span id="ts_name"></span> </td>
+                            </tr>
+                            <tr>
+                                <td class="bgcolor1" align="right">电话/手机
+                                    <font color="#ff0000">*</font>
+                                </td>
+                                <td class="bgcolor1"><input name="tel" id="tel" onBlur="CheckNum()" value="" size="30" maxlength="50" />
+                                    <input name="tel2" id="tel2" style="display:none" />
+                                    <span id="ts_tel"></span> </td>
+                            </tr>
+                            <tr>
+                                <td class="bgcolor1" align="right">电子邮箱：</td>
+                                <td class="bgcolor1"><input id="email" maxlength="50" size="30" name="email" onBlur="check_email()" />
+                                    <input name="email2" id="email2" style="display:none" />
+                                    <span id="ts_email"></span> </td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="bgcolor1">答案
+                                    <font color="#FF0000">*</font>
+                                </td>
+                                <td class="bgcolor1"><input name="yzm" type="text" id="yzm" onBlur="check_yzm()" size="10" maxlength="50" style="width:60px" />
+                                    <input name="yzm2" id="yzm2" style="display:none" />
+                                    <span id="ts_yzm"></span>
+                                    <img src="static/picture/code_math.php" align="absmiddle" id="getcode_math" title="看不清，点击换一张" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right" class="bgcolor1">&nbsp;</td>
+                                <td class="bgcolor1"><input value="填好了，发送" type="submit" name="tj" id="tj" class="button_big" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="titles"><span>&nbsp;</span>
+            <h3>公司其它品牌</h3>
+        </div>
+        <div class="content3">
+            <ul>
+                <li>
+                    <a href='/pp/show-1.htm' target='_blank' title='asdfffffffffff'>
+                        <table border='0' cellpadding='5' cellspacing='1' class='bgcolor2' height='140' width='140'>
+                            <tr>
+                                <td bgcolor='#ffffff' align='center'><img src='static/picture/nopic_small.gif'></td>
+                            </tr>
+                        </table>asdfffffffffff</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {include file="common/footer" /}
+</body>
+
+</html>

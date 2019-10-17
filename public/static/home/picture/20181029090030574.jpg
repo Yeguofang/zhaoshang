@@ -1,0 +1,4 @@
+<br />
+<b>Warning</b>:  readfile() [<a href='function.readfile'>function.readfile</a>]: php_network_getaddresses: getaddrinfo failed: 不知道这样的主机。  in <b>D:\zzcms_xm\inc\function.php</b> on line <b>392</b><br />
+<br />
+<b>Warning</b>:  readfile(http://www.meihuajiaju.com/FileUpload/2018102216224/14321911K-0.jpg) [<a href='function.readfile'>function.readfile</a>]: failed to open stream: No error in <b>D:\zzcms_xm\inc\function.php</b> on line <b>392</b><br />

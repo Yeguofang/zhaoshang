@@ -1,0 +1,97 @@
+{include file="common/meta" /} {include file="common/head" /}
+<div class="main">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="x_bottom" style="margin-bottom:8px">
+        <tbody>
+            <tr>
+                <td width="33%" height="60"> <a href="http://3158.zzcms.net"><img src="http://3158.zzcms.net/image/logo.png" border="0" onload="javascript:if(this.width>220) this.width=220;"></a></td>
+                <td width="67%" align="right" valign="bottom">
+                    <table width="87%" height="50" border="0" cellpadding="3" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td width="89%" align="right" valign="top">
+                                    <a target="blank" href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;Site=zzcms项目加盟模板演示站&amp;Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:357856668:4" alt="在线客服QQ">在线客服QQ:357856668</a>
+                                    客服电话:400-728-9861</td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="bottom" style="color:cccccc"><a href="{:url('/')}">首页</a>&nbsp;|&nbsp;<a href="{:url('/help')}">帮助</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="content-container" class="container">
+    <div class="user-section login-section">
+        <div class="logon-tab clearfix"> <a href="{:url('menber/user/login')}?url={$url|urlencode}">{:__('Sign in')}</a> <a class="active">{:__('Sign up')}</a> </div>
+        <div class="login-main">
+            <form name="form1" id="register-form" class="form-vertical" method="POST" action="">
+                <input type="hidden" name="invite_user_id" value="0" />
+                <input type="hidden" name="url" value="{$url}" /> {:token()}
+
+                <div class="form-group">
+                    <label class="control-label">账号</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" data-rule="required;username" class="form-control input-lg" placeholder="{:__('Username must be 3 to 30 characters')}">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" data-rule="required;password" class="form-control input-lg" placeholder="{:__('Password must be 6 to 30 characters')}">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label required">{:__('联系人')}<span class="text-success"></span></label>
+                    <div class="controls">
+                        <input type="text" name="nickname" id="company_name" maxlength="12" class="form-control input-lg" placeholder="联系人">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label required">{:__('公司名称')}<span class="text-success"></span></label>
+                    <div class="controls">
+                        <input type="text" name="company_name" id="company_name" maxlength="100" class="form-control input-lg" placeholder="公司名称">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label required">邮箱<span class="text-success"></span></label>
+                    <div class="controls">
+                        <input type="text" name="email" id="email" data-rule="required;email" class="form-control input-lg" placeholder="{:__('Email')}">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">手机号</label>
+                    <div class="controls">
+                        <input type="text" id="mobile" name="mobile" data-rule="required;mobile" class="form-control input-lg" placeholder="{:__('Mobile')}">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <!--  <div class="form-group">
+                    <label class="control-label">{:__('Captcha')}</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <input type="text" name="captcha" class="form-control input-lg" data-rule="required;length(4);integer[+];remote({:url('checksms')}, event=register, mobile:#mobile)" />
+                            <span class="input-group-btn" style="padding:0;border:none;">
+                                <a href="javascript:;" class="btn btn-info btn-captcha btn-lg" data-url="{:url('api/sms/send')}" data-type="mobile" data-event="register">发送验证码</a>
+                            </span>
+                        </div>
+                        <p class="help-block"></p>
+                    </div>
+                </div> -->
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">{:__('Sign up')}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{include file="common/footer" /}

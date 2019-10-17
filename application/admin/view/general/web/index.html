@@ -1,0 +1,274 @@
+<style type="text/css">
+    @media (max-width: 375px) {
+        .edit-form tr td input {
+            width: 100%;
+        }
+        .edit-form tr th:first-child,
+        .edit-form tr td:first-child {
+            width: 20%;
+        }
+        .edit-form tr th:nth-last-of-type(-n+2),
+        .edit-form tr td:nth-last-of-type(-n+2) {
+            display: none;
+        }
+    }
+    
+    .edit-form table>tbody>tr td a.btn-delcfg {
+        visibility: hidden;
+    }
+    
+    .edit-form table>tbody>tr:hover td a.btn-delcfg {
+        visibility: visible;
+    }
+</style>
+<div class="panel panel-default panel-intro">
+    <div class="panel-heading">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#web" data-toggle="tab">网站信息</a>
+            </li>
+            <li>
+                <a href="#key" data-toggle="tab">网站运行</a>
+            </li>
+            <li>
+                <a href="#tdk" data-toggle="tab">TDK</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+
+            <div class="tab-pane fade active in" id="web">
+                <div class="widget-body no-padding">
+                    <form id="web-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/edit')}">
+                        {:token()}
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">标题</th>
+                                    <th width="50%">值</th>
+                                    <th width="30%">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 网站名称</td>
+                                    <td>
+                                        <input type="text" name="row[web_name]" value="{$date->web_name}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> 网站 logo</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <input id="c-avatar" data-rule="" class="form-control" size="50" name="row[web_logo]" type="text" value="{$date->web_logo}">
+                                            <div class="input-group-addon no-border no-padding">
+                                                <span><button type="button" id="plupload-avatar" class="btn btn-danger plupload" data-input-id="c-avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                                                <span><button type="button" id="fachoose-avatar" class="btn btn-primary fachoose" data-input-id="c-avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                                            </div>
+                                            <span class="msg-box n-right" for="c-avatar"></span>
+                                        </div>
+                                        <ul class="row list-inline plupload-preview" id="p-avatar"></ul>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> 公安部备案号</td>
+                                    <td>
+                                        <input type="text" name="row[web_beian]" value="{$date->web_beian}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> ICP备案号</td>
+                                    <td>
+                                        <input type="text" name="row[web_icp]" value="{$date->web_icp}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> 版权信息</td>
+                                    <td>
+                                        <input type="text" name="row[web_copyright]" value="{$date->web_copyright}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> email</td>
+                                    <td>
+                                        <input type="text" name="row[web_email]" value="{$date->web_email}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> phone</td>
+                                    <td>
+                                        <input type="text" name="row[web_phone]" value="{$date->web_phone}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>ＱＱ</td>
+                                    <td>
+                                        <input type="text" name="row[web_qq]" value="{$date->web_qq}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> 百度统计代码</td>
+                                    <td>
+                                        <textarea name="row[web_baidu]]" class="form-control" rows="5">{$date->web_baidu}</textarea>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <div class="tab-pane fade" id="key">
+                <div class="widget-body no-padding">
+                    <form id="key-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/edit')}">
+                        {:token()}
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">标题</th>
+                                    <th width="50%">值</th>
+                                    <th width="30%">说明</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 网站运行状态</td>
+                                    <td>
+                                        {:build_radios('row[web_status]', ['1'=>__('开启'), '0'=>__('关闭')],$date->web_status)}
+                                    </td>
+                                    <td>关闭之后，后台可以正常登录</td>
+                                </tr>
+                                <tr>
+                                    <td>关闭原因</td>
+                                    <td>
+                                        <input type="text" name="row[web_status_reason]" value="{$date->web_status_reason}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>关闭用户注册</td>
+                                    <td>
+                                        {:build_radios('row[web_register]', ['1'=>__('开启'), '0'=>__('关闭')],$date->web_register)}
+                                    </td>
+                                    <td>关闭之后，后台可以正常登录</td>
+                                </tr>
+                                <tr>
+                                    <td>关闭用户注册原因</td>
+                                    <td>
+                                        <input type="text" name="row[web_register_reason]" value="{$date->web_register_reason}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>IP黑名单</td>
+                                    <td>
+                                        <textarea name="row[web_black_ip]]" class="form-control" rows="5">{$date->web_black_ip}</textarea>
+                                    </td>
+                                    <td>(每行一个IP或一个IP段，IP段用|分隔，如192.168.1.2|192.168.2.254)</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="tdk">
+                <div class="widget-body no-padding">
+                    <form id="web-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/tdk')}">
+                        {:token()}
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th width="15%">标题</th>
+                                    <th width="50%">值</th>
+                                    <th width="30%">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {volist name="$tdk" id="t"}
+                                <tr>
+                                    <td> {$t.name}-title</td>
+                                    <td>
+                                        <input type="text" name="row[{$t.id}][title]" value="{$t.title}" class="form-control" data-rule="" />
+                                        <input type="hidden" name="row[{$t.id}][id]" value="{$t.id}" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> {$t.name}-keyword</td>
+                                    <td>
+                                        <input type="text" name="row[{$t.id}][keyword]" value="{$t.keyword}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> {$t.name}-description</td>
+                                    <td>
+                                        <input type="text" name="row[{$t.id}][description]" value="{$t.description}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                {/volist}
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+                                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
