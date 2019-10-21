@@ -35,7 +35,7 @@ if (!function_exists('oneImg')) {
     }
 }
 
-//取文章的第一张图片作为所缩略图
+//删除文章内容的图片
 if (!function_exists('del_content_img')) {
     function del_content_img($content)
     {
@@ -55,8 +55,6 @@ if (!function_exists('del_content_img')) {
 }
 
 
-
-
 //删除图片文件
 if(!function_exists('img_file_del')){
 	function img_file_del($img,$new_img){
@@ -67,7 +65,7 @@ if(!function_exists('img_file_del')){
 				}
 			}
 		}
-	}
+	}   
 }
 
 //递归

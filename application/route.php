@@ -29,3 +29,13 @@ Route::rule('menber/article/list', 'menber.article/list');
 Route::rule('menber/article/add', 'menber.article/add');
 Route::rule('menber/article/del', 'menber.article/del','post');
 Route::rule('menber/article/edit/:id', 'menber.article/edit');
+
+
+//项目管理
+Route::rule('menber/project/list', 'menber.project/list');
+Route::rule('menber/project/add', 'menber.project/add');
+Route::rule('menber/project/del', 'menber.project/del','post');
+Route::rule('menber/project/edit/:id', 'menber.project/edit');
+
+Route::rule('ajax/upload', 'ajax/upload','post');
+

@@ -15,7 +15,6 @@
                             <div class="layui-input-inline">
                                 
                                 <select name="category_id" lay-verify="required" >
-                                        <option value="">请选择问题</option>
                                         {foreach $cate_one as $key=>$one }
                                         <optgroup label="{$one.name}">
                                         if condition="$one.two != null"} 

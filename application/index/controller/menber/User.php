@@ -15,7 +15,7 @@ use think\Validate;
 class User extends Frontend
 {
     protected $noNeedLogin = ['login', 'register', 'third'];
-    protected $noNeedRight = ['logout'];
+    protected $noNeedRight = ['logout','welcome'];
 
     public function _initialize()
     {

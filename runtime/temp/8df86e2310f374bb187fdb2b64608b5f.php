@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/var/www/zs/public/../application/index/view/project/detail.html";i:1570419641;s:53:"/var/www/zs/application/index/view/common/header.html";i:1570444198;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570163017;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/var/www/zs/public/../application/index/view/project/detail.html";i:1570419641;s:53:"/var/www/zs/application/index/view/common/header.html";i:1571133372;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -62,7 +62,7 @@
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="./static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="/static/home/picture/ewm_xm.png" width="100"></li>
                         </ol>
                     </li>
 
@@ -73,8 +73,8 @@
         <h3>
 
             <?php if($user['nickname']): ?> 您好！
-            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a href="/user/index.php">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
-            <a href="<?php echo url('/login'); ?>" target='_blank'>登录</a> <a href="<?php echo url('/register'); ?>" target='_blank'>免费注册</a> <?php endif; ?>
+            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a href="<?php echo url('menber/user/index'); ?>">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('menber/user/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
+            <a href="<?php echo url('menber/user/login'); ?>" target='_blank'>登录</a> <a href="<?php echo url('menber/user/register'); ?>" target='_blank'>免费注册</a> <?php endif; ?>
         </h3>
     </div>
 </div>
@@ -84,7 +84,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="./static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="http://3158.zzcms.net"><img src="/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -376,13 +376,13 @@
                 <font color=#FF6600 face=Arial>ZZ</font>
                 <font color=#025BAD face=Arial>CMS2019</font>
             </a>
-            <script type=text/javascript src=./static/home/js/713776.js>
+            <script type=text/javascript src=/static/home/js/713776.js>
             </script> <br /> zzcms项目加盟模板演示站只提供交易平台，对具体交易过程不参与也不承担任何责任。望供求双方谨慎交易。
         </div>
     </div>
 </div>
 <!--返回顶部-->
-<script src="./static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
 </script>
 <div style="display: none" id="goTopBtn">
 </DIV>
