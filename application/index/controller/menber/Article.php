@@ -23,6 +23,37 @@ class Article extends Frontend
                         ->order('id createtime')
                         ->select();
             $cuont = db::name('article')->count();
+
+            for ($i=0;$i<count($res);$i++) {
+                $name = db::name('category')
+                        ->field('a.name `name2`,c.name `name1`')
+                        ->alias('a')
+                        ->join('category c', 'a.pid=c.id')
+                        ->where('a.id', $res[$i]['category_id'])
+                        ->find();
+                $res[$i]['cname']  = $name['name1']."－>".$name['name2'];
+            }
+            
+            return tableData(0, 'ok ', $res, $cuont);
+        }
+        return $this->view->fetch();
+    }
+
+
+    public function comment(){
+        if ($this->request->isAjax()) {
+            $row = $this->request->param();
+            $res = db::name('comment')
+                        ->where('admin_id', $this->auth->getUserinfo()['id'])
+                        ->page($row['page'], $row['limit'])
+                        ->order('id create_time')
+                        ->select();
+            $cuont = db::name('comment')->count();
+            for ($i=0;$i<count($res);$i++) {
+                $name = db::name('artiicle')->where('id',$res[$i]['pid'])->field('title')->find();
+                $res[$i]['title']  = $name['title'];;
+            }
+
             return tableData(0, 'ok ', $res, $cuont);
         }
         return $this->view->fetch();

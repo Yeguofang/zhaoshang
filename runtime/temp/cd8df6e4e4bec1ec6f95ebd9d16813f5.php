@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/article/edit.html";i:1571297185;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571023287;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/article/edit.html";i:1571821306;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -14,6 +14,7 @@
 <script src="/static/home/layui/layui.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/static/home/layui/css/layui.css"  media="all">
 <script src="/static/home/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/home/js/jquery.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/home/x-admin/js/xadmin.js"></script>
 <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 <!-- [if lt IE 9]> -->
@@ -35,15 +36,13 @@
                                     <span class="x-red">*</span>所属分类</label>
                             <div class="layui-input-inline">
                                 
-                                <select name="category_id">
-                                        <option value="">请选择问题</option>
+                                <select name="category_id" lay-verify="required" >
+                                        <option value="">请选择分类</option>
                                         <?php foreach($cate_one as $key=>$one): ?>
                                         <optgroup label="<?php echo $one['name']; ?>">
-                                        if condition="$one.two != null"} 
-                                        <?php foreach($one['two'] as $v): ?>
-                                            <option value="<?php echo $v['id']; ?>"　 <?php if(in_array(($data['category_id']), is_array($v['id'])?$v['id']:explode(',',$v['id']))): ?> selected <?php endif; ?> ><?php echo $v['name']; ?></option>
-                                            <?php endforeach; ?>
-                                            {/if}
+                                        <?php if($one['two'] != null): foreach($one['two'] as $v): ?>
+                                            <option value="<?php echo $v['id']; ?>" <?php if(in_array(($data['category_id']), is_array($v['id'])?$v['id']:explode(',',$v['id']))): ?> selected <?php endif; ?> ><?php echo $v['name']; ?></option>
+                                            <?php endforeach; endif; ?>
                                         </optgroup>
                                         <?php endforeach; ?>
                                     </select>

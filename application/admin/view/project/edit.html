@@ -15,13 +15,11 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Flag')}:</label>
         <div class="col-xs-12 col-sm-8">
-
-            <select id="c-flag" data-rule="required" class="form-control selectpicker" name="row[flag][]">
-                {foreach name="flagList" item="vo"}
-                    <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}>{$vo}</option>
-                {/foreach}
-            </select>
-
+                <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
+                        {foreach name="flagList" item="vo"}
+                        <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}>{$vo}</option>
+                        {/foreach}
+                    </select>
         </div>
     </div>
 
@@ -67,12 +65,7 @@
             <input id="c-description" data-rule="required" class="form-control" name="row[description]" type="text" value="{$row.description|htmlentities}">
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('City')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <div class='control-relative'><input id="c-city" data-rule="required" class="form-control" data-toggle="city-picker" name="row[city]" type="text" value="{$row.city|htmlentities}"></div>
-        </div>
-    </div>
+
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Price')}:</label>

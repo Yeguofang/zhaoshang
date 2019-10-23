@@ -25,7 +25,6 @@ class Project extends Backend
         $this->model = new \app\admin\model\Project;
         $this->view->assign("flagList", $this->model->getFlagList());
 
-
         $tree = Tree::instance();
         $tree->init(Category::getCategoryArray('project', 'normal'), 'pid');
         $category = $tree->getTreeList($tree->getTreeArray(0), 'name');

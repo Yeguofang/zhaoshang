@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/article/add.html";i:1571645817;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571023287;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/article/add.html";i:1571645817;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -14,6 +14,7 @@
 <script src="/static/home/layui/layui.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/static/home/layui/css/layui.css"  media="all">
 <script src="/static/home/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/home/js/jquery.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/home/x-admin/js/xadmin.js"></script>
 <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 <!-- [if lt IE 9]> -->

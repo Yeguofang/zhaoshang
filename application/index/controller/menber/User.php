@@ -7,6 +7,8 @@ use think\Config;
 use think\Cookie;
 use think\Hook;
 use think\Session;
+use think\Db;
+use fast\Random;
 use think\Validate;
 
 /**
@@ -78,7 +80,7 @@ class User extends Frontend
                 $rules[]= $a;
             }
             $menu = getTree($rules);
-        $this->view->assign('menu',$menu);
+        $this->view->assign('menu',$menu);  //菜单栏    
         return $this->view->fetch();
     }
 
@@ -149,7 +151,6 @@ class User extends Frontend
                 $this->error(__($validate->getError()), null, ['token' => $this->request->token()]);
             }
             if ($this->auth->register($username, $password, $email, $mobile)) {
-                // $this->success(__('Sign up successful'), $url ? $url : url('/'));
                 sleep(1);
                 $this->redirect('/');
             } else {
@@ -207,8 +208,6 @@ class User extends Frontend
                 return false;
             }
             if ($this->auth->login($account, $password)) {
-                // $this->success(__('Logged in successful'), $url ? $url : url('/'));
-                sleep(1);
                 $this->redirect('/');
             } else {
                 $this->error($this->auth->getError(), null, ['token' => $this->request->token()]);
@@ -234,7 +233,6 @@ class User extends Frontend
     {
         //注销本站
         $this->auth->logout();
-        // $this->success(__('Logout successful'), url('/'));
         $this->redirect('/');
     }
 
@@ -243,54 +241,24 @@ class User extends Frontend
      */
     public function profile()
     {
-        $this->view->assign('title', __('Profile'));
-        return $this->view->fetch();
-    }
-
-    /**
-     * 修改密码
-     */
-    public function changepwd()
-    {
-        if ($this->request->isPost()) {
-            $oldpassword = $this->request->post("oldpassword");
-            $newpassword = $this->request->post("newpassword");
-            $renewpassword = $this->request->post("renewpassword");
-            $token = $this->request->post('__token__');
-            $rule = [
-                'oldpassword'   => 'require|length:6,30',
-                'newpassword'   => 'require|length:6,30',
-                'renewpassword' => 'require|length:6,30|confirm:newpassword',
-                '__token__'     => 'token',
-            ];
-
-            $msg = [];
-            $data = [
-                'oldpassword'   => $oldpassword,
-                'newpassword'   => $newpassword,
-                'renewpassword' => $renewpassword,
-                '__token__'     => $token,
-            ];
-            $field = [
-                'oldpassword'   => __('Old password'),
-                'newpassword'   => __('New password'),
-                'renewpassword' => __('Renew password')
-            ];
-            $validate = new Validate($rule, $msg, $field);
-            $result = $validate->check($data);
-            if (!$result) {
-                $this->error(__($validate->getError()), null, ['token' => $this->request->token()]);
-                return false;
+        if($this->request->isAjax()){
+           $row = $this->request->param();
+           $row['company_desc'] =$_POST['company_desc'];
+            if($row['password'] == null){
+                unset($row['password']);
+            }else{
+               $row['salt']   = Random::alnum();
+               $row['password'] = $this->auth->getEncryptPassword($row['password'], $row['salt']);
             }
-
-            $ret = $this->auth->changepwd($newpassword, $oldpassword);
-            if ($ret) {
-                $this->success(__('Reset password successful'), url('user/login'));
-            } else {
-                $this->error($this->auth->getError(), null, ['token' => $this->request->token()]);
+           $res = db::name('user')->where('id',$this->auth->getUserinfo()['id'])->update($row);
+            if ($res > 0) {
+                return $this->success('更新成功');
             }
+            return $this->error('更新失败');
+
         }
-        $this->view->assign('title', __('Change password'));
         return $this->view->fetch();
     }
+
+    // c96b9bb2b4ec79718394646a0311cd8c
 }

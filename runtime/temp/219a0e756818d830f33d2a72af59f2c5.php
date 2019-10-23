@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"/var/www/zs/public/../application/common/view/tpl/dispatch_jump.tpl";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"/var/www/zs/public/../application/common/view/tpl/dispatch_jump.tpl";i:1571133027;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,34 +34,13 @@
         <img src="/assets/img/<?php echo $codeText; ?>.svg" alt="" width="150" />
     </div>
     <h1><?php echo $msg; ?></h1>
-    <?php if($url): ?>
-        <p class="jump">
-            <?php echo __('This page will be re-directed in %s seconds', '<span id="wait">' . $wait . '</span>'); ?>
-        </p>
-    <?php endif; ?>
     <p class="clearfix">
         <a href="/" class="btn btn-grey"><?php echo __('Go back'); ?></a>
-        <?php if($url): ?>
-            <a href="<?php echo $url; ?>" class="btn btn-primary"><?php echo __('Jump now'); ?></a>
-        <?php endif; ?>
     </p>
 </div>
 <div class="copyright">
-    <p>Powered by <a href="https://www.fastadmin.net/?ref=jump">FastAdmin</a></p>
+    <p>Powered by <a href="＃">木帆科技</a></p>
 </div>
-<?php if($url): ?>
-    <script type="text/javascript">
-        (function () {
-            var wait = document.getElementById('wait');
-            var interval = setInterval(function () {
-                var time = --wait.innerHTML;
-                if (time <= 0) {
-					location.href = history.length <= 1 ? "/" : "<?php echo $url; ?>";
-                    clearInterval(interval);
-                }
-            }, 1000);
-        })();
-    </script>
-<?php endif; ?>
+
 </body>
 </html>

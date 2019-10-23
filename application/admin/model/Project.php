@@ -35,7 +35,7 @@ class Project extends Model
 
     public function getFlagList()
     {
-        return ['hot' => __('Flag hot'), 'index' => __('Flag index'), 'recommend' => __('Flag recommend')];
+        return ['hot' => __('热门'), 'index' => __('首页'), 'recommend' => __('推荐'),'menu' => __('菜单')];
     }
 
     public function getFlagTextAttr($value, $data)

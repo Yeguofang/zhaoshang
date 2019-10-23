@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/admin/view/article/edit.html";i:1570617183;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/admin/view/article/edit.html";i:1571820586;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -95,7 +95,7 @@
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Image'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
-                <input id="c-image" data-rule="required" class="form-control" size="50" name="row[image]" type="text" value="<?php echo htmlentities($row['image']); ?>">
+                <input id="c-image" class="form-control" size="50" name="row[image]" type="text" value="<?php echo htmlentities($row['image']); ?>">
                 <div class="input-group-addon no-border no-padding">
                     <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button></span>
                     <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> <?php echo __('Choose'); ?></button></span>
@@ -110,20 +110,20 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Keywords'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-keywords" data-rule="required" class="form-control" name="row[keywords]" type="text" value="<?php echo htmlentities($row['keywords']); ?>">
+            <input id="c-tdk_key"  class="form-control" name="row[tdk_key]" type="text" value="<?php echo htmlentities($row['tdk_key']); ?>">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Description'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-description" data-rule="required" class="form-control" name="row[description]" type="text" value="<?php echo htmlentities($row['description']); ?>">
+            <input id="c-tdk_desc"  class="form-control" name="row[tdk_desc]" type="text" value="<?php echo htmlentities($row['tdk_desc']); ?>">
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Views'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-views" data-rule="required" class="form-control" name="row[views]" type="number" value="<?php echo htmlentities($row['views']); ?>">
+            <input id="c-views"  class="form-control" name="row[views]" type="number" value="<?php echo htmlentities($row['views']); ?>">
         </div>
     </div>
 
@@ -132,7 +132,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Weigh'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]" type="number" value="<?php echo htmlentities($row['weigh']); ?>">
+            <input id="c-weigh" class="form-control" name="row[weigh]" type="number" value="<?php echo htmlentities($row['weigh']); ?>">
         </div>
     </div>
     <div class="form-group">

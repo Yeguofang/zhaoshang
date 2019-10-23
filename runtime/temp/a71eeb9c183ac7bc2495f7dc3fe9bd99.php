@@ -1,8 +1,30 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/user/profile.html";i:1571818686;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
 <head>
-    {include file="menber/common/head"/}
+    <meta charset="UTF-8">
+<title>用户中心</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/static/home/x-admin/css/font.css">
+<link rel="stylesheet" href="/static/home/x-admin/css/xadmin.css">
+<script src="/static/home/layui/layui.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/static/home/layui/css/layui.css"  media="all">
+<script src="/static/home/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/home/js/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/home/x-admin/js/xadmin.js"></script>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!-- [if lt IE 9]> -->
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<!-- <![endif] -->
+<script>
+    // 是否开启刷新记忆tab功能
+    var is_remember = false;
+</script>
 </head>
 
 <body>
@@ -17,7 +39,7 @@
                     <label for="title" class="layui-form-label">
                         <span class="x-red">*</span>账号</label>
                     <div class="layui-input-inline">
-                        <input type="text" id="title" value="{$user.username|htmlentities}"     readonly="readonly" autocomplete="off"
+                        <input type="text" id="title" value="<?php echo htmlentities($user['username']); ?>"     readonly="readonly" autocomplete="off"
                             class="layui-input"></div>
                 </div>
 
@@ -34,7 +56,7 @@
                             <label for="title" class="layui-form-label">
                                 <span class="x-red">*</span>公司名称</label>
                             <div class="layui-input-inline">
-                                <input type="text" id="company_name" name="company_name"  value="{$user.company_name|htmlentities}" autocomplete="off"
+                                <input type="text" id="company_name" name="company_name"  value="<?php echo htmlentities($user['company_name']); ?>" autocomplete="off"
                                     class="layui-input"></div>
                         </div>
 
@@ -42,14 +64,14 @@
                                 <label for="title" class="layui-form-label">
                                     <span class="x-red">*</span>邮箱</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" id="title"  name="email" value="{$user.email|htmlentities}" autocomplete="off"
+                                    <input type="text" id="title"  name="email" value="<?php echo htmlentities($user['email']); ?>" autocomplete="off"
                                         class="layui-input"></div>
                             </div>
                             <div class="layui-form-item">
                                     <label for="title" class="layui-form-label">
                                         <span class="x-red">*</span>手机号</label>
                                     <div class="layui-input-inline">
-                                        <input type="text" id="title" name="mobile"  value="{$user.mobile|htmlentities}" autocomplete="off"
+                                        <input type="text" id="title" name="mobile"  value="<?php echo htmlentities($user['mobile']); ?>" autocomplete="off"
                                             class="layui-input"></div>
                                 </div>
                 
@@ -68,9 +90,9 @@
     </div>
 
     <!-- 配置文件 -->
-    <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/static/ueditor/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" src="/static/ueditor/ueditor.all.js"></script>
 
     <script>
         layui.use(['form', 'layer', 'upload'],
@@ -92,7 +114,7 @@
                     $.ajax({
                         type: "post",
                         async: false,
-                        url: "{:url('menber/user/profile')}",
+                        url: "<?php echo url('menber/user/profile'); ?>",
                         //后台数据处理-下面有具体实现
                         data: data.field,
                         success: function (res) {

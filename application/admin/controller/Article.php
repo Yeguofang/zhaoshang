@@ -32,4 +32,6 @@ class Article extends Backend
 
         $this->assign('cate', $category);
     }
+
+    
 }

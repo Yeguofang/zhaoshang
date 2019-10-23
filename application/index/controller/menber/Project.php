@@ -23,10 +23,43 @@ class Project extends Frontend
                         ->order('id createtime')
                         ->select();
             $cuont = db::name('project')->count();
+
+            for ($i=0;$i<count($res);$i++) {
+                $name = db::name('category')
+                        ->field('a.name `name2`,c.name `name1`')
+                        ->alias('a')
+                        ->join('category c', 'a.pid=c.id')
+                        ->where('a.id', $res[$i]['category_id'])
+                        ->find();
+                $res[$i]['cname']  = $name['name1']."－>".$name['name2'];
+            }
             return tableData(0, 'ok ', $res, $cuont);
         }
         return $this->view->fetch();
     }
+
+
+    //项目留言
+    public function msg()
+    {
+        if ($this->request->isAjax()) {
+            $row = $this->request->param();
+            $res = db::name('message')
+                        ->where('admin_id', $this->auth->getUserinfo()['id'])
+                        ->page($row['page'], $row['limit'])
+                        ->order('id create_time')
+                        ->select();
+            $cuont = db::name('project')->count();
+
+            for ($i=0;$i<count($res);$i++) {
+                $name = db::name('project')->where('id',$res[$i]['pid'])->field('name')->find();
+                $res[$i]['pname']  = $name['name'];;
+            }
+            return tableData(0, 'ok ', $res, $cuont);
+        }
+        return $this->view->fetch();
+    }
+
 
 
     public function address($tid)
@@ -69,7 +102,7 @@ class Project extends Frontend
         return $this->view->fetch();
     }
 
-
+    //编辑
     public function edit($id = null)
     {
         $cate_one = db::name('category')->where('type', 'project')->where('pid', 0)->field('id,name')->select();
@@ -80,8 +113,8 @@ class Project extends Frontend
     
         if ($this->request->isAjax()) {
             $row = $this->request->post();
+            unset($row['file']);
             $row['content'] = $_POST['content'];
-    
             $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
     
             $res = db::name('project')->where('id', $id)->update($row);

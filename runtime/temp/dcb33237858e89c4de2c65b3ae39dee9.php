@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/project/list.html";i:1571812473;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"/var/www/zs/public/../application/index/view/menber/article/comment.html";i:1571819750;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -45,7 +45,7 @@
 			<div class="layui-col-md12">
 				<div class="layui-card">
 
-					<table class="layui-hide" id="project" lay-filter="project"></table>
+					<table class="layui-hide" id="article" lay-filter="article"></table>
 
 				</div>
 			</div>
@@ -55,13 +55,11 @@
 
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-  <button class="layui-btn" onclick="xadmin.open('发布项目','<?php echo url('menber/project/add'); ?>',900,800)" >发布项目</button>
   <button class="layui-btn layui-btn-danger" lay-event="getCheckData">批量删除</button>
   </div>
 </script>
 
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','<?php echo url('menber/project/edit'); ?>/{{d.id}}',900,800)">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"  href="javascript:;">删除</a>
 </script>
 
@@ -77,41 +75,31 @@
 			tools = layui.common;
 
 		table.render({
-			elem: '#project'
-			, url: "<?php echo url('menber/project/list'); ?>"
+			elem: '#article'
+			, url: "<?php echo url('menber/article/comment'); ?>"
 			, toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
-			, defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
-				title: '提示'
-				, layEvent: 'LAYTABLE_TIPS'
-				, icon: 'layui-icon-tips'
-			}]
 			, title: '用户数据表'
 			, cols: [[
 				{ type: 'checkbox', fixed: 'left' }
 				, { field: 'id', title: 'ID', width: 80, fixed: 'left', unresize: true, sort: true }
-				, { field: 'cname', title: '分类', width: 200, }
-				, { field: 'image', title: '图片', }
-				, { field: 'name', title: '项目名称', }
-				, { field: 'title', title: 'tdk-title', }
-				, { field: 'keywords', title: 'tdk-keywords' }
-				, { field: 'description', title: 'tdk-description', }
-				, { field: 'views', title: '查看数量', }
-				, { field: 'createtime', title: '创建时间', }
+				, { field: 'title', title: '项目名称', }
+				, { field: 'content', title: '电话' }
+				, { field: 'create_time', title: '创建时间', }
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true
 		});
 
 
-		table.on('toolbar(project)', function (obj) {
-			tools.delAll_ajax('post', "<?php echo url('/menber/project/del'); ?>", table,obj);
+		table.on('toolbar(article)', function (obj) {
+			tools.delAll_ajax('post', "<?php echo url('/menber/article/del'); ?>", table,obj);
 		});
 
 		//监听行工具事件
-		table.on('tool(project)', function (obj) {
+		table.on('tool(article)', function (obj) {
 			var ids = obj.data.id;
 			if (obj.event === 'del') {
-				tools.del_ajax('post', "<?php echo url('/menber/project/del'); ?>", ids, obj);
+				tools.del_ajax('post', "<?php echo url('/menber/article/del'); ?>", ids, obj);
 			} else if (obj.event === 'edit') {
 			
 			}

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1571655101;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571023287;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1571822280;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -14,6 +14,7 @@
 <script src="/static/home/layui/layui.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/static/home/layui/css/layui.css"  media="all">
 <script src="/static/home/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/home/js/jquery.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/home/x-admin/js/xadmin.js"></script>
 <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 <!-- [if lt IE 9]> -->
@@ -40,31 +41,51 @@
                             <option value="">请选择分类</option>
                             <?php foreach($cate_one as $key=>$one): ?>
                             <optgroup label="<?php echo $one['name']; ?>">
-                                if condition="$one.two != null"}
-                                <?php foreach($one['two'] as $v): ?>
+                                <?php if($one['two'] != null): foreach($one['two'] as $v): ?>
                                 <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
-                                <?php endforeach; ?>
-                                {/if}
+                                <?php endforeach; endif; ?>
                             </optgroup>
                             <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
 
+                <div class="layui-form-item">
+                        <label for="name" class="layui-form-label">
+                            <span class="x-red">*</span>项目名称</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="name"" name="name" autocomplete="off" class="layui-input"></div>
+                    </div>
+
+        
 
                 <div class="layui-form-item">
-                    <label class="layui-form-label">投资金额</label>
-                    <div class="layui-input-inline">
-                        <select name="price">
-                            <option value="">请选择</option>
-                            <option value="1">1-3万</option>
-                            <option value="2">3-5万</option>
-                            <option value="3">5-10万</option>
-                            <option value="3">10万以上</option>
-                        </select>
+                        <label for="phone" class="layui-form-label">
+                            <span class="x-red">*</span>加盟手机</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="phone"" name="phone" autocomplete="off" class="layui-input"></div>
                     </div>
-                </div>
 
+                    <div class="layui-form-item">
+                            <label for="moblie" class="layui-form-label">
+                                <span class="x-red">*</span>加盟电话</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="moblie"" name="moblie" autocomplete="off" class="layui-input"></div>
+                        </div>
+                        
+                        <div class="layui-form-item">
+                                <label class="layui-form-label">投资金额</label>
+                                <div class="layui-input-inline">
+                                    <select name="price">
+                                        <option value="">请选择</option>
+                                        <option value="1">1-3万</option>
+                                        <option value="2">3-5万</option>
+                                        <option value="3">5-10万</option>
+                                        <option value="3">10万以上</option>
+                                    </select>
+                                </div>
+                            </div>
+                        
                 <div class="layui-form-item">
                     <label class="layui-form-label">缩略图</label>
                     <div class="layui-input-line">
@@ -79,13 +100,8 @@
                     </div>
                 </div>
 
-                <div class="layui-form-item">
-                        <label for="name" class="layui-form-label">
-                            <span class="x-red">*</span>项目名称</label>
-                        <div class="layui-input-inline">
-                            <input type="text" id="name"" name="name" autocomplete="off" class="layui-input"></div>
-                    </div>
-          
+              
+                
                 <div class="layui-form-item">
                     <label for="prouse" class="layui-form-label">
                         <span class="x-red">*</span>项目特点</label>
@@ -145,6 +161,7 @@
                     layer = layui.layer,
                     upload = layui.upload;
 
+
                 //自定义验证规则
                 form.verify({
                     title: function (value) {
@@ -158,9 +175,6 @@
                         }
                     },
                 });
-
-
-
 
                 //普通图片上传
                 var uploadInst = upload.render({
@@ -228,6 +242,18 @@
 
             });
 
+           
+
+    </script>
+
+    <script>
+    $(function(){
+   
+        $('input:radio[name="pid"]').click(function(){
+            var checkValue = $('input:radio[name="pid"]:checked').val(); 
+            alert(checkValue);
+        });
+});
     </script>
 </body>
 

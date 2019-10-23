@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/admin/view/project/add.html";i:1570613146;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/admin/view/project/add.html";i:1571823696;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -68,9 +68,9 @@
         <label class="control-label col-xs-12 col-sm-2">标志</label>
         <div class="col-xs-12 col-sm-8">
 
-            <select id="c-flag" data-rule="required" class="form-control selectpicker" multiple="" name="row[flag][]">
+            <select id="c-flag" data-rule="required" class="form-control selectpicker" multiple="" name="row[flag[]]">
                 <?php if(is_array($flagList) || $flagList instanceof \think\Collection || $flagList instanceof \think\Paginator): if( count($flagList)==0 ) : echo "" ;else: foreach($flagList as $key=>$vo): ?>
-                    <option value="<?php echo $key; ?>" <?php if(in_array(($key), explode(',',""))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
+                    <option value="<?php echo $key; ?>"><?php echo $vo; ?></option>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </select>
 
@@ -116,12 +116,6 @@
     </div>
 
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">招商区域</label>
-        <div class="col-xs-12 col-sm-8">
-            <div class='control-relative'><input id="c-city" data-rule="required" class="form-control" data-toggle="city-picker" name="row[city]" type="text" value=""></div>
-        </div>
-    </div>
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">投资金额</label>
