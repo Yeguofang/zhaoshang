@@ -149,7 +149,6 @@ trait Backend
     public function edit($ids = null)
     {
         $row = $this->model->get($ids);
-        // dump($row);
         if (!$row) {
             $this->error(__('No Results were found'));
         }
@@ -161,7 +160,6 @@ trait Backend
         }
         if ($this->request->isPost()) {
             $params = $this->request->post("row/a");
-            // dump($params);die;
             if ($params) {
                 $params = $this->preExcludeFields($params);
                 $result = false;

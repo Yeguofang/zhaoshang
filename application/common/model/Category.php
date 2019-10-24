@@ -64,6 +64,7 @@ class Category extends Model
         $valueArr = explode(',', $value);
         $list = $this->getFlagList();
         return implode(',', array_intersect_key($list, array_flip($valueArr)));
+       
     }
 
     /**
@@ -90,9 +91,11 @@ class Category extends Model
      * 读取分类
      * @param string $type   指定类型
      * @param string $status 指定状态
+     * @param string $flag   标志
+     * @param int    $limit  查询数量
      * @return array
      */
-    public static function getCategoryIndex($type = null, $status = null,$flag=  null)
+    public static function getCategoryIndex($type = null, $status = null,$flag=  null,$limit = null)
     {
         $list = collection(self::where(function ($query) use ($type, $status,$flag) {
             if (!is_null($type)) {
@@ -105,7 +108,7 @@ class Category extends Model
                 $query->where('flag', 'like',"%".$flag."%");
             }
             $query->where('pid',0);
-        })->field('id,name,type,status,flag,pid,image')->order('weigh', 'desc')->select())->toArray();
+        })->field('id,name,type,status,flag,pid,image')->order('weigh', 'desc')->limit($limit)->select())->toArray();
         return $list;
     }
 

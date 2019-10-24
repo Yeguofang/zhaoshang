@@ -26,12 +26,10 @@ class Article extends Frontend
 
             for ($i=0;$i<count($res);$i++) {
                 $name = db::name('category')
-                        ->field('a.name `name2`,c.name `name1`')
-                        ->alias('a')
-                        ->join('category c', 'a.pid=c.id')
-                        ->where('a.id', $res[$i]['category_id'])
+                        ->field('name')
+                        ->where('id', $res[$i]['category_id'])
                         ->find();
-                $res[$i]['cname']  = $name['name1']."－>".$name['name2'];
+                $res[$i]['cname']  = $name['name'];
             }
             
             return tableData(0, 'ok ', $res, $cuont);

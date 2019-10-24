@@ -17,13 +17,7 @@
                                 <select name="category_id" lay-verify="required" >
                                         <option value="">请选择分类</option>
                                         {foreach $cate_one as $key=>$one }
-                                        <optgroup label="{$one.name}">
-                                        {if condition="$one.two != null"} 
-                                             {foreach $one.two as $v}
-                                            <option value="{$v.id}" {in name="$data.category_id" value="$v.id"} selected {/in} >{$v.name}</option>
-                                            {/foreach}
-                                            {/if}
-                                        </optgroup>
+                                            <option value="{$one.id}" {in name="$data.category_id" value="$one.id"} selected {/in} >{$one.name}</option>
                                         {/foreach}
                                     </select>
                         </div>

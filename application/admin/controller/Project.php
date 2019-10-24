@@ -29,7 +29,6 @@ class Project extends Backend
         $tree->init(Category::getCategoryArray('project', 'normal'), 'pid');
         $category = $tree->getTreeList($tree->getTreeArray(0), 'name');
 
-
         $this->assign('cate', $category);
     }
 }

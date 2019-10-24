@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/article/add.html";i:1571645817;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/article/add.html";i:1571906564;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -38,13 +38,7 @@
 					<select name="category_id" 　lay-verify="required" >
 						<option value="">请选择分类</option>
 						<?php foreach($cate_one as $key=>$one): ?>
-						<optgroup label="<?php echo $one['name']; ?>">
-						if condition="$one.two != null"} 
-						<?php foreach($one['two'] as $v): ?>
-							<option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
-							<?php endforeach; ?>
-							{/if}
-						</optgroup>
+							<option value="<?php echo $one['id']; ?>"><?php echo $one['name']; ?></option>
 						<?php endforeach; ?>
 					</select>
                         </div>

@@ -32,6 +32,12 @@ class Article extends Model
     }
 
 
+    public function setFlagAttr($value, $data)
+    {
+        return is_array($value) ? implode(',', $value) : $value;
+    }
+
+
 
     public function getFlagList()
     {

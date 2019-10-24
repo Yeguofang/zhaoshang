@@ -22,7 +22,6 @@ class Project extends Model
     protected $deleteTime = 'deletetime';
 
 
-
     protected static function init()
     {
         self::afterInsert(function ($row) {
@@ -31,7 +30,10 @@ class Project extends Model
         });
     }
 
-
+    public function setFlagAttr($value, $data)
+    {
+        return is_array($value) ? implode(',', $value) : $value;
+    }
 
     public function getFlagList()
     {

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:63:"/var/www/zs/public/../application/admin/view/project/index.html";i:1571824200;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:63:"/var/www/zs/public/../application/admin/view/project/index.html";i:1571883776;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -74,7 +74,6 @@
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

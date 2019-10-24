@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/project/edit.html";i:1571811466;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/project/edit.html";i:1571822254;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -51,6 +51,27 @@
                     </div>
                 </div>
 
+                <div class="layui-form-item">
+                        <label for="name" class="layui-form-label">
+                            <span class="x-red">*</span>项目名称</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="name"" name="name" value="<?php echo $data['name']; ?>" autocomplete="off" class="layui-input"></div>
+                    </div>
+
+                    <div class="layui-form-item">
+                            <label for="phone" class="layui-form-label">
+                                <span class="x-red">*</span>加盟手机</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="phone"" name="phone"　 value="<?php echo $data['phone']; ?>"  autocomplete="off" class="layui-input"></div>
+                        </div>
+    
+                        <div class="layui-form-item">
+                                <label for="moblie" class="layui-form-label">
+                                    <span class="x-red">*</span>加盟电话</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="moblie"" name="moblie" 　 value="<?php echo $data['moblie']; ?>" autocomplete="off" class="layui-input"></div>
+                            </div>
+          
 
                 <div class="layui-form-item">
                     <label class="layui-form-label">投资金额</label>
@@ -78,13 +99,6 @@
                     </div>
                 </div>
 
-                <div class="layui-form-item">
-                        <label for="name" class="layui-form-label">
-                            <span class="x-red">*</span>项目名称</label>
-                        <div class="layui-input-inline">
-                            <input type="text" id="name"" name="name" value="<?php echo $data['name']; ?>" autocomplete="off" class="layui-input"></div>
-                    </div>
-          
                 <div class="layui-form-item">
                     <label for="prouse" class="layui-form-label">
                         <span class="x-red">*</span>项目特点</label>

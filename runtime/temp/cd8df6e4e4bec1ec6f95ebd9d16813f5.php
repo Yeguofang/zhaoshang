@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/article/edit.html";i:1571821306;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/article/edit.html";i:1571906584;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -39,11 +39,7 @@
                                 <select name="category_id" lay-verify="required" >
                                         <option value="">请选择分类</option>
                                         <?php foreach($cate_one as $key=>$one): ?>
-                                        <optgroup label="<?php echo $one['name']; ?>">
-                                        <?php if($one['two'] != null): foreach($one['two'] as $v): ?>
-                                            <option value="<?php echo $v['id']; ?>" <?php if(in_array(($data['category_id']), is_array($v['id'])?$v['id']:explode(',',$v['id']))): ?> selected <?php endif; ?> ><?php echo $v['name']; ?></option>
-                                            <?php endforeach; endif; ?>
-                                        </optgroup>
+                                            <option value="<?php echo $one['id']; ?>" <?php if(in_array(($data['category_id']), is_array($one['id'])?$one['id']:explode(',',$one['id']))): ?> selected <?php endif; ?> ><?php echo $one['name']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                         </div>
