@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 24/10/2019 18:31:24
+ Date: 25/10/2019 18:37:04
 */
 
 SET NAMES utf8mb4;
@@ -43,7 +43,7 @@ CREATE TABLE `zs_admin`  (
 -- ----------------------------
 -- Records of zs_admin
 -- ----------------------------
-INSERT INTO `zs_admin` VALUES (1, 'admin', 'Admin', 'eff087d0fb317e7ae52e5355b8675e9d', '2d4adb', '/assets/img/avatar.png', 'admin@admin.com', 0, 1571912972, '127.0.0.1', 1492186163, 1571912972, '5bd9d490-9ead-4fe2-a55f-261b5c0e9eb3', 'normal');
+INSERT INTO `zs_admin` VALUES (1, 'admin', 'Admin', 'eff087d0fb317e7ae52e5355b8675e9d', '2d4adb', '/assets/img/avatar.png', 'admin@admin.com', 0, 1571995107, '127.0.0.1', 1492186163, 1571995107, 'c636016f-84e3-497b-acdd-d8af9c28c2cf', 'normal');
 
 -- ----------------------------
 -- Table structure for zs_admin_log
@@ -61,7 +61,7 @@ CREATE TABLE `zs_admin_log`  (
   `createtime` int(10) NULL DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `name`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 548 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '管理员日志表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 599 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '管理员日志表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_admin_log
@@ -613,6 +613,73 @@ INSERT INTO `zs_admin_log` VALUES (544, 1, 'admin', '/admin.php/category/edit/id
 INSERT INTO `zs_admin_log` VALUES (545, 1, 'admin', '/admin.php/category/edit/ids/8?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"2\",\"name\":\"\\u8336\\u996e\",\"nickname\":\"\\u8336\\u996e\",\"flag\":[\"index\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"8\",\"status\":\"normal\"},\"ids\":\"8\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571913004);
 INSERT INTO `zs_admin_log` VALUES (546, 1, 'admin', '/admin.php/category/edit/ids/18?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"1\",\"name\":\"\\u793c\\u670d\",\"nickname\":\"\\u793c\\u670d\",\"flag\":[\"index\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"18\",\"status\":\"normal\"},\"ids\":\"18\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571913009);
 INSERT INTO `zs_admin_log` VALUES (547, 1, 'admin', '/admin.php/category/edit/ids/20?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"10\",\"name\":\"\\u62a4\\u80a4\\u54c1\",\"nickname\":\"\\u62a4\\u80a4\\u54c1\",\"flag\":[\"index\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"20\",\"status\":\"normal\"},\"ids\":\"20\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571913014);
+INSERT INTO `zs_admin_log` VALUES (548, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"805a859cfd01c48bc498912640433808\",\"username\":\"admin\",\"captcha\":\"p2kp\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571994799);
+INSERT INTO `zs_admin_log` VALUES (549, 1, 'admin', '/admin.php/category/edit/ids/1?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u670d\\u9970\\u978b\\u5305\",\"nickname\":\"\\u670d\\u9970\\u978b\\u5305\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"22\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571994831);
+INSERT INTO `zs_admin_log` VALUES (550, 1, 'admin', '/admin.php/category/edit/ids/28?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"nickname\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"flag\":[\"navs\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"28\",\"status\":\"normal\"},\"ids\":\"28\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995001);
+INSERT INTO `zs_admin_log` VALUES (551, 1, 'admin', '/admin.php/category/edit/ids/28?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"nickname\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"flag\":[\"index\",\"navs\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"28\",\"status\":\"normal\"},\"ids\":\"28\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995006);
+INSERT INTO `zs_admin_log` VALUES (552, 1, 'admin', '/admin.php/category/edit/ids/28?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"nickname\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"flag\":[\"index\",\"navs\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"28\",\"status\":\"normal\"},\"ids\":\"28\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995012);
+INSERT INTO `zs_admin_log` VALUES (553, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"8ce81221c035c63ab9bc2960a0bdc4b1\",\"username\":\"admin\",\"captcha\":\"chav\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995107);
+INSERT INTO `zs_admin_log` VALUES (554, 1, 'admin', '/admin.php/category/edit/ids/27?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u521b\\u4e1a\\u79d8\\u7c4d\",\"nickname\":\"\\u521b\\u4e1a\\u79d8\\u7c4d\",\"flag\":[\"navs\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"27\",\"status\":\"normal\"},\"ids\":\"27\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995369);
+INSERT INTO `zs_admin_log` VALUES (555, 1, 'admin', '/admin.php/category/edit/ids/27?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u521b\\u4e1a\\u79d8\\u7c4d\",\"nickname\":\"\\u521b\\u4e1a\\u79d8\\u7c4d\",\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"27\",\"status\":\"normal\",\"flag\":[\"\"]},\"ids\":\"27\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995378);
+INSERT INTO `zs_admin_log` VALUES (556, 1, 'admin', '/admin.php/category/edit/ids/28?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"nickname\":\"\\u66b4\\u529b\\u884c\\u4e1a\",\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"28\",\"status\":\"normal\",\"flag\":[\"\"]},\"ids\":\"28\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995385);
+INSERT INTO `zs_admin_log` VALUES (557, 1, 'admin', '/admin.php/category/edit/ids/17?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"1\",\"name\":\"\\u7bb1\\u5305\",\"nickname\":\"\\u7bb1\\u5305\",\"flag\":[\"navs\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"17\",\"status\":\"normal\"},\"ids\":\"17\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995393);
+INSERT INTO `zs_admin_log` VALUES (558, 1, 'admin', '/admin.php/category/edit/ids/18?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"1\",\"name\":\"\\u793c\\u670d\",\"nickname\":\"\\u793c\\u670d\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"18\",\"status\":\"normal\"},\"ids\":\"18\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995409);
+INSERT INTO `zs_admin_log` VALUES (559, 1, 'admin', '/admin.php/category/edit/ids/16?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"1\",\"name\":\"\\u7537\\u88c5\",\"nickname\":\"\\u7537\\u88c5\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"16\",\"status\":\"normal\"},\"ids\":\"16\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995418);
+INSERT INTO `zs_admin_log` VALUES (560, 1, 'admin', '/admin.php/category/edit/ids/15?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"1\",\"name\":\"\\u5973\\u88c5\",\"nickname\":\"\\u5973\\u88c5\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"15\",\"status\":\"normal\"},\"ids\":\"15\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995425);
+INSERT INTO `zs_admin_log` VALUES (561, 1, 'admin', '/admin.php/category/edit/ids/10?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u7f8e\\u5bb9\\u517b\\u751f\",\"nickname\":\"\\u7f8e\\u5bb9\\u517b\\u751f\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"10\",\"status\":\"normal\"},\"ids\":\"10\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995431);
+INSERT INTO `zs_admin_log` VALUES (562, 1, 'admin', '/admin.php/category/edit/ids/21?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"10\",\"name\":\"\\u4fdd\\u5065\\u54c1\",\"nickname\":\"\\u4fdd\\u5065\\u54c1\",\"flag\":[\"index\",\"navs\",\"menu\",\"hot\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"21\",\"status\":\"normal\"},\"ids\":\"21\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995436);
+INSERT INTO `zs_admin_log` VALUES (563, 1, 'admin', '/admin.php/category/edit/ids/20?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"10\",\"name\":\"\\u62a4\\u80a4\\u54c1\",\"nickname\":\"\\u62a4\\u80a4\\u54c1\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"20\",\"status\":\"normal\"},\"ids\":\"20\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995441);
+INSERT INTO `zs_admin_log` VALUES (564, 1, 'admin', '/admin.php/category/edit/ids/2?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u7279\\u8272\\u9910\\u996e\",\"nickname\":\"\\u7279\\u8272\\u9910\\u996e\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"2\",\"status\":\"normal\"},\"ids\":\"2\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995446);
+INSERT INTO `zs_admin_log` VALUES (565, 1, 'admin', '/admin.php/category/edit/ids/9?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"2\",\"name\":\"\\u5c0f\\u5403\",\"nickname\":\"\\u5c0f\\u5403\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"9\",\"status\":\"normal\"},\"ids\":\"9\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995452);
+INSERT INTO `zs_admin_log` VALUES (566, 1, 'admin', '/admin.php/category/edit/ids/8?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"2\",\"name\":\"\\u8336\\u996e\",\"nickname\":\"\\u8336\\u996e\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"8\",\"status\":\"normal\"},\"ids\":\"8\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995457);
+INSERT INTO `zs_admin_log` VALUES (567, 1, 'admin', '/admin.php/category/edit/ids/19?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"10\",\"name\":\"\\u5316\\u5986\\u54c1\",\"nickname\":\"\\u5316\\u5986\\u54c1\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"19\",\"status\":\"normal\"},\"ids\":\"19\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995463);
+INSERT INTO `zs_admin_log` VALUES (568, 1, 'admin', '/admin.php/category/edit/ids/14?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"10\",\"name\":\"\\u7f8e\\u7532\",\"nickname\":\"\\u7f8e\\u7532\",\"flag\":[\"index\",\"navs\",\"hot\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"14\",\"status\":\"normal\"},\"ids\":\"14\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995468);
+INSERT INTO `zs_admin_log` VALUES (569, 1, 'admin', '/admin.php/category/edit/ids/7?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"2\",\"name\":\"\\u897f\\u9910\",\"nickname\":\"\\u897f\\u9910\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"7\",\"status\":\"normal\"},\"ids\":\"7\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571995478);
+INSERT INTO `zs_admin_log` VALUES (570, 1, 'admin', '/admin.php/project/edit/ids/7?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"category_id\":\"15\",\"flag\":[\"navs\",\"index\",\"menu\"],\"title\":\"\\u5973\\u795e\\u88c5\\u626e\",\"content\":\"<p>\\u5973\\u795e\\u88c5\\u626e<\\/p>\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"keywords\":\"11\\u5973\\u795e\\u88c5\\u626e\",\"description\":\"\\u5973\\u795e\\u88c5\\u626e\",\"price\":\"3\",\"views\":\"0\",\"weigh\":\"0\",\"switch\":\"0\"},\"ids\":\"7\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996239);
+INSERT INTO `zs_admin_log` VALUES (571, 1, 'admin', '/admin.php/project/edit/ids/9?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"category_id\":\"15\",\"flag\":[\"navs\",\"index\",\"menu\"],\"title\":\"\\u5973\\u795e\\u88c5\\u626e\",\"content\":\"<p><span style=\\\"color: rgb(102, 102, 102); font-family: \\u5fae\\u8f6f\\u96c5\\u9ed1; font-size: 14px; background-color: rgb(255, 255, 255);\\\">\\u82ae\\u6b27\\u7ae5\\u88c5<\\/span><\\/p>\",\"image\":\"\\/uploads\\/20191023\\/031dcc72e221e406ff98be29c94aff1b.gif\",\"keywords\":\"\\u82ae\\u6b27\\u7ae5\\u88c5\",\"description\":\"\\u82ae\\u6b27\\u7ae5\\u88c5\",\"price\":\"3\",\"views\":\"0\",\"weigh\":\"0\",\"switch\":\"0\"},\"ids\":\"9\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996250);
+INSERT INTO `zs_admin_log` VALUES (572, 1, 'admin', '/admin.php/project/edit/ids/10?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"category_id\":\"15\",\"flag\":[\"navs\",\"index\",\"menu\"],\"title\":\"\\u5973\\u795e\\u88c5\\u626e\",\"content\":\"\\uff11\",\"image\":\"\\/uploads\\/20191023\\/031dcc72e221e406ff98be29c94aff1b.gif\",\"keywords\":\"\\uff11\",\"description\":\"\\uff11\",\"price\":\"1\",\"views\":\"0\",\"weigh\":\"0\",\"switch\":\"0\"},\"ids\":\"10\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996256);
+INSERT INTO `zs_admin_log` VALUES (573, 1, 'admin', '/admin.php/category/add?dialog=1', '分类管理 添加', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u6559\\u80b2\\u7f51\\u7edc\",\"nickname\":\"\\u6559\\u80b2\\u7f51\\u7edc\",\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"0\",\"status\":\"normal\",\"flag\":[\"\"]}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996517);
+INSERT INTO `zs_admin_log` VALUES (574, 1, 'admin', '/admin.php/category/edit/ids/29?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u6559\\u80b2\\u7f51\\u7edc\",\"nickname\":\"\\u6559\\u80b2\\u7f51\\u7edc\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"29\",\"status\":\"normal\"},\"ids\":\"29\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996535);
+INSERT INTO `zs_admin_log` VALUES (575, 1, 'admin', '/admin.php/category/add?dialog=1', '分类管理 添加', '{\"dialog\":\"1\",\"row\":{\"type\":\"article\",\"pid\":\"0\",\"name\":\"\\u5bb6\\u5177\\u73af\\u4fdd\",\"nickname\":\"\\u5bb6\\u5177\\u73af\\u4fdd\",\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"0\",\"status\":\"normal\",\"flag\":[\"\"]}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996555);
+INSERT INTO `zs_admin_log` VALUES (576, 1, 'admin', '/admin.php/category/add?dialog=1', '分类管理 添加', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u6bcd\\u5a74\\u7528\\u54c1\",\"nickname\":\"\\u6bcd\\u5a74\\u7528\\u54c1\",\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"0\",\"status\":\"normal\",\"flag\":[\"\"]}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996573);
+INSERT INTO `zs_admin_log` VALUES (577, 1, 'admin', '/admin.php/category/edit/ids/31?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u6bcd\\u5a74\\u7528\\u54c1\",\"nickname\":\"\\u6bcd\\u5a74\\u7528\\u54c1\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"31\",\"status\":\"normal\"},\"ids\":\"31\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996583);
+INSERT INTO `zs_admin_log` VALUES (578, 1, 'admin', '/admin.php/category/add?dialog=1', '分类管理 添加', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u793c\\u54c1\\u88c5\\u9970\",\"nickname\":\"\\u793c\\u54c1\\u88c5\\u9970\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996605);
+INSERT INTO `zs_admin_log` VALUES (579, 1, 'admin', '/admin.php/category/add?dialog=1', '分类管理 添加', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u5efa\\u6750\\u539f\\u6599\",\"nickname\":\"\\u5efa\\u6750\\u539f\\u6599\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996623);
+INSERT INTO `zs_admin_log` VALUES (580, 1, 'admin', '/admin.php/category/edit/ids/30?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u5bb6\\u5177\\u73af\\u4fdd\",\"nickname\":\"\\u5bb6\\u5177\\u73af\\u4fdd\",\"flag\":[\"index\",\"navs\",\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"30\",\"status\":\"normal\"},\"ids\":\"30\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996720);
+INSERT INTO `zs_admin_log` VALUES (581, 1, 'admin', '/admin.php/category/add?dialog=1', '分类管理 添加', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u9152\\u6c34\\u996e\\u6599\",\"nickname\":\"\\u9152\\u6c34\\u996e\\u6599\",\"flag\":[\"menu\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996759);
+INSERT INTO `zs_admin_log` VALUES (582, 1, 'admin', '/admin.php/category/edit/ids/34?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u9152\\u6c34\\u996e\\u6599\",\"nickname\":\"\\u9152\\u6c34\\u996e\\u6599\",\"flag\":[\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"34\",\"status\":\"normal\"},\"ids\":\"34\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996892);
+INSERT INTO `zs_admin_log` VALUES (583, 1, 'admin', '/admin.php/category/edit/ids/33?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u5efa\\u6750\\u539f\\u6599\",\"nickname\":\"\\u5efa\\u6750\\u539f\\u6599\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"33\",\"status\":\"normal\"},\"ids\":\"33\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996896);
+INSERT INTO `zs_admin_log` VALUES (584, 1, 'admin', '/admin.php/category/edit/ids/32?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u793c\\u54c1\\u88c5\\u9970\",\"nickname\":\"\\u793c\\u54c1\\u88c5\\u9970\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"32\",\"status\":\"normal\"},\"ids\":\"32\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996901);
+INSERT INTO `zs_admin_log` VALUES (585, 1, 'admin', '/admin.php/category/edit/ids/31?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u6bcd\\u5a74\\u7528\\u54c1\",\"nickname\":\"\\u6bcd\\u5a74\\u7528\\u54c1\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"31\",\"status\":\"normal\"},\"ids\":\"31\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996905);
+INSERT INTO `zs_admin_log` VALUES (586, 1, 'admin', '/admin.php/category/edit/ids/1?dialog=1', '分类管理 编辑', '{\"dialog\":\"1\",\"row\":{\"type\":\"project\",\"pid\":\"0\",\"name\":\"\\u670d\\u9970\\u978b\\u5305\",\"nickname\":\"\\u670d\\u9970\\u978b\\u5305\",\"flag\":[\"index\",\"navs\",\"menu\",\"top\"],\"image\":\"\",\"keywords\":\"\",\"description\":\"\",\"weigh\":\"35\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571996970);
+INSERT INTO `zs_admin_log` VALUES (587, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"25,24,23,22,27,19,18,17,16,14,13,15,7,21\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997637);
+INSERT INTO `zs_admin_log` VALUES (588, 1, 'admin', '/admin.php/user/rule/add?dialog=1', '会员管理 会员规则 添加', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"1\",\"pid\":\"0\",\"name\":\"index\\/menber\\/advert\\/list\",\"title\":\"\\u5e7f\\u544a\\u7ba1\\u7406\",\"remark\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997827);
+INSERT INTO `zs_admin_log` VALUES (589, 1, 'admin', '/admin.php/user/rule/add?dialog=1', '会员管理 会员规则 添加', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/add\",\"title\":\"\\u6dfb\\u52a0\",\"remark\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997855);
+INSERT INTO `zs_admin_log` VALUES (590, 1, 'admin', '/admin.php/user/rule/add?dialog=1', '会员管理 会员规则 添加', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/edit\",\"title\":\"\\u4fee\\u6539\",\"remark\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997879);
+INSERT INTO `zs_admin_log` VALUES (591, 1, 'admin', '/admin.php/user/rule/add?dialog=1', '会员管理 会员规则 添加', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"0\",\"name\":\"index\\/menber\\/advert\\/del\",\"title\":\"\\u5220\\u9664\",\"remark\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997897);
+INSERT INTO `zs_admin_log` VALUES (592, 1, 'admin', '/admin.php/user/rule/edit/ids/31?dialog=1', '会员管理 会员规则 编辑', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"21\",\"name\":\"index\\/menber\\/advert\\/del\",\"title\":\"\\u5220\\u9664\",\"remark\":\"\",\"weigh\":\"31\",\"status\":\"normal\"},\"ids\":\"31\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997905);
+INSERT INTO `zs_admin_log` VALUES (593, 1, 'admin', '/admin.php/user/rule/edit/ids/31?dialog=1', '会员管理 会员规则 编辑', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/del\",\"title\":\"\\u5220\\u9664\",\"remark\":\"\",\"weigh\":\"31\",\"status\":\"normal\"},\"ids\":\"31\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571997922);
+INSERT INTO `zs_admin_log` VALUES (594, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571998012);
+INSERT INTO `zs_admin_log` VALUES (595, 1, 'admin', '/admin.php/user/rule/edit/ids/28?dialog=1', '会员管理 会员规则 编辑', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"1\",\"pid\":\"0\",\"name\":\"index\\/menber\\/advert\",\"title\":\"\\u5e7f\\u544a\\u7ba1\\u7406\",\"remark\":\"\",\"weigh\":\"28\",\"status\":\"normal\"},\"ids\":\"28\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999456);
+INSERT INTO `zs_admin_log` VALUES (596, 1, 'admin', '/admin.php/user/rule/add?dialog=1', '会员管理 会员规则 添加', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"1\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/list\",\"title\":\"\\u5e7f\\u544a\\u5217\\u8868\",\"remark\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999480);
+INSERT INTO `zs_admin_log` VALUES (597, 1, 'admin', '/admin.php/user/rule/edit/ids/29?dialog=1', '会员管理 会员规则 编辑', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/add\",\"title\":\"\\u6dfb\\u52a0\",\"remark\":\"\",\"weigh\":\"29\",\"status\":\"normal\"},\"ids\":\"29\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999502);
+INSERT INTO `zs_admin_log` VALUES (598, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999534);
+
+-- ----------------------------
+-- Table structure for zs_advert
+-- ----------------------------
+DROP TABLE IF EXISTS `zs_advert`;
+CREATE TABLE `zs_advert`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `admin_id` int(11) NULL DEFAULT NULL COMMENT '公司ｉｄ',
+  `flag` set('a') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '标志',
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题',
+  `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '链接地址',
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片地址',
+  `lavel` int(11) NULL DEFAULT NULL COMMENT '权重',
+  `createtime` int(11) NULL DEFAULT NULL COMMENT '时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图文广告表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for zs_article
@@ -647,7 +714,7 @@ INSERT INTO `zs_article` VALUES (3, 2, 9, '', 'q', 'qqq', 'q', '/uploads/2019100
 INSERT INTO `zs_article` VALUES (16, 2, 2, '', '１１', '１１１', '<p>１</p>', NULL, '１', '１', 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_article` VALUES (17, 2, 12, '', '', '１１１１', '１１１１', '', '', '', 0, NULL, 1571820601, NULL, 0, 0);
 INSERT INTO `zs_article` VALUES (18, 2, 12, '', '', '项目管理', '１', '', '', '', 0, NULL, 1571888029, NULL, 0, 0);
-INSERT INTO `zs_article` VALUES (19, 4, 4, '', '', '111111', '<p>1111111</p>', NULL, '', '', 0, NULL, NULL, NULL, 0, 0);
+INSERT INTO `zs_article` VALUES (19, 4, 4, '', 'q', '111111', '<p>1111111</p>', NULL, 'q', '去q', 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_article` VALUES (20, 4, 5, '', '', '22222', '<p>222222</p>', NULL, '', '', 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_article` VALUES (21, 4, 4, '', '', '33333333', '<p>33333</p>', NULL, '', '', 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_article` VALUES (22, 4, 5, '', '', '１１１１１', '<p>１１１１１</p>', NULL, '', '', 0, NULL, NULL, NULL, 0, 0);
@@ -875,7 +942,7 @@ CREATE TABLE `zs_category`  (
   `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '栏目类型',
   `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `flag` set('hot','index','recommend','top','menu') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `flag` set('hot','index','recommend','top','menu','navs') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '图片',
   `keywords` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '关键字',
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '描述',
@@ -887,35 +954,41 @@ CREATE TABLE `zs_category`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `weigh`(`weigh`, `id`) USING BTREE,
   INDEX `pid`(`pid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '分类表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '分类表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_category
 -- ----------------------------
-INSERT INTO `zs_category` VALUES (1, 0, 'project', '服饰鞋包', '服饰鞋包', 'index,top,menu', '', '', '', '', 1570415171, 1571903531, 22, 'normal');
-INSERT INTO `zs_category` VALUES (2, 0, 'project', '特色餐饮', '特色餐饮', 'index,top,menu', '', '', '', '', 1570415290, 1570432601, 2, 'normal');
+INSERT INTO `zs_category` VALUES (1, 0, 'project', '服饰鞋包', '服饰鞋包', 'index,top,menu,navs', '', '', '', '', 1570415171, 1571996970, 35, 'normal');
+INSERT INTO `zs_category` VALUES (2, 0, 'project', '特色餐饮', '特色餐饮', 'index,top,menu,navs', '', '', '', '', 1570415290, 1571995446, 2, 'normal');
 INSERT INTO `zs_category` VALUES (4, 0, 'article', '创业指南', '创业指南', 'index,top', '', '', '', '', 1570420584, 1571907130, 4, 'normal');
 INSERT INTO `zs_category` VALUES (5, 0, 'article', '最新动态', '最新动态', 'index,top', '', '', '', '', 1570420619, 1571907111, 5, 'normal');
 INSERT INTO `zs_category` VALUES (6, 2, 'project', '中餐', '中餐', 'index,menu', '', '', '', '', 1570437117, 1571912993, 6, 'normal');
-INSERT INTO `zs_category` VALUES (7, 2, 'project', '西餐', '西餐', 'index,menu', '', '', '', '', 1570437138, 1571912999, 7, 'normal');
-INSERT INTO `zs_category` VALUES (8, 2, 'project', '茶饮', '茶饮', 'index,menu', '', '', '', '', 1570437169, 1571913004, 8, 'normal');
-INSERT INTO `zs_category` VALUES (9, 2, 'project', '小吃', '小吃', '', '', '', '', '', 1570437184, 1570437184, 9, 'normal');
-INSERT INTO `zs_category` VALUES (10, 0, 'project', '美容养生', '美容养生', 'index,top,menu', '', '', '', '', 1570443653, 1571887895, 10, 'normal');
-INSERT INTO `zs_category` VALUES (14, 10, 'project', '美甲', '美甲', 'hot', '', '', '', '', 1571802913, 1571802913, 14, 'normal');
-INSERT INTO `zs_category` VALUES (15, 1, 'project', '女装', '女装', 'index,menu', '', '', '', '', 1571802927, 1571897401, 15, 'normal');
-INSERT INTO `zs_category` VALUES (16, 1, 'project', '男装', '男装', 'index,menu', '', '', '', '', 1571821708, 1571901426, 16, 'normal');
-INSERT INTO `zs_category` VALUES (17, 1, 'project', '箱包', '箱包', '', '', '', '', '', 1571821722, 1571821722, 17, 'normal');
-INSERT INTO `zs_category` VALUES (18, 1, 'project', '礼服', '礼服', 'index,menu', '', '', '', '', 1571821739, 1571913009, 18, 'normal');
-INSERT INTO `zs_category` VALUES (19, 10, 'project', '化妆品', '化妆品', '', '', '', '', '', 1571821790, 1571821790, 19, 'normal');
-INSERT INTO `zs_category` VALUES (20, 10, 'project', '护肤品', '护肤品', 'index,menu', '', '', '', '', 1571821804, 1571913014, 20, 'normal');
-INSERT INTO `zs_category` VALUES (21, 10, 'project', '保健品', '保健品', 'hot,index,menu', '', '', '', '', 1571821822, 1571887908, 21, 'normal');
+INSERT INTO `zs_category` VALUES (7, 2, 'project', '西餐', '西餐', 'index,menu,navs', '', '', '', '', 1570437138, 1571995478, 7, 'normal');
+INSERT INTO `zs_category` VALUES (8, 2, 'project', '茶饮', '茶饮', 'index,menu,navs', '', '', '', '', 1570437169, 1571995457, 8, 'normal');
+INSERT INTO `zs_category` VALUES (9, 2, 'project', '小吃', '小吃', 'index,menu,navs', '', '', '', '', 1570437184, 1571995452, 9, 'normal');
+INSERT INTO `zs_category` VALUES (10, 0, 'project', '美容养生', '美容养生', 'index,top,menu,navs', '', '', '', '', 1570443653, 1571995431, 10, 'normal');
+INSERT INTO `zs_category` VALUES (14, 10, 'project', '美甲', '美甲', 'hot,index,navs', '', '', '', '', 1571802913, 1571995468, 14, 'normal');
+INSERT INTO `zs_category` VALUES (15, 1, 'project', '女装', '女装', 'index,menu,navs', '', '', '', '', 1571802927, 1571995425, 15, 'normal');
+INSERT INTO `zs_category` VALUES (16, 1, 'project', '男装', '男装', 'index,menu,navs', '', '', '', '', 1571821708, 1571995418, 16, 'normal');
+INSERT INTO `zs_category` VALUES (17, 1, 'project', '箱包', '箱包', 'navs', '', '', '', '', 1571821722, 1571995393, 17, 'normal');
+INSERT INTO `zs_category` VALUES (18, 1, 'project', '礼服', '礼服', 'index,menu,navs', '', '', '', '', 1571821739, 1571995409, 18, 'normal');
+INSERT INTO `zs_category` VALUES (19, 10, 'project', '化妆品', '化妆品', 'index,menu,navs', '', '', '', '', 1571821790, 1571995463, 19, 'normal');
+INSERT INTO `zs_category` VALUES (20, 10, 'project', '护肤品', '护肤品', 'index,menu,navs', '', '', '', '', 1571821804, 1571995441, 20, 'normal');
+INSERT INTO `zs_category` VALUES (21, 10, 'project', '保健品', '保健品', 'hot,index,menu,navs', '', '', '', '', 1571821822, 1571995436, 21, 'normal');
 INSERT INTO `zs_category` VALUES (22, 0, 'article', '市场行情', '市场行情', 'index,top', '', '', '', '', 1571906779, 1571907102, 22, 'normal');
 INSERT INTO `zs_category` VALUES (23, 0, 'article', '最佳商机', '最佳商机', 'index,top', '', '', '', '', 1571906798, 1571907097, 23, 'normal');
 INSERT INTO `zs_category` VALUES (24, 0, 'article', '项目分析', '项目分析', 'index,top', '', '', '', '', 1571906819, 1571907092, 24, 'normal');
 INSERT INTO `zs_category` VALUES (25, 0, 'article', '草根必读', '草根必读', '', '', '', '', '', 1571906828, 1571906828, 25, 'normal');
 INSERT INTO `zs_category` VALUES (26, 0, 'article', '创业问答', '创业问答', '', '', '', '', '', 1571906845, 1571906845, 26, 'normal');
-INSERT INTO `zs_category` VALUES (27, 0, 'article', '创业秘籍', '创业秘籍', '', '', '', '', '', 1571906864, 1571906864, 27, 'normal');
-INSERT INTO `zs_category` VALUES (28, 0, 'article', '暴力行业', '暴力行业', '', '', '', '', '', 1571906874, 1571906874, 28, 'normal');
+INSERT INTO `zs_category` VALUES (27, 0, 'article', '创业秘籍', '创业秘籍', '', '', '', '', '', 1571906864, 1571995378, 27, 'normal');
+INSERT INTO `zs_category` VALUES (28, 0, 'article', '暴力行业', '暴力行业', '', '', '', '', '', 1571906874, 1571995385, 28, 'normal');
+INSERT INTO `zs_category` VALUES (29, 0, 'project', '教育网络', '教育网络', 'index,menu,navs', '', '', '', '', 1571996517, 1571996535, 29, 'normal');
+INSERT INTO `zs_category` VALUES (30, 0, 'project', '家具环保', '家具环保', 'index,menu,navs', '', '', '', '', 1571996555, 1571996720, 30, 'normal');
+INSERT INTO `zs_category` VALUES (31, 0, 'project', '母婴用品', '母婴用品', 'index,top,menu,navs', '', '', '', '', 1571996573, 1571996905, 31, 'normal');
+INSERT INTO `zs_category` VALUES (32, 0, 'project', '礼品装饰', '礼品装饰', 'index,top,menu,navs', '', '', '', '', 1571996605, 1571996901, 32, 'normal');
+INSERT INTO `zs_category` VALUES (33, 0, 'project', '建材原料', '建材原料', 'index,top,menu,navs', '', '', '', '', 1571996623, 1571996896, 33, 'normal');
+INSERT INTO `zs_category` VALUES (34, 0, 'project', '酒水饮料', '酒水饮料', 'top,menu', '', '', '', '', 1571996759, 1571996892, 34, 'normal');
 
 -- ----------------------------
 -- Table structure for zs_china
@@ -1479,7 +1552,7 @@ CREATE TABLE `zs_project`  (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `admin_id` int(10) NOT NULL DEFAULT 0 COMMENT '用户ID',
   `category_id` int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '分类ID(单选)',
-  `flag` set('hot','index','recommend','menu') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `flag` set('hot','index','recommend','menu','navs') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT 'tdk-标题',
   `prouse` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '主要特点',
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目名称',
@@ -1498,14 +1571,14 @@ CREATE TABLE `zs_project`  (
   `weigh` int(10) NULL DEFAULT 0 COMMENT '权重',
   `switch` int(1) NULL DEFAULT 0 COMMENT '开关',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '项目表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '项目表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_project
 -- ----------------------------
-INSERT INTO `zs_project` VALUES (7, 4, 15, 'index,menu', '女神装扮', '很美', '女神装扮', '17818182223', '4008892333', '<p>女神装扮</p>', '/uploads/20191023/3b0e4f478342f2af11dcea44fb2a6730.jpg', '11女神装扮', '女神装扮', '', 3, 0, 1571822373, 1571902259, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (9, 4, 15, 'index,menu', '女神装扮', '芮欧童装', '芮欧童装', '17818182222', '4003338888', '<p><span style=\"color: rgb(102, 102, 102); font-family: 微软雅黑; font-size: 14px; background-color: rgb(255, 255, 255);\">芮欧童装</span></p>', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '芮欧童装', '芮欧童装', '', 3, 0, 1571823556, 1571902252, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (10, 0, 15, 'index,menu', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1571903362, NULL, 0, 0);
+INSERT INTO `zs_project` VALUES (7, 4, 15, 'index,menu,navs', '女神装扮', '很美', '女神装扮', '17818182223', '4008892333', '<p>女神装扮</p>', '/uploads/20191023/3b0e4f478342f2af11dcea44fb2a6730.jpg', '11女神装扮', '女神装扮', '', 3, 0, 1571822373, 1571996239, NULL, 0, 0);
+INSERT INTO `zs_project` VALUES (9, 4, 15, 'index,menu,navs', '女神装扮', '芮欧童装', '芮欧童装', '17818182222', '4003338888', '<p><span style=\"color: rgb(102, 102, 102); font-family: 微软雅黑; font-size: 14px; background-color: rgb(255, 255, 255);\">芮欧童装</span></p>', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '芮欧童装', '芮欧童装', '140600,140800', 3, 0, 1571823556, 1571996250, NULL, 0, 0);
+INSERT INTO `zs_project` VALUES (10, 0, 15, 'index,menu,navs', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1571996256, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (11, 0, 15, 'index,menu', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1571903372, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (12, 0, 15, 'index,menu', '女神装扮', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (13, 0, 15, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
@@ -1516,6 +1589,7 @@ INSERT INTO `zs_project` VALUES (17, 0, 16, 'index,menu', '', NULL, '女神装�
 INSERT INTO `zs_project` VALUES (18, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (19, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (20, 0, 16, 'index,menu', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
+INSERT INTO `zs_project` VALUES (21, 4, 15, '', '１１', '１１１１', '１１１', '１１', '１１１', '<p>１１１１</p>', NULL, '１', '１１', '130800,210200', 3, 0, 1571987149, NULL, NULL, 0, 0);
 
 -- ----------------------------
 -- Table structure for zs_sms
@@ -1620,7 +1694,7 @@ CREATE TABLE `zs_user`  (
 -- ----------------------------
 -- Records of zs_user
 -- ----------------------------
-INSERT INTO `zs_user` VALUES (4, 1, 'ygf2019', 'ygf2019', 'babc9924e2f89c7350dad8c47769d7e0', '未知', 'nid4S5', '123@qq.com', '17819192234', '', 1, 0, NULL, '', '', 0.00, 0, 2, 2, 1571817711, 1571885412, '127.0.0.1', 0, '127.0.0.1', 1571817612, 1571817612, 1571885412, '', 'normal', '');
+INSERT INTO `zs_user` VALUES (4, 1, 'ygf2019', 'ygf2019', 'babc9924e2f89c7350dad8c47769d7e0', '未知', 'nid4S5', '123@qq.com', '17819192234', '', 1, 0, NULL, '', '', 0.00, 0, 3, 3, 1571885412, 1571997469, '127.0.0.1', 0, '127.0.0.1', 1571817612, 1571817612, 1571997469, '', 'normal', '');
 
 -- ----------------------------
 -- Table structure for zs_user_group
@@ -1639,7 +1713,7 @@ CREATE TABLE `zs_user_group`  (
 -- ----------------------------
 -- Records of zs_user_group
 -- ----------------------------
-INSERT INTO `zs_user_group` VALUES (1, '测试组', '7,13,14,15,16,17,18,19,21,22,23,24,25,26,27', 1515386468, 1571819262, 'normal');
+INSERT INTO `zs_user_group` VALUES (1, '测试组', '7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32', 1515386468, 1571999534, 'normal');
 
 -- ----------------------------
 -- Table structure for zs_user_money_log
@@ -1672,7 +1746,7 @@ CREATE TABLE `zs_user_rule`  (
   `weigh` int(10) NULL DEFAULT 0 COMMENT '权重',
   `status` enum('normal','hidden') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '会员规则表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '会员规则表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_user_rule
@@ -1698,6 +1772,11 @@ INSERT INTO `zs_user_rule` VALUES (24, 21, 'index/menber/project/del', '删除',
 INSERT INTO `zs_user_rule` VALUES (25, 21, 'index/menber/project/edit', '修改', '', 0, 1571644671, 1571644671, 25, 'normal');
 INSERT INTO `zs_user_rule` VALUES (26, 21, 'index/menber/project/msg', '项目留言', '', 1, 1571814613, 1571814613, 26, 'normal');
 INSERT INTO `zs_user_rule` VALUES (27, 15, 'index/menber/article/comment', '文章评论', '', 1, 1571819257, 1571819257, 27, 'normal');
+INSERT INTO `zs_user_rule` VALUES (28, 0, 'index/menber/advert', '广告管理', '', 1, 1571997827, 1571999456, 28, 'normal');
+INSERT INTO `zs_user_rule` VALUES (29, 28, 'index/menber/advert/add', '添加', '', 0, 1571997855, 1571999502, 29, 'normal');
+INSERT INTO `zs_user_rule` VALUES (30, 28, 'index/menber/advert/edit', '修改', '', 0, 1571997879, 1571997879, 30, 'normal');
+INSERT INTO `zs_user_rule` VALUES (31, 28, 'index/menber/advert/del', '删除', '', 0, 1571997897, 1571997922, 31, 'normal');
+INSERT INTO `zs_user_rule` VALUES (32, 28, 'index/menber/advert/list', '广告列表', '', 1, 1571999480, 1571999480, 32, 'normal');
 
 -- ----------------------------
 -- Table structure for zs_user_score_log
@@ -1733,6 +1812,7 @@ INSERT INTO `zs_user_token` VALUES ('0f5c1f8bcfd47d40f5c741fe52a879ea67318b2f', 
 INSERT INTO `zs_user_token` VALUES ('2fd2af02e20b52719c47b115341b8f0e20065755', 2, 1570179842, 1572771842);
 INSERT INTO `zs_user_token` VALUES ('432d2d42fcca8a4c4fa7a33924d94ee53a153b8a', 4, 1571885412, 1574477412);
 INSERT INTO `zs_user_token` VALUES ('5db12840fd06c2d381d29b2a425ecca1240a0ebe', 2, 1570179746, 1572771746);
+INSERT INTO `zs_user_token` VALUES ('6618a28bc114e3a6210d5bb5499e9032143b28ce', 4, 1571997469, 1574589469);
 INSERT INTO `zs_user_token` VALUES ('683a840be814c5d32ee0440b082239ab664ae3e4', 1, 1570178605, 1572770605);
 INSERT INTO `zs_user_token` VALUES ('8ffce403949324c878e566e2964613a9b5513d01', 3, 1571817212, 1574409212);
 INSERT INTO `zs_user_token` VALUES ('a62c4daa1ab43df9b030d2d375739e8446a70036', 2, 1570181194, 1572773194);

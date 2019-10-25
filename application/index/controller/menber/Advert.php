@@ -6,35 +6,28 @@ use app\common\controller\Frontend;
 use think\Db;
 
 //文章咨询类
-class Project extends Frontend
+class Advert extends Frontend
 {
-    protected $noNeedLogin = '';
-    protected $noNeedRight = ['address'];
+    protected $noNeedLogin = [];
+    protected $noNeedRight = [];
 
 
 
     public function list()
     {
+
         if ($this->request->isAjax()) {
             $row = $this->request->param();
-            $res = db::name('project')
+            $res = db::name('advert')
                         ->where('admin_id', $this->auth->getUserinfo()['id'])
                         ->page($row['page'], $row['limit'])
                         ->order('id createtime')
                         ->select();
-            $cuont = db::name('project')->count();
+            $cuont = db::name('advert')->count();
 
-            for ($i=0;$i<count($res);$i++) {
-                $name = db::name('category')
-                        ->field('a.name `name2`,c.name `name1`')
-                        ->alias('a')
-                        ->join('category c', 'a.pid=c.id')
-                        ->where('a.id', $res[$i]['category_id'])
-                        ->find();
-                $res[$i]['cname']  = $name['name1']."－>".$name['name2'];
-            }
             return tableData(0, 'ok ', $res, $cuont);
         }
+
         return $this->view->fetch();
     }
 
@@ -49,10 +42,10 @@ class Project extends Frontend
                         ->page($row['page'], $row['limit'])
                         ->order('id create_time')
                         ->select();
-            $cuont = db::name('project')->count();
+            $cuont = db::name('advert')->count();
 
             for ($i=0;$i<count($res);$i++) {
-                $name = db::name('project')->where('id',$res[$i]['pid'])->field('name')->find();
+                $name = db::name('advert')->where('id',$res[$i]['pid'])->field('name')->find();
                 $res[$i]['pname']  = $name['name'];;
             }
             return tableData(0, 'ok ', $res, $cuont);
@@ -89,7 +82,7 @@ class Project extends Frontend
             $row['city'] = implode(',',$row['city']);
             unset($row['file']);
 
-            $res = db::name('project')->insert($row);
+            $res = db::name('advert')->insert($row);
             if ($res == 1) {
                 return  $this->success('发布成功');
             }
@@ -106,7 +99,7 @@ class Project extends Frontend
     public function edit($id = null)
     {
 
-        $data = db::name('project')->where('id', $id)->find();
+        $data = db::name('advert')->where('id', $id)->find();
         $data['city'] = explode(',',$data['city']);
         for($i=0;$i<count($data['city']);$i++){
             $data['city'][$i] = db::name('china')->where('id',$data['city'][$i])->field('id,areaname')->find();
@@ -127,7 +120,7 @@ class Project extends Frontend
             $row['content'] = $_POST['content'];
             $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
     
-            $res = db::name('project')->where('id', $id)->update($row);
+            $res = db::name('advert')->where('id', $id)->update($row);
             if ($res == 1) {
                 return  $this->success('修改成功');
             }
@@ -141,11 +134,11 @@ class Project extends Frontend
     public function del()
     {
         $ids = $this->request->param('ids');
-        $data = db::name('project')->where('id', 'in', $ids)->select();
+        $data = db::name('advert')->where('id', 'in', $ids)->select();
         foreach ($data as $a) {
             del_content_img($a['content']);//删除富文本图片
         }
-        $res = db::name('project')->where('id', 'in', $ids)->delete();
+        $res = db::name('advert')->where('id', 'in', $ids)->delete();
     
         if ($res > 0) {
             return $this->success('删除成功');
@@ -154,9 +147,9 @@ class Project extends Frontend
     }
 
     public static function category(){
-        $result = db::name('category')->where('type', 'project')->where('pid', 0)->field('id,name')->select();
+        $result = db::name('category')->where('type', 'advert')->where('pid', 0)->field('id,name')->select();
         for ($i=0;$i<count($result);$i++) {
-            $result[$i]['two'] = db::name('category')->where('type', 'project')->where('pid', $result[$i]['id'])->field('id,name')->select();
+            $result[$i]['two'] = db::name('category')->where('type', 'advert')->where('pid', $result[$i]['id'])->field('id,name')->select();
         }
         return $result;
     }

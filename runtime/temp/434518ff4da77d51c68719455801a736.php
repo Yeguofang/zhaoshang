@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/article/list.html";i:1571821406;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/article/list.html";i:1571998897;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -94,7 +94,7 @@
 				, { field: 'title', title: '标题', }
 				, { field: 'tdk_title', title: 'tdk-title', }
 				, { field: 'tdk_key', title: 'tdk-keywords' }
-				, { field: 'tdk-desc', title: 'tdk-description', }
+				, { field: 'tdk_desc', title: 'tdk-description', }
 				, { field: 'views', title: '点击率', }
 				, { field: 'createtime', title: '创建时间', }
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }

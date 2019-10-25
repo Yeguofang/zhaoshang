@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1571912743;s:51:"/var/www/zs/application/index/view/common/head.html";i:1570958945;s:53:"/var/www/zs/application/index/view/common/header.html";i:1571133372;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1571996102;s:51:"/var/www/zs/application/index/view/common/head.html";i:1570958945;s:53:"/var/www/zs/application/index/view/common/header.html";i:1571133372;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -518,26 +518,32 @@
                     创业项目导航
                 </div>
                 <div class="flzs_zhankai">
+
+                    <?php if(is_array($navs) || $navs instanceof \think\Collection || $navs instanceof \think\Paginator): $i = 0; $__LIST__ = $navs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$n): $mod = ($i % 2 );++$i;?>
                     <div class='zsclass_zhankai'>
                         <div class='zsclass_s_zhankai_style2'>
                             <h2><img src=./static/home/picture/1.png>&nbsp;
-                                <a href=/zs/tesecanyin>特色餐饮
+                                <a href=/zs/tesecanyin><?php echo $n['name']; ?>
                                                                                                                                                                                                                                                                                                                                                                                                         </a>
                             </h2>
 
+                            <?php if(is_array($n['nav']) || $n['nav'] instanceof \think\Collection || $n['nav'] instanceof \think\Paginator): $i = 0; $__LIST__ = $n['nav'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$t): $mod = ($i % 2 );++$i;?>
                             <div class='zsclass_s_li'>
                                 <div class='zsclass_s_name'>
-                                    <a href=/zs/tesecanyin/zhongcan>中餐
+                                    <a href=/zs/tesecanyin/zhongcan><?php echo $t['name']; ?>
                                                                                                                                                                                                                                                                                                                                                                                                             </a>
                                 </div>
-                                <div class='zsclass_cp'><a href='/zs/show-110.htm' target='_blank'>大酱</a>&nbsp;
-                                    <a href='/zs/show-107.htm' target='_blank'>麦当劳优惠.</a><br />
+                                <div class='zsclass_cp'>
+                                    <?php if(is_array($t['project']) || $t['project'] instanceof \think\Collection || $t['project'] instanceof \think\Paginator): $i = 0; $__LIST__ = $t['project'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
+                                    <a href='/zs/show-110.htm' target='_blank'><?php echo $p['name']; ?></a>&nbsp;
+                                    <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </div>
                             </div>
-                           
+                           <?php endforeach; endif; else: echo "" ;endif; ?>
                         </div>
                     </div>
-
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    
                 </div>
             </div>
             <!-- 创业项目导航 -->

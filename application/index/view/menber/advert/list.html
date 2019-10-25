@@ -23,7 +23,7 @@
 			<div class="layui-col-md12">
 				<div class="layui-card">
 
-					<table class="layui-hide" id="article" lay-filter="article"></table>
+					<table class="layui-hide" id="advert" lay-filter="advert"></table>
 
 				</div>
 			</div>
@@ -33,13 +33,13 @@
 
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-  <button class="layui-btn" onclick="xadmin.open('发布文章','{:url('menber/article/add')}',900,800)" >发布文章</button>
+  <button class="layui-btn" onclick="xadmin.open('发布文章','{:url('menber/advert/add')}',900,800)" >发布文章</button>
   <button class="layui-btn layui-btn-danger" lay-event="getCheckData">批量删除</button>
   </div>
 </script>
 
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','{:url('menber/article/edit')}/{{d.id}}',900,800)">编辑</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','{:url('menber/advert/edit')}/{{d.id}}',900,800)">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"  href="javascript:;">删除</a>
 </script>
 
@@ -55,8 +55,8 @@
 			tools = layui.common;
 
 		table.render({
-			elem: '#article'
-			, url: "{:url('menber/article/list')}"
+			elem: '#advert'
+			, url: "{:url('menber/advert/list')}"
 			, toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
 			, defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
 				title: '提示'
@@ -81,15 +81,15 @@
 		});
 
 
-		table.on('toolbar(article)', function (obj) {
-			tools.delAll_ajax('post', "{:url('/menber/article/del')}", table,obj);
+		table.on('toolbar(advert)', function (obj) {
+			tools.delAll_ajax('post', "{:url('/menber/advert/del')}", table,obj);
 		});
 
 		//监听行工具事件
-		table.on('tool(article)', function (obj) {
+		table.on('tool(advert)', function (obj) {
 			var ids = obj.data.id;
 			if (obj.event === 'del') {
-				tools.del_ajax('post', "{:url('/menber/article/del')}", ids, obj);
+				tools.del_ajax('post', "{:url('/menber/advert/del')}", ids, obj);
 			} else if (obj.event === 'edit') {
 			
 			}

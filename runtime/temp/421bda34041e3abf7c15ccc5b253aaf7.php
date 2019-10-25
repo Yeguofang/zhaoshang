@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1571822280;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1571988653;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -51,41 +51,61 @@
                 </div>
 
                 <div class="layui-form-item">
-                        <label for="name" class="layui-form-label">
-                            <span class="x-red">*</span>项目名称</label>
-                        <div class="layui-input-inline">
-                            <input type="text" id="name"" name="name" autocomplete="off" class="layui-input"></div>
-                    </div>
-
+                    <label for="name" class="layui-form-label">
+                        <span class="x-red">*</span>项目名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name"" name="name" autocomplete="off" class="layui-input"></div>
+                </div>
         
+                <div class="layui-form-item">
+                    <label for="phone" class="layui-form-label">
+                        <span class="x-red">*</span>加盟手机</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="phone"" name="phone" autocomplete="off" class="layui-input"></div>
+                </div>
 
                 <div class="layui-form-item">
-                        <label for="phone" class="layui-form-label">
-                            <span class="x-red">*</span>加盟手机</label>
-                        <div class="layui-input-inline">
-                            <input type="text" id="phone"" name="phone" autocomplete="off" class="layui-input"></div>
+                    <label for="moblie" class="layui-form-label">
+                        <span class="x-red">*</span>加盟电话</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="moblie"" name="moblie" autocomplete="off" class="layui-input"></div>
+                </div>
+                    
+                <div class="layui-form-item">
+                    <label class="layui-form-label">投资金额</label>
+                    <div class="layui-input-inline">
+                        <select name="price">
+                            <option value="">请选择</option>
+                            <option value="1">1-3万</option>
+                            <option value="2">3-5万</option>
+                            <option value="3">5-10万</option>
+                            <option value="3">10万以上</option>
+                        </select>
                     </div>
+                </div>
+                
+                <div class="layui-form-item">
+                    <label class="layui-form-label">联动选择框</label>
+                    <div class="layui-input-inline">
+                      <select  lay-filter="area">
+                        <?php if(is_array($area) || $area instanceof \think\Collection || $area instanceof \think\Paginator): $i = 0; $__LIST__ = $area;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $a['id']; ?>"><?php echo $a['areaname']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
+                    </div>
+                    <div class="layui-input-inline">
+                      <select  lay-filter="city" id="city">
+                      </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select multiple="multiple"  lay-ignore  id="box" style="width:100px;"  >
+                        </select>
+                        <button id="del" type="button">
+                            删除
+                        </button>
+                    </div>
+                  </div>
 
-                    <div class="layui-form-item">
-                            <label for="moblie" class="layui-form-label">
-                                <span class="x-red">*</span>加盟电话</label>
-                            <div class="layui-input-inline">
-                                <input type="text" id="moblie"" name="moblie" autocomplete="off" class="layui-input"></div>
-                        </div>
-                        
-                        <div class="layui-form-item">
-                                <label class="layui-form-label">投资金额</label>
-                                <div class="layui-input-inline">
-                                    <select name="price">
-                                        <option value="">请选择</option>
-                                        <option value="1">1-3万</option>
-                                        <option value="2">3-5万</option>
-                                        <option value="3">5-10万</option>
-                                        <option value="3">10万以上</option>
-                                    </select>
-                                </div>
-                            </div>
-                        
                 <div class="layui-form-item">
                     <label class="layui-form-label">缩略图</label>
                     <div class="layui-input-line">
@@ -161,7 +181,6 @@
                     layer = layui.layer,
                     upload = layui.upload;
 
-
                 //自定义验证规则
                 form.verify({
                     title: function (value) {
@@ -206,6 +225,9 @@
 
 
 
+
+
+
                 // 实例化编辑器 
                 var editor = UE.getEditor('container');
 
@@ -217,7 +239,13 @@
                         layer.msg('文章内容不能为空！', { icon: 2, time: 1300 });
                         return false;
                     }
-                    console.log(data.field);
+
+                    data.field.city =[];
+                    var obj= $('#box').children(); //获取select
+                    for(var i=1;i<obj.length;i++){
+                        data.field.city.push(obj[i].value);// 收集选中项
+                    }
+
                     $.ajax({
                         type: "post",
                         async: false,
@@ -240,21 +268,74 @@
                     return false;
                 });
 
+
+
+            //定义对应的省 市 区数组
+            var DomArr = [];//此数组用于存储数据，判断重复
+            form.on('select(area)', function (data) {
+                $.ajax({
+                    type: "post",
+                    async: false,
+                    url: "<?php echo url('menber/project/add'); ?>?tid="+data.value,
+                    //后台数据处理-下面有具体实现
+                    data: data.field,
+                    success: function (res) {
+                        $("#city").empty();
+                        //遍历省级的数组，将每个内容插入下拉框内
+                        for (var i = 0; i < res.length; i++) {
+                            $('#city').append('<option value='+res[i]['id']+'>' + res[i]['areaname'] + '</option>');
+                        }
+                        form.render();
+                    }
+                });
+
             });
 
-           
 
-    </script>
 
-    <script>
-    $(function(){
-   
-        $('input:radio[name="pid"]').click(function(){
-            var checkValue = $('input:radio[name="pid"]:checked').val(); 
-            alert(checkValue);
-        });
-});
-    </script>
+            //把选中的城市添加到select
+            form.on('select(city)', function(data){
+                var name = data.elem[data.elem.selectedIndex].text;
+                var String = "<option value="+data.value+" >" + name + "</option>";
+                var istrue = false;//是否添加（重复）
+                DomArr.forEach(function( val, index ) {
+                    if(val==String){
+                        istrue=true;
+                    }
+                });
+                if(!istrue){
+                    DomArr.push(String);
+                    $('#box').append(String);
+                }
+            })
+            
+            //点击已选中值的时候为其添加一个样式标示，由于后面删除
+            $(document).on('click',"#box option",function(){
+                $(this).attr('style','background-color:aqua;');
+                $(this).siblings().attr('style','background-color:#ffffff;');
+            })
+            //删除已添加到select的值
+            $('#del').click(function () {
+                var s = $('option[style="background-color:aqua;"]').html();
+                var child = $('#box').children();
+                console.log(child);
+                var Sring = "<option>" + s + "</option>";
+                for(var i=0;i<child.length;i++){
+                    if(child[i].innerHTML==s){
+                        console.log(child[i].innerHTML);
+                        $($("#box").find("option")[i].remove());
+                        for (var i=0;i<DomArr.length;i++) {
+                            if(DomArr[i]==Sring){
+                                DomArr.splice(i,1);
+                            }
+                        }
+                    }
+                }
+                document.getElementById("city").options.selectedIndex = 0; //回到初始状态
+            })
+
+    });
+
+</script>
 </body>
-
 </html>

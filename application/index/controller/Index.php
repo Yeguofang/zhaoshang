@@ -19,9 +19,12 @@ class Index extends Frontend
         $tdk = WebTdk::get(1);
         $menu = self::category('menu',9); //首页左侧分类,项目
         $index = self::category('index',8);   //首页分类，项目
+        $navs = self::category('navs',8);   //首页分类，项目
+
         $article = self::article('index',8);
 
         $this->assign([
+            'navs' =>$navs,
             'index' => $index,
             'menu' => $menu,
             'article' => $article,
@@ -56,7 +59,7 @@ class Index extends Frontend
             $menu[$i]['sum'] = Category::where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->count();
             $menu_two = Db::name('category')->where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->select();
 
-            if ($flag == 'menu') { //首页左侧菜单栏的二级分类下的项目
+            if ($flag == 'menu' || $flag == 'navs') { //首页左侧菜单栏的二级分类下的项目
                 for ($j=0;$j<count($menu_two);$j++) {
                     $menu_two[$j]['project'] = db::name('project')
                         ->field('id,name,image')
