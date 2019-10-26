@@ -33,7 +33,7 @@
 
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-  <button class="layui-btn" onclick="xadmin.open('发布文章','{:url('menber/advert/add')}',900,800)" >发布文章</button>
+  <button class="layui-btn" onclick="xadmin.open('发布广告','{:url('menber/advert/add')}',900,800)" >发布广告</button>
   <button class="layui-btn layui-btn-danger" lay-event="getCheckData">批量删除</button>
   </div>
 </script>
@@ -67,14 +67,12 @@
 			, cols: [[
 				{ type: 'checkbox', fixed: 'left' }
 				, { field: 'id', title: 'ID', width: 80, fixed: 'left', unresize: true, sort: true }
-				, { field: 'cname', title: '分类',  }
+				, { field: 'type', title: '类型', }
+				, { field: 'title',title: '分类',  }
 				, { field: 'image', title: '图片', }
-				, { field: 'title', title: '标题', }
-				, { field: 'tdk_title', title: 'tdk-title', }
-				, { field: 'tdk_key', title: 'tdk-keywords' }
-				, { field: 'tdk_desc', title: 'tdk-description', }
+				, { field: 'url', title: '链接', }
 				, { field: 'views', title: '点击率', }
-				, { field: 'createtime', title: '创建时间', }
+				, { field: 'createtime', title: '发布时间', }
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true

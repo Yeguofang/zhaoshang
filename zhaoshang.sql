@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 25/10/2019 18:37:04
+ Date: 26/10/2019 18:51:23
 */
 
 SET NAMES utf8mb4;
@@ -43,7 +43,7 @@ CREATE TABLE `zs_admin`  (
 -- ----------------------------
 -- Records of zs_admin
 -- ----------------------------
-INSERT INTO `zs_admin` VALUES (1, 'admin', 'Admin', 'eff087d0fb317e7ae52e5355b8675e9d', '2d4adb', '/assets/img/avatar.png', 'admin@admin.com', 0, 1571995107, '127.0.0.1', 1492186163, 1571995107, 'c636016f-84e3-497b-acdd-d8af9c28c2cf', 'normal');
+INSERT INTO `zs_admin` VALUES (1, 'admin', 'Admin', 'eff087d0fb317e7ae52e5355b8675e9d', '2d4adb', '/assets/img/avatar.png', 'admin@admin.com', 0, 1572085973, '127.0.0.1', 1492186163, 1572085973, 'cdcd2fef-702b-4ec0-8cdc-01ad75589328', 'normal');
 
 -- ----------------------------
 -- Table structure for zs_admin_log
@@ -61,7 +61,7 @@ CREATE TABLE `zs_admin_log`  (
   `createtime` int(10) NULL DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `name`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 599 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '管理员日志表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 670 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '管理员日志表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_admin_log
@@ -664,6 +664,77 @@ INSERT INTO `zs_admin_log` VALUES (595, 1, 'admin', '/admin.php/user/rule/edit/i
 INSERT INTO `zs_admin_log` VALUES (596, 1, 'admin', '/admin.php/user/rule/add?dialog=1', '会员管理 会员规则 添加', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"1\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/list\",\"title\":\"\\u5e7f\\u544a\\u5217\\u8868\",\"remark\":\"\",\"weigh\":\"0\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999480);
 INSERT INTO `zs_admin_log` VALUES (597, 1, 'admin', '/admin.php/user/rule/edit/ids/29?dialog=1', '会员管理 会员规则 编辑', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"0\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/add\",\"title\":\"\\u6dfb\\u52a0\",\"remark\":\"\",\"weigh\":\"29\",\"status\":\"normal\"},\"ids\":\"29\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999502);
 INSERT INTO `zs_admin_log` VALUES (598, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1571999534);
+INSERT INTO `zs_admin_log` VALUES (599, 0, 'Unknown', '/admin.php/index/login', '登录', '{\"__token__\":\"3b2dfeea96abd1946f0e43c46ac196fa\",\"username\":\"ygf2019\",\"captcha\":\"2dnk\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572056287);
+INSERT INTO `zs_admin_log` VALUES (600, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"68e5af8020c4132bcda26e141cfc8704\",\"username\":\"admin\",\"captcha\":\"qxuw\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572056296);
+INSERT INTO `zs_admin_log` VALUES (601, 1, 'admin', '/admin.php/user/rule/edit/ids/32?dialog=1', '会员管理 会员规则 编辑', '{\"dialog\":\"1\",\"row\":{\"ismenu\":\"1\",\"pid\":\"28\",\"name\":\"index\\/menber\\/advert\\/list\",\"title\":\"\\u5e7f\\u544a\\u5217\\u8868\",\"remark\":\"\",\"weigh\":\"32\",\"status\":\"normal\"},\"ids\":\"32\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572058478);
+INSERT INTO `zs_admin_log` VALUES (602, 0, 'Unknown', '/admin.php/index/login', '登录', '{\"__token__\":\"1735516bc525317f8a2a4d9a9e0e2856\",\"username\":\"ygf2019\",\"captcha\":\"zt7x\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572058606);
+INSERT INTO `zs_admin_log` VALUES (603, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"87aa4110b8826433f712be9b3c98aadb\",\"username\":\"admin\",\"captcha\":\"exbv\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572058612);
+INSERT INTO `zs_admin_log` VALUES (604, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572058622);
+INSERT INTO `zs_admin_log` VALUES (605, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"26,25,24,23,22,27,19,18,17,16,14,13,21,15,7\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572059104);
+INSERT INTO `zs_admin_log` VALUES (606, 1, 'admin', '/admin.php/user/group/edit/ids/1?dialog=1', '会员管理 会员分组 编辑', '{\"dialog\":\"1\",\"row\":{\"rules\":\"7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32\",\"name\":\"\\u6d4b\\u8bd5\\u7ec4\",\"status\":\"normal\"},\"ids\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572059115);
+INSERT INTO `zs_admin_log` VALUES (607, 1, 'admin', '/admin.php/general.config/edit', '常规管理 后台配置 编辑', '{\"__token__\":\"cc4c7f33378393a55ee78eab43c6c184\",\"row\":{\"categorytype\":\"{\\\"article\\\":\\\"\\u6587\\u7ae0\\\",\\\"project\\\":\\\"\\u9879\\u76ee\\\",\\\"advert\\\":\\\"\\u5e7f\\u544a\\\"}\",\"configgroup\":\"{\\\"basic\\\":\\\"Basic\\\",\\\"email\\\":\\\"Email\\\",\\\"dictionary\\\":\\\"Dictionary\\\",\\\"user\\\":\\\"User\\\",\\\"example\\\":\\\"Example\\\"}\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572061155);
+INSERT INTO `zs_admin_log` VALUES (608, 1, 'admin', '/admin.php/general.config/edit', '常规管理 后台配置 编辑', '{\"__token__\":\"9e961995c13531b55d80180c3c7b6102\",\"row\":{\"categorytype\":\"{\\\"article\\\":\\\"\\u6587\\u7ae0\\\",\\\"project\\\":\\\"\\u9879\\u76ee\\\"}\",\"configgroup\":\"{\\\"basic\\\":\\\"Basic\\\",\\\"email\\\":\\\"Email\\\",\\\"dictionary\\\":\\\"Dictionary\\\",\\\"user\\\":\\\"User\\\",\\\"example\\\":\\\"Example\\\"}\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572061350);
+INSERT INTO `zs_admin_log` VALUES (609, 1, 'admin', '/admin.php/general.config/edit', '常规管理 后台配置 编辑', '{\"__token__\":\"b2b5d20ec857432c20d472f6e1a6fc2f\",\"row\":{\"categorytype\":\"{\\\"article\\\":\\\"\\u6587\\u7ae0\\\",\\\"project\\\":\\\"\\u9879\\u76ee\\\"}\",\"configgroup\":\"{\\\"basic\\\":\\\"Basic\\\",\\\"email\\\":\\\"Email\\\",\\\"dictionary\\\":\\\"Dictionary\\\",\\\"user\\\":\\\"User\\\",\\\"example\\\":\\\"Example\\\"}\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572061371);
+INSERT INTO `zs_admin_log` VALUES (610, 0, 'Unknown', '/admin.php/index/login', '', '{\"__token__\":\"240f4a9b4af19d8e4dce3d51b88bc7fb\",\"username\":\"admin\",\"captcha\":\"km31\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070132);
+INSERT INTO `zs_admin_log` VALUES (611, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"d791792865321db8dbd63b55d736174e\",\"username\":\"admin\",\"captcha\":\"jhen\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070137);
+INSERT INTO `zs_admin_log` VALUES (612, 1, 'admin', '/admin.php/auth/rule/add?dialog=1', '权限管理 菜单规则 添加', '{\"dialog\":\"1\",\"__token__\":\"741649e161d8afb7f39247048386edab\",\"row\":{\"ismenu\":\"1\",\"pid\":\"0\",\"name\":\"advert\",\"title\":\"\\u5e7f\\u544a\\u7ba1\\u7406\",\"icon\":\"fa fa-image\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070248);
+INSERT INTO `zs_admin_log` VALUES (613, 1, 'admin', '/admin.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070248);
+INSERT INTO `zs_admin_log` VALUES (614, 1, 'admin', '/admin.php/auth/rule/add?dialog=1', '权限管理 菜单规则 添加', '{\"dialog\":\"1\",\"__token__\":\"10875294893964e32365898255bbf3e8\",\"row\":{\"ismenu\":\"0\",\"pid\":\"95\",\"name\":\"advert\\/edit\",\"title\":\"\\u4fee\\u6539\",\"icon\":\"fa fa-circle-o\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070277);
+INSERT INTO `zs_admin_log` VALUES (615, 1, 'admin', '/admin.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070277);
+INSERT INTO `zs_admin_log` VALUES (616, 1, 'admin', '/admin.php/auth/rule/add?dialog=1', '权限管理 菜单规则 添加', '{\"dialog\":\"1\",\"__token__\":\"7cea048960d2abac65ab2a8304bff4ef\",\"row\":{\"ismenu\":\"0\",\"pid\":\"104\",\"name\":\"advert\\/del\",\"title\":\"\\u5220\\u9664\",\"icon\":\"fa fa-circle-o\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070307);
+INSERT INTO `zs_admin_log` VALUES (617, 1, 'admin', '/admin.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572070307);
+INSERT INTO `zs_admin_log` VALUES (618, 1, 'admin', '/admin.php/advert/del/ids/17', '广告管理 删除', '{\"action\":\"del\",\"ids\":\"17\",\"params\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072071);
+INSERT INTO `zs_admin_log` VALUES (619, 1, 'admin', '/admin.php/advert/edit/ids/3?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"flag\":[\"A\",\"B\"],\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\",\"weigh\":\"\",\"switch\":\"1\"},\"ids\":\"3\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072255);
+INSERT INTO `zs_admin_log` VALUES (620, 1, 'admin', '/admin.php/advert/edit/ids/3?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"flag\":[\"A\",\"B\",\"C\",\"D\",\"E\"],\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\",\"weigh\":\"0\",\"switch\":\"1\"},\"ids\":\"3\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072264);
+INSERT INTO `zs_admin_log` VALUES (621, 1, 'admin', '/admin.php/advert/edit/ids/3?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"flag\":[\"A\",\"B\",\"C\",\"D\",\"E\"],\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191023\\/031dcc72e221e406ff98be29c94aff1b.gif\",\"weigh\":\"0\",\"switch\":\"1\"},\"ids\":\"3\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072394);
+INSERT INTO `zs_admin_log` VALUES (622, 1, 'admin', '/admin.php/advert/edit/ids/4?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"weigh\":\"\",\"switch\":\"1\",\"flag\":[\"\"]},\"ids\":\"4\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072400);
+INSERT INTO `zs_admin_log` VALUES (623, 1, 'admin', '/admin.php/advert/edit/ids/5?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"weigh\":\"\",\"switch\":\"1\",\"flag\":[\"\"]},\"ids\":\"5\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072409);
+INSERT INTO `zs_admin_log` VALUES (624, 1, 'admin', '/admin.php/advert/edit/ids/6?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191026\\/70579d8bb412a6aa768564a881dca806.png\",\"weigh\":\"\",\"switch\":\"1\",\"flag\":[\"\"]},\"ids\":\"6\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072419);
+INSERT INTO `zs_admin_log` VALUES (625, 1, 'admin', '/admin.php/advert/edit/ids/4?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"flag\":[\"A\"],\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"weigh\":\"0\",\"switch\":\"1\"},\"ids\":\"4\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072751);
+INSERT INTO `zs_admin_log` VALUES (626, 1, 'admin', '/admin.php/advert/edit/ids/5?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"flag\":[\"B\"],\"title\":\"\\u6587\\u5b57\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"weigh\":\"0\",\"switch\":\"1\"},\"ids\":\"5\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572072757);
+INSERT INTO `zs_admin_log` VALUES (627, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"d88a460c816ecdf57e9a670cb8ef42a6\",\"username\":\"admin\",\"captcha\":\"6f7e\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572076529);
+INSERT INTO `zs_admin_log` VALUES (628, 1, 'admin', '/admin.php/advert/edit/ids/9?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"flag\":[\"A\",\"B\",\"C\",\"D\",\"E\"],\"title\":\"\\u56fe\\u7247\\u5e7f\\u544a\",\"url\":\"http:\\/\\/zs.test.com\\/\",\"image\":\"\\/uploads\\/20191023\\/031dcc72e221e406ff98be29c94aff1b.gif\",\"weigh\":\"\",\"switch\":\"1\"},\"ids\":\"9\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572076540);
+INSERT INTO `zs_admin_log` VALUES (629, 1, 'admin', '/admin.php/index/login', '登录', '{\"__token__\":\"c3142661dad15e6ee287ddcee565c03a\",\"username\":\"admin\",\"captcha\":\"pprv\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572078058);
+INSERT INTO `zs_admin_log` VALUES (630, 1, 'admin', '/mufan.php/advert/multi/ids/3', '', '{\"action\":\"\",\"ids\":\"3\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079521);
+INSERT INTO `zs_admin_log` VALUES (631, 1, 'admin', '/mufan.php/advert/multi/ids/4', '', '{\"action\":\"\",\"ids\":\"4\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079522);
+INSERT INTO `zs_admin_log` VALUES (632, 1, 'admin', '/mufan.php/advert/multi/ids/5', '', '{\"action\":\"\",\"ids\":\"5\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079523);
+INSERT INTO `zs_admin_log` VALUES (633, 1, 'admin', '/mufan.php/advert/multi/ids/6', '', '{\"action\":\"\",\"ids\":\"6\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079524);
+INSERT INTO `zs_admin_log` VALUES (634, 1, 'admin', '/mufan.php/advert/multi/ids/9', '', '{\"action\":\"\",\"ids\":\"9\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079524);
+INSERT INTO `zs_admin_log` VALUES (635, 1, 'admin', '/mufan.php/advert/multi/ids/8', '', '{\"action\":\"\",\"ids\":\"8\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079528);
+INSERT INTO `zs_admin_log` VALUES (636, 1, 'admin', '/mufan.php/advert/multi/ids/7', '', '{\"action\":\"\",\"ids\":\"7\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079529);
+INSERT INTO `zs_admin_log` VALUES (637, 1, 'admin', '/mufan.php/advert/multi/ids/10', '', '{\"action\":\"\",\"ids\":\"10\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079548);
+INSERT INTO `zs_admin_log` VALUES (638, 1, 'admin', '/mufan.php/advert/multi/ids/11', '', '{\"action\":\"\",\"ids\":\"11\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079548);
+INSERT INTO `zs_admin_log` VALUES (639, 1, 'admin', '/mufan.php/advert/multi/ids/12', '', '{\"action\":\"\",\"ids\":\"12\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079549);
+INSERT INTO `zs_admin_log` VALUES (640, 1, 'admin', '/mufan.php/advert/multi/ids/13', '', '{\"action\":\"\",\"ids\":\"13\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079551);
+INSERT INTO `zs_admin_log` VALUES (641, 1, 'admin', '/mufan.php/advert/multi/ids/14', '', '{\"action\":\"\",\"ids\":\"14\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079552);
+INSERT INTO `zs_admin_log` VALUES (642, 1, 'admin', '/mufan.php/advert/multi/ids/15', '', '{\"action\":\"\",\"ids\":\"15\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079553);
+INSERT INTO `zs_admin_log` VALUES (643, 1, 'admin', '/mufan.php/advert/multi/ids/16', '', '{\"action\":\"\",\"ids\":\"16\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079553);
+INSERT INTO `zs_admin_log` VALUES (644, 1, 'admin', '/mufan.php/advert/multi/ids/17', '', '{\"action\":\"\",\"ids\":\"17\",\"params\":\"switch=0\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079554);
+INSERT INTO `zs_admin_log` VALUES (645, 1, 'admin', '/mufan.php/advert/multi/ids/13', '', '{\"action\":\"\",\"ids\":\"13\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079573);
+INSERT INTO `zs_admin_log` VALUES (646, 1, 'admin', '/mufan.php/advert/multi/ids/14', '', '{\"action\":\"\",\"ids\":\"14\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079573);
+INSERT INTO `zs_admin_log` VALUES (647, 1, 'admin', '/mufan.php/advert/multi/ids/15', '', '{\"action\":\"\",\"ids\":\"15\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079574);
+INSERT INTO `zs_admin_log` VALUES (648, 1, 'admin', '/mufan.php/advert/multi/ids/16', '', '{\"action\":\"\",\"ids\":\"16\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079574);
+INSERT INTO `zs_admin_log` VALUES (649, 1, 'admin', '/mufan.php/advert/multi/ids/17', '', '{\"action\":\"\",\"ids\":\"17\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079575);
+INSERT INTO `zs_admin_log` VALUES (650, 1, 'admin', '/mufan.php/advert/multi/ids/12', '', '{\"action\":\"\",\"ids\":\"12\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079577);
+INSERT INTO `zs_admin_log` VALUES (651, 1, 'admin', '/mufan.php/advert/multi/ids/11', '', '{\"action\":\"\",\"ids\":\"11\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079577);
+INSERT INTO `zs_admin_log` VALUES (652, 1, 'admin', '/mufan.php/advert/multi/ids/10', '', '{\"action\":\"\",\"ids\":\"10\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079578);
+INSERT INTO `zs_admin_log` VALUES (653, 1, 'admin', '/mufan.php/advert/multi/ids/8', '', '{\"action\":\"\",\"ids\":\"8\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079579);
+INSERT INTO `zs_admin_log` VALUES (654, 1, 'admin', '/mufan.php/advert/multi/ids/7', '', '{\"action\":\"\",\"ids\":\"7\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079580);
+INSERT INTO `zs_admin_log` VALUES (655, 1, 'admin', '/mufan.php/advert/multi/ids/6', '', '{\"action\":\"\",\"ids\":\"6\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079581);
+INSERT INTO `zs_admin_log` VALUES (656, 1, 'admin', '/mufan.php/advert/multi/ids/9', '', '{\"action\":\"\",\"ids\":\"9\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079581);
+INSERT INTO `zs_admin_log` VALUES (657, 1, 'admin', '/mufan.php/advert/multi/ids/5', '', '{\"action\":\"\",\"ids\":\"5\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079584);
+INSERT INTO `zs_admin_log` VALUES (658, 1, 'admin', '/mufan.php/advert/multi/ids/4', '', '{\"action\":\"\",\"ids\":\"4\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079584);
+INSERT INTO `zs_admin_log` VALUES (659, 1, 'admin', '/mufan.php/advert/multi/ids/3', '', '{\"action\":\"\",\"ids\":\"3\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572079587);
+INSERT INTO `zs_admin_log` VALUES (660, 1, 'admin', '/mufan.php/index/login', '登录', '{\"__token__\":\"670ee17b59f908d05ec6072de74ca6b9\",\"username\":\"admin\",\"captcha\":\"4fmm\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572085973);
+INSERT INTO `zs_admin_log` VALUES (661, 1, 'admin', '/mufan.php/general.web/edit', '常规管理 前台配置 更新配置', '{\"__token__\":\"0d00d7b2fed9e7273abe504bbc6801db\",\"row\":{\"web_name\":\"\\u62db\\u5546\\u7f51\\u7ad9\",\"web_logo\":\"\\/uploads\\/20191026\\/70579d8bb412a6aa768564a881dca806.png\",\"web_beian\":\"\\u7ca4\\u516c\\u5b89\\u7f51\\u5907123456789-0\\u53f7\",\"web_icp\":\"\\u7ca4ICP\\u5907123456789-0\\u53f7\",\"web_copyright\":\"\\u6728\\u5e06\\u79d1\\u6280\",\"web_email\":\"123@qq.com\",\"web_phone\":\"17819180343\",\"web_qq\":\"572779486\",\"web_baidu\":\"<script> var _hmt = _hmt || []; (function() { var hm = document.createElement(\\\"script\\\"); hm.src = \\\"\\/\\/hm.baidu.com\\/hm.js?XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\\"; var s = document.getElementsByTagName(\\\"script\\\")[0]; s.parentNode.insertBefore(hm, s); })(); <\\/script>\"}}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572085988);
+INSERT INTO `zs_admin_log` VALUES (662, 1, 'admin', '/mufan.php/project/edit/ids/7?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"category_id\":\"15\",\"flag\":[\"hot\",\"navs\",\"index\",\"menu\"],\"title\":\"\\u5973\\u795e\\u88c5\\u626e\",\"content\":\"<p>\\u5973\\u795e\\u88c5\\u626e<\\/p>\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"keywords\":\"11\\u5973\\u795e\\u88c5\\u626e\",\"description\":\"\\u5973\\u795e\\u88c5\\u626e\",\"price\":\"3\",\"views\":\"0\",\"weigh\":\"0\",\"switch\":\"0\"},\"ids\":\"7\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086642);
+INSERT INTO `zs_admin_log` VALUES (663, 1, 'admin', '/mufan.php/project/multi/ids/7', '', '{\"action\":\"\",\"ids\":\"7\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086741);
+INSERT INTO `zs_admin_log` VALUES (664, 1, 'admin', '/mufan.php/project/multi/ids/9', '', '{\"action\":\"\",\"ids\":\"9\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086742);
+INSERT INTO `zs_admin_log` VALUES (665, 1, 'admin', '/mufan.php/project/multi/ids/10', '', '{\"action\":\"\",\"ids\":\"10\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086743);
+INSERT INTO `zs_admin_log` VALUES (666, 1, 'admin', '/mufan.php/project/multi/ids/11', '', '{\"action\":\"\",\"ids\":\"11\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086743);
+INSERT INTO `zs_admin_log` VALUES (667, 1, 'admin', '/mufan.php/project/multi/ids/12', '', '{\"action\":\"\",\"ids\":\"12\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086744);
+INSERT INTO `zs_admin_log` VALUES (668, 1, 'admin', '/mufan.php/project/multi/ids/13', '', '{\"action\":\"\",\"ids\":\"13\",\"params\":\"switch=1\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086745);
+INSERT INTO `zs_admin_log` VALUES (669, 1, 'admin', '/mufan.php/project/edit/ids/7?dialog=1', '项目管理 修改', '{\"dialog\":\"1\",\"row\":{\"category_id\":\"15\",\"flag\":[\"hot\",\"navs\",\"index\",\"recommend\",\"menu\"],\"title\":\"\\u5973\\u795e\\u88c5\\u626e\",\"content\":\"<p>\\u5973\\u795e\\u88c5\\u626e<\\/p>\",\"image\":\"\\/uploads\\/20191023\\/3b0e4f478342f2af11dcea44fb2a6730.jpg\",\"keywords\":\"11\\u5973\\u795e\\u88c5\\u626e\",\"description\":\"\\u5973\\u795e\\u88c5\\u626e\",\"price\":\"3\",\"views\":\"0\",\"weigh\":\"0\",\"switch\":\"1\"},\"ids\":\"7\"}', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36', 1572086909);
 
 -- ----------------------------
 -- Table structure for zs_advert
@@ -672,14 +743,38 @@ DROP TABLE IF EXISTS `zs_advert`;
 CREATE TABLE `zs_advert`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
   `admin_id` int(11) NULL DEFAULT NULL COMMENT '公司ｉｄ',
-  `flag` set('a') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '标志',
+  `type` int(1) NULL DEFAULT NULL COMMENT '广告类型：0.文字，1.图片',
+  `flag` set('A','B','C','D','E') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '标志',
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题',
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '链接地址',
   `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片地址',
-  `lavel` int(11) NULL DEFAULT NULL COMMENT '权重',
-  `createtime` int(11) NULL DEFAULT NULL COMMENT '时间',
+  `switch` int(1) NULL DEFAULT 1 COMMENT '状态；1.显示，0.隐藏',
+  `weigh` int(11) NULL DEFAULT NULL COMMENT '权重',
+  `createtime` int(11) NULL DEFAULT NULL,
+  `updatetime` int(11) NULL DEFAULT NULL,
+  `deletetime` int(11) NULL DEFAULT NULL,
+  `views` int(11) NULL DEFAULT 0 COMMENT '浏览流量',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图文广告表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图文广告表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of zs_advert
+-- ----------------------------
+INSERT INTO `zs_advert` VALUES (3, 4, 0, 'A,B,C,D,E', '文字广告', 'http://zs.test.com/', '', 1, 0, 1572070045, 1572079587, NULL, 0);
+INSERT INTO `zs_advert` VALUES (4, 4, 0, 'A,B,C,D,E', '文字广告', 'http://zs.test.com/', '', 1, 0, 1572070046, 1572079584, NULL, 0);
+INSERT INTO `zs_advert` VALUES (5, 4, 0, 'A,B,C,D,E', '文字广告', 'http://zs.test.com/', '', 1, 0, 1572070046, 1572079584, NULL, 0);
+INSERT INTO `zs_advert` VALUES (6, 4, 0, 'A,B,C,D,E', '文字广告', 'http://zs.test.com/', '', 1, 0, 1572070046, 1572079581, NULL, 0);
+INSERT INTO `zs_advert` VALUES (7, 4, 0, 'A,B,C,D,E', '文字广告', 'http://zs.test.com/', '', 1, NULL, 1572070046, 1572079580, NULL, 0);
+INSERT INTO `zs_advert` VALUES (8, 4, 0, 'A,B,C,D,E', '文字广告', 'http://zs.test.com/', '', 1, NULL, 1572070046, 1572079579, NULL, 0);
+INSERT INTO `zs_advert` VALUES (9, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', 1, 0, 1572070076, 1572079581, NULL, 0);
+INSERT INTO `zs_advert` VALUES (10, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070077, 1572079578, NULL, 0);
+INSERT INTO `zs_advert` VALUES (11, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070077, 1572079577, NULL, 0);
+INSERT INTO `zs_advert` VALUES (12, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070077, 1572079577, NULL, 0);
+INSERT INTO `zs_advert` VALUES (13, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070077, 1572079573, NULL, 0);
+INSERT INTO `zs_advert` VALUES (14, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070077, 1572079573, NULL, 0);
+INSERT INTO `zs_advert` VALUES (15, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070077, 1572079574, NULL, 0);
+INSERT INTO `zs_advert` VALUES (16, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070078, 1572079574, NULL, 0);
+INSERT INTO `zs_advert` VALUES (17, 4, 1, 'A,B,C,D,E', '图片广告', 'http://zs.test.com/', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', 1, NULL, 1572070078, 1572079575, NULL, 0);
 
 -- ----------------------------
 -- Table structure for zs_article
@@ -747,7 +842,7 @@ CREATE TABLE `zs_attachment`  (
   `storage` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'local' COMMENT '存储位置',
   `sha1` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '文件 sha1编码',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '附件表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '附件表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_attachment
@@ -759,6 +854,8 @@ INSERT INTO `zs_attachment` VALUES (6, 0, 2, '/uploads/20191021/90a36855cf364313
 INSERT INTO `zs_attachment` VALUES (7, 0, 2, '/uploads/20191021/70579d8bb412a6aa768564a881dca806.png', '235', '74', 'png', 0, 4033, 'image/png', '', 1571653633, 1571653633, 1571653633, 'local', 'df52e4c77288f1be8892534848769c5bf0f5fc59');
 INSERT INTO `zs_attachment` VALUES (8, 0, 4, '/uploads/20191023/3b0e4f478342f2af11dcea44fb2a6730.jpg', '120', '90', 'jpg', 0, 4400, 'image/jpeg', '', 1571822352, 1571822352, 1571822352, 'local', '2996ce9df3cbc07bef1d40a48c1b5ab52f776ee7');
 INSERT INTO `zs_attachment` VALUES (9, 0, 4, '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '200', '150', 'gif', 0, 16179, 'image/gif', '', 1571823550, 1571823550, 1571823550, 'local', '261e02ff00b7b033b1fd9668b98bc3d44e76d3fe');
+INSERT INTO `zs_attachment` VALUES (10, 0, 4, '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', '235', '74', 'png', 0, 4033, 'image/png', '', 1572063322, 1572063322, 1572063322, 'local', 'df52e4c77288f1be8892534848769c5bf0f5fc59');
+INSERT INTO `zs_attachment` VALUES (11, 0, 4, '/uploads/20191026/885cf743d742e9edcd981f13c972c6be.png', '1537', '918', 'png', 0, 723110, 'image/png', '', 1572069864, 1572069864, 1572069864, 'local', '3505208aaa2fd671ba868ee59cb4370017132264');
 
 -- ----------------------------
 -- Table structure for zs_auth_group
@@ -823,7 +920,7 @@ CREATE TABLE `zs_auth_rule`  (
   UNIQUE INDEX `name`(`name`) USING BTREE,
   INDEX `pid`(`pid`) USING BTREE,
   INDEX `weigh`(`weigh`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '节点表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 107 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '节点表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of zs_auth_rule
@@ -931,6 +1028,9 @@ INSERT INTO `zs_auth_rule` VALUES (100, 'file', 95, 'project/recyclebin', '回�
 INSERT INTO `zs_auth_rule` VALUES (101, 'file', 85, 'general/web/edit', '更新配置', 'fa fa-circle-o', '', '', 0, 1570615161, 1570615161, 0, 'normal');
 INSERT INTO `zs_auth_rule` VALUES (102, 'file', 85, 'general/web/tdk', 'TDK', 'fa fa-circle-o', '', '', 0, 1570615189, 1570615189, 0, 'normal');
 INSERT INTO `zs_auth_rule` VALUES (103, 'file', 0, 'article', '文章管理', 'fa fa-book', '', '', 1, 1570616980, 1570616980, 0, 'normal');
+INSERT INTO `zs_auth_rule` VALUES (104, 'file', 0, 'advert', '广告管理', 'fa fa-image', '', '', 1, 1572070248, 1572070248, 0, 'normal');
+INSERT INTO `zs_auth_rule` VALUES (105, 'file', 95, 'advert/edit', '修改', 'fa fa-circle-o', '', '', 0, 1572070277, 1572070277, 0, 'normal');
+INSERT INTO `zs_auth_rule` VALUES (106, 'file', 104, 'advert/del', '删除', 'fa fa-circle-o', '', '', 0, 1572070307, 1572070307, 0, 'normal');
 
 -- ----------------------------
 -- Table structure for zs_category
@@ -1576,16 +1676,16 @@ CREATE TABLE `zs_project`  (
 -- ----------------------------
 -- Records of zs_project
 -- ----------------------------
-INSERT INTO `zs_project` VALUES (7, 4, 15, 'index,menu,navs', '女神装扮', '很美', '女神装扮', '17818182223', '4008892333', '<p>女神装扮</p>', '/uploads/20191023/3b0e4f478342f2af11dcea44fb2a6730.jpg', '11女神装扮', '女神装扮', '', 3, 0, 1571822373, 1571996239, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (9, 4, 15, 'index,menu,navs', '女神装扮', '芮欧童装', '芮欧童装', '17818182222', '4003338888', '<p><span style=\"color: rgb(102, 102, 102); font-family: 微软雅黑; font-size: 14px; background-color: rgb(255, 255, 255);\">芮欧童装</span></p>', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '芮欧童装', '芮欧童装', '140600,140800', 3, 0, 1571823556, 1571996250, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (10, 0, 15, 'index,menu,navs', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1571996256, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (11, 0, 15, 'index,menu', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1571903372, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (12, 0, 15, 'index,menu', '女神装扮', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (13, 0, 15, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
+INSERT INTO `zs_project` VALUES (7, 4, 15, 'hot,index,recommend,menu,navs', '女神装扮', '很美', '女神装扮', '17818182223', '4008892333', '<p>女神装扮</p>', '/uploads/20191023/3b0e4f478342f2af11dcea44fb2a6730.jpg', '11女神装扮', '女神装扮', '', 3, 0, 1571822373, 1572086909, NULL, 0, 1);
+INSERT INTO `zs_project` VALUES (9, 4, 15, 'hot,index,recommend,menu,navs', '女神装扮', '芮欧童装', '芮欧童装', '17818182222', '4003338888', '<p><span style=\"color: rgb(102, 102, 102); font-family: 微软雅黑; font-size: 14px; background-color: rgb(255, 255, 255);\">芮欧童装</span></p>', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '芮欧童装', '芮欧童装', '140600,140800', 3, 0, 1571823556, 1572086742, NULL, 0, 1);
+INSERT INTO `zs_project` VALUES (10, 0, 15, 'hot,index,recommend,menu,navs', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1572086743, NULL, 0, 1);
+INSERT INTO `zs_project` VALUES (11, 0, 15, 'hot,index,recommend,menu,navs', '女神装扮', NULL, '女神装扮', NULL, NULL, '１', '/uploads/20191023/031dcc72e221e406ff98be29c94aff1b.gif', '１', '１', '', 1, 0, NULL, 1572086743, NULL, 0, 1);
+INSERT INTO `zs_project` VALUES (12, 0, 15, 'hot,index,recommend,menu,navs', '女神装扮', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, 1572086744, NULL, 0, 1);
+INSERT INTO `zs_project` VALUES (13, 0, 15, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, 1572086745, NULL, 0, 1);
 INSERT INTO `zs_project` VALUES (14, 0, 15, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (15, 0, 15, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (16, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
-INSERT INTO `zs_project` VALUES (17, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
+INSERT INTO `zs_project` VALUES (17, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, 1572072071, 1572072071, 0, 0);
 INSERT INTO `zs_project` VALUES (18, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (19, 0, 16, 'index,menu', '', NULL, '女神装扮', NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
 INSERT INTO `zs_project` VALUES (20, 0, 16, 'index,menu', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, 0, NULL, NULL, NULL, 0, 0);
@@ -1694,7 +1794,7 @@ CREATE TABLE `zs_user`  (
 -- ----------------------------
 -- Records of zs_user
 -- ----------------------------
-INSERT INTO `zs_user` VALUES (4, 1, 'ygf2019', 'ygf2019', 'babc9924e2f89c7350dad8c47769d7e0', '未知', 'nid4S5', '123@qq.com', '17819192234', '', 1, 0, NULL, '', '', 0.00, 0, 3, 3, 1571885412, 1571997469, '127.0.0.1', 0, '127.0.0.1', 1571817612, 1571817612, 1571997469, '', 'normal', '');
+INSERT INTO `zs_user` VALUES (4, 1, 'ygf2019', 'ygf2019', 'babc9924e2f89c7350dad8c47769d7e0', '未知', 'nid4S5', '123@qq.com', '17819192234', '', 1, 0, NULL, '', '', 0.00, 0, 4, 4, 1572057211, 1572058516, '127.0.0.1', 0, '127.0.0.1', 1571817612, 1571817612, 1572058516, '', 'normal', '');
 
 -- ----------------------------
 -- Table structure for zs_user_group
@@ -1713,7 +1813,7 @@ CREATE TABLE `zs_user_group`  (
 -- ----------------------------
 -- Records of zs_user_group
 -- ----------------------------
-INSERT INTO `zs_user_group` VALUES (1, '测试组', '7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32', 1515386468, 1571999534, 'normal');
+INSERT INTO `zs_user_group` VALUES (1, '测试组', '7,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32', 1515386468, 1572059115, 'normal');
 
 -- ----------------------------
 -- Table structure for zs_user_money_log
@@ -1808,11 +1908,12 @@ CREATE TABLE `zs_user_token`  (
 -- ----------------------------
 -- Records of zs_user_token
 -- ----------------------------
+INSERT INTO `zs_user_token` VALUES ('03f00cd1083d6ae5f5ce70b5865f95b6b4482c03', 4, 1572058516, 1574650516);
 INSERT INTO `zs_user_token` VALUES ('0f5c1f8bcfd47d40f5c741fe52a879ea67318b2f', 2, 1570179724, 1572771724);
 INSERT INTO `zs_user_token` VALUES ('2fd2af02e20b52719c47b115341b8f0e20065755', 2, 1570179842, 1572771842);
+INSERT INTO `zs_user_token` VALUES ('3c96f530a1ac0906bfb0c5ed8055ee9906bb299c', 4, 1572057211, 1574649211);
 INSERT INTO `zs_user_token` VALUES ('432d2d42fcca8a4c4fa7a33924d94ee53a153b8a', 4, 1571885412, 1574477412);
 INSERT INTO `zs_user_token` VALUES ('5db12840fd06c2d381d29b2a425ecca1240a0ebe', 2, 1570179746, 1572771746);
-INSERT INTO `zs_user_token` VALUES ('6618a28bc114e3a6210d5bb5499e9032143b28ce', 4, 1571997469, 1574589469);
 INSERT INTO `zs_user_token` VALUES ('683a840be814c5d32ee0440b082239ab664ae3e4', 1, 1570178605, 1572770605);
 INSERT INTO `zs_user_token` VALUES ('8ffce403949324c878e566e2964613a9b5513d01', 3, 1571817212, 1574409212);
 INSERT INTO `zs_user_token` VALUES ('a62c4daa1ab43df9b030d2d375739e8446a70036', 2, 1570181194, 1572773194);
@@ -1870,7 +1971,7 @@ CREATE TABLE `zs_web_config`  (
 -- ----------------------------
 -- Records of zs_web_config
 -- ----------------------------
-INSERT INTO `zs_web_config` VALUES (1, '招商网站', '/uploads/20191008/70579d8bb412a6aa768564a881dca806.png', '17819180343', NULL, '粤ICP备123456789-0号', '粤公安网备123456789-0号', '木帆科技', '<script> var _hmt = _hmt || []; (function() { var hm = document.createElement(\"script\"); hm.src = \"//hm.baidu.com/hm.js?XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\"; var s = document.getElementsByTagName(\"script\")[0]; s.parentNode.insertBefore(hm, s); })(); </script>', '123@qq.com', '572779486', 1, '网站维护升级中。。。。', 1, '网站维护升级中。。。', '');
+INSERT INTO `zs_web_config` VALUES (1, '招商网站', '/uploads/20191026/70579d8bb412a6aa768564a881dca806.png', '17819180343', NULL, '粤ICP备123456789-0号', '粤公安网备123456789-0号', '木帆科技', '<script> var _hmt = _hmt || []; (function() { var hm = document.createElement(\"script\"); hm.src = \"//hm.baidu.com/hm.js?XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\"; var s = document.getElementsByTagName(\"script\")[0]; s.parentNode.insertBefore(hm, s); })(); </script>', '123@qq.com', '572779486', 1, '网站维护升级中。。。。', 1, '网站维护升级中。。。', '');
 
 -- ----------------------------
 -- Table structure for zs_web_tdk

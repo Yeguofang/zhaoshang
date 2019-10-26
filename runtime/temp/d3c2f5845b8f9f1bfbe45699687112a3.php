@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:65:"/var/www/zs/public/../application/index/view/project/ranking.html";i:1570163061;s:53:"/var/www/zs/application/index/view/common/header.html";i:1570183502;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570163017;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:65:"/var/www/zs/public/../application/index/view/project/ranking.html";i:1570420933;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -35,7 +35,7 @@
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="./static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="/static/home/picture/ewm_xm.png" width="100"></li>
                         </ol>
                     </li>
 
@@ -46,8 +46,8 @@
         <h3>
 
             <?php if($user['nickname']): ?> 您好！
-            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a href="/user/index.php">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
-            <a href="<?php echo url('/login'); ?>" target='_blank'>登录</a> <a href="<?php echo url('/register'); ?>" target='_blank'>免费注册</a> <?php endif; ?>
+            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a target="_bank" href="<?php echo url('menber/user/index'); ?>">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('menber/user/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
+            <a href="<?php echo url('menber/user/login'); ?>" target='_blank'>登录</a> <a href="<?php echo url('menber/user/register'); ?>" target='_blank'>免费注册</a> <?php endif; ?>
         </h3>
     </div>
 </div>
@@ -57,7 +57,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="./static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="http://3158.zzcms.net"><img src="/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -88,24 +88,31 @@
     <div class="main">
         <ul>
             <li class="current"><a href="<?php echo url('/'); ?>">首页</a></li>
-            <li><a href="<?php echo url('/article'); ?>">资讯</a></li>
+            <?php if(is_array($project_cate) || $project_cate instanceof \think\Collection || $project_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $project_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
+            <li><a href="<?php echo url('/project'); ?>"><?php echo $c['name']; ?></a></li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+
             <li><a href="<?php echo url('/article_list'); ?>">资讯列表</a></li>
             <li><a href="<?php echo url('/article_detail'); ?>">资讯详情</a></li>
             <li><a href="<?php echo url('/project'); ?>">项目列表 </a></li>
             <li><a href="<?php echo url('/project_detail'); ?>">项目详情</a></li>
+            <li><a href="<?php echo url('/article'); ?>">资讯</a></li>
             <li><a href="<?php echo url('/ranking'); ?>">排行</a></li>
             <li><a href="<?php echo url('/help'); ?>">帮助</a></li>
         </ul>
     </div>
 </div>
 
-    <div class="item2">
-        <div class="main">
-            <a href="http://3158.zzcms.net/zx/1">热点资讯</a> <a href="http://3158.zzcms.net/zx/2">创业指南</a> <a href="http://3158.zzcms.net/zx/3">最新动态</a> <a href="http://3158.zzcms.net/zx/4">市场行情</a>
-            <a href="http://3158.zzcms.net/zx/5">创业秘籍</a> <a href="http://3158.zzcms.net/zx/6">最佳商机</a> <a href="http://3158.zzcms.net/zx/7">项目分析</a> <a href="http://3158.zzcms.net/zx/8">草根必读</a>
-            <a href="http://3158.zzcms.net/zx/9">创业问答</a> <a href="http://3158.zzcms.net/zx/10">创业经历</a> <a href="http://3158.zzcms.net/zx/11">暴利行业</a> <a href="http://3158.zzcms.net/zx/12">项目筛选</a>
-        </div>
+<?php if($url != "Indexindex"): ?>
+<div class="item2">
+    <div class="main">
+        <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
+        <a href="article_list"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
+</div>
+<?php endif; ?>
+
+
     <div class="main">
         <div class="pagebody">
             <table width="100%" border="0" cellspacing="8" ellpadding="0" class="bordercccccc">
@@ -468,13 +475,13 @@
                 <font color=#FF6600 face=Arial>ZZ</font>
                 <font color=#025BAD face=Arial>CMS2019</font>
             </a>
-            <script type=text/javascript src=./static/home/js/713776.js>
+            <script type=text/javascript src=/static/home/js/713776.js>
             </script> <br /> zzcms项目加盟模板演示站只提供交易平台，对具体交易过程不参与也不承担任何责任。望供求双方谨慎交易。
         </div>
     </div>
 </div>
 <!--返回顶部-->
-<script src="./static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
 </script>
 <div style="display: none" id="goTopBtn">
 </DIV>

@@ -216,6 +216,28 @@
         </div>
 
 
+    <!-- 图片链接 -->
+    <div class="titles">
+            <span>
+                {volist name="advert_d.text" id="d"}
+                <a href="{$d.url}" target="_blank" >{$d.title}</a>|
+                {/volist}
+                <a href="{:url('/link')}">更多...</a>
+            </span> 
+            图片链接</div>
+        <div class="content">
+            <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
+                <tr>
+                    <td width=25% bgcolor=#FFFFFF>
+                        {volist name="advert_d.image" id="d"}
+                        <a href="{$d.url}" target='_blank'><img src="{$d.image}" alt="{$d.title}" width=144 height=70 border=0 /></a>
+                        {/volist}
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <!-- 图片链接 -->
+
         <!-- 推荐项目开始 -->
         <div class="pagebody">
             <div>
@@ -306,53 +328,79 @@
         </div>
         <!-- 文章咨询－１ -->
 
+        
 
-        <div class="titles"><span>
-            <a href="###">火爆招商Z区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>|
-            <a　href="###">火爆招商a区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>
+
+        <!-- 图文广告－Ａ区 -->
+        <div class="titles">
+            <span>
+                {volist name="advert_a.text" id="a"}
+                <a href="{$a.url}" target="_blank" >{$a.title}</a>|
+                {/volist}
+                <a href="{:url('/link')}">更多...</a>
             </span>
             <h3>火爆招商a区</h3>
         </div>
-      
-
-        <div class="titles">
-            <span><a href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a>|<a
-                    href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a></span>
-            <h3>火爆招商B区
-            </h3>
+        <div class="pagebody">
+            <div class="adStyle1">
+                <ul>
+                    {volist name="advert_a.image" id="a"}
+                    <li>
+                        <a  href="{$a.url}" target="_blank" style="color:">
+                            <img data-original="{$a.image}" alt="{$a.title}" src="{$a.image}" style="display: inline;">
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
         </div>
+         <!-- 图文广告－Ａ区 -->
+
+
+
+          <!-- 图文广告－B区 -->
+        <div class="titles">
+            <span>
+                {volist name="advert_b.text" id="b"}
+                <a href="{$b.url}" target="_blank" >{$b.title}</a>|
+                {/volist}
+                <a href="{:url('/link')}">更多...</a>
+            </span>
+            <h3>火爆招商B区</h3>
+        </div>
+        
         <div class="adStyle2">
             <ul>
+                {volist name="advert_b.image" id="b"}
                 <li>
-                    <a href='javascript:void(0)' target='_blank' style='color:'><img data-original='__HOME__/picture/20181028045732681.jpg' alt='抢占此位置' /></a>
+                    <a  href="{$b.url}" target="_blank" style="color:"><img data-original="{$b.image}" alt="{$b.title}" src="{$b.image}" style="display: inline;"></a></li>
                 </li>
-             
-                <li> 
-                    <a href='javascript:void(0)' target='_blank' style='color:'>抢占此位置</a>
-                </li>
-              
+                {/volist}
             </ul>
         </div>
+        <!-- 图文广告－B区 -->
 
+
+         <!-- 图文广告－C区 -->
         <div class="titles">
-            <span><a href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a>|<a
-                    href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a></span>
-            <h3>火爆招商C区
-            </h3>
+            <span>
+                {volist name="advert_c.image" id="c"}
+                <a href="{$c.url}" target="_blank" >{$c.title}</a>|
+                {/volist}
+                <a href="{:url('/link')}">更多...</a>
+            </span>
+            <h3>火爆招商C区</h3>
         </div>
         <div class="adStyle3">
             <ul>
+                {volist name="advert_c.image" id="c"}
                 <li>
-                    <a href='javascript:void(0)' target='_blank' style='color:'><img data-original='__HOME__/picture/20181028035610869.gif' alt='1' /></a>
+                    <a href="{$c.url}" target="_blank" style="color:"><img data-original="{$c.image}" alt="{$c.title}" src="{$c.image}" style="display: block;"></a>
                 </li>
-             
+                {/volist}
             </ul>
         </div>
-
+         <!-- 图文广告－C区 -->
         
 
         <!-- 文章咨询－2 -->
@@ -508,14 +556,23 @@
 
         
         <!-- 图片链接 -->
-        <div class="titles"><span><a href='link.htm'>更多...</a></span> 图片链接</div>
+        <div class="titles">
+            <span>
+                {volist name="advert_d.text" id="d"}
+                <a href="{$d.url}" target="_blank" >{$d.title}</a>|
+                {/volist}
+                <a href="{:url('/link')}">更多...</a>
+            </span> 
+            图片链接</div>
         <div class="content">
             <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
                 <tr>
                     <td width=25% bgcolor=#FFFFFF>
-                        <a href="http://www.jxcgl.com" target='_blank'><img src="__HOME__/picture/logo.png" alt="进销存管理" width=150 height=50 border=0 /></a>
+                        {volist name="advert_d.image" id="d"}
+                        <a href="{$d.url}" target='_blank'><img src="{$d.image}" alt="{$d.title}" width=144 height=70 border=0 /></a>
+                        {/volist}
                     </td>
-                   
+                </tr>
             </table>
         </div>
          <!-- 图片链接 -->
@@ -523,12 +580,23 @@
 
          <!-- 文字链接 -->
         <div class="titles">
+            <span>
+                {volist name="advert_e.text" id="e"}
+                <a href="{$e.url}" target="_blank" >{$e.title}</a>|
+                {/volist}
+                <a href="{:url('/link')}">更多...</a>
+            </span> 
             <h3>文字链接</h3>
         </div>
         <div class="content1">
             <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
                 <tr>
-                    <td bgcolor='#FFFFFF'><a href="http://www.jxcgl.com" target='_blank'>进销存管理</a></td>
+                    {volist name="advert_e.text" id="e"}
+                    <td bgcolor='#FFFFFF'>
+                        <a href="{$e.url}" target='_blank'>{$e.title}</a>
+                    </td>
+                    {/volist}
+                </tr>
             </table>
         </div>
         <!-- 文字链接 -->

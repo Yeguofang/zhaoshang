@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1571996102;s:51:"/var/www/zs/application/index/view/common/head.html";i:1570958945;s:53:"/var/www/zs/application/index/view/common/header.html";i:1571133372;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572080754;s:51:"/var/www/zs/application/index/view/common/head.html";i:1570958945;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -82,7 +82,7 @@
         <h3>
 
             <?php if($user['nickname']): ?> 您好！
-            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a href="<?php echo url('menber/user/index'); ?>">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('menber/user/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
+            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a target="_bank" href="<?php echo url('menber/user/index'); ?>">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('menber/user/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
             <a href="<?php echo url('menber/user/login'); ?>" target='_blank'>登录</a> <a href="<?php echo url('menber/user/register'); ?>" target='_blank'>免费注册</a> <?php endif; ?>
         </h3>
     </div>
@@ -320,6 +320,28 @@
         </div>
 
 
+    <!-- 图片链接 -->
+    <div class="titles">
+            <span>
+                <?php if(is_array($advert_d['text']) || $advert_d['text'] instanceof \think\Collection || $advert_d['text'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_d['text'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo $d['url']; ?>" target="_blank" ><?php echo $d['title']; ?></a>|
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo url('/link'); ?>">更多...</a>
+            </span> 
+            图片链接</div>
+        <div class="content">
+            <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
+                <tr>
+                    <td width=25% bgcolor=#FFFFFF>
+                        <?php if(is_array($advert_d['image']) || $advert_d['image'] instanceof \think\Collection || $advert_d['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_d['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;?>
+                        <a href="<?php echo $d['url']; ?>" target='_blank'><img src="<?php echo $d['image']; ?>" alt="<?php echo $d['title']; ?>" width=144 height=70 border=0 /></a>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <!-- 图片链接 -->
+
         <!-- 推荐项目开始 -->
         <div class="pagebody">
             <div>
@@ -408,53 +430,79 @@
         </div>
         <!-- 文章咨询－１ -->
 
+        
 
-        <div class="titles"><span>
-            <a href="###">火爆招商Z区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>|
-            <a　href="###">火爆招商a区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>|
-            <a href="###">火爆招商a区文字广告</a>
+
+        <!-- 图文广告－Ａ区 -->
+        <div class="titles">
+            <span>
+                <?php if(is_array($advert_a['text']) || $advert_a['text'] instanceof \think\Collection || $advert_a['text'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_a['text'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo $a['url']; ?>" target="_blank" ><?php echo $a['title']; ?></a>|
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo url('/link'); ?>">更多...</a>
             </span>
             <h3>火爆招商a区</h3>
         </div>
-      
-
-        <div class="titles">
-            <span><a href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a>|<a
-                    href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a>|<a href="###">火爆招商B区文字广告</a></span>
-            <h3>火爆招商B区
-            </h3>
+        <div class="pagebody">
+            <div class="adStyle1">
+                <ul>
+                    <?php if(is_array($advert_a['image']) || $advert_a['image'] instanceof \think\Collection || $advert_a['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_a['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                    <li>
+                        <a  href="<?php echo $a['url']; ?>" target="_blank" style="color:">
+                            <img data-original="<?php echo $a['image']; ?>" alt="<?php echo $a['title']; ?>" src="<?php echo $a['image']; ?>" style="display: inline;">
+                        </a>
+                    </li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+            </div>
         </div>
+         <!-- 图文广告－Ａ区 -->
+
+
+
+          <!-- 图文广告－B区 -->
+        <div class="titles">
+            <span>
+                <?php if(is_array($advert_b['text']) || $advert_b['text'] instanceof \think\Collection || $advert_b['text'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_b['text'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$b): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo $b['url']; ?>" target="_blank" ><?php echo $b['title']; ?></a>|
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo url('/link'); ?>">更多...</a>
+            </span>
+            <h3>火爆招商B区</h3>
+        </div>
+        
         <div class="adStyle2">
             <ul>
+                <?php if(is_array($advert_b['image']) || $advert_b['image'] instanceof \think\Collection || $advert_b['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_b['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$b): $mod = ($i % 2 );++$i;?>
                 <li>
-                    <a href='javascript:void(0)' target='_blank' style='color:'><img data-original='./static/home/picture/20181028045732681.jpg' alt='抢占此位置' /></a>
+                    <a  href="<?php echo $b['url']; ?>" target="_blank" style="color:"><img data-original="<?php echo $b['image']; ?>" alt="<?php echo $b['title']; ?>" src="<?php echo $b['image']; ?>" style="display: inline;"></a></li>
                 </li>
-             
-                <li> 
-                    <a href='javascript:void(0)' target='_blank' style='color:'>抢占此位置</a>
-                </li>
-              
+                <?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
+        <!-- 图文广告－B区 -->
 
+
+         <!-- 图文广告－C区 -->
         <div class="titles">
-            <span><a href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a>|<a
-                    href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a>|<a href="###">火爆招商C区文字广告</a></span>
-            <h3>火爆招商C区
-            </h3>
+            <span>
+                <?php if(is_array($advert_c['image']) || $advert_c['image'] instanceof \think\Collection || $advert_c['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_c['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo $c['url']; ?>" target="_blank" ><?php echo $c['title']; ?></a>|
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo url('/link'); ?>">更多...</a>
+            </span>
+            <h3>火爆招商C区</h3>
         </div>
         <div class="adStyle3">
             <ul>
+                <?php if(is_array($advert_c['image']) || $advert_c['image'] instanceof \think\Collection || $advert_c['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_c['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
                 <li>
-                    <a href='javascript:void(0)' target='_blank' style='color:'><img data-original='./static/home/picture/20181028035610869.gif' alt='1' /></a>
+                    <a href="<?php echo $c['url']; ?>" target="_blank" style="color:"><img data-original="<?php echo $c['image']; ?>" alt="<?php echo $c['title']; ?>" src="<?php echo $c['image']; ?>" style="display: block;"></a>
                 </li>
-             
+                <?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
-
+         <!-- 图文广告－C区 -->
         
 
         <!-- 文章咨询－2 -->
@@ -608,14 +656,23 @@
 
         
         <!-- 图片链接 -->
-        <div class="titles"><span><a href='link.htm'>更多...</a></span> 图片链接</div>
+        <div class="titles">
+            <span>
+                <?php if(is_array($advert_d['text']) || $advert_d['text'] instanceof \think\Collection || $advert_d['text'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_d['text'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo $d['url']; ?>" target="_blank" ><?php echo $d['title']; ?></a>|
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo url('/link'); ?>">更多...</a>
+            </span> 
+            图片链接</div>
         <div class="content">
             <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
                 <tr>
                     <td width=25% bgcolor=#FFFFFF>
-                        <a href="http://www.jxcgl.com" target='_blank'><img src="./static/home/picture/logo.png" alt="进销存管理" width=150 height=50 border=0 /></a>
+                        <?php if(is_array($advert_d['image']) || $advert_d['image'] instanceof \think\Collection || $advert_d['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_d['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;?>
+                        <a href="<?php echo $d['url']; ?>" target='_blank'><img src="<?php echo $d['image']; ?>" alt="<?php echo $d['title']; ?>" width=144 height=70 border=0 /></a>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </td>
-                   
+                </tr>
             </table>
         </div>
          <!-- 图片链接 -->
@@ -623,12 +680,23 @@
 
          <!-- 文字链接 -->
         <div class="titles">
+            <span>
+                <?php if(is_array($advert_e['text']) || $advert_e['text'] instanceof \think\Collection || $advert_e['text'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_e['text'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$e): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo $e['url']; ?>" target="_blank" ><?php echo $e['title']; ?></a>|
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo url('/link'); ?>">更多...</a>
+            </span> 
             <h3>文字链接</h3>
         </div>
         <div class="content1">
             <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
                 <tr>
-                    <td bgcolor='#FFFFFF'><a href="http://www.jxcgl.com" target='_blank'>进销存管理</a></td>
+                    <?php if(is_array($advert_e['text']) || $advert_e['text'] instanceof \think\Collection || $advert_e['text'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_e['text'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$e): $mod = ($i % 2 );++$i;?>
+                    <td bgcolor='#FFFFFF'>
+                        <a href="<?php echo $e['url']; ?>" target='_blank'><?php echo $e['title']; ?></a>
+                    </td>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </tr>
             </table>
         </div>
         <!-- 文字链接 -->

@@ -11,7 +11,9 @@ Route::rule('/project', 'project/index');
 Route::rule('/project_detail', 'project/detail');
 Route::rule('/ranking', 'project/ranking');
 Route::rule('/help', 'index/help');
+Route::rule('/link', 'index/link');
 Route::rule('/brand', 'index/brand');
+
 
 
 
@@ -39,6 +41,14 @@ Route::rule('menber/project/add', 'menber.project/add');
 Route::rule('menber/project/del', 'menber.project/del','post');
 Route::rule('menber/project/edit/:id', 'menber.project/edit');
 Route::rule('menber/project/msg', 'menber.project/msg');
+
+//广告管理
+Route::rule('menber/advert/list', 'menber.advert/list');
+Route::rule('menber/advert/add', 'menber.advert/add');
+Route::rule('menber/advert/del', 'menber.advert/del','post');
+Route::rule('menber/advert/edit/:id', 'menber.advert/edit');
+
+
 
 Route::rule('ajax/upload', 'ajax/upload','post');
 

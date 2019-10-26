@@ -32,7 +32,7 @@
         <h3>
 
             {if condition="$user.nickname" neq null} 您好！
-            <b>{$user.nickname}</b>&nbsp;[ <a href="{:url('menber/user/index')}">进入用户中心</a>&nbsp;|&nbsp;<a href="{:url('menber/user/logout')}">安全退出</a> ]&nbsp; {else/} 欢迎来到zzcms项目加盟模板演示站！
+            <b>{$user.nickname}</b>&nbsp;[ <a target="_bank" href="{:url('menber/user/index')}">进入用户中心</a>&nbsp;|&nbsp;<a href="{:url('menber/user/logout')}">安全退出</a> ]&nbsp; {else/} 欢迎来到zzcms项目加盟模板演示站！
             <a href="{:url('menber/user/login')}" target='_blank'>登录</a> <a href="{:url('menber/user/register')}" target='_blank'>免费注册</a> {/if}
         </h3>
     </div>

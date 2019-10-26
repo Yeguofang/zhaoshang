@@ -20,10 +20,21 @@ class Index extends Frontend
         $menu = self::category('menu',9); //首页左侧分类,项目
         $index = self::category('index',8);   //首页分类，项目
         $navs = self::category('navs',8);   //首页分类，项目
+        $advert_a = self::advert('A',6,80);
+        $advert_b = self::advert('B',6,6);
+        $advert_c = self::advert('C',6,12);
+        $advert_d = self::advert('D',8,8);
+        $advert_e = self::advert('E',6,6);
+
 
         $article = self::article('index',8);
 
         $this->assign([
+            'advert_a' =>$advert_a,
+            'advert_b' =>$advert_b,
+            'advert_c' =>$advert_c,
+            'advert_d' =>$advert_d,
+            'advert_e' =>$advert_e,
             'navs' =>$navs,
             'index' => $index,
             'menu' => $menu,
@@ -39,9 +50,47 @@ class Index extends Frontend
 
     public function help()
     {
+        
         return $this->view->fetch();
     }
 
+
+    public function link(){
+
+        $text =  db::name('advert')
+            ->field('id,title,image,url')
+            ->where('type', 0)
+            ->where('switch', 1)
+            ->order('createtime desc')
+            ->paginate(2, false, ['var_page'=>'text']);
+        $image =  db::name('advert')
+            ->field('id,title,image,url')
+            ->where('type',1)
+            ->where('switch',1)
+            ->order('createtime desc')
+            ->paginate(2,false,['var_page'=>'iamge']);
+  
+        $project['hot'] = db::name('project')
+                        ->field('id,name,views')
+                        ->where('switch',1)
+                        ->where('flag', 'like', "%hot%")
+                        ->order('weigh desc')
+                        ->limit(15)
+                        ->select();
+        $project['rec'] = db::name('project')
+                        ->field('id,name,views')
+                        ->where('switch',1)
+                        ->where('flag', 'like', "%recommend%")
+                        ->order('weigh desc')
+                        ->limit(15)
+                        ->select();
+        $this->assign([
+            'project' => $project,
+            'text' =>$text,
+            'image' =>$image,
+        ]);
+        return $this->view->fetch();
+    }
 
 
 
@@ -63,9 +112,10 @@ class Index extends Frontend
                 for ($j=0;$j<count($menu_two);$j++) {
                     $menu_two[$j]['project'] = db::name('project')
                         ->field('id,name,image')
+                        ->where('switch',1)
                         ->where('category_id', $menu_two[$j]['id'])
                         ->where('flag', 'like', "%".$flag."%")
-                        ->limit(9)
+                        ->limit($limit)
                         ->select();
                 }
                 $menu[$i]['nav'] = $menu_two;
@@ -79,9 +129,10 @@ class Index extends Frontend
                 }
                 $menu[$i]['project'] = db::name('project')
                     ->field('id,name,image')
+                    ->where('switch',1)
                     ->where('category_id', 'in',$ids)
                     ->where('flag', 'like', "%".$flag."%")
-                    ->limit(9)
+                    ->limit($limit)
                     ->select();
 
                 $menu[$i]['nav'] = $menu_two;
@@ -106,10 +157,37 @@ class Index extends Frontend
                 ->field('id,title,image')
                 ->where('category_id',$category[$i]['id'])
                 ->order('createtime desc')
-                ->limit(11)
+                ->limit($limit)
                 ->select();
         }
     
         return $category;
     }
+
+    /**
+     * 读取广告
+     * @param string $flag   标志
+     * @param int    $text_limit  文字广告查询数量
+     * @param int    $img_limit  图片广告查询数量
+     * @return array
+     */
+    public static function advert($flag,$text_limit,$img_limit){
+        $result['text'] =  db::name('advert')
+                ->field('id,title,image,url')
+                ->where('flag', 'like', "%".$flag."%")
+                ->where('type',0)
+                ->where('switch',1)
+                ->order('createtime desc')
+                ->limit($text_limit)
+                ->select();
+        $result['image'] =  db::name('advert')
+                ->field('id,title,image,url')
+                ->where('flag', 'like', "%".$flag."%")
+                ->where('type',1)
+                ->where('switch',1)
+                ->order('createtime desc')
+                ->limit($img_limit)
+                ->select();       
+        return $result;
+    } 
 }

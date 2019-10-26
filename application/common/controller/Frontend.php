@@ -4,6 +4,7 @@ namespace app\common\controller;
 
 use app\common\library\Auth;
 use think\Config;
+use think\Db;
 use think\Controller;
 use think\Hook;
 use think\Lang;
@@ -119,9 +120,12 @@ class Frontend extends Controller
         $project = Category::getCategoryIndex('project', 'normal', 'top');
         //资讯文章分类
         $article = Category::getCategoryIndex('article', 'normal', 'top');
-        //用于控制首页不显示咨询分类
+        //用于控制首页不显示文章资讯的分类
         $url = $this->request->controller()  . $this->request->action();
+        //网站信息
+        $web = db::name('web_config')->where('id',1)->find();
 
+        $this->assign('web', $web);
         $this->assign('url', $url);
         $this->assign('project_cate', $project);
         $this->assign('article_cate', $article);

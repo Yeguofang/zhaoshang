@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:61:"/var/www/zs/public/../application/admin/view/index/index.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/header.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/menu.html";i:1570183962;s:54:"/var/www/zs/application/admin/view/common/control.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:61:"/var/www/zs/public/../application/admin/view/index/index.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/header.html";i:1572078839;s:51:"/var/www/zs/application/admin/view/common/menu.html";i:1570183962;s:54:"/var/www/zs/application/admin/view/common/control.html";i:1572078708;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -59,11 +59,6 @@
                 </li>
 
                 <!-- 账号信息下拉框 -->
-                <li class="hidden-xs">
-                    <a href="javascript:;" data-toggle="checkupdate" title="<?php echo __('Check for updates'); ?>">
-                        <i class="fa fa-refresh"></i>
-                    </a>
-                </li>
 
                 <!-- 清除缓存 -->
                 <li>
@@ -112,11 +107,11 @@
 
                             <p>
                                 <?php echo htmlentities($admin['nickname']); ?>
-                                <small><?php echo date("Y-m-d H:i:s",$admin['logintime']); ?></small>
+                                <small>登录时间：<?php echo date("Y-m-d H:i:s",$admin['logintime']); ?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                        <!-- <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
                                     <a href="https://www.fastadmin.net" target="_blank"><?php echo __('FastAdmin'); ?></a>
@@ -128,7 +123,7 @@
                                     <a href="https://doc.fastadmin.net" target="_blank"><?php echo __('Docs'); ?></a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
@@ -143,9 +138,9 @@
                     </ul>
                 </li>
                 <!-- 控制栏切换按钮 -->
-                <li class="hidden-xs">
+                <!-- <li class="hidden-xs">
                     <a href="javascript:;" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

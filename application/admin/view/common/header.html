@@ -29,11 +29,6 @@
                 </li>
 
                 <!-- 账号信息下拉框 -->
-                <li class="hidden-xs">
-                    <a href="javascript:;" data-toggle="checkupdate" title="{:__('Check for updates')}">
-                        <i class="fa fa-refresh"></i>
-                    </a>
-                </li>
 
                 <!-- 清除缓存 -->
                 <li>
@@ -82,11 +77,11 @@
 
                             <p>
                                 {$admin.nickname|htmlentities}
-                                <small>{$admin.logintime|date="Y-m-d H:i:s",###}</small>
+                                <small>登录时间：{$admin.logintime|date="Y-m-d H:i:s",###}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                        <!-- <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
                                     <a href="https://www.fastadmin.net" target="_blank">{:__('FastAdmin')}</a>
@@ -98,7 +93,7 @@
                                     <a href="https://doc.fastadmin.net" target="_blank">{:__('Docs')}</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
@@ -113,9 +108,9 @@
                     </ul>
                 </li>
                 <!-- 控制栏切换按钮 -->
-                <li class="hidden-xs">
+                <!-- <li class="hidden-xs">
                     <a href="javascript:;" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

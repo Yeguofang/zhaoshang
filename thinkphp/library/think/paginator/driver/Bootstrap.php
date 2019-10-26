@@ -16,39 +16,46 @@ use think\Paginator;
 class Bootstrap extends Paginator
 {
 
-    /**
-     * 上一页按钮
-     * @param string $text
-     * @return string
-     */
-    protected function getPreviousButton($text = "&laquo;")
-    {
-
-        if ($this->currentPage() <= 1) {
-            return $this->getDisabledTextWrapper($text);
+    //首页
+    protected function home() {
+        if ($this->currentPage() > 1) {
+            return "<a href='" . $this->url(1) . "' title='首页'>首页</a>";
+        } else {
+            return "<p>首页</p>";
         }
-
-        $url = $this->url(
-            $this->currentPage() - 1
-        );
-
-        return $this->getPageLinkWrapper($url, $text);
     }
 
-    /**
-     * 下一页按钮
-     * @param string $text
-     * @return string
-     */
-    protected function getNextButton($text = '&raquo;')
-    {
-        if (!$this->hasMore) {
-            return $this->getDisabledTextWrapper($text);
+    //上一页
+    protected function prev() {
+        if ($this->currentPage() > 1) {
+            return "<a href='" . $this->url($this->currentPage - 1) . "' title='上一页'>上一页</a>";
+        } else {
+            return "<p>上一页</p>";
         }
+    }
 
-        $url = $this->url($this->currentPage() + 1);
+    //下一页
+    protected function next() {
+        if ($this->hasMore) {
+            return "<a href='" . $this->url($this->currentPage + 1) . "' title='下一页'>下一页</a>";
+        } else {
+            return"<p>下一页</p>";
+        }
+    }
 
-        return $this->getPageLinkWrapper($url, $text);
+    //尾页
+    protected function last() {
+        if ($this->hasMore) {
+            return "<a href='" . $this->url($this->lastPage) . "' title='尾页'>尾页</a>";
+        } else {
+            return "<p>尾页</p>";
+        }
+    }
+
+    //统计信息
+    protected function info(){
+//        return "<p class='pageRemark'>共<b>" . $this->lastPage .
+//            "</b>页<b>" . $this->total . "</b>条数据</p>";
     }
 
     /**
@@ -57,8 +64,6 @@ class Bootstrap extends Paginator
      */
     protected function getLinks()
     {
-        if ($this->simple)
-            return '';
 
         $block = [
             'first'  => null,
@@ -111,16 +116,22 @@ class Bootstrap extends Paginator
         if ($this->hasPages()) {
             if ($this->simple) {
                 return sprintf(
-                    '<ul class="pager">%s %s</ul>',
-                    $this->getPreviousButton(),
-                    $this->getNextButton()
+                    '%s<div class="pagination">%s %s %s</div>',
+                    $this->css(),
+                    $this->prev(),
+                    $this->getLinks(),
+                    $this->next()
                 );
             } else {
                 return sprintf(
-                    '<ul class="pagination">%s %s %s</ul>',
-                    $this->getPreviousButton(),
+                    '%s<div class="pagination">%s %s %s %s %s %s</div>',
+                    $this->css(),
+                    $this->home(),
+                    $this->prev(),
                     $this->getLinks(),
-                    $this->getNextButton()
+                    $this->next(),
+                    $this->last(),
+                    $this->info()
                 );
             }
         }
@@ -135,7 +146,7 @@ class Bootstrap extends Paginator
      */
     protected function getAvailablePageWrapper($url, $page)
     {
-        return '<li><a href="' . htmlentities($url) . '">' . $page . '</a></li>';
+        return '<a href="' . htmlentities($url) . '" title="第"'. $page .'"页" >' . $page . '</a>';
     }
 
     /**
@@ -146,7 +157,7 @@ class Bootstrap extends Paginator
      */
     protected function getDisabledTextWrapper($text)
     {
-        return '<li class="disabled"><span>' . $text . '</span></li>';
+        return '<p class="pageEllipsis">' . $text . '</p>';
     }
 
     /**
@@ -157,7 +168,7 @@ class Bootstrap extends Paginator
      */
     protected function getActivePageWrapper($text)
     {
-        return '<li class="active"><span>' . $text . '</span></li>';
+        return '<a href="" class="cur">' . $text . '</a>';
     }
 
     /**
@@ -201,5 +212,74 @@ class Bootstrap extends Paginator
         }
 
         return $this->getAvailablePageWrapper($url, $page);
+    }
+
+    /**
+     * 分页样式
+     */
+    protected function css(){
+        return '  <style type="text/css">
+            .pagination p{
+                margin:0;
+                cursor:pointer
+            }
+            .pagination{
+                height:40px;
+                padding:20px 0px;
+            }
+            .pagination a{
+                display:block;
+                float:left;
+                margin-right:10px;
+                padding:2px 12px;
+                height:24px;
+                border:1px #cccccc solid;
+                background:#fff;
+                text-decoration:none;
+                color:#808080;
+                font-size:12px;
+                line-height:24px;
+            }
+            .pagination a:hover{
+                color:#90969a;
+                background: white;
+                border:1px #90969a solid;
+            }
+            .pagination a.cur{
+                border:none;
+                background:#90969a;
+                color:#fff;
+            }
+            .pagination p{
+                float:left;
+                padding:2px 12px;
+                font-size:12px;
+                height:24px;
+                line-height:24px;
+                color:#bbb;
+                border:1px #ccc solid;
+                background:#fcfcfc;
+                margin-right:8px;
+
+            }
+            .pagination p.pageRemark{
+                border-style:none;
+                background:none;
+                margin-right:0px;
+                padding:4px 0px;
+                color:#666;
+            }
+            .pagination p.pageRemark b{
+                color:red;
+            }
+            .pagination p.pageEllipsis{
+                border-style:none;
+                background:none;
+                padding:4px 0px;
+                color:#808080;
+            }
+            .dates li {font-size: 14px;margin:20px 0}
+            .dates li span{float:right}
+        </style>';
     }
 }

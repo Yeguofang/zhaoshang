@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>zzcms项目加盟模板演示站-使用帮助</title>
+    <link href="__HOME__/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="main">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="x_bottom" style="margin-bottom:8px">
+            <tr>
+                <td width="33%" height="60"> <a href="/"><img src="{$web.web_logo}" border="0" onload='javascript:if(this.width>220) this.width=220;'></a></td>
+                <td width="67%" align="right" valign="bottom">
+                    <table width="87%" height="50" border="0" cellpadding="3" cellspacing="0">
+                        <tr>
+                            <td width="89%" align="right" valign="top">
+                                <a target=blank href=http://wpa.qq.com/msgrd?v=1&uin=357856668&Site=zzcms项目加盟模板演示站&Menu=yes><img border="0" src=__HOME__/picture/419f0e821e024082b0cbe95260b93e8b.gif alt="在线客服QQ">在线客服QQ:357856668</a>
+                                客服电话:400-728-9861</td>
+                        </tr>
+                        <tr>
+                            <td align="right" valign="bottom" style="color:cccccc"><a href="http://3158.zzcms.net">首页</a>&nbsp;|&nbsp;<a href="/help.htm">帮助</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        
+        
+            <div class="pagebody">
+                <!-- 图文广告-->
+                <div class="left">
+                    <div class="titles">
+                        <h3>图片广告</h3>
+                    </div>
+                    <div class="adStyle2">
+                        <ul>
+                            {volist name="image" id="a"}
+                            <li>
+                                <a href="{$a.url}" target="_blank" style="color:">
+                                    <img data-original="{$a.image}" alt="{$a.title}" src="{$a.image}" style="width:125px;height:94px;"
+                                        style="display: inline;">
+                                </a>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                    {$image->render()}
+                     <!-- 图文广告 -->
+                    
+                    <!-- 文字链接 -->
+                    <div class="titles">
+                        <h3>文字链接</h3>
+                    </div>
+                    <div class="content1">
+                        <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
+                            <tr>
+                                {volist name="text" id="e"}
+                                <td bgcolor='#FFFFFF'>
+                                    <a href="{$e.url}" target='_blank'>{$e.title}</a>
+                                </td>
+                                {/volist}
+                            </tr>
+                        </table>
+                    </div>
+                    {$text->render()}
+                    <!-- 文字链接 -->
+                </div>
+
+
+                <div class="right">
+
+                    
+                        <div class="titles"><span>&nbsp;</span>
+                            <h3>热门项目</h3>
+                        </div>
+                        <div class="content1">
+                            <ul>
+                                {volist name="$project.hot" id="h"}
+                                <li><span style="width:80px" title="阅832次">({$h.views})</span>
+                                    <font {if($key == 0 || $key == 1 || $key==2)}class="xuhao1" {/if}>{$key+1}</font>
+                                    <a href="/zx/show-38.htm">{$h.name}</a>
+                                </li>
+                               {/volist}
+                            </ul>
+                        </div>
+        
+                        <div class="titles"><span>&nbsp;</span>
+                            <h3>推荐项目</h3>
+                        </div>
+                        <div class="content1">
+                            <ul>
+                                {volist name="$project.rec" id="r"}
+                                <li><span style="width:80px">({$r.views})</span>
+                                    <font  {if($key == 0 || $key == 1 || $key==2)}class="xuhao1" {/if}>{$key+1}</font>
+                                    <a href="/zx/show-92.htm">{$r.name}</a>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                     </div>
+            </div>
+            
+    </div>
+
+    {include file="common/footer" /}
+</body>
+
+</html>

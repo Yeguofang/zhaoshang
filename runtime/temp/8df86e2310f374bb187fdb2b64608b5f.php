@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/var/www/zs/public/../application/index/view/project/detail.html";i:1570419641;s:53:"/var/www/zs/application/index/view/common/header.html";i:1571133372;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/var/www/zs/public/../application/index/view/project/detail.html";i:1570419641;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -73,7 +73,7 @@
         <h3>
 
             <?php if($user['nickname']): ?> 您好！
-            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a href="<?php echo url('menber/user/index'); ?>">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('menber/user/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
+            <b><?php echo $user['nickname']; ?></b>&nbsp;[ <a target="_bank" href="<?php echo url('menber/user/index'); ?>">进入用户中心</a>&nbsp;|&nbsp;<a href="<?php echo url('menber/user/logout'); ?>">安全退出</a> ]&nbsp; <?php else: ?> 欢迎来到zzcms项目加盟模板演示站！
             <a href="<?php echo url('menber/user/login'); ?>" target='_blank'>登录</a> <a href="<?php echo url('menber/user/register'); ?>" target='_blank'>免费注册</a> <?php endif; ?>
         </h3>
     </div>

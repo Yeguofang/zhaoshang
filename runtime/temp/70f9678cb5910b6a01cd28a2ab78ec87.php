@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"/var/www/zs/public/../application/index/view/index/help.html";i:1570163159;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570163017;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"/var/www/zs/public/../application/index/view/index/help.html";i:1570163159;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -216,13 +216,13 @@
                 <font color=#FF6600 face=Arial>ZZ</font>
                 <font color=#025BAD face=Arial>CMS2019</font>
             </a>
-            <script type=text/javascript src=./static/home/js/713776.js>
+            <script type=text/javascript src=/static/home/js/713776.js>
             </script> <br /> zzcms项目加盟模板演示站只提供交易平台，对具体交易过程不参与也不承担任何责任。望供求双方谨慎交易。
         </div>
     </div>
 </div>
 <!--返回顶部-->
-<script src="./static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
 </script>
 <div style="display: none" id="goTopBtn">
 </DIV>
