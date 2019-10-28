@@ -52,10 +52,18 @@ class Bootstrap extends Paginator
         }
     }
 
+     //跳转到哪页
+     protected  function gopage()
+     {
+  
+         return "<form action='' method='get' >跳转到<input style='width: 35px;height:30px;border: 1px solid #ddd;' type='text' name='page'><input style='height:30px;width:30px;border: 1px solid #ddd;' type='submit' value='GO'></form>";
+     }
+ 
+     
     //统计信息
     protected function info(){
-//        return "<p class='pageRemark'>共<b>" . $this->lastPage .
-//            "</b>页<b>" . $this->total . "</b>条数据</p>";
+       return "<p class='pageRemark'>共<b> " . $this->lastPage .
+           "</b> 页<b> " . $this->total . " </b>条数据</p>";
     }
 
     /**
@@ -124,14 +132,17 @@ class Bootstrap extends Paginator
                 );
             } else {
                 return sprintf(
-                    '%s<div class="pagination">%s %s %s %s %s %s</div>',
+                    '%s<div class="pagination">%s %s %s %s %s %s %s</div>',
                     $this->css(),
+                    $this->info(),
                     $this->home(),
                     $this->prev(),
                     $this->getLinks(),
                     $this->next(),
                     $this->last(),
-                    $this->info()
+                    $this->gopage()
+                    
+                   
                 );
             }
         }
@@ -221,11 +232,13 @@ class Bootstrap extends Paginator
         return '  <style type="text/css">
             .pagination p{
                 margin:0;
-                cursor:pointer
+                cursor:pointer;
+                margin:0 auto;
             }
             .pagination{
                 height:40px;
                 padding:20px 0px;
+                margin:0 auto;
             }
             .pagination a{
                 display:block;
@@ -268,9 +281,11 @@ class Bootstrap extends Paginator
                 margin-right:0px;
                 padding:4px 0px;
                 color:#666;
+                font-size:14px;
             }
             .pagination p.pageRemark b{
                 color:red;
+                font-size:14px;
             }
             .pagination p.pageEllipsis{
                 border-style:none;

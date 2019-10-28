@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"/var/www/zs/public/../application/index/view/index/link.html";i:1572087030;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"/var/www/zs/public/../application/index/view/index/link.html";i:1572244356;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>zzcms项目加盟模板演示站-使用帮助</title>
-    <link href="./static/home/css/style.css" rel="stylesheet" type="text/css">
+    <title>图片广告</title>
+    <link href="/static/home/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                     <table width="87%" height="50" border="0" cellpadding="3" cellspacing="0">
                         <tr>
                             <td width="89%" align="right" valign="top">
-                                <a target=blank href=http://wpa.qq.com/msgrd?v=1&uin=357856668&Site=zzcms项目加盟模板演示站&Menu=yes><img border="0" src=./static/home/picture/419f0e821e024082b0cbe95260b93e8b.gif alt="在线客服QQ">在线客服QQ:357856668</a>
+                                <a target=blank href=http://wpa.qq.com/msgrd?v=1&uin=357856668&Site=zzcms项目加盟模板演示站&Menu=yes><img border="0" src=/static/home/picture/419f0e821e024082b0cbe95260b93e8b.gif alt="在线客服QQ">在线客服QQ:357856668</a>
                                 客服电话:400-728-9861</td>
                         </tr>
                         <tr>
@@ -41,7 +41,7 @@
                         <ul>
                             <?php if(is_array($image) || $image instanceof \think\Collection || $image instanceof \think\Paginator): $i = 0; $__LIST__ = $image;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
                             <li>
-                                <a href="<?php echo $a['url']; ?>" target="_blank" style="color:">
+                                <a href="<?php echo $a['url']; ?>" target="_blank" >
                                     <img data-original="<?php echo $a['image']; ?>" alt="<?php echo $a['title']; ?>" src="<?php echo $a['image']; ?>" style="width:125px;height:94px;"
                                         style="display: inline;">
                                 </a>

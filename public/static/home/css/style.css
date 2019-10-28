@@ -142,7 +142,7 @@ filter: alpha(opacity=100);border:solid 1px #ff6600}/*z-index 仅能在定位元
 .chanagecolor8 a{display:block;padding:5px;border:1px solid #dddddd;transition:all 0.3s}
 .chanagecolor8 a:hover{background-color:#E66440;border:1px solid #E66440;color:#FFFFFF;}
 
-.titlebigs{background-color:#FFA721;padding:5px;color:#FFF;float:left;width:180px;height:300px;overflow:hidden}
+.titlebigs{background-color:#FFA721;padding:5px;color:#FFF;float:left;width:180px;height:360px;overflow:hidden}
 .titlebigs a{color:#FFF;}
 .titlebigs h3{height:90px;line-height:90px;font-size: 28px;text-align:center}
 .titlebigs span{font-weight:normal;margin-top:60px}
@@ -159,7 +159,7 @@ filter: alpha(opacity=100);border:solid 1px #ff6600}/*z-index 仅能在定位元
 .titlebig7{background-color:#84d151;}
 .titlebig8{background-color:#E66440;}
 
-.content_index{padding:5px;color:#666666;background-color:#FFF;float:right;height:300px;width:393px}
+.content_index{padding:5px;color:#666666;background-color:#FFF;float:right;height:360px;width:393px}
 .content_sm{padding-top:10px}
 .content_sm img{width:1200px;text-align:center;margin:auto;}
 .content,.content1,.content2,.content3 {padding:10px;color:#666666;background-color:#FFF;}

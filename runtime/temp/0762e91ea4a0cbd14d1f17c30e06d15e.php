@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:63:"/var/www/zs/public/../application/index/view/project/index.html";i:1570420322;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:63:"/var/www/zs/public/../application/index/view/project/index.html";i:1572236958;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572236251;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -44,14 +44,14 @@
                 <ul class="menu">
                     <li><a href="/help.htm" target="_blank">使用帮助</a></li>
                     <li><a href="javascript:void(0)"
-                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://3158.zzcms.net');">设为首页</a>
+                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>
                     </li>
                     <li><a
-                            href="javascript:window.external.addFavorite('http://3158.zzcms.net','zzcms项目加盟模板演示站');">收藏本站</a>
+                            href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="/static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="<?php echo $web['web_ewm']; ?>" width="100"></li>
                         </ol>
                     </li>
 
@@ -73,7 +73,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="/"><img src="<?php echo $web['web_logo']; ?>" border="0" alt="<?php echo $web['web_name']; ?>"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -91,8 +91,8 @@
                 <td width="100" align="center">
                     <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
-                    <div class="bigbigword3 red">400-728-9861</div>
-                    <div>客服电话: 8:30 - 18:00</div>
+                    <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
+                    <div>客服时间: 8:30 - 18:00</div>
                 </td>
             </tr>
         </table>
@@ -119,7 +119,7 @@
     </div>
 </div>
 
-<?php if($url != "Indexindex"): ?>
+<?php if($url != "Indexindex"): ?>   
 <div class="item2">
     <div class="main">
         <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
@@ -139,30 +139,16 @@
 
             <div class="left">
                 <div class="station2">
-                    <li class='start'><a href='http://3158.zzcms.net'>首页</a></li>
+                    <li class='start'><a href='/'>首页</a></li>
                     <li><a href='/zs/index.htm'>招商</a></li>
                     <li><a href='/zs/fuzhuangxiebao'>服装鞋包</a></li>
                 </div>
 
                 <div class="box">
                     <div class="boxbigclass">
+
                         <li><a href='/zs/fuzhuangxiebao/nvzhuang'>女装</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/xiangbao'>箱包</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/lifu'>礼服</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/hunsha'>婚纱</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/yongzhuang'>泳装</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/shuiyi'>睡衣</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/qinzizhuang'>亲子装</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/zhiyezhuang'>职业装</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/qinglvzhuang'>情侣装</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/jiajufushi'>家居服饰</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/niuzi'>牛仔</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/nanxie'>男鞋</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/nvxie'>女鞋</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/neiyi'>内衣</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/xiebao'>鞋包</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/nanzhuang'>男装</a></li>
-                        <li><a href='/zs/fuzhuangxiebao/qita'>其他</a></li>
+                   
                         <li id="more">显示更多...</li>
                     </div>
                 </div>

@@ -1,8 +1,30 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1572245787;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
 <head>
-    {include file="menber/common/head"/}
+    <meta charset="UTF-8">
+<title>用户中心</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/static/home/x-admin/css/font.css">
+<link rel="stylesheet" href="/static/home/x-admin/css/xadmin.css">
+<script src="/static/home/layui/layui.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/static/home/layui/css/layui.css"  media="all">
+<script src="/static/home/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/home/js/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/home/x-admin/js/xadmin.js"></script>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!-- [if lt IE 9]> -->
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<!-- <![endif] -->
+<script>
+    // 是否开启刷新记忆tab功能
+    var is_remember = false;
+</script>
 </head>
 
 <body>
@@ -17,15 +39,13 @@
                     <div class="layui-input-inline">
                         <select name="category_id" 　lay-verify="required">
                             <option value="">请选择分类</option>
-                            {foreach $cate_one as $key=>$one }
-                            <optgroup label="{$one.name}">
-                                {if condition="$one.two != null"}
-                                {foreach $one.two as $v}
-                                <option value="{$v.id}">{$v.name}</option>
-                                {/foreach}
-                                {/if}
+                            <?php foreach($cate_one as $key=>$one): ?>
+                            <optgroup label="<?php echo $one['name']; ?>">
+                                <?php if($one['two'] != null): foreach($one['two'] as $v): ?>
+                                <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
+                                <?php endforeach; endif; ?>
                             </optgroup>
-                            {/foreach}
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -68,9 +88,9 @@
                     <label class="layui-form-label">联动选择框</label>
                     <div class="layui-input-inline">
                       <select  lay-filter="area">
-                        {volist name="area" id="a"}
-                        <option value="{$a.id}">{$a.areaname}</option>
-                        {/volist}
+                        <?php if(is_array($area) || $area instanceof \think\Collection || $area instanceof \think\Paginator): $i = 0; $__LIST__ = $area;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
+                        <option value="<?php echo $a['id']; ?>"><?php echo $a['areaname']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                     </div>
                     <div class="layui-input-inline">
@@ -149,9 +169,9 @@
     </div>
 
     <!-- 配置文件 -->
-    <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="/static/ueditor/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" src="/static/ueditor/ueditor.all.js"></script>
 
     <script>
         layui.use(['form', 'layer', 'upload'],
@@ -178,7 +198,7 @@
                 //普通图片上传
                 var uploadInst = upload.render({
                     elem: '#test1'
-                    , url: "{:url('ajax/upload')}"
+                    , url: "<?php echo url('ajax/upload'); ?>"
                     , before: function (obj) {
                         //预读本地文件示例，不支持ie8
                         obj.preview(function (index, file, result) {
@@ -229,7 +249,7 @@
                     $.ajax({
                         type: "post",
                         async: false,
-                        url: "{:url('menber/project/add')}",
+                        url: "<?php echo url('menber/project/add'); ?>",
                         //后台数据处理-下面有具体实现
                         data: data.field,
                         success: function (res) {
@@ -256,7 +276,7 @@
                 $.ajax({
                     type: "post",
                     async: false,
-                    url: "{:url('menber/project/add')}?tid="+data.value,
+                    url: "<?php echo url('menber/project/add'); ?>?tid="+data.value,
                     //后台数据处理-下面有具体实现
                     data: data.field,
                     success: function (res) {

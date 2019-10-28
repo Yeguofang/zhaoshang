@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/var/www/zs/public/../application/index/view/project/detail.html";i:1570419641;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:64:"/var/www/zs/public/../application/index/view/project/detail.html";i:1572260281;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572243326;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -6,9 +6,12 @@
     <title>太阳公公童装招商</title>
     <meta name="keywords" content="太阳公公童装招商" />
     <meta name="description" content="太阳公公童装招商" />
-    <link href="./static/home/css/style.css" rel="stylesheet" type="text/css">
-    <script language="JavaScript" type="text/JavaScript" src="./static/home/js/zsshow.js"></script>
-    <script type="text/javascript" src="./static/home/js/jquery.js"></script>
+    <link href="/static/home/css/style.css" rel="stylesheet" type="text/css">
+<link href="/static/home/css/jdimg2.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/static/home/js/jquery.js"></script>
+<script src="/static/home/js/jquery.lazyload.js"></script>
+<script language="JavaScript" src="/static/home/js/qt.js"></script>
+<script language="JavaScript" src="/static/home/js/divselect.js"></script>
     <script>
         $(document).ready(function() {
             $("#tel").blur(function() { //jquery 中change()函数  
@@ -28,15 +31,6 @@
 </head>
 
 <body>
-    <SCRIPT type=text/javascript>
-        kfguin = "357856668";
-        ws = "zzcms项目加盟模板演示站";
-        companyname = "在线客服";
-        welcomeword = "您好,欢迎光临！<brT>请问,有什么可以帮到您的吗?";
-        type = "1";
-    </SCRIPT>
-    <SCRIPT src="./static/home/js/kf.js" type=text/javascript></SCRIPT>
-    <script language="JavaScript" src="./static/home/js/qt.js"></script>
 
 
     <div class="main">
@@ -55,14 +49,14 @@
                 <ul class="menu">
                     <li><a href="/help.htm" target="_blank">使用帮助</a></li>
                     <li><a href="javascript:void(0)"
-                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://3158.zzcms.net');">设为首页</a>
+                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>
                     </li>
                     <li><a
-                            href="javascript:window.external.addFavorite('http://3158.zzcms.net','zzcms项目加盟模板演示站');">收藏本站</a>
+                            href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="/static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="<?php echo $web['web_ewm']; ?>" width="100"></li>
                         </ol>
                     </li>
 
@@ -84,7 +78,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="/"><img src="<?php echo $web['web_logo']; ?>" border="0" alt="<?php echo $web['web_name']; ?>"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -102,8 +96,8 @@
                 <td width="100" align="center">
                     <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
-                    <div class="bigbigword3 red">400-728-9861</div>
-                    <div>客服电话: 8:30 - 18:00</div>
+                    <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
+                    <div>客服时间: 8:30 - 18:00</div>
                 </td>
             </tr>
         </table>
@@ -116,7 +110,7 @@
         <ul>
             <li class="current"><a href="<?php echo url('/'); ?>">首页</a></li>
             <?php if(is_array($project_cate) || $project_cate instanceof \think\Collection || $project_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $project_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
-            <li><a href="<?php echo url('/project'); ?>"><?php echo $c['name']; ?></a></li>
+            <li><a href="<?php echo url('/project'); ?>/<?php echo $c['id']; ?>"><?php echo $c['name']; ?></a></li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
 
             <li><a href="<?php echo url('/article_list'); ?>">资讯列表</a></li>
@@ -130,7 +124,7 @@
     </div>
 </div>
 
-<?php if($url != "Indexindex"): ?>
+<?php if($url != "Indexindex"): ?>   
 <div class="item2">
     <div class="main">
         <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
@@ -147,105 +141,92 @@
             <ul>
                 <li><a id="A1" href="###" onmouseover="javascript:doClick(this,'A','current1')" class="current1">项目信息</a></li>
                 <li><a id="A2" href="###" onmouseover="javascript:doClick(this,'A','current1')">公司信息</a></li>
-                <li><a id="A3" href="###" onmouseover="javascript:doClick(this,'A','current1')">诚信认证</a></li>
+                <li><a id="A3" href="###" onmouseover="javascript:doClick(this,'A','current1')">项目详情</a></li>
             </ul>
         </div>
 
         <div style="display:block;" id="A_con1" class="content bgcolor3">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td width="33%" align="center">
-                        <table width="300" height="300" border="0" cellpadding="5" cellspacing="1" bgcolor="dddddd">
-                            <tr>
-                                <td align="center" bgcolor="#FFFFFF"><img src='./static/home/picture/20180824203731559.jpg' alt='太阳公公童装' onload='resizeimg(260,260,this)' /></td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td width="67%">
-                        <table width="95%" border="0" cellpadding="8" cellspacing="1">
-                            <tr>
-                                <td>太阳公公童装</td>
-                            </tr>
-                            <tr>
-                                <td> 项目分类：服装鞋包-女装</td>
-                            </tr>
-                            <tr>
-                                <td>所在地区：内蒙古-请选择城区</td>
-                            </tr>
-                            <tr>
-                                <td>投资金额：10-20万</td>
-                            </tr>
-                            <tr>
-                                <td>加盟电话：13838064112</td>
-                            </tr>
-                            <tr>
-                                <td>加盟手机：13838064112</td>
-                            </tr>
-                            <tr>
-                                <td><input name="Submit" type="button" class="button_big" value="我想加盟该项目" onclick="location.href='#guestbook'" /></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+           
+                <div class="content_sm">
+                        <img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r2_c2.jpg" src="/static/home/picture/20180824203726239.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
+                            title="091460195587101653.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r3_c2.jpg" src="/static/home/picture/20180824203727124.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
+                            title="091460195590414353.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r4_c2.jpg" src="/static/home/picture/20180824203728452.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
+                            title="091460195592129865.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r5_c2.jpg" src="/static/home/picture/20180824203729428.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
+                            title="091460195595139461.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r6_c2.jpg" src="/static/home/picture/20180824203730185.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
+                            title="091460195598145920.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r7_c2.jpg" src="/static/home/picture/20180824203730801.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
+                            title="091460195602118238.jpg" />
+                    </div>
 
         </div>
         <div style="display:none;" id="A_con2" class="content">
             <table width="95%" border="0" cellpadding="7" cellspacing="1">
                 <tr>
                     <td>
-                        <p align="left">公司名称：河南大禹有限公司</p>
+                        <p align="left">公司名称：<?php echo $data['company_name']; ?></p>
                     </td>
                 </tr>
                 <tr>
-                    <td>公司地址：全国 全国各地区</td>
+                    <td>公司地址：<?php echo $data['address']; ?></td>
                 </tr>
                 <tr>
-                    <td>企业介绍：&lt;span style=&quot;color: rgb(51, 51, 51); font-family: 微软雅黑; font-size: 14px; text-align: -webkit-right;&quot;&gt;公司简&lt;/span&gt;&lt;span style=&quot;color: rgb(51, 51, 51); font-family: 微软雅黑; font-size: 14px; text-align:
-                        -webkit-right;&quot;&gt;公司简&lt;/span&gt;&lt;span style=&quot;color: rgb(51, 51, 51); font-family: 微软雅黑; font-size: 14px; text-align: -webkit-right;&quot;&gt;公司简&lt;/span&gt;&lt;span style=&quot;color: rgb(51, 51, 51); font-family:
-                        微软雅黑; font-size: 14px; text-align: -webkit-right;&quot;&gt;公司简&lt;/span&gt;</td>
+                    <td>企业介绍：<?php echo $data['company_desc']; ?></td>
                 </tr>
             </table>
         </div>
 
         <div style="display:none;" id="A_con3" class="content">
-            <table border="0" cellSpacing="1" cellPadding="5" width="100%">
-                <tr>
-
-                    <td align="middle">
-                        <table class="bgcolor2" border="0" cellSpacing="1" cellPadding="1">
-                            <tr>
-                                <td bgColor="#ffffff" height="120" width="120" align="middle">
-                                    <A href="http://3158.zzcms.net/uploadfiles/2018-08/20180830230243667.gif" target=_blank>
-                                        <IMG alt="ASDF" src="./static/home/picture/20180830230243667_small.gif">
-                                    </A>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="middle">ASDF</td>
-                            </tr>
-                        </table>
-                    </td>
-
-
-                </tr>
-            </table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="33%" align="center">
+                                <table width="300" height="300" border="0" cellpadding="5" cellspacing="1" bgcolor="dddddd">
+                                    <tr>
+                                        <td align="center" bgcolor="#FFFFFF"><img src='/static/home/picture/20180824203731559.jpg' alt='太阳公公童装' onload='resizeimg(260,260,this)' /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="67%">
+                                <table width="95%" border="0" cellpadding="8" cellspacing="1">
+                                    <tr>
+                                        <td><?php echo $data['name']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td> 项目分类：<?php echo $data['cname']; ?>-<?php echo $data['bname']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>所在地区：内蒙古-请选择城区</td>
+                                    </tr>
+                                    <tr>
+                                        <td>投资金额：<?php if(($data['price'] == 1 )): ?>
+                                                1-3万
+                                                <?php elseif(($data['price'] == 2)): ?>
+                                                3-5万
+                                                <?php elseif(($data['price'] == 3)): ?>
+                                                5-10万
+                                                <?php elseif(($data['price'] == 4)): ?>
+                                                10万以上
+                                            <?php endif; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>加盟电话：<?php echo substr($data['moblie'],0,3); ?>-<?php echo substr($data['moblie'],3,4); ?>-<?php echo substr($data['moblie'],7,4); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>加盟手机：<?php echo substr($data['phone'],0,3); ?>-<?php echo substr($data['phone'],3,4); ?>-<?php echo substr($data['phone'],7,4); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input name="Submit" type="button" class="button_big" value="我想加盟该项目" onclick="location.href='#guestbook'" /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
         </div>
 
         <!-- <div id='Layer1' style='position:absolute; width:950px; height:500px; z-index:1;'> 
-<embed src="./static/home/flash/22934a16cf844b9f83c6c36023fc9bed.swf" width='1200' height="400" quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' wmode='transparent'></embed>
+<embed src="/static/home/flash/22934a16cf844b9f83c6c36023fc9bed.swf" width='1200' height="400" quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' wmode='transparent'></embed>
 </div>-->
 
 
-        <div class="content_sm">
-            <img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r2_c2.jpg" src="./static/home/picture/20180824203726239.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                title="091460195587101653.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r3_c2.jpg" src="./static/home/picture/20180824203727124.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                title="091460195590414353.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r4_c2.jpg" src="./static/home/picture/20180824203728452.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                title="091460195592129865.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r5_c2.jpg" src="./static/home/picture/20180824203729428.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                title="091460195595139461.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r6_c2.jpg" src="./static/home/picture/20180824203730185.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                title="091460195598145920.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r7_c2.jpg" src="./static/home/picture/20180824203730801.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                title="091460195602118238.jpg" />
-        </div>
+     
 
         <div class="pagebody">
             <form action="http://3158.zzcms.net/zs/dl_liuyan_save.php" method="post" name="ly" onSubmit="return CheckForms();" target="for_dl_liuyan_save">

@@ -14,14 +14,14 @@
                 <ul class="menu">
                     <li><a href="/help.htm" target="_blank">使用帮助</a></li>
                     <li><a href="javascript:void(0)"
-                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://3158.zzcms.net');">设为首页</a>
+                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>
                     </li>
                     <li><a
-                            href="javascript:window.external.addFavorite('http://3158.zzcms.net','zzcms项目加盟模板演示站');">收藏本站</a>
+                            href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="__CDN__/static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="{$web.web_ewm}" width="100"></li>
                         </ol>
                     </li>
 
@@ -43,7 +43,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="__CDN__/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="/"><img src="{$web.web_logo}" border="0" alt="{$web.web_name}"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -61,8 +61,8 @@
                 <td width="100" align="center">
                     <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
-                    <div class="bigbigword3 red">400-728-9861</div>
-                    <div>客服电话: 8:30 - 18:00</div>
+                    <div class="bigbigword3 red">{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}</div>
+                    <div>客服时间: 8:30 - 18:00</div>
                 </td>
             </tr>
         </table>
@@ -75,7 +75,7 @@
         <ul>
             <li class="current"><a href="{:url('/')}">首页</a></li>
             {volist name="project_cate" id="c"}
-            <li><a href="{:url('/project')}">{$c.name}</a></li>
+            <li><a href="{:url('/project')}/{$c.id}">{$c.name}</a></li>
             {/volist}
 
             <li><a href="{:url('/article_list')}">资讯列表</a></li>
@@ -89,7 +89,7 @@
     </div>
 </div>
 
-{if $url != "Indexindex"}
+{if $url != "Indexindex"}   
 <div class="item2">
     <div class="main">
         {volist name="article_cate" id="p"}

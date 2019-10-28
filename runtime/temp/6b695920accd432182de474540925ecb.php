@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572080754;s:51:"/var/www/zs/application/index/view/common/head.html";i:1570958945;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572244415;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572243326;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -25,6 +25,7 @@
     width: 30%;
     margin-left: 2%;
     margin-top: 2%;
+    margin-bottom: 4%;
     height: 88px;
 }
 .content_index>.tabel>ul>li>img{
@@ -33,9 +34,16 @@
     width: 105px;
     transition: all 0.5s;  
 }
-.content_index>.tabel>ul>li :hover{
+.lazy:hover{
     transform: scale(1.5);
     border:5px solid #6d6a6a;
+}
+
+.content_index>.tabel>ul>li>p{
+    height: 20px;
+    padding-top: 2px;
+    font-size: 18px;
+    text-align:center;
 }
 
 </style>
@@ -64,14 +72,14 @@
                 <ul class="menu">
                     <li><a href="/help.htm" target="_blank">使用帮助</a></li>
                     <li><a href="javascript:void(0)"
-                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://3158.zzcms.net');">设为首页</a>
+                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>
                     </li>
                     <li><a
-                            href="javascript:window.external.addFavorite('http://3158.zzcms.net','zzcms项目加盟模板演示站');">收藏本站</a>
+                            href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="/static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="<?php echo $web['web_ewm']; ?>" width="100"></li>
                         </ol>
                     </li>
 
@@ -93,7 +101,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="/"><img src="<?php echo $web['web_logo']; ?>" border="0" alt="<?php echo $web['web_name']; ?>"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -111,8 +119,8 @@
                 <td width="100" align="center">
                     <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
-                    <div class="bigbigword3 red">400-728-9861</div>
-                    <div>客服电话: 8:30 - 18:00</div>
+                    <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
+                    <div>客服时间: 8:30 - 18:00</div>
                 </td>
             </tr>
         </table>
@@ -125,7 +133,7 @@
         <ul>
             <li class="current"><a href="<?php echo url('/'); ?>">首页</a></li>
             <?php if(is_array($project_cate) || $project_cate instanceof \think\Collection || $project_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $project_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
-            <li><a href="<?php echo url('/project'); ?>"><?php echo $c['name']; ?></a></li>
+            <li><a href="<?php echo url('/project'); ?>/<?php echo $c['id']; ?>"><?php echo $c['name']; ?></a></li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
 
             <li><a href="<?php echo url('/article_list'); ?>">资讯列表</a></li>
@@ -139,7 +147,7 @@
     </div>
 </div>
 
-<?php if($url != "Indexindex"): ?>
+<?php if($url != "Indexindex"): ?>   
 <div class="item2">
     <div class="main">
         <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
@@ -149,7 +157,7 @@
 <?php endif; ?>
 
     <!--焦点广告效果JS-->
-    <script src="./static/home/js/slider.js" type="text/javascript" language="JavaScript"></script>
+    <script src="/static/home/js/slider.js" type="text/javascript" language="JavaScript"></script>
     <!--顶部广告效果-->
     <script type="text/javascript">
         $(function() {
@@ -214,14 +222,14 @@
                                 <ul class="slides">
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="./static/home/picture/20180824163934904.jpg"
+                                            <a href="javascript:void(0)"><img src="/static/home/picture/20180824163934904.jpg"
                                                     alt="" /></a>
                                         </div>
                                         <div>dfasdfasf</div>
                                     </li>
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="./static/home/picture/20180824164042456.jpg"
+                                            <a href="javascript:void(0)"><img src="/static/home/picture/20180824164042456.jpg"
                                                     alt="" /></a>
                                         </div>
                                         <div>asdfasdf</div>
@@ -365,6 +373,7 @@
                             <?php foreach($v['project'] as $p): ?>
                             <li>
                                 <img class="lazy" src="<?php echo $p['image']; ?>" />
+                                <p>ss</p>
                             </li>
                             <?php endforeach; ?>
                         </ul>
@@ -448,8 +457,9 @@
                 <ul>
                     <?php if(is_array($advert_a['image']) || $advert_a['image'] instanceof \think\Collection || $advert_a['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_a['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
                     <li>
-                        <a  href="<?php echo $a['url']; ?>" target="_blank" style="color:">
+                        <a  href="<?php echo $a['url']; ?>" target="_blank" style="text-align: center;">
                             <img data-original="<?php echo $a['image']; ?>" alt="<?php echo $a['title']; ?>" src="<?php echo $a['image']; ?>" style="display: inline;">
+                            <?php echo $a['title']; ?>
                         </a>
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -475,7 +485,10 @@
             <ul>
                 <?php if(is_array($advert_b['image']) || $advert_b['image'] instanceof \think\Collection || $advert_b['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_b['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$b): $mod = ($i % 2 );++$i;?>
                 <li>
-                    <a  href="<?php echo $b['url']; ?>" target="_blank" style="color:"><img data-original="<?php echo $b['image']; ?>" alt="<?php echo $b['title']; ?>" src="<?php echo $b['image']; ?>" style="display: inline;"></a></li>
+                    <a  href="<?php echo $b['url']; ?>" target="_blank" style="text-align: center;">
+                        <img data-original="<?php echo $b['image']; ?>" alt="<?php echo $b['title']; ?>" src="<?php echo $b['image']; ?>" style="display: inline;">
+                        <?php echo $b['title']; ?>
+                    </a>
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
@@ -497,7 +510,10 @@
             <ul>
                 <?php if(is_array($advert_c['image']) || $advert_c['image'] instanceof \think\Collection || $advert_c['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_c['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
                 <li>
-                    <a href="<?php echo $c['url']; ?>" target="_blank" style="color:"><img data-original="<?php echo $c['image']; ?>" alt="<?php echo $c['title']; ?>" src="<?php echo $c['image']; ?>" style="display: block;"></a>
+                    <a href="<?php echo $c['url']; ?>" target="_blank" >
+                        <img data-original="<?php echo $c['image']; ?>" alt="<?php echo $c['title']; ?>" src="<?php echo $c['image']; ?>" style="display: block;">
+                      
+                    </a>
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
@@ -570,7 +586,7 @@
                     <?php if(is_array($navs) || $navs instanceof \think\Collection || $navs instanceof \think\Paginator): $i = 0; $__LIST__ = $navs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$n): $mod = ($i % 2 );++$i;?>
                     <div class='zsclass_zhankai'>
                         <div class='zsclass_s_zhankai_style2'>
-                            <h2><img src=./static/home/picture/1.png>&nbsp;
+                            <h2><img src=/static/home/picture/1.png>&nbsp;
                                 <a href=/zs/tesecanyin><?php echo $n['name']; ?>
                                                                                                                                                                                                                                                                                                                                                                                                         </a>
                             </h2>
@@ -633,7 +649,7 @@
                                     <td class="x_bottom">
                                         <table width="62" height="62 " border="0" cellspacing="1" class="bgcolor3">
                                             <tr>
-                                                <td class="bgcolor1"><img data-original='./static/home/picture/20180903134708562_small.gif' onload='resizeimg(60,60,this)'></td>
+                                                <td class="bgcolor1"><img data-original='/static/home/picture/20180903134708562_small.gif' onload='resizeimg(60,60,this)'></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -669,7 +685,9 @@
                 <tr>
                     <td width=25% bgcolor=#FFFFFF>
                         <?php if(is_array($advert_d['image']) || $advert_d['image'] instanceof \think\Collection || $advert_d['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_d['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;?>
-                        <a href="<?php echo $d['url']; ?>" target='_blank'><img src="<?php echo $d['image']; ?>" alt="<?php echo $d['title']; ?>" width=144 height=70 border=0 /></a>
+                        <a href="<?php echo $d['url']; ?>" target='_blank'>
+                            <img src="<?php echo $d['image']; ?>" alt="<?php echo $d['title']; ?>" width=144 height=70 border=0 />
+                        </a>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </td>
                 </tr>
@@ -710,7 +728,7 @@
                 <ul>
                     <li>
                         李志阳 手机：17746959588 QQ：357856668
-                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;&amp;Menu=yes" target="blank"><img alt="在线客服QQ" border="0" src="./static/home/picture/c2422770bc7e4ad492f0209b171abb24.gif" /> </a>
+                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;&amp;Menu=yes" target="blank"><img alt="在线客服QQ" border="0" src="/static/home/picture/c2422770bc7e4ad492f0209b171abb24.gif" /> </a>
                     </li>
                 </ul>
             </div>

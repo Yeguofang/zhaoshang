@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/var/www/zs/public/../application/admin/view/general/web/index.html";i:1570602605;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/var/www/zs/public/../application/admin/view/general/web/index.html";i:1572236148;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -126,6 +126,26 @@
                                     </td>
                                     <td></td>
                                 </tr>
+
+
+                                <tr>
+                                        <td> 网站 logo</td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input id="d-avatar" data-rule="" class="form-control" size="50" name="row[web_ewm]" type="text" value="<?php echo $date->web_ewm; ?>">
+                                                <div class="input-group-addon no-border no-padding">
+                                                    <span><button type="button" id="d-plupload-avatar" class="btn btn-danger plupload" data-input-id="d-avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="pd-avatar"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button></span>
+                                                    <span><button type="button" id="d-fachoose-avatar" class="btn btn-primary fachoose" data-input-id="d-avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> <?php echo __('Choose'); ?></button></span>
+                                                </div>
+                                                <span class="msg-box n-right" for="d-avatar"></span>
+                                            </div>
+                                            <ul class="row list-inline plupload-preview" id="pd-avatar"></ul>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+    
+                            
+                                
                                 <tr>
                                     <td> 公安部备案号</td>
                                     <td>

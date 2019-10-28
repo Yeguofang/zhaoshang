@@ -47,7 +47,10 @@ class Index extends Frontend
     }
 
 
-
+    /**
+     * 帮助
+     * @return array
+     */
     public function help()
     {
         
@@ -55,35 +58,45 @@ class Index extends Frontend
     }
 
 
+
+    /**
+     * 图片广告
+     * @return array
+     */
     public function link(){
 
+        //文字广告
         $text =  db::name('advert')
             ->field('id,title,image,url')
             ->where('type', 0)
             ->where('switch', 1)
             ->order('createtime desc')
             ->paginate(2, false, ['var_page'=>'text']);
+
+        //图片广告
         $image =  db::name('advert')
             ->field('id,title,image,url')
             ->where('type',1)
             ->where('switch',1)
             ->order('createtime desc')
-            ->paginate(2,false,['var_page'=>'iamge']);
-  
+            ->paginate(2,false,['var_page'=>'image']);
+        
+        //热门项目
         $project['hot'] = db::name('project')
-                        ->field('id,name,views')
-                        ->where('switch',1)
-                        ->where('flag', 'like', "%hot%")
-                        ->order('weigh desc')
-                        ->limit(15)
-                        ->select();
+            ->field('id,name,views')
+            ->where('switch',1)
+            ->where('flag', 'like', "%hot%")
+            ->order('weigh desc')
+            ->limit(15)
+            ->select();
+        //推荐项目
         $project['rec'] = db::name('project')
-                        ->field('id,name,views')
-                        ->where('switch',1)
-                        ->where('flag', 'like', "%recommend%")
-                        ->order('weigh desc')
-                        ->limit(15)
-                        ->select();
+            ->field('id,name,views')
+            ->where('switch',1)
+            ->where('flag', 'like', "%recommend%")
+            ->order('weigh desc')
+            ->limit(15)
+            ->select();
         $this->assign([
             'project' => $project,
             'text' =>$text,
@@ -95,7 +108,7 @@ class Index extends Frontend
 
 
 
-  /**
+    /**
      * 读取分类
      * @param string $flag   标志
      * @param int    $limit  查询数量
