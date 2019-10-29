@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/var/www/zs/public/../application/index/view/article/detail.html";i:1570420958;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572056603;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:64:"/var/www/zs/public/../application/index/view/article/detail.html";i:1572343693;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572342302;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -6,11 +6,12 @@
     <title>顾客进店后，你可千万不要这么说！资讯</title>
     <meta name="keywords" content="顾客进店后，你可千万不要这么说！资讯" />
     <meta name="description" content="资讯" />
-    <link href="./static/home/css/style.css" rel="stylesheet" type="text/css">
-    <script src="./static/home/js/artdialog.js"></script>
-    <script src="./static/home/js/iframetools.js"></script>
-    <script language="JavaScript" src="./static/home/js/jquery.js"></script>
-    <script src="./static/home/js/jquery.lazyload.js"></script>
+    <link href="/static/home/css/style.css" rel="stylesheet" type="text/css">
+<link href="/static/home/css/jdimg2.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="/static/home/js/jquery.js"></script>
+<script src="/static/home/js/jquery.lazyload.js"></script>
+<script language="JavaScript" src="/static/home/js/qt.js"></script>
+<script language="JavaScript" src="/static/home/js/divselect.js"></script>
     <script>
         //控制字体大小
         function fontZoom(size) {
@@ -43,7 +44,7 @@
 </head>
 
 <body>
-    <script language="JavaScript" src="./static/home/js/qt.js"></script>
+    <script language="JavaScript" src="/static/home/js/qt.js"></script>
 
     <div class="main">
     <div id="banner"><span>关闭</span></div>
@@ -61,14 +62,14 @@
                 <ul class="menu">
                     <li><a href="/help.htm" target="_blank">使用帮助</a></li>
                     <li><a href="javascript:void(0)"
-                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://3158.zzcms.net');">设为首页</a>
+                            onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>
                     </li>
                     <li><a
-                            href="javascript:window.external.addFavorite('http://3158.zzcms.net','zzcms项目加盟模板演示站');">收藏本站</a>
+                            href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
                     <li><a>手机站</a>
                         <ol class="sub">
-                            <li><img src="/static/home/picture/ewm_xm.png" width="100"></li>
+                            <li><img src="<?php echo $web['web_ewm']; ?>" width="100"></li>
                         </ol>
                     </li>
 
@@ -90,7 +91,7 @@
         <table width="100%" border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td width="300">
-                    <a href="http://3158.zzcms.net"><img src="/static/home/picture/logo.png" border="0" alt="&lt;h1&gt;zzcms专业做招商网的程序源码&lt;/h1&gt;"></a>
+                    <a href="/"><img src="<?php echo $web['web_logo']; ?>" border="0" alt="<?php echo $web['web_name']; ?>"></a>
                 </td>
                 <td>
                     <form action="/one/forsearch.php" method="get">
@@ -108,8 +109,8 @@
                 <td width="100" align="center">
                     <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
-                    <div class="bigbigword3 red">400-728-9861</div>
-                    <div>客服电话: 8:30 - 18:00</div>
+                    <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
+                    <div>客服时间: 8:30 - 18:00</div>
                 </td>
             </tr>
         </table>
@@ -122,13 +123,8 @@
         <ul>
             <li class="current"><a href="<?php echo url('/'); ?>">首页</a></li>
             <?php if(is_array($project_cate) || $project_cate instanceof \think\Collection || $project_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $project_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
-            <li><a href="<?php echo url('/project'); ?>"><?php echo $c['name']; ?></a></li>
+            <li><a href="<?php echo url('/project'); ?>/<?php echo $c['id']; ?>"><?php echo $c['name']; ?></a></li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
-            <li><a href="<?php echo url('/article_list'); ?>">资讯列表</a></li>
-            <li><a href="<?php echo url('/article_detail'); ?>">资讯详情</a></li>
-            <li><a href="<?php echo url('/project'); ?>">项目列表 </a></li>
-            <li><a href="<?php echo url('/project_detail'); ?>">项目详情</a></li>
             <li><a href="<?php echo url('/article'); ?>">资讯</a></li>
             <li><a href="<?php echo url('/ranking'); ?>">排行</a></li>
             <li><a href="<?php echo url('/help'); ?>">帮助</a></li>
@@ -136,11 +132,11 @@
     </div>
 </div>
 
-<?php if($url != "Indexindex"): ?>
+<?php if($url != "Indexindex"): ?>   
 <div class="item2">
     <div class="main">
         <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-        <a href="article_list"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
+        <a href="<?php echo url('/article_list'); ?>/<?php echo $p['id']; ?>"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
 </div>
 <?php endif; ?>
@@ -148,9 +144,9 @@
     <div class="main">
         <div class="station">
             <h3>
-                <li class='start'><a href='http://3158.zzcms.net'>首页</a></li>
-                <li><a href='/zx/index.htm'>资讯</a></li>
-                <li><a href='/zx/5'>最佳商机</a></li>
+                    <li class='start'><a href="/">首页</a></li>
+                    <li><a href="<?php echo url('/article'); ?>">资讯</a></li>
+                    <li><?php echo $data['name']; ?></li>
                 <li>
                     <a href='/zx/5/0'></a>
                 </li>
@@ -159,16 +155,17 @@
         <div class="pagebody">
             <div class="left">
                 <div class="box">
-                    <div id="BoxInfoTitle">顾客进店后，你可千万不要这么说！</div>
+                    <div id="BoxInfoTitle"><?php echo $data['title']; ?></div>
                     <div id="BoxInfoTitleNext">
                         来源：&nbsp;&nbsp;发布日期：2018-10-29&nbsp;&nbsp;发布者：&nbsp;&nbsp;共阅254次  字体：<a href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a href='javascript:fontZoom(12)'>小</a>
                     </div>
                     <div id="fontzoom">
-                        作为一名销售，在顾客进店后表现出足够的热情是必须的操作。在这个时候，我们和顾客所说的第一句话就显得非常重要了。那么，当顾客进店以后，我们应当注意哪些话术呢?<img max-width="600" src="./static/home/picture/20181029092216596.jpg" />千万不要问：“今天想买什么呢?”在顾客进入店铺后，绝大多数的导购都会在欢迎光临后自然而然的加一句“想买点什么呢?”其实，这句看似平常的话就已经为你销售的失败埋下了伏笔。试想一下，如果你是顾客，当导购问你今天想买什么的时候，你会怎样回答呢?基本上不是沉默，就是“随便看看”了吧。如果在这样的基础上你还在追问的话，那么你的顾客可能就会逃也似的离开你的店铺了。也就是说，这句话是用来赶走你的顾客，而非达成交易的开场白。这句话失败率这么高的原因就在于，任何一个顾客在刚进店的时候，对导购都是抱着一个防备的心理的。如果你在他还没有对你放松警惕的时候直接使用了销售意味如此强的开场白，就会进一步激起客户的自我保护，基本上就是打算离店了。最好别说：“喜欢的话可以试一下”这句话其实本身没有什么太大的问题，但是使用的时机非常关键。如果我们是在还未完成破冰的情况下使用这句话，很大程度上会让顾客认为你的推销意图过于明显，自然，也会给顾客很大的压力。如果你是在这样的情况下说出了这句话，那么除非顾客真的很喜欢这件衣服，否则他就很有可能转一圈后牛头离开了。对于销售而言，最好的开场，就是非销式的开场了。我们看完了可能会将顾客“赶出去”的话术，是时候看看好好接待顾客的话术了。所谓的非销式话术，基本上可以理解为赞美和闲聊式的话术了。比如我们可以询问他们是否用过餐，赞美他们身上有特点的物件或者关心地询问他们的近况等。一般情况下，当我们打完招呼后选择了轻松的话术来开场，顾客也往往会回以一笑，然后给你回应，这样做我们的破冰也可谓是完成了一半，成交率也会大大提高。当然，如果是生客的话，就要留意客户在什么产品上留意较多，可以直接为他介绍产品。在销售过程中，还有哪些重点是我们需要注意的呢?一、主观性议题作为一个销售人员，要时刻注意在商言商，不要参与一些关于宗教或者政治的话题，这对我们的销售没有任何的实际意义。很多销售新人都会出现和客户讨论一些主观问题，争得面红耳赤的现象;这样做即使我们“占了上风”，可能也会黄了销售，得不偿失。所以一般情况下，有经验的销售只会在开始的时候随着顾客的观点来展开讨论，然后尽快将话题引入我们在推销的产品上。对销售无关的事情，作为销售的我们一定要学会放下或者尽量做到闭口不谈。二、实事求是千万不要夸大产品的功能，因为客户一定会在日后的日子里明白你说的话是真是假。会做生意的人是在剪羊毛，剪了一茬还会有一茬;不会做生意的人就像是在杀猪，只会做一刀子买卖。任何产品都存在优缺点，作为销售的我们需要专业的去帮助客户分析产品的优势和劣势的同时熟悉市场，让顾客心服口服。一定要记住，在销售过程中，任何欺骗和谎言都是一颗注定会爆炸的定时炸弹，是销售的天敌。三、不谈隐私作为销售，体会客户心理是必须的，但是体会客户的心理和了解客户的隐私是两个完全不同的概念。同样的，也不要把自己的隐私作为和客户的谈资。这种八卦式的谈话对业绩可以说是毫无意义，而且会浪费我们推销的商机。四、尽量少说质疑性的话题很多销售似乎让“你懂吗?”，“你知道吗”或者“你明白我的意思吗”当成了和顾客交流时的口头禅。即使我们担心顾客听不懂，也不应该用这种老师的口吻去和顾客说话。换位思考一下，如果我们在购物的时候被这样询问，心里想必也是非常不快的吧。如果我们实在是担心顾客不明白我们的讲解，可以使用试探的口吻去询问，比如：“您有需要我再详细说明的地方吗?”这样的说法，会让顾客更容易接受我们。五、回避不雅之言每个人都希望自己交往的人是有涵养，有水平的。所以如果一个销售人员出口成脏，就不可避免的会对他的销售业绩产生很大的影响。优雅的谈吐可能不能助你走上成功的道路，但是粗鄙之语一定会断送你的上升阶梯。
+                        <?php echo $data['content']; ?>
                     </div>
+
                     <div style="text-align:center;padding:10px;">
                         <a href="http://www.jiathis.com/share/" class="jiathis" target="_blank">[分享到...]</a>
-                        <script type="text/javascript" src="./static/home/js/jia.js" charset="utf-8"></script>
+                        <script type="text/javascript" src="/static/home/js/jia.js" charset="utf-8"></script>
                         <a href="javascript:printcontent()" target="_self">
           [打印本文]</a> <a href='#top'>[返回顶部]</a>
                         <a href="javascript:window.close()">
@@ -177,7 +174,15 @@
                 </div>
 
                 <div class="box">
-                    上一篇文章：<a href=/zx/show-40.htm>网上开店流程</a><br/> 下一篇文章：<a href=/zx/show-42.htm>智能家居新的创业时代已经来临！</a>
+                    <?php if(($prv == null)): ?>
+                    上一篇文章：没有了<br/> 
+                    <?php else: ?>
+                    上一篇文章：<a href="<?php echo url('/article_detail'); ?>/<?php echo $prv['category_id']; ?>/<?php echo $prv['id']; ?>"><?php echo $prv['title']; ?></a><br/> 
+                    <?php endif; if(($next == null)): ?>
+                    下一篇文章：没有了
+                    <?php else: ?>
+                    下一篇文章：<a href="<?php echo url('/article_detail'); ?>/<?php echo $next['category_id']; ?>/<?php echo $next['id']; ?>"><?php echo $next['title']; ?></a>
+                    <?php endif; ?>
                 </div>
                 <div class="titles">
                     <h3>网友评论</h3>
@@ -204,157 +209,43 @@
                     </form>
                 </div>
             </div>
+
+
+
+
             <div class="right">
-
-                <div class="titles"><span> </span>
-                    <h3>热门资讯</h3>
-                </div>
-                <div class="content1">
+               
+                    <div class="titles"><span>&nbsp;</span>
+                        <h3>热门项目</h3>
+                    </div>
+                    <div class="content1">
                     <ul>
-                        <LI><span style='width:80px' title="阅832次">(832)</span>
-                            <font class=xuhao1>01</font>
-                            <A href=/zx/show-38.htm>淘宝主播5小时直播卖.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅547次">(547)</span>
-                            <font class=xuhao1>02</font>
-                            <A href=/zx/show-1.htm>百年巨头倒闭！8万人.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅515次">(515)</span>
-                            <font class=xuhao1>03</font>
-                            <A href=/zx/show-22.htm>香飘飘大败局！从1年.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅465次">(465)</span>
-                            <font class=xuhao2>04</font>
-                            <A href=/zx/show-8.htm>创业究竟有何魔力，让.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅425次">(425)</span>
-                            <font class=xuhao2>05</font>
-                            <A href=/zx/show-3.htm>农村不起眼的商机都有.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅423次">(423)</span>
-                            <font class=xuhao2>06</font>
-                            <A href=/zx/show-5.htm>创业好项目的几个基本.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅337次">(337)</span>
-                            <font class=xuhao2>07</font>
-                            <A href=/zx/show-15.htm>开童车店需要多少钱</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅329次">(329)</span>
-                            <font class=xuhao2>08</font>
-                            <A href=/zx/show-9.htm>试发一条，试发一条</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅324次">(324)</span>
-                            <font class=xuhao2>09</font>
-                            <A href=/zx/show-68.htm>创业三宝：找人找钱找.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅318次">(318)</span>
-                            <font class=xuhao2>10</font>
-                            <A href=/zx/show-19.htm>胶囊旅馆投资多少钱？</A>
-                        </LI>
+                        <?php if(is_array($hot) || $hot instanceof \think\Collection || $hot instanceof \think\Paginator): $i = 0; $__LIST__ = $hot;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$h): $mod = ($i % 2 );++$i;?>
+                        <li><span style="width:80px" title="阅832次">(<?php echo $h['views']; ?>)</span>
+                            <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1"  <?php else: ?> class="xuhao2"<?php endif; ?>><?php echo $key+1; ?> </font> <a href="<?php echo url('/article_detail'); ?>/<?php echo $h['category_id']; ?>/<?php echo $h['id']; ?>">
+                                <?php echo mb_substr($h['title'],0,10); ?>...</a>
+                        </li>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </ul>
-                </div>
-
-                <div class="titles"><span> </span>
-                    <h3>最新资讯</h3>
-                </div>
-                <div class="content1">
+                    </div>
+    
+                    <div class="titles"><span>&nbsp;</span>
+                        <h3>推荐项目</h3>
+                    </div>
+                    <div class="content1">
                     <ul>
-                        <LI><span style='width:80px'>2019-09-06</span>
-                            <font class=xuhao1>01</font>
-                            <A href=/zx/show-92.htm>123</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-12-05</span>
-                            <font class=xuhao1>02</font>
-                            <A href=/zx/show-91.htm>l[pl[p</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-11-14</span>
-                            <font class=xuhao1>03</font>
-                            <A href=/zx/show-90.htm>美国的开学第一课：奥巴马.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>04</font>
-                            <A href=/zx/show-88.htm>创业热门项目知多少</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>05</font>
-                            <A href=/zx/show-87.htm>无本钱创业真的靠谱吗</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>06</font>
-                            <A href=/zx/show-86.htm>农村致富项目有哪些</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>07</font>
-                            <A href=/zx/show-85.htm>符合哪些条件的创业项目才.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>08</font>
-                            <A href=/zx/show-84.htm>深受创业者喜爱的创业小项.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>09</font>
-                            <A href=/zx/show-83.htm>想要快速赚钱就来选月入2.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>10</font>
-                            <A href=/zx/show-82.htm>向大家介绍一些有前景的创.</A>
-                        </LI>
+                        <?php if(is_array($recommend) || $recommend instanceof \think\Collection || $recommend instanceof \think\Paginator): $i = 0; $__LIST__ = $recommend;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$h): $mod = ($i % 2 );++$i;?>
+                        <li><span style="width:80px" title="阅832次">(<?php echo $h['views']; ?>)</span>
+                            <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1" <?php else: ?> class="xuhao2" <?php endif; ?>><?php echo $key+1; ?> </font> <a href="<?php echo url('/article_detail'); ?>/<?php echo $h['category_id']; ?>/<?php echo $h['id']; ?>">
+                                <?php echo mb_substr($h['title'],0,10); ?>...</a>
+                        </li>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </ul>
-                </div>
-
-                <script language='javascript'>
-                    linkarr = new Array();
-                    picarr = new Array();
-                    textarr = new Array();
-                    var swf_width = 270;
-                    var swf_height = 300;
-                    //文字颜色|文字位置|文字背景颜色|文字背景透明度|按键文字颜色|按键默认颜色|按键当前颜色|自动播放时间|图片过渡效果|是否显示按钮|打开方式
-                    var configtg = '0xffffff|0|0x3FA61F|5|0xffffff|0xC5DDBC|0x000033|2|3|1|_blank';
-
-                    var files = "";
-                    var links = "";
-                    var texts = "";
-                    picarr[1] = "/uploadfiles/2019-09/20190906085558520.png";
-                    textarr[1] = "123";
-                    linkarr[1] = "/zx/show-92.htm";
-                    picarr[2] = "/uploadfiles/2018-11/20181108091715156.jpg";
-                    textarr[2] = "美国的开学第一课：奥.";
-                    linkarr[2] = "/zx/show-90.htm";
-                    picarr[3] = "/uploadfiles/2018-10/20181029151902310.jpg";
-                    textarr[3] = "男人到了不惑之年是打.";
-                    linkarr[3] = "/zx/show-63.htm";
-                    picarr[4] = "/uploadfiles/2018-10/20181029151634792.jpg";
-                    textarr[4] = "创业为什么说抓机会比.";
-                    linkarr[4] = "/zx/show-61.htm";
-                    picarr[5] = "/uploadfiles/2018-10/20181029092216596.jpg";
-                    textarr[5] = "顾客进店后，你可千万.";
-                    linkarr[5] = "/zx/show-41.htm";
-                    picarr[6] = "/uploadfiles/2018-10/20181029091648306.jpg";
-                    textarr[6] = "淘宝主播5小时直播卖.";
-                    linkarr[6] = "/zx/show-38.htm";
-                    picarr[7] = "/uploadfiles/2018-10/20181029091205771.jpg";
-                    textarr[7] = "如何寻找创业新点子？.";
-                    linkarr[7] = "/zx/show-36.htm";
-                    for (i = 1; i < picarr.length; i++) {
-                        if (files == "") files = picarr[i];
-                        else files += "|" + picarr[i];
-                    }
-                    for (i = 1; i < linkarr.length; i++) {
-                        if (links == "") links = linkarr[i];
-                        else links += "|" + linkarr[i];
-                    }
-                    for (i = 1; i < textarr.length; i++) {
-                        if (texts == "") texts = textarr[i];
-                        else texts += "|" + textarr[i];
-                    }
-                    document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="' + swf_width + '" height="' + swf_height + '">');
-                    document.write('<param name="movie" value="/image/focus.swf"><param name="quality" value="high">');
-                    document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
-                    document.write('<param name="FlashVars" value="bcastr_file=' + files + '&bcastr_link=' + links + '&bcastr_title=' + texts + '">');
-                    document.write('<embed src="/image/focus.swf" wmode="opaque" FlashVars="bcastr_file=' + files + '&bcastr_link=' + links + '&bcastr_title=' + texts + '& menu="false" quality="high" width="' + swf_width + '" height="' + swf_height + '" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
-                    document.write('</object>');
-                </script>
+                    </div>
             </div>
+
+
+
         </div>
         <div class="bordercccccc">
             <table width="100%" border="0" cellspacing="10" cellpadding="0">
@@ -370,7 +261,7 @@
                                         <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                             <tr>
                                                 <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                    <A href="/zx/show-92.htm" target="_blank"><img data-original="./static/home/picture/20190906085558520_small.png" border="0" onload=resizeimg(90,90,this)></A>
+                                                    <A href="/zx/show-92.htm" target="_blank"><img data-original="/static/home/picture/20190906085558520_small.png" border="0" onload=resizeimg(90,90,this)></A>
                                                 </td>
                                             </tr>
                                         </table>
@@ -438,7 +329,7 @@
                                     <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                         <tr>
                                             <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                <A href="/zx/show-32.htm" target="_blank"><img data-original="./static/home/picture/20181029090551730_small.jpg" border="0" onload=resizeimg(90,90,this)></A>
+                                                <A href="/zx/show-32.htm" target="_blank"><img data-original="/static/home/picture/20181029090551730_small.jpg" border="0" onload=resizeimg(90,90,this)></A>
                                             </td>
                                         </tr>
                                     </table>
@@ -506,7 +397,7 @@
                                     <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                         <tr>
                                             <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                <A href="/zx/show-36.htm" target="_blank"><img data-original="./static/home/picture/20181029091205771_small.jpg" border="0" onload=resizeimg(90,90,this)></A>
+                                                <A href="/zx/show-36.htm" target="_blank"><img data-original="/static/home/picture/20181029091205771_small.jpg" border="0" onload=resizeimg(90,90,this)></A>
                                             </td>
                                         </tr>
                                     </table>
@@ -574,7 +465,7 @@
                                     <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                         <tr>
                                             <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                <A href="/zx/show-38.htm" target="_blank"><img data-original="./static/home/picture/20181029091648306_small.jpg" border="0" onload=resizeimg(90,90,this)></A>
+                                                <A href="/zx/show-38.htm" target="_blank"><img data-original="/static/home/picture/20181029091648306_small.jpg" border="0" onload=resizeimg(90,90,this)></A>
                                             </td>
                                         </tr>
                                     </table>

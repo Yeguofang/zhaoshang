@@ -41,7 +41,7 @@
         <div class="col-xs-12 col-sm-8">
                 <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
                         {foreach name="flagList" item="vo"}
-                        <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}>{$vo}</option>
+                        <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}  >{$vo}</option>
                         {/foreach}
                     </select>
         </div>

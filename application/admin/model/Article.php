@@ -41,7 +41,7 @@ class Article extends Model
 
     public function getFlagList()
     {
-        return ['hot' => '热门', 'index' => '首页', 'recommend' => '推荐'];
+        return ['hot' => '热门', 'index' => '首页', 'recommend' => '推荐','slide'=>'轮播','img'=>'图片','home'=>'栏目'];
     }
 
     public function getFlagTextAttr($value, $data)

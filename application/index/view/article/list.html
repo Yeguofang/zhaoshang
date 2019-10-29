@@ -5,11 +5,11 @@
     <title>资讯</title>
     <meta name="keywords" content="资讯" />
     <meta name="description" content="资讯" />
-    <link href="__HOME__/css/style.css" rel="stylesheet" type="text/css" />
+    {include file="common/head"/}
+    <!-- <link href="__HOME__/css/style.css" rel="stylesheet" type="text/css" /> -->
 </head>
 
 <body>
-    <script language="JavaScript" src="__HOME__/js/qt.js"></script>
 
     {include file="common/header"/}
 
@@ -17,226 +17,54 @@
         <div class="pagebody">
             <div class="left">
                 <div class="station2">
-                    <span><select name='menu1' onchange=MM_jumpMenu('parent',this,0)><option value='/zx/zx.php?b=2&s=&page=1&page_size=20' selected >20条/页</option><option value='/zx/zx.php?b=2&s=&page=1&page_size=50' >50条/页</option><option value='/zx/zx.php?b=2&s=&page=1&page=1&page_size=100' >100条/页</option></select></span>
-                    <li class='start'><a href='http://3158.zzcms.net'>首页</a></li>
-                    <li><a href='/zx/index.htm'>资讯</a></li>
-                    <li><a href='/zx/2'>创业指南</a></li>
+                    <li class='start'><a href="/">首页</a></li>
+                    <li><a href="{:url('/article')}">资讯</a></li>
+                    <li>{$name.name}</li>
                 </div>
-                <div class="box boxbigclass">
-                    <li><a href='/zx/1'>热点资讯</a></li>
-                    <li><a href='/zx/2' class='current'>创业指南</a></li>
-                    <li><a href='/zx/3'>最新动态</a></li>
-                    <li><a href='/zx/4'>市场行情</a></li>
-                    <li><a href='/zx/5'>最佳商机</a></li>
-                    <li><a href='/zx/6'>项目分析</a></li>
-                    <li><a href='/zx/7'>草根必读</a></li>
-                    <li><a href='/zx/8'>创业经历</a></li>
-                    <li><a href='/zx/9'>暴利行业</a></li>
-                </div>
+         
 
                 <div class="content">
                     <div class="boxbigclass"></div>
 
-                    <div class="bigbigword2"><a href='/zx/show-40.htm'>网上开店流程</a></div>
-                    <div>如何在网上开店?在网上开店之前有哪些准备工作?今天，就为您介绍：网上开店的流程!希望能够帮助更多想要自己创业的朋友们，开一家的有竞争力的网店!网上开店的流程：1、前期准备很多朋友都想在网上开店，当问起.<a href='/zx/show-40.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：263</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-34.htm'>年轻人别老想着跳进创业这个巨坑</a></div>
-                    <div>过去十年里，我身边的同龄人所谓的“创业”，至今没有看到成功的。无论是嫌钱少从体制内出去创业的；还是从什么MS、JPM之类高大上平台出来创业的；或者干脆是因为读不好书创业的；甚至是家里给了大把资金创业的.<a href='/zx/show-34.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：296</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-33.htm'>满足这三点，你就非常适合创业</a></div>
-                    <div>选创业还是选就业?这个问题的确让人非常纠结。细看自己身边的朋友亲戚们，似乎都有那么几个成功创业的例子，同样也不乏创业失败，背负压力重回职场的人。为什么同样是创业，甚至做的还是差不多的职业，有的轻松成功.<a href='/zx/show-33.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：240</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-32.htm'>30岁以后才是一个更加合适创业的年龄</a>
-                        <font color='#FF6600'>(图)</font>
-                    </div>
-                    <div>关于创业这事儿，不是年龄越大，创业的成功概率就越高，并没有必然联系。但是年龄越小，创业的成功概率就越低，是现实情况。多大年龄适合创业，其实——没有适合创业的年龄，只有适合创业的时机。创业是一个系统化工.<a href='/zx/show-32.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：282</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-31.htm'>创业时选项目要遵循的三大原则</a></div>
-                    <div>俗话说“万事开头难”，这句说的一点没错，创业过程中也是如此，创业第一步就是选择项目，项目选不好基本上就不要谈创业，项目选的好才有可能更进一步。找创业项目没思路?小编就给大家带来选项目的三大原则，希望可.<a href='/zx/show-31.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：247</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-30.htm'>创业没有一帆风顺的，关键在于你是否能熬过去</a>
-                        <font color='#FF6600'>(图)</font>
-                    </div>
-                    <div>创业何尝不是一场苦修?就像唐僧师徒西天取经，需得一步步走完九九八十一难，才能求得真经。你羡慕人家衣着光鲜的人走在大街上，殊不知这些人也是一点一点熬过来的。人生和创业都没有一帆风顺的，成功的关键在于你是.<a href='/zx/show-30.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：215</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-29.htm'>是谁杀死了大数据创业者？</a></div>
-                    <div>“这两年在大数据领域，纯粹讲概念没有技术的公司都死完了。融资过很多的钱的企业虽然还存活着，但大多过的也很难受。”一位大数据领域的资深创业者，对创界网说出了整个业内的真实现状。从2016年开始，就有人喊.<a href='/zx/show-29.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：199</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-20.htm'>俞敏洪：创业者必须注意的四点常识</a></div>
-                    <div>1、没有商业头脑，迟早要被玩死任何理想和梦想都是建立在现实的不堪之上。创业就像结婚，你首先要面对的是与恋爱时期不同的感情变化，那就是你结婚的对象有可能是一个不堪的男人或女人，而且你还要跟他/她过一辈子.<a href='/zx/show-20.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：235</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-14.htm'>开网店卖什么赚钱？</a>
-                        <font color='#FF6600'>(图)</font>
-                    </div>
-                    <div>经常有某某开网店年入多少这样的新闻刺激着广大网民的视听，在这个网店盛行的年代，有的投资者就很想开一家网店，不仅工作时间自由，收入还很可观。有这样的想法，但是具体到要卖什么的时候就不知所措了。那么开网店.<a href='/zx/show-14.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-28 点击：205</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-13.htm'>乡镇适合开什么店</a></div>
-                    <div>现如今农村人民生活水平不断提高，越来越多的人希望可以通过开店自主创业。从当前情况来看，很多人想要开设一家属于自己的店面，这样才可以轻轻松松把钱赚。时下很多人想要知道乡镇适合开什么店?这是许多人关注问题.<a href='/zx/show-13.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-28 点击：293</div>
-
-                    <div class="bigbigword2"><a href='/zx/show-8.htm'>创业究竟有何魔力，让大伙对创业如此痴迷</a>
-                        <font color='#FF6600'>(图)</font>
-                    </div>
-                    <div>自改革开放以来，我国政府对民众创业一直持支持态度，这一点在相关政策条例上就有最好的证明。可即使政府支持大众创业，但是各种创业失败的例子依然比比皆是。然而在创业这条路上，大家依然是有条件就上，没有条件创.<a href='/zx/show-8.htm'>[ 更多... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：2018-10-29 点击：465</div>
-
-
+                    {volist name="data" id="a"}
+                    <div class="bigbigword2"><a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title}</a></div>
+                    <div>{$a.desc}<a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">[ 查看... ]</a></div>
+                    <div style="margin-bottom:10px">发布时间：{$a.createtime|@date="Y-m-d H:i:s"} 点击：{$a.views}</div>
+                    {/volist}
+                 
                 </div>
-                <div class='fenyei'>
-                    <form name='formpage' action='/zx/zx.php' method='get' target='_self' onsubmit='return checkpage();'>
-                        <a>
-                            <nobr>共11</nobr>
-                        </a><span>1</span>
-                        <input name='page' type='text' maxlength='10' value='1' class='biaodan' style='width:40px;' /><input type='submit' name='submit' value='GO' class='button' /><input name='b' type='hidden' value='2' /><input name='s' type='hidden'
-                            value='0' /></form>
-                </div>
+                        {$data->render()}
 
             </div>
             <div class="right">
-                <script language='javascript'>
-                    linkarr = new Array();
-                    picarr = new Array();
-                    textarr = new Array();
-                    var swf_width = 270;
-                    var swf_height = 300;
-                    //文字颜色|文字位置|文字背景颜色|文字背景透明度|按键文字颜色|按键默认颜色|按键当前颜色|自动播放时间|图片过渡效果|是否显示按钮|打开方式
-                    var configtg = '0xffffff|0|0x3FA61F|5|0xffffff|0xC5DDBC|0x000033|2|3|1|_blank';
-
-                    var files = "";
-                    var links = "";
-                    var texts = "";
-                    picarr[1] = "/uploadfiles/2018-10/20181029090551730.jpg";
-                    textarr[1] = "30岁以后才是一个更.";
-                    linkarr[1] = "/zx/show-32.htm";
-                    picarr[2] = "/uploadfiles/2018-10/20181029090030574.jpg";
-                    textarr[2] = "创业没有一帆风顺的，.";
-                    linkarr[2] = "/zx/show-30.htm";
-                    picarr[3] = "/uploadfiles/2018-10/20181028070528449.jpg";
-                    textarr[3] = "开网店卖什么赚钱？";
-                    linkarr[3] = "/zx/show-14.htm";
-                    picarr[4] = "/uploadfiles/2018-10/20181029090346824.jpg";
-                    textarr[4] = "创业究竟有何魔力，让.";
-                    linkarr[4] = "/zx/show-8.htm";
-                    for (i = 1; i < picarr.length; i++) {
-                        if (files == "") files = picarr[i];
-                        else files += "|" + picarr[i];
-                    }
-                    for (i = 1; i < linkarr.length; i++) {
-                        if (links == "") links = linkarr[i];
-                        else links += "|" + linkarr[i];
-                    }
-                    for (i = 1; i < textarr.length; i++) {
-                        if (texts == "") texts = textarr[i];
-                        else texts += "|" + textarr[i];
-                    }
-                    document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="' + swf_width + '" height="' + swf_height + '">');
-                    document.write('<param name="movie" value="/image/focus.swf"><param name="quality" value="high">');
-                    document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
-                    document.write('<param name="FlashVars" value="bcastr_file=' + files + '&bcastr_link=' + links + '&bcastr_title=' + texts + '">');
-                    document.write('<embed src="/image/focus.swf" wmode="opaque" FlashVars="bcastr_file=' + files + '&bcastr_link=' + links + '&bcastr_title=' + texts + '& menu="false" quality="high" width="' + swf_width + '" height="' + swf_height + '" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
-                    document.write('</object>');
-                </script>
-                <div class="titles"> 热门资讯</div>
-                <div class="content1">
+               
+                    <div class="titles"><span>&nbsp;</span>
+                        <h3>热门项目</h3>
+                    </div>
+                    <div class="content1">
                     <ul>
-                        <LI><span style='width:80px' title="阅465次">(465)</span>
-                            <font class=xuhao1>01</font>
-                            <A href=/zx/show-8.htm>创业究竟有何魔力，让.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅296次">(296)</span>
-                            <font class=xuhao1>02</font>
-                            <A href=/zx/show-34.htm>年轻人别老想着跳进创.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅293次">(293)</span>
-                            <font class=xuhao1>03</font>
-                            <A href=/zx/show-13.htm>乡镇适合开什么店</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅282次">(282)</span>
-                            <font class=xuhao2>04</font>
-                            <A href=/zx/show-32.htm>30岁以后才是一个更.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅263次">(263)</span>
-                            <font class=xuhao2>05</font>
-                            <A href=/zx/show-40.htm>网上开店流程</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅247次">(247)</span>
-                            <font class=xuhao2>06</font>
-                            <A href=/zx/show-31.htm>创业时选项目要遵循的.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅240次">(240)</span>
-                            <font class=xuhao2>07</font>
-                            <A href=/zx/show-33.htm>满足这三点，你就非常.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅235次">(235)</span>
-                            <font class=xuhao2>08</font>
-                            <A href=/zx/show-20.htm>俞敏洪：创业者必须注.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅215次">(215)</span>
-                            <font class=xuhao2>09</font>
-                            <A href=/zx/show-30.htm>创业没有一帆风顺的，.</A>
-                        </LI>
-                        <LI><span style='width:80px' title="阅205次">(205)</span>
-                            <font class=xuhao2>10</font>
-                            <A href=/zx/show-14.htm>开网店卖什么赚钱？</A>
-                        </LI>
+                        {volist name="hot" id="h"}
+                        <li><span style="width:80px" title="阅832次">({$h.views})</span>
+                            <font {if($key==0 || $key==1 || $key==2)}class="xuhao1"  {else/} class="xuhao2"{/if}>{$key+1} </font> <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
+                                {$h.title|mb_substr=0,10}...</a>
+                        </li>
+                        {/volist}
                     </ul>
-                </div>
-
-                <div class="titles"> 最近更新</div>
-                <div class="content1">
+                    </div>
+    
+                    <div class="titles"><span>&nbsp;</span>
+                        <h3>推荐项目</h3>
+                    </div>
+                    <div class="content1">
                     <ul>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao1>01</font>
-                            <A href=/zx/show-40.htm>网上开店流程</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao1>02</font>
-                            <A href=/zx/show-34.htm>年轻人别老想着跳进创业这.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao1>03</font>
-                            <A href=/zx/show-33.htm>满足这三点，你就非常适合.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>04</font>
-                            <A href=/zx/show-32.htm>30岁以后才是一个更加合.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>05</font>
-                            <A href=/zx/show-31.htm>创业时选项目要遵循的三大.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>06</font>
-                            <A href=/zx/show-30.htm>创业没有一帆风顺的，关键.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>07</font>
-                            <A href=/zx/show-29.htm>是谁杀死了大数据创业者？</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-29</span>
-                            <font class=xuhao2>08</font>
-                            <A href=/zx/show-20.htm>俞敏洪：创业者必须注意的.</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-28</span>
-                            <font class=xuhao2>09</font>
-                            <A href=/zx/show-14.htm>开网店卖什么赚钱？</A>
-                        </LI>
-                        <LI><span style='width:80px'>2018-10-28</span>
-                            <font class=xuhao2>10</font>
-                            <A href=/zx/show-13.htm>乡镇适合开什么店</A>
-                        </LI>
+                        {volist name="recommend"" id="h"}
+                        <li><span style="width:80px" title="阅832次">({$h.views})</span>
+                            <font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2" {/if}>{$key+1} </font> <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
+                                {$h.title|mb_substr=0,10}...</a>
+                        </li>
+                        {/volist}
                     </ul>
-                </div>
-
+                    </div>
             </div>
         </div>
     </div>

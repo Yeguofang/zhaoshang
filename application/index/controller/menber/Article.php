@@ -60,7 +60,7 @@ class Article extends Frontend
 
     //添加
     public function add()
-    {
+    {   
         $cate_one = db::name('category')->where('type', 'article')->where('pid', 0)->field('id,name')->select();
         for ($i=0;$i<count($cate_one);$i++) {
             $cate_one[$i]['two'] = db::name('category')->where('type', 'article')->where('pid', $cate_one[$i]['id'])->field('id,name')->select();
@@ -69,15 +69,17 @@ class Article extends Frontend
         if ($this->request->isAjax()) {
             $admin_id = $this->auth->getUserinfo()['id'];
             $row = $this->request->post();
-	    $row['admin_id'] = $admin_id;
-	    $row['content'] = $_POST['content'];
-
+            $row['admin_id'] = $admin_id;
+            $row['content'] = $_POST['content'];
             $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
+            $text = preg_replace("/<[^>]+>/","",$row['content']);//去除文本内容的ＨＴＭＬ跟图片标签，只保留文本
+            $row['desc'] = mb_substr($text,0,100);//截取文本100个紫作为文章摘要
     
             $res = db::name('article')->insert($row);
             if ($res == 1) {
                 return  $this->success('发布成功');
-	    }
+        }
+        
 	    return $this->error('发布失败');
         }
         
@@ -98,8 +100,9 @@ class Article extends Frontend
 	if ($this->request->isAjax()) {
 		$row = $this->request->post();
 		$row['content'] = $_POST['content'];
-    
-		$row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
+        $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
+        $text = preg_replace("/<[^>]+>/","",$row['content']);//去除文本内容的ＨＴＭＬ跟图片标签，只保留文本
+        $row['desc'] = mb_substr($text,0,100);//截取文本100个紫作为文章摘要
 	
 		$res = db::name('article')->where('id',$id)->update($row);
 		if ($res == 1) {

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/project/list.html";i:1572258286;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572243326;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/project/list.html";i:1572339993;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -91,8 +91,6 @@
                         <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech /><input name="search" type="submit" border="0" class="buttons_search" value="搜索" />
                     </form>
                 </td>
-                <td width="100" align="center">
-                    <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
                     <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
                     <div>客服时间: 8:30 - 18:00</div>
@@ -110,11 +108,6 @@
             <?php if(is_array($project_cate) || $project_cate instanceof \think\Collection || $project_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $project_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
             <li><a href="<?php echo url('/project'); ?>/<?php echo $c['id']; ?>"><?php echo $c['name']; ?></a></li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
-            <li><a href="<?php echo url('/article_list'); ?>">资讯列表</a></li>
-            <li><a href="<?php echo url('/article_detail'); ?>">资讯详情</a></li>
-            <li><a href="<?php echo url('/project'); ?>">项目列表 </a></li>
-            <li><a href="<?php echo url('/project_detail'); ?>">项目详情</a></li>
             <li><a href="<?php echo url('/article'); ?>">资讯</a></li>
             <li><a href="<?php echo url('/ranking'); ?>">排行</a></li>
             <li><a href="<?php echo url('/help'); ?>">帮助</a></li>
@@ -126,7 +119,7 @@
 <div class="item2">
     <div class="main">
         <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-        <a href="article_list"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
+        <a href="<?php echo url('/article_list'); ?>/<?php echo $p['id']; ?>"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
 </div>
 <?php endif; ?>
@@ -141,8 +134,8 @@
                 <ul>
                     <?php if(is_array($hot) || $hot instanceof \think\Collection || $hot instanceof \think\Paginator): $i = 0; $__LIST__ = $hot;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$h): $mod = ($i % 2 );++$i;?>
                     <li><span style="width:80px" title="阅832次">(<?php echo $h['views']; ?>)</span>
-                        <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1" <?php endif; ?>><?php echo $key+1; ?> </font> <a href="/zx/show-38.htm">
-                            <?php echo $h['name']; ?></a>
+                        <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1"  <?php else: ?> class="xuhao2"<?php endif; ?>><?php echo $key+1; ?> </font> <a href="/zx/show-38.htm">
+                            <?php echo mb_substr($h['name'],0,10); ?></a>
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </ul>
@@ -155,8 +148,8 @@
                 <ul>
                     <?php if(is_array($recommend) || $recommend instanceof \think\Collection || $recommend instanceof \think\Paginator): $i = 0; $__LIST__ = $recommend;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$h): $mod = ($i % 2 );++$i;?>
                     <li><span style="width:80px" title="阅832次">(<?php echo $h['views']; ?>)</span>
-                        <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1" <?php endif; ?>><?php echo $key+1; ?> </font> <a href="/zx/show-38.htm">
-                            <?php echo $h['name']; ?></a>
+                        <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1"  <?php else: ?> class="xuhao2"<?php endif; ?>><?php echo $key+1; ?> </font> <a href="/zx/show-38.htm">
+                            <?php echo mb_substr($h['name'],0,10); ?></a>
                     </li>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </ul>

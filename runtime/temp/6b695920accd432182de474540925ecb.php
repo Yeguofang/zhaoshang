@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572244415;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572243326;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572344752;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -20,18 +20,19 @@
     display: flex;
     flex-wrap: wrap;
 }
-.content_index>.tabel>ul>li{
+/* .content_index>.tabel>ul>li>a{
     border:1px solid #bebdbd;
     width: 30%;
     margin-left: 2%;
     margin-top: 2%;
     margin-bottom: 4%;
     height: 88px;
-}
-.content_index>.tabel>ul>li>img{
+} */
+.content_index>.tabel>ul>li>a>img{
+    border:1px solid #bebdbd;
     margin-left: 5px;
     margin-top: 5px;
-    width: 105px;
+    width: 120px;
     transition: all 0.5s;  
 }
 .lazy:hover{
@@ -42,7 +43,7 @@
 .content_index>.tabel>ul>li>p{
     height: 20px;
     padding-top: 2px;
-    font-size: 18px;
+    font-size: 14px;
     text-align:center;
 }
 
@@ -116,8 +117,6 @@
                         <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech /><input name="search" type="submit" border="0" class="buttons_search" value="搜索" />
                     </form>
                 </td>
-                <td width="100" align="center">
-                    <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
                     <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
                     <div>客服时间: 8:30 - 18:00</div>
@@ -135,11 +134,6 @@
             <?php if(is_array($project_cate) || $project_cate instanceof \think\Collection || $project_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $project_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
             <li><a href="<?php echo url('/project'); ?>/<?php echo $c['id']; ?>"><?php echo $c['name']; ?></a></li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
-            <li><a href="<?php echo url('/article_list'); ?>">资讯列表</a></li>
-            <li><a href="<?php echo url('/article_detail'); ?>">资讯详情</a></li>
-            <li><a href="<?php echo url('/project'); ?>">项目列表 </a></li>
-            <li><a href="<?php echo url('/project_detail'); ?>">项目详情</a></li>
             <li><a href="<?php echo url('/article'); ?>">资讯</a></li>
             <li><a href="<?php echo url('/ranking'); ?>">排行</a></li>
             <li><a href="<?php echo url('/help'); ?>">帮助</a></li>
@@ -151,7 +145,7 @@
 <div class="item2">
     <div class="main">
         <?php if(is_array($article_cate) || $article_cate instanceof \think\Collection || $article_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $article_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-        <a href="article_list"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
+        <a href="<?php echo url('/article_list'); ?>/<?php echo $p['id']; ?>"><?php echo $p['name']; ?></a> <?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
 </div>
 <?php endif; ?>
@@ -357,11 +351,11 @@
                 <div class="boxrow<?php echo $key+1; ?>">
                     <div class='titlebigs titlebig<?php echo $key+1; ?>'>
                         <h3>
-                            <a href=/zs/tesecanyin><?php echo $v['name']; ?> </a>
+                            <a href="<?php echo url('/project'); ?>/<?php echo $v['id']; ?>"><?php echo $v['name']; ?> </a>
                          </h3> 
                             <span>
                                 <?php foreach($v['nav'] as $n): ?>
-                                <li><a href='/zs/tesecanyin/zhongcan'><?php echo $n['name']; ?></a>
+                                <li><a href="<?php echo url('/project'); ?>/<?php echo $n['pid']; ?>/<?php echo $n['id']; ?>"><?php echo $n['name']; ?></a>
                                 </li>
                                 <?php endforeach; ?>
                             </span>
@@ -372,8 +366,10 @@
                         <ul>
                             <?php foreach($v['project'] as $p): ?>
                             <li>
-                                <img class="lazy" src="<?php echo $p['image']; ?>" />
-                                <p>ss</p>
+                                <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target="_bank">
+                                    <img class="lazy" src="<?php echo $p['image']; ?>" />
+                                </a>
+                                <p><?php echo $p['name']; ?></p>
                             </li>
                             <?php endforeach; ?>
                         </ul>
@@ -395,7 +391,7 @@
                     <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0;$__LIST__ = is_array($article) ? array_slice($article,0,4, true) : $article->slice(0,4, true); if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                       
                     <td style='width:20%;' valign="top">
-                        <div class='titles'><span><a href='/zx/1'> 更多...</a></span>
+                        <div class='titles'><span><a href="<?php echo url('/article_list'); ?>/<?php echo $vo['id']; ?>"> 更多...</a></span>
                             <h3><?php echo $vo['name']; ?></h3>
                         </div>
                         <div class='content2'>
@@ -406,15 +402,15 @@
                                         <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                             <tr>
                                                 <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                    <a href="/zx/show-92.htm" target="_blank">
-                                                        <img src="<?php echo $a['image']; ?>">
+                                                    <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>" target="_blank">
+                                                        <img src="<?php echo $a['image']; ?>" width="120px" height="80px">
                                                     </a>
                                                 </td>
                                             </tr>
                                         </table>
                                     </td>
                                     <td style='padding-left:5px'>
-                                        <a href="/zx/show-92.htm" target="_blank">
+                                        <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>" target="_blank">
                                             <b><?php echo $a['title']; ?></b><br>
                                         </a>
                                     </td>
@@ -426,8 +422,8 @@
 
                             <ul>
                                 <LI>
-                                    <font class=xuhao1>&nbsp;<?php echo $key+1; ?>&nbsp;</font>
-                                    <a href=/zx/show-92.htm><?php echo $a['title']; ?> </a> 
+                                        <font <?php if(($key == 0 ||$key ==1 ||$key ==2)): ?> class=xuhao1 <?php else: ?>class=xuhao2<?php endif; ?>><?php echo $key+1; ?></font>
+                                        <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>"><?php echo mb_substr($a['title'],0,17); ?> </a> 
                                 </LI> 
                             </ul> 
                             <?php endforeach; ?>
@@ -528,7 +524,7 @@
                         <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0;$__LIST__ = is_array($article) ? array_slice($article,4,4, true) : $article->slice(4,4, true); if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                           
                         <td style='width:20%;' valign="top">
-                            <div class='titles'><span><a href='/zx/1'> 更多...</a></span>
+                            <div class='titles'><span><a href="<?php echo url('/article_list'); ?>/<?php echo $vo['id']; ?>"> 更多...</a></span>
                                 <h3><?php echo $vo['name']; ?></h3>
                             </div>
                             <div class='content2'>
@@ -539,15 +535,15 @@
                                             <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                                 <tr>
                                                     <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                        <a href="/zx/show-92.htm" target="_blank">
-                                                            <img src="<?php echo $a['image']; ?>">
+                                                        <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>" target="_blank">
+                                                            <img src="<?php echo $a['image']; ?>" width="150px" height="110px">
                                                         </a>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td style='padding-left:5px'>
-                                            <a href="/zx/show-92.htm" target="_blank">
+                                            <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>" target="_blank">
                                                 <b><?php echo $a['title']; ?></b><br>
                                             </a>
                                         </td>
@@ -559,8 +555,8 @@
     
                                 <ul>
                                     <LI>
-                                        <font class=xuhao1>&nbsp;<?php echo $key+1; ?>&nbsp;</font>
-                                        <a href=/zx/show-92.htm><?php echo $a['title']; ?> </a> 
+                                        <font <?php if(($key == 0 ||$key ==1 ||$key ==2)): ?> class=xuhao1 <?php else: ?>class=xuhao2<?php endif; ?>><?php echo $key+1; ?></font>
+                                        <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>"><?php echo mb_substr($a['title'],0,15); ?>... </a> 
                                     </LI> 
                                 </ul> 
                                 <?php endforeach; ?>
@@ -587,19 +583,19 @@
                     <div class='zsclass_zhankai'>
                         <div class='zsclass_s_zhankai_style2'>
                             <h2><img src=/static/home/picture/1.png>&nbsp;
-                                <a href=/zs/tesecanyin><?php echo $n['name']; ?>
+                                <a href="<?php echo url('/project'); ?>/<?php echo $n['id']; ?>"><?php echo $n['name']; ?>
                                                                                                                                                                                                                                                                                                                                                                                                         </a>
                             </h2>
 
                             <?php if(is_array($n['nav']) || $n['nav'] instanceof \think\Collection || $n['nav'] instanceof \think\Paginator): $i = 0; $__LIST__ = $n['nav'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$t): $mod = ($i % 2 );++$i;?>
                             <div class='zsclass_s_li'>
                                 <div class='zsclass_s_name'>
-                                    <a href=/zs/tesecanyin/zhongcan><?php echo $t['name']; ?>
+                                    <a href="<?php echo url('/project'); ?>/<?php echo $t['pid']; ?>/<?php echo $t['id']; ?>"><?php echo $t['name']; ?>
                                                                                                                                                                                                                                                                                                                                                                                                             </a>
                                 </div>
                                 <div class='zsclass_cp'>
                                     <?php if(is_array($t['project']) || $t['project'] instanceof \think\Collection || $t['project'] instanceof \think\Paginator): $i = 0; $__LIST__ = $t['project'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-                                    <a href='/zs/show-110.htm' target='_blank'><?php echo $p['name']; ?></a>&nbsp;
+                                    <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target='_blank'><?php echo $p['name']; ?></a>&nbsp;
                                     <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </div>
                             </div>

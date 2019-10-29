@@ -5,7 +5,7 @@
         <div class="col-xs-12 col-sm-8">
             <select id="c-pid" data-rule="required" class="form-control selectpicker" name="row[category_id]">
                         {foreach name="cate" item="vo"}
-                        <option data-type="{$vo.type}" value="{$vo.id}"  {in name="vo.id" value="$row.category_id"}selected{/in}  {in name="vo.pid"  value="0"} disabled='disabled' {/in}>{$vo.name}</option>
+                        <option data-type="{$vo.type}" value="{$vo.id}"  {in name="vo.id" value="$row.category_id"}selected{/in} >{$vo.name}</option>
                         {/foreach}
                     </select>
         </div>

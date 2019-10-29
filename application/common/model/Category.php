@@ -55,7 +55,15 @@ class Category extends Model
 
     public function getFlagList()
     {
-        return ['index' => __('首页'),'navs' => __('首页项目导航'), 'menu' => __('菜单'), 'hot' => __('热门'), 'recommend' => __('推荐'), 'top' => __('顶部')];
+        return [
+            'index' => __('首页'),
+            'navs' => __('首页导航'),
+            'menu' => __('菜单'),
+            'hot' => __('热门'),
+            'recommend' => __('推荐'),
+            'top' => __('顶部'),
+            'home' => '主页',
+        ];
     }
 
     public function getFlagTextAttr($value, $data)

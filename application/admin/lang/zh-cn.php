@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'top'                                                   => '顶部',
+    'navs'                                                  => '导航',
+    'img'                                                   => '图片',
+    'slide'                                                 => '轮播',
+
+
     'User id'                                               => '会员ID',
     'Username'                                              => '用户名',
     'Nickname'                                              => '昵称',

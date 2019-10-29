@@ -22,7 +22,6 @@ class Project extends Frontend
     public function list($pid,$id = null)
     {
        
-        $a= $this->request->url();
         $category= db::name('category')->where('type', 'project')->where('pid', $pid)->field('id,pid,name')->select();
 
         if($id !=null){
@@ -76,6 +75,24 @@ class Project extends Frontend
     }
 
     public function ranking(){
+
+
+        $one = Db::name('category')->where('type',"project")->where('pid', 0)->select();
+        for ($i = 0; $i < count($one); $i++) {
+            $index = Db::name('category')->where('pid', $one[$i]['id'])->select();
+            $ids = [];
+            for ($j=0;$j<count($index);$j++) {
+                $ids[] += $index[$j]['id'];
+            }
+            $one[$i]['project'] = db::name('project')
+                ->field('id,name,category_id,views')
+                ->where('switch', 1)
+                ->where('category_id', 'in', $ids)
+                ->order('views desc')
+                ->limit(10)
+                ->select();
+        }
+       $this->assign('data',$one);
         return $this->view->fetch();
     }
 

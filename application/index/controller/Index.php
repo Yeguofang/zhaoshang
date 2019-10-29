@@ -17,9 +17,10 @@ class Index extends Frontend
     public function index()
     {
         $tdk = WebTdk::get(1);
-        $menu = self::category('menu',9); //首页左侧分类,项目
-        $index = self::category('index',8);   //首页分类，项目
-        $navs = self::category('navs',8);   //首页分类，项目
+        $menu = self::category('menu',9,9); //首页左侧分类,项目
+        $index = self::category('index',8,8);   //首页分类，项目
+        $navs = self::category('navs',8,4);   //首页导航，项目
+
         $advert_a = self::advert('A',6,80);
         $advert_b = self::advert('B',6,6);
         $advert_c = self::advert('C',6,12);
@@ -27,7 +28,7 @@ class Index extends Frontend
         $advert_e = self::advert('E',6,6);
 
 
-        $article = self::article('index',8);
+        $article = self::article('index',8,11);
 
         $this->assign([
             'advert_a' =>$advert_a,
@@ -114,9 +115,9 @@ class Index extends Frontend
      * @param int    $limit  查询数量
      * @return array
      */
-    public static function category($flag,$limit)
+    public static function category($flag,$flag_number,$limit)
     {
-        $menu =  Category::getCategoryIndex('project', 'normal', $flag,$limit);
+        $menu =  Category::getCategoryIndex('project', 'normal', $flag,$flag_number);
         for ($i = 0; $i < count($menu); $i++) {
             $menu[$i]['sum'] = Category::where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->count();
             $menu_two = Db::name('category')->where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->select();
@@ -124,7 +125,7 @@ class Index extends Frontend
             if ($flag == 'menu' || $flag == 'navs') { //首页左侧菜单栏的二级分类下的项目
                 for ($j=0;$j<count($menu_two);$j++) {
                     $menu_two[$j]['project'] = db::name('project')
-                        ->field('id,name,image')
+                        ->field('id,name,image,category_id')
                         ->where('switch',1)
                         ->where('category_id', $menu_two[$j]['id'])
                         ->where('flag', 'like', "%".$flag."%")
@@ -141,7 +142,7 @@ class Index extends Frontend
                     $ids[] += $index[$j]['id']; 
                 }
                 $menu[$i]['project'] = db::name('project')
-                    ->field('id,name,image')
+                    ->field('id,name,image,category_id')
                     ->where('switch',1)
                     ->where('category_id', 'in',$ids)
                     ->where('flag', 'like', "%".$flag."%")
@@ -159,15 +160,16 @@ class Index extends Frontend
       /**
      * 读取分类
      * @param string $flag   标志
-     * @param int    $limit  查询数量
+     * @param int    $flag_number 分类查询数量
+     * @param int    $limit  文章查询数量
      * @return array
      */
-    public static function article($flag,$limit)
+    public static function article($flag,$flag_number,$limit)
     {
-        $category =  Category::getCategoryIndex('article', 'normal', $flag,$limit);
+        $category =  Category::getCategoryIndex('article', 'normal', $flag,$flag_number);
         for ($i = 0; $i < count($category); $i++) {
             $category[$i]['content'] = db::name('article')
-                ->field('id,title,image')
+                ->field('id,title,image,category_id,views')
                 ->where('category_id',$category[$i]['id'])
                 ->order('createtime desc')
                 ->limit($limit)

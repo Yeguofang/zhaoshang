@@ -5,8 +5,8 @@ use think\Route;
 //前台页面
 Route::rule('/', 'index/index');
 Route::rule('/article', 'article/index');
-Route::rule('/article_list/[:id]', 'article/list');
-Route::rule('/article_detail', 'article/detail');
+Route::rule('/article_list/:id', 'article/list');
+Route::rule('/article_detail/:cid/:id', 'article/detail');
 Route::rule('/project/:pid/[:id]', 'project/list');
 Route::rule('/project_detail/:id', 'project/detail');
 Route::rule('/ranking', 'project/ranking');

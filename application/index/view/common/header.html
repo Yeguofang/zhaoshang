@@ -58,8 +58,6 @@
                         <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech /><input name="search" type="submit" border="0" class="buttons_search" value="搜索" />
                     </form>
                 </td>
-                <td width="100" align="center">
-                    <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
                     <div class="bigbigword3 red">{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}</div>
                     <div>客服时间: 8:30 - 18:00</div>
@@ -77,11 +75,6 @@
             {volist name="project_cate" id="c"}
             <li><a href="{:url('/project')}/{$c.id}">{$c.name}</a></li>
             {/volist}
-
-            <li><a href="{:url('/article_list')}">资讯列表</a></li>
-            <li><a href="{:url('/article_detail')}">资讯详情</a></li>
-            <li><a href="{:url('/project')}">项目列表 </a></li>
-            <li><a href="{:url('/project_detail')}">项目详情</a></li>
             <li><a href="{:url('/article')}">资讯</a></li>
             <li><a href="{:url('/ranking')}">排行</a></li>
             <li><a href="{:url('/help')}">帮助</a></li>
@@ -93,7 +86,7 @@
 <div class="item2">
     <div class="main">
         {volist name="article_cate" id="p"}
-        <a href="article_list">{$p.name}</a> {/volist}
+        <a href="{:url('/article_list')}/{$p.id}">{$p.name}</a> {/volist}
     </div>
 </div>
 {/if}
