@@ -65,7 +65,7 @@
 				, { field: 'phone', title: '电话' }
 				, { field: 'email', title: '邮箱', }
 				, { field: 'content', title: '内容', }
-				, { field: 'create_time', title: '创建时间', }
+				, { field: 'createtime', title: '留言时间',templet:function(d){return layui.util.toDateString(d.createtime*1000,"yyyy-MM-dd HH:mm:ss");} }
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true
@@ -73,17 +73,15 @@
 
 
 		table.on('toolbar(project)', function (obj) {
-			tools.delAll_ajax('post', "{:url('/menber/project/del')}", table,obj);
+			tools.delAll_ajax('post', "{:url('/menber/project/del_msg')}", table,obj);
 		});
 
 		//监听行工具事件
 		table.on('tool(project)', function (obj) {
 			var ids = obj.data.id;
 			if (obj.event === 'del') {
-				tools.del_ajax('post', "{:url('/menber/project/del')}", ids, obj);
-			} else if (obj.event === 'edit') {
-			
-			}
+				tools.del_ajax('post', "{:url('/menber/project/del_msg')}", ids, obj);
+			} 
 		});
 	});
 </script>

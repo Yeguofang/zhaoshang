@@ -3,6 +3,7 @@
 namespace app\index\controller\menber;
 
 use app\common\controller\Frontend;
+use app\common\model\Message;
 use think\Db;
 
 //文章咨询类
@@ -18,7 +19,7 @@ class Project extends Frontend
         if ($this->request->isAjax()) {
             $row = $this->request->param();
             $res = db::name('project')
-                        ->where('admin_id', $this->auth->getUserinfo()['id'])
+                        ->where('company_id', $this->auth->getUserinfo()['id'])
                         ->page($row['page'], $row['limit'])
                         ->order('id createtime')
                         ->select();
@@ -39,26 +40,7 @@ class Project extends Frontend
     }
 
 
-    //项目留言
-    public function msg()
-    {
-        if ($this->request->isAjax()) {
-            $row = $this->request->param();
-            $res = db::name('message')
-                        ->where('admin_id', $this->auth->getUserinfo()['id'])
-                        ->page($row['page'], $row['limit'])
-                        ->order('id create_time')
-                        ->select();
-            $cuont = db::name('project')->count();
-
-            for ($i=0;$i<count($res);$i++) {
-                $name = db::name('project')->where('id',$res[$i]['pid'])->field('name')->find();
-                $res[$i]['pname']  = $name['name'];;
-            }
-            return tableData(0, 'ok ', $res, $cuont);
-        }
-        return $this->view->fetch();
-    }
+    
 
 
     //添加
@@ -81,13 +63,17 @@ class Project extends Frontend
 
 
         if ($this->request->isAjax()) {
-            $admin_id = $this->auth->getUserinfo()['id'];
+            $company_id = $this->auth->getUserinfo()['id'];
             $row = $this->request->post();
-            $row['admin_id'] = $admin_id;
+            unset($row['file']);
+            $row['company_id'] = $company_id;
             $row['content'] = $_POST['content'];
             $row['createtime'] = time();
+            if ($row['image'] == null) {//没有缩略图
+                $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
+            }
             $row['city'] = implode(',',$row['city']);
-            unset($row['file']);
+           
 
             $res = db::name('project')->insert($row);
             if ($res == 1) {
@@ -125,8 +111,9 @@ class Project extends Frontend
             unset($row['file']);
             $row['city'] = implode(',',$row['city']);
             $row['content'] = $_POST['content'];
-            $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
-    
+            if ($row['image'] == null) {//没有缩略图
+                $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
+            }
             $res = db::name('project')->where('id', $id)->update($row);
             if ($res == 1) {
                 return  $this->success('修改成功');
@@ -153,6 +140,8 @@ class Project extends Frontend
         return $this->error('删除失败');
     }
 
+
+
     public static function category(){
         $result = db::name('category')->where('type', 'project')->where('pid', 0)->field('id,name')->select();
         for ($i=0;$i<count($result);$i++) {
@@ -160,4 +149,62 @@ class Project extends Frontend
         }
         return $result;
     }
+
+
+    //项目留言
+    public function msg()
+    {
+        if ($this->request->isAjax()) {
+            $row = $this->request->param();
+            $res = db::name('message')
+                        ->where('company_id', $this->auth->getUserinfo()['id'])
+                        ->whereNull('deletetime')
+                        ->page($row['page'], $row['limit'])
+                        ->order('id createtime')
+                        ->select();
+            $cuont = db::name('message')
+                        ->whereNull('deletetime')
+                        ->where('company_id', $this->auth->getUserinfo()['id'])
+                        ->count();
+
+            for ($i=0;$i<count($res);$i++) {
+                $name = db::name('project')->where('id',$res[$i]['pid'])->field('name')->find();
+                $res[$i]['pname']  = $name['name'];;
+            }
+            return tableData(0, 'ok ', $res, $cuont);
+        }
+        return $this->view->fetch();
+    }
+
+    //项目留言删除
+    public function del_msg(){
+        
+        if ($this->request->isAjax()) {
+            $ids = $this->request->param('ids');
+            $list = Message::all($ids);
+            $count = 0;
+            Db::startTrans();
+            try {
+                foreach ($list as $k => $v) {
+                    $count += $v->delete();
+                }
+                Db::commit();
+            } catch (PDOException $e) {
+                Db::rollback();
+                $this->error($e->getMessage());
+            } catch (Exception $e) {
+                Db::rollback();
+                $this->error($e->getMessage());
+            }
+            if ($count) {
+                return $this->success('删除成功');
+            } else {
+                return $this->error('删除失败');
+            }
+            
+        }
+
+    }
+
+
 }

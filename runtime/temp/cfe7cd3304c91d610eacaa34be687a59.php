@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/var/www/zs/public/../application/admin/view/general/web/index.html";i:1572236148;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/var/www/zs/public/../application/admin/view/general/web/index.html";i:1572402960;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -129,7 +129,7 @@
 
 
                                 <tr>
-                                        <td> 网站 logo</td>
+                                        <td>手机站二维码</td>
                                         <td>
                                             <div class="input-group">
                                                 <input id="d-avatar" data-rule="" class="form-control" size="50" name="row[web_ewm]" type="text" value="<?php echo $date->web_ewm; ?>">

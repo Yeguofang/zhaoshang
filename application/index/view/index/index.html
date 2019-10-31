@@ -117,20 +117,15 @@
                             </style>
                             <div id="demo01" class="flexslider">
                                 <ul class="slides">
+                                    {volist name="slide" id="s"}
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="__CDN__/static/home/picture/20180824163934904.jpg"
+                                            <a href="javascript:void(0)"><img src="{}"
                                                     alt="" /></a>
                                         </div>
-                                        <div>dfasdfasf</div>
+                                        <div>{$s.name}</div>
                                     </li>
-                                    <li>
-                                        <div>
-                                            <a href="javascript:void(0)"><img src="__CDN__/static/home/picture/20180824164042456.jpg"
-                                                    alt="" /></a>
-                                        </div>
-                                        <div>asdfasdf</div>
-                                    </li>
+                                   {/volist}
                                 </ul>
                             </div>
                             <script type="text/javascript">

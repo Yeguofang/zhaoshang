@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/project/list.html";i:1572339993;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/project/list.html";i:1572402734;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -187,7 +187,7 @@
                                         <table width='130' height='130' border='0' cellpadding='0' cellspacing='1' class='bordercccccc'>
                                             <tr>
                                                 <td align='center' onMouseOver="showfilter(Layer<?php echo $key; ?>);window.document.getElementById('Layer<?php echo $key; ?>').innerHTML='<img src=<?php echo $p['image']; ?> width=260>'" onMouseOut='showfilter(Layer<?php echo $key; ?>)'>
-                                                    <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>"><img data-original="<?php echo $p['image']; ?>" onload="resizeimg(120,120,this)"></a>
+                                                    <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>"><img data-original="<?php echo $p['image']; ?>" onload="resizeimg(130,130,this)"></a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -309,8 +309,8 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>
 </body>

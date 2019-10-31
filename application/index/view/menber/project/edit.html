@@ -68,6 +68,7 @@
                     <div class="layui-input-inline">
                       <select  lay-filter="area">
                         {volist name="area" id="a"}
+                        <option value="0">全国</option>
                         <option value="{$a.id}">{$a.areaname}</option>
                         {/volist}
                     </select>
@@ -223,11 +224,12 @@
 
                     data.field.city =[];
                     var obj= $('#box').children(); //获取select
-                    for(var i=1;i<obj.length;i++){
+                    console.log(obj);
+                    for(var i=0;i<obj.length;i++){
                         data.field.city.push(obj[i].value);// 收集选中项
                     }
 
-
+                    console.log(data.field);
                     $.ajax({
                         type: "post",
                         async: false,
@@ -262,9 +264,13 @@
                     success: function (res) {
                         $("#city").empty();
                         //遍历省级的数组，将每个内容插入下拉框内
-                        for (var i = 0; i < res.length; i++) {
-                            $('#city').append('<option value='+res[i]['id']+'>' + res[i]['areaname'] + '</option>');
-                        }
+                        if(res.length == 0){
+                            $('#city').append("<option value='1'>全国各地</option>");
+                        }else{
+                            for (var i = 0; i < res.length; i++) {
+                                $('#city').append('<option value='+res[i]['id']+'>' + res[i]['areaname'] + '</option>');
+                            }
+                        }   
                         form.render();
                     }
                 });

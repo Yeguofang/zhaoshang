@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:63:"/var/www/zs/public/../application/index/view/article/index.html";i:1572342577;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:63:"/var/www/zs/public/../application/index/view/article/index.html";i:1572433338;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -238,7 +238,8 @@
         <div class="bordercccccc">
             <table width="100%" border="0" cellspacing="10" cellpadding="0">
                 
-                    <?php if(is_array($home) || $home instanceof \think\Collection || $home instanceof \think\Paginator): $i = 0; $__LIST__ = $home;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$h): $mod = ($i % 2 );++$i;if(($key == 3 || $key == 6)): ?> <tr><?php endif; ?>
+                    <?php if(is_array($home) || $home instanceof \think\Collection || $home instanceof \think\Paginator): $i = 0; $__LIST__ = $home;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$h): $mod = ($i % 2 );++$i;?>
+                    <?php echo $key; if(($key == 3 || $key == 6)): ?> <tr><?php endif; ?>
                     <td style='width:33%;' valign="top">
                         <div class='titles'><span><a href="<?php echo url('/article'); ?>/<?php echo $h['id']; ?>"> 更多...</a></span><?php echo $h['name']; ?></div>
                         <div class='content2'>
@@ -307,8 +308,8 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>
 </body>

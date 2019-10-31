@@ -13,19 +13,19 @@
 
     {include file="common/header"/}
 
-
     <div class="main">
         <div class="pagebody">
                 <ul>
                     {volist name="data" id="one"}
-                    <li style="width:48%;float: left;padding-bottom: 10px;padding-right: 10px;">
+                    <li style="width:30%;float: left;padding-bottom: 10px;padding-right: 10px;">
                         <td>
-                            <div class="titles"><span><a href="{:url('/project')}/{$one.id}">更多... </a> </span>{$one.name} </div> <div class="content2">
+                            <div class="titles"><span><a href="{:url('/project')}/{$one.id}">更多... </a> </span>{$one.name} </div> <div class="content2" style="height: 460px;">
                                         <ul>
                                             {volist name="one.project" id="p"}
-                                            <LI><span>(801)</span>
-                                                <font {if($key==0 || $key==1 || $key==2)}class="xuhao1"  {else/} class="xuhao2"{/if}>{$key+1} </font> <a href="/zx/show-38.htm">
-                                                    <A href="{:url('/project_detail')}/{$p.id}">{$p.name}</A>
+                                            <LI><span>({$p.views})</span>
+                                                <font {if($key==0 || $key==1 || $key==2)}class="xuhao1"  {else/} class="xuhao2"{/if}>{$key+1} </font> 
+                                                    <A href="{:url('/project_detail')}/{$p.id}" target="_bank">{$p.name}</A>
+
                                             </LI>
                                             {/volist}
                 

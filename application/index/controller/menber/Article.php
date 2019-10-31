@@ -18,7 +18,7 @@ class Article extends Frontend
         if ($this->request->isAjax()) {
             $row = $this->request->param();
             $res = db::name('article')
-                        ->where('admin_id', $this->auth->getUserinfo()['id'])
+                        ->where('company_id', $this->auth->getUserinfo()['id'])
                         ->page($row['page'], $row['limit'])
                         ->order('id createtime')
                         ->select();
@@ -42,7 +42,7 @@ class Article extends Frontend
         if ($this->request->isAjax()) {
             $row = $this->request->param();
             $res = db::name('comment')
-                        ->where('admin_id', $this->auth->getUserinfo()['id'])
+                        ->where('company_id', $this->auth->getUserinfo()['id'])
                         ->page($row['page'], $row['limit'])
                         ->order('id create_time')
                         ->select();
@@ -67,9 +67,9 @@ class Article extends Frontend
         }
       
         if ($this->request->isAjax()) {
-            $admin_id = $this->auth->getUserinfo()['id'];
+            $company_id = $this->auth->getUserinfo()['id'];
             $row = $this->request->post();
-            $row['admin_id'] = $admin_id;
+            $row['company_id'] = $company_id;
             $row['content'] = $_POST['content'];
             $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
             $text = preg_replace("/<[^>]+>/","",$row['content']);//去除文本内容的ＨＴＭＬ跟图片标签，只保留文本

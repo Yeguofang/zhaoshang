@@ -6,7 +6,18 @@
     <title>图片广告</title>
     <link href="__CDN__/static/home/css/style.css" rel="stylesheet" type="text/css">
 </head>
-
+<style>
+.txt{
+    float: left;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.txtbox{
+    background-color:#fff ;
+    float: left;
+    padding-bottom: 30px;
+}
+</style>
 <body>
     <div class="main">
         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="x_bottom" style="margin-bottom:8px">
@@ -55,16 +66,14 @@
                     <div class="titles">
                         <h3>文字链接</h3>
                     </div>
-                    <div class="content1">
-                        <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
-                            <tr>
+                    <div class="txtbox">
+                       <ul >
                                 {volist name="text" id="e"}
-                                <td bgcolor='#FFFFFF'>
-                                    <a href="{$e.url}" target='_blank'>{$e.title}</a>
-                                </td>
+                                <li class="txt">
+                                    　<a href="{$e.url}"   target='_blank'>{$e.title}</a>　|　
+                                </li>
                                 {/volist}
-                            </tr>
-                        </table>
+                        </ul>
                     </div>
                     {$text->render()}
                     <!-- 文字链接 -->

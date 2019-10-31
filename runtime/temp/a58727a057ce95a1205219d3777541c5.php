@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"/var/www/zs/public/../application/index/view/index/link.html";i:1572244356;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:60:"/var/www/zs/public/../application/index/view/index/link.html";i:1572506753;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -7,7 +7,18 @@
     <title>图片广告</title>
     <link href="/static/home/css/style.css" rel="stylesheet" type="text/css">
 </head>
-
+<style>
+.txt{
+    float: left;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.txtbox{
+    background-color:#fff ;
+    float: left;
+    padding-bottom: 30px;
+}
+</style>
 <body>
     <div class="main">
         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="x_bottom" style="margin-bottom:8px">
@@ -56,16 +67,14 @@
                     <div class="titles">
                         <h3>文字链接</h3>
                     </div>
-                    <div class="content1">
-                        <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
-                            <tr>
+                    <div class="txtbox">
+                       <ul >
                                 <?php if(is_array($text) || $text instanceof \think\Collection || $text instanceof \think\Paginator): $i = 0; $__LIST__ = $text;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$e): $mod = ($i % 2 );++$i;?>
-                                <td bgcolor='#FFFFFF'>
-                                    <a href="<?php echo $e['url']; ?>" target='_blank'><?php echo $e['title']; ?></a>
-                                </td>
+                                <li class="txt">
+                                    　<a href="<?php echo $e['url']; ?>"   target='_blank'><?php echo $e['title']; ?></a>　|　
+                                </li>
                                 <?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tr>
-                        </table>
+                        </ul>
                     </div>
                     <?php echo $text->render(); ?>
                     <!-- 文字链接 -->
@@ -152,8 +161,8 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>
 </body>

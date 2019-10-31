@@ -33,12 +33,7 @@
             <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" value="{$row.title|htmlentities}">
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50">{$row.content|htmlentities}</textarea>
-        </div>
-    </div>
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
         <div class="col-xs-12 col-sm-8">
@@ -94,6 +89,12 @@
         </div>
     </div>
 
+    <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
+            <div class="col-xs-12 col-sm-8">
+                    <script id="container" name="row[content]" type="text/plain">{$row.content}</script>
+            </div>
+        </div>
 
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>
@@ -103,3 +104,12 @@
         </div>
     </div>
 </form>
+
+  <!-- 配置文件 -->
+  <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.config.js"></script>
+  <!-- 编辑器源码文件 -->
+  <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
+  <script>
+                // 实例化编辑器 
+                var editor = UE.getEditor('container');
+  </script>

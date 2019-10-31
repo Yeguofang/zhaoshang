@@ -48,6 +48,7 @@ class Category extends Model
 
     public function getTypeTextAttr($value, $data)
     {
+        // dump($data);
         $value = $value ? $value : $data['type'];
         $list = $this->getTypeList();
         return isset($list[$value]) ? $list[$value] : '';

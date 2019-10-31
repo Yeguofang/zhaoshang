@@ -7,12 +7,12 @@
                 <div class="widget-body no-padding">
                     <div id="toolbar" class="toolbar">
                         {:build_toolbar('refresh')}
-                        <a class="btn btn-info btn-multi btn-disabled disabled {:$auth->check('article/restore')?'':'hide'}" href="javascript:;" data-url="article/restore" data-action="restore"><i class="fa fa-rotate-left"></i> {:__('Restore')}</a>
-                        <a class="btn btn-danger btn-multi btn-disabled disabled {:$auth->check('article/destroy')?'':'hide'}" href="javascript:;" data-url="article/destroy" data-action="destroy"><i class="fa fa-times"></i> {:__('Destroy')}</a>
-                        <a class="btn btn-success btn-restoreall {:$auth->check('article/restore')?'':'hide'}" href="javascript:;" data-url="article/restore" title="{:__('Restore all')}"><i class="fa fa-rotate-left"></i> {:__('Restore all')}</a>
-                        <a class="btn btn-danger btn-destroyall {:$auth->check('article/destroy')?'':'hide'}" href="javascript:;" data-url="article/destroy" title="{:__('Destroy all')}"><i class="fa fa-times"></i> {:__('Destroy all')}</a>
+                        <a class="btn btn-info btn-multi btn-disabled disabled {:$auth->check('advert/restore')?'':'hide'}" href="javascript:;" data-url="advert/restore" data-action="restore"><i class="fa fa-rotate-left"></i> {:__('Restore')}</a>
+                        <a class="btn btn-danger btn-multi btn-disabled disabled {:$auth->check('advert/destroy')?'':'hide'}" href="javascript:;" data-url="advert/destroy" data-action="destroy"><i class="fa fa-times"></i> {:__('Destroy')}</a>
+                        <a class="btn btn-success btn-restoreall {:$auth->check('advert/restore')?'':'hide'}" href="javascript:;" data-url="advert/restore" title="{:__('Restore all')}"><i class="fa fa-rotate-left"></i> {:__('Restore all')}</a>
+                        <a class="btn btn-danger btn-destroyall {:$auth->check('advert/destroy')?'':'hide'}" href="javascript:;" data-url="advert/destroy" title="{:__('Destroy all')}"><i class="fa fa-times"></i> {:__('Destroy all')}</a>
                     </div>
-                    <table id="table" class="table table-striped table-bordered table-hover" data-operate-restore="{:$auth->check('article/restore')}" data-operate-destroy="{:$auth->check('article/destroy')}" width="100%">
+                    <table id="table" class="table table-striped table-bordered table-hover" data-operate-restore="{:$auth->check('advert/restore')}" data-operate-destroy="{:$auth->check('advert/destroy')}" width="100%">
                     </table>
                 </div>
             </div>

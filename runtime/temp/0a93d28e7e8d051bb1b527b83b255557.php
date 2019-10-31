@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/admin/view/project/edit.html";i:1571888065;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/admin/view/project/edit.html";i:1572505097;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -64,20 +64,15 @@
                         <select id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
                             <?php if(is_array($flagList) || $flagList instanceof \think\Collection || $flagList instanceof \think\Paginator): if( count($flagList)==0 ) : echo "" ;else: foreach($flagList as $key=>$vo): ?>
                             <option value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['flag'])?$row['flag']:explode(',',$row['flag']))): ?>selected<?php endif; ?>><?php echo $vo; ?> </option>
-                                <?php endforeach; endif; else: echo "" ;endif; ?> </select> </div> </div> <div class="form-group">
-                                <label class="control-label col-xs-12 col-sm-2"><?php echo __('Title'); ?>:</label>
-                                <div class="col-xs-12 col-sm-8">
-                                    <input id="c-title" data-rule="required" class="form-control" name="row[title]"
-                                        type="text" value="<?php echo htmlentities($row['title']); ?>">
-                                </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
+                                <?php endforeach; endif; else: echo "" ;endif; ?> </select> </div> </div>
+                     <div class="form-group">
+                        <label class="control-label col-xs-12 col-sm-2"><?php echo __('项目名称'); ?>:</label>
                         <div class="col-xs-12 col-sm-8">
-                            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5"
-                                name="row[content]" cols="50"><?php echo htmlentities($row['content']); ?></textarea>
+                            <input id="c-name" data-rule="required" class="form-control" name="row[name]"
+                                type="text" value="<?php echo htmlentities($row['name']); ?>">
                         </div>
                     </div>
+                  
                     <div class="form-group">
                         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Image'); ?>:</label>
                         <div class="col-xs-12 col-sm-8">
@@ -100,7 +95,13 @@
                         </div>
                     </div>
 
-
+                    <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-2"><?php echo __('Title'); ?>:</label>
+                            <div class="col-xs-12 col-sm-8">
+                                <input id="c-title" data-rule="required" class="form-control" name="row[title]"
+                                    type="text" value="<?php echo htmlentities($row['title']); ?>">
+                            </div>
+                        </div>
                     <div class="form-group">
                         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Keywords'); ?>:</label>
                         <div class="col-xs-12 col-sm-8">
@@ -122,52 +123,65 @@
                         <div class="col-xs-12 col-sm-8">
                             <select id="c-flag" data-rule="required" class="form-control selectpicker"
                                 name="row[price]">
-                                <option value="1" <?php if(in_array(($row['price']), explode(',',"1"))): ?> selected <?php endif; ?>>1-3万</option>
-                                <option value="2" <?php if(in_array(($row['price']), explode(',',"2"))): ?> selected <?php endif; ?>>３-５万</option>
-                                <option value="3" <?php if(in_array(($row['price']), explode(',',"3"))): ?> selected <?php endif; ?>>5-10万</option>
-                                <option value="4" <?php if(in_array(($row['price']), explode(',',"4"))): ?> selected <?php endif; ?>>10万以上</option>
-                            </select>
+                                <option value="1" <?php if(in_array(($row['price']), explode(',',"1"))): ?> selected <?php endif; ?>>1-3万 </option>
+                                    <option value="2" <?php if(in_array(($row['price']), explode(',',"2"))): ?> selected <?php endif; ?>>３-５万 </option>
+                                    <option value="3" <?php if(in_array(($row['price']), explode(',',"3"))): ?> selected <?php endif; ?>>5-10万 </option>
+                                    <option value="4" <?php if(in_array(($row['price']), explode(',',"4"))): ?> selected <?php endif; ?>>10万以上 </option>
+                                    </select> </div> </div> <div class="form-group">
+                                    <label class="control-label col-xs-12 col-sm-2"><?php echo __('Views'); ?>:</label>
+                                    <div class="col-xs-12 col-sm-8">
+                                        <input id="c-views" data-rule="required" class="form-control" name="row[views]"
+                                            type="number" value="<?php echo htmlentities($row['views']); ?>">
+                                    </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Views'); ?>:</label>
-                        <div class="col-xs-12 col-sm-8">
-                            <input id="c-views" data-rule="required" class="form-control" name="row[views]"
-                                type="number" value="<?php echo htmlentities($row['views']); ?>">
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-2"><?php echo __('Weigh'); ?>:</label>
+                            <div class="col-xs-12 col-sm-8">
+                                <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]"
+                                    type="number" value="<?php echo htmlentities($row['weigh']); ?>">
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-12 col-sm-2"><?php echo __('Switch'); ?>:</label>
+                            <div class="col-xs-12 col-sm-8">
 
-
-
-                    <div class="form-group">
-                        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Weigh'); ?>:</label>
-                        <div class="col-xs-12 col-sm-8">
-                            <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]"
-                                type="number" value="<?php echo htmlentities($row['weigh']); ?>">
+                                <input id="c-switch" name="row[switch]" type="hidden" value="<?php echo $row['switch']; ?>">
+                                <a href="javascript:;" data-toggle="switcher" class="btn-switcher"
+                                    data-input-id="c-switch" data-yes="1" data-no="0">
+                                    <i class="fa fa-toggle-on text-success <?php if($row['switch'] == '
+                                        0 '): ?>fa-flip-horizontal text-gray<?php endif; ?> fa-2x"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Switch'); ?>:</label>
-                        <div class="col-xs-12 col-sm-8">
 
-                            <input id="c-switch" name="row[switch]" type="hidden" value="<?php echo $row['switch']; ?>">
-                            <a href="javascript:;" data-toggle="switcher" class="btn-switcher" data-input-id="c-switch"
-                                data-yes="1" data-no="0">
-                                <i class="fa fa-toggle-on text-success <?php if($row['switch'] == '
-                                    0 '): ?>fa-flip-horizontal text-gray<?php endif; ?> fa-2x"></i>
-                            </a>
+
+                        <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
+                                <div class="col-xs-12 col-sm-8">
+                                        <script id="container" name="row[content]" type="text/plain"><?php echo $row['content']; ?></script>
+                                </div>
+                            </div>
+
+                        <div class="form-group layer-footer">
+                            <label class="control-label col-xs-12 col-sm-2"></label>
+                            <div class="col-xs-12 col-sm-8">
+                                <button type="submit" class="btn btn-success btn-embossed disabled"><?php echo __('OK'); ?></button>
+                                <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
+                            </div>
                         </div>
-                    </div>
-
-
-                    <div class="form-group layer-footer">
-                        <label class="control-label col-xs-12 col-sm-2"></label>
-                        <div class="col-xs-12 col-sm-8">
-                            <button type="submit" class="btn btn-success btn-embossed disabled"><?php echo __('OK'); ?></button>
-                            <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
-                        </div>
-                    </div>
 </form>
+
+  <!-- 配置文件 -->
+  <script type="text/javascript" src="/static/ueditor/ueditor.config.js"></script>
+  <!-- 编辑器源码文件 -->
+  <script type="text/javascript" src="/static/ueditor/ueditor.all.js"></script>
+  <script>
+                // 实例化编辑器 
+                var editor = UE.getEditor('container');
+  </script>
                             </div>
                         </div>
                     </div>

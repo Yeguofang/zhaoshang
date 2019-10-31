@@ -74,7 +74,7 @@
 				, { field: 'keywords', title: 'tdk-keywords' }
 				, { field: 'description', title: 'tdk-description', }
 				, { field: 'views', title: '查看数量', }
-				, { field: 'createtime', title: '创建时间', }
+				, { field: 'createtime', title: '创建时间',templet:function(d){return layui.util.toDateString(d.createtime*1000,"yyyy-MM-dd HH:mm:ss");}}
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true
@@ -90,8 +90,6 @@
 			var ids = obj.data.id;
 			if (obj.event === 'del') {
 				tools.del_ajax('post', "{:url('/menber/project/del')}", ids, obj);
-			} else if (obj.event === 'edit') {
-			
 			}
 		});
 	});

@@ -72,7 +72,7 @@
 				, { field: 'image', title: '图片', }
 				, { field: 'url', title: '链接', }
 				, { field: 'views', title: '点击率', }
-				, { field: 'createtime', title: '发布时间', }
+				, { field: 'createtime', title: '发布时间',templet:function(d){return layui.util.toDateString(d.createtime*1000,"yyyy-MM-dd HH:mm:ss");} }
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true

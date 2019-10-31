@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/advert/list.html";i:1572060712;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/advert/list.html";i:1572419934;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -94,7 +94,7 @@
 				, { field: 'image', title: '图片', }
 				, { field: 'url', title: '链接', }
 				, { field: 'views', title: '点击率', }
-				, { field: 'createtime', title: '发布时间', }
+				, { field: 'createtime', title: '发布时间',templet:function(d){return layui.util.toDateString(d.createtime*1000,"yyyy-MM-dd HH:mm:ss");} }
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true

@@ -3,9 +3,10 @@
 namespace app\admin\controller;
 
 use app\common\controller\Backend;
+use app\admin\model\Project;
 use app\common\model\Category as CategoryModel;
 use fast\Tree;
-
+use think\db;
 /**
  * 分类管理
  *
@@ -131,6 +132,49 @@ class Category extends Backend
         }
         $this->view->assign("row", $row);
         return $this->view->fetch();
+    }
+
+
+    public function del($ids= null){
+
+        if ($ids) {
+            $result = Project::where('id','in',$ids)->select();
+            $cate = $this->model->where('pid',$ids)->select();
+            if($cate != null){
+                $this->error('该栏目下存在子类，禁止删除');
+            }
+
+            if($result != null){
+                $this->error('该栏目下存在项目，禁止删除');
+            }
+
+            $pk = $this->model->getPk();
+            $adminIds = $this->getDataLimitAdminIds();
+            if (is_array($adminIds)) {
+                $this->model->where($this->dataLimitField, 'in', $adminIds);
+            }
+            $list = $this->model->where($pk, 'in', $ids)->select();
+
+            $count = 0;
+            Db::startTrans();
+            try {
+                foreach ($list as $k => $v) {
+                    $count += $v->delete();
+                }
+                Db::commit();
+            } catch (PDOException $e) {
+                Db::rollback();
+                $this->error($e->getMessage());
+            } catch (Exception $e) {
+                Db::rollback();
+                $this->error($e->getMessage());
+            }
+            if ($count) {
+                $this->success();
+            } else {
+                $this->error(__('No rows were deleted'));
+            }
+        }
     }
 
 

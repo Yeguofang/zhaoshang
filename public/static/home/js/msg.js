@@ -13,68 +13,79 @@ eval("submenu" + sid + ".style.display=\"none\";");
 }
 
 function CheckForms(){
-	if (document.ly.contents.value==""){	
+	var content =document.ly.contents.value;
+	var name= document.ly.name.value;
+	var phone =document.ly.tel.value;
+	var company_id =document.ly.company_id.value;
+	var email = document.ly.email.value;
+	var token =  document.ly.__token__.value;
+	var id= document.ly.id.value;
+	var url= document.ly.url.value;
+
+	if (content==""){	
 	document.ly.contents.style.border = '1px solid #FA8072';
 	window.document.getElementById('ts_contents').innerHTML='<span class=boxuserreg>留言内容不能为空</span>';
 	document.ly.contents.focus();	
 	return false;
 	}
-	if (document.ly.contents2.value=="no"){	
-	document.ly.contents.style.border = '1px solid #FF0000';
-	return false;
-	}
-	if (document.ly.name.value==""){	
+	if (name==""){	
 	document.ly.name.style.border = '1px solid #FA8072';
 	window.document.getElementById('ts_name').innerHTML='<span class=boxuserreg>请输入姓名</span>';
 	document.ly.name.focus();	
 	return false;
-	}
-	if (document.ly.name2.value=="no"){	
-	document.ly.name.style.border = '1px solid #FF0000';
-	return false;
-	}
-					
-	if (document.ly.tel.value==""){	
+	}			
+	var txt = /^1([38]\d|4[57]|5[0-35-9]|7[06-8]|8[89])\d{8}$/;
+	if (phone=="" || !txt.test(phone)){
 	document.ly.tel.style.border = '1px solid #FF0000';
-	window.document.getElementById('ts_tel').innerHTML='<span class=boxuserreg>请输入手机</span>';
+	window.document.getElementById('phone').innerHTML='<span class=boxuserreg>请输入正确的手机号</span>';
 	document.ly.tel.focus();	
 	return false;
 	}
-	if (document.ly.tel2.value=="no"){	
-	document.ly.tel.style.border = '1px solid #FF0000';
-	return false;
-	}
-	
 
-	document.getElementById("tj").disabled=true; 
-	document.getElementById("tj").value ="正在提交中，请稍候...";
-	document.getElementById("tj").style.backgroundColor = '#666666';
-	document.getElementById("tj").style.border='solid 1px #666666';
+	$.ajax({
+		type: "post",
+		async: false,
+		url: url+id,
+		//后台数据处理-下面有具体实现
+		data: {
+			name:name,
+			phone:phone,
+			content:content,
+			email:email,
+			company_id:company_id,
+			token:token,
+			id:id,
+		},
+		success: function (res) {
+			if(res.code == 1){
+				alert(res.msg);
+				window.location.reload();
+			}else{
+				alert(res.msg);
+				window.location.reload();
+			}
+		}
+	});
 }
 
 function check_contents(){
 	if (document.ly.contents.value ==""){
 	window.document.getElementById('ts_contents').innerHTML='<span class=boxuserreg>留言内容不能为空</span>';
-    window.document.ly.contents2.value='no';
 	}else{
-	window.document.getElementById('ts_contents').innerHTML='';
-	window.document.ly.contents2.value='yes';
+	window.document.getElementById('ts_contents').innerHTML='<img src=/static/home/images/dui2.png>';
 	window.document.ly.contents.style.border = '1px solid #dddddd';
 	}
 }
 
 function check_mobile(){ 
 if (document.ly.tel.value ==""){	
-	document.getElementById('ts_tel').innerHTML='<span class=boxuserreg>请输入手机</span>';
-    document.ly.tel2.value='no';
+	document.getElementById('phone').innerHTML='<span class=boxuserreg>请输入手机</span>';
 }else{
 	var phone = /^1([38]\d|4[57]|5[0-35-9]|7[06-8]|8[89])\d{8}$/;
 	if(!phone.test(document.ly.tel.value)){
-	window.document.getElementById('ts_tel').innerHTML='<span class=boxuserreg>手机号码不正确</span>';
-    window.document.ly.tel2.value='no';
+	window.document.getElementById('phone').innerHTML="<span class=boxuserreg>请输入正确的手机号</span>";
 	}else{
-	window.document.getElementById('ts_tel').innerHTML='<img src=/image/dui2.png>';
-	window.document.ly.tel2.value='yes';
+	window.document.getElementById('phone').innerHTML='<img src=/static/home/images/dui2.png>';
 	window.document.ly.tel.style.border = '1px solid #dddddd';
 	}
 } 
@@ -82,15 +93,12 @@ if (document.ly.tel.value ==""){
 function check_somane(){
 if (document.ly.name.value ==""){	
 	document.getElementById('ts_name').innerHTML='<span class=boxuserreg>请输入姓名</span>';
-    document.ly.name2.value='no';
 }else{
     var re=/^[\u4e00-\u9fa5]{2,10}$/; //只输入汉字的正则
     if(document.ly.name.value.search(re)==-1){
 	window.document.getElementById('ts_name').innerHTML='<span class=boxuserreg>联系人只能为汉字，字符介于2到10个。</span>';
-    window.document.ly.name2.value='no';
 	}else{
-	window.document.getElementById('ts_name').innerHTML='<img src=/image/dui2.png>';
-	window.document.ly.name2.value='yes';
+	window.document.getElementById('ts_name').innerHTML='<img src=/static/home/images/dui2.png>';
 	window.document.ly.name.style.border = '1px solid #dddddd';
 	}
 }
@@ -102,14 +110,11 @@ email=email.replace(/[ ]/g,"");//去空格用
 if (email ==""){
 window.document.getElementById('ts_email').innerHTML='';//当不输入内容时清空提示
 }else{
-//var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 var reg = /^[-._A-Za-z0-9]+@([_A-Za-z0-9]+\.)+[A-Za-z0-9]{2,3}$/; 
 	if(!reg.test(email)){
 	window.document.getElementById('ts_email').innerHTML='<span class=boxuserreg>E_mail格式不正确</span>';
-    window.document.ly.email2.value='no';	
 	}else{
-	window.document.getElementById('ts_email').innerHTML='<img src=/image/dui2.png>';
-	window.document.ly.email2.value='yes';
+	window.document.getElementById('ts_email').innerHTML='<img src=/static/home/images/dui2.png>';
 	window.document.ly.email.style.border = '1px solid #dddddd';
 	}
 }
@@ -120,10 +125,8 @@ if (document.ly.yzm.value !=""){
    var re=/^([0-9]+)$/; //只输入数字
     	if(document.ly.yzm.value.search(re)==-1){
 		window.document.getElementById('ts_yzm').innerHTML='<span class=boxuserreg>验证码答案只能为数字</span>';
-		window.document.ly.yzm2.value='no';
 		}else{
 		window.document.getElementById('ts_yzm').innerHTML='';
-		window.document.ly.yzm2.value='yes';
 		window.document.ly.yzm.style.border = '1px solid #dddddd';
 		}
 }

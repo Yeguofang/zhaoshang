@@ -6,14 +6,7 @@
     <meta name="keywords" content="太阳公公童装招商" />
     <meta name="description" content="太阳公公童装招商" />
     {include file="common/head" /}
-    <script>
-        $(document).ready(function() {
-            $("#tel").blur(function() { //jquery 中change()函数  
-                $("#ts_tel").load(encodeURI("../ajax/dl_liuyan_check_ajax.php?action=checktel&id=" + $("#tel").val()));
-            });
-
-        });
-    </script>
+  
     <style type="text/css">
         body {
             background: url({#bodybg}) {
@@ -44,13 +37,7 @@
         <div style="display:block;" id="A_con1" class="content bgcolor3">
            
                 <div class="content_sm">
-                        <img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r2_c2.jpg" src="__CDN__/static/home/picture/20180824203726239.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                            title="091460195587101653.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r3_c2.jpg" src="__CDN__/static/home/picture/20180824203727124.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                            title="091460195590414353.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r4_c2.jpg" src="__CDN__/static/home/picture/20180824203728452.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                            title="091460195592129865.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r5_c2.jpg" src="__CDN__/static/home/picture/20180824203729428.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                            title="091460195595139461.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r6_c2.jpg" src="__CDN__/static/home/picture/20180824203730185.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                            title="091460195598145920.jpg" /><img alt="荷百味荷叶饭快餐 好口碑，市场火 商机无限 28商机网_r7_c2.jpg" src="__CDN__/static/home/picture/20180824203730801.jpg" style="border-bottom: 0px; text-align: center; border-left: 0px; margin: auto; width: 1200px; font-family: 微软雅黑; color: rgb(68,68,68); font-size: 14px; vertical-align: top; border-top: 0px; border-right: 0px"
-                            title="091460195602118238.jpg" />
+                      {$data.content}
                     </div>
 
         </div>
@@ -117,15 +104,9 @@
                     </table>
         </div>
 
-        <!-- <div id='Layer1' style='position:absolute; width:950px; height:500px; z-index:1;'> 
-<embed src="__CDN__/static/home/flash/22934a16cf844b9f83c6c36023fc9bed.swf" width='1200' height="400" quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' wmode='transparent'></embed>
-</div>-->
-
-
-     
-
         <div class="pagebody">
-            <form action="http://3158.zzcms.net/zs/dl_liuyan_save.php" method="post" name="ly" onSubmit="return CheckForms();" target="for_dl_liuyan_save">
+            <form action="" method="post" name="ly"  target="for_dl_liuyan_save">
+                    {:token()}
                 <a name="guestbook" id="guestbook"></a>
                 <div class="liuyanbg">
                     <table width="100%" border="0" cellpadding="3" cellspacing="1">
@@ -133,34 +114,26 @@
                             <td width="33%" align="right">联 系 人
                                 <font color=#FF0000>*</font>
                             </td>
-                            <td width="67%"> <input name="name" type="text" id="name" size=30 maxlength=50 onblur="check_somane()" />
-
-                                <input id="cp" type="hidden" value="太阳公公童装" size="30" name="cp" />
-
-                                <input name="name2" id="name2" style="display:none" />
+                            <td width="67%"> <input name="name" type="text" id="name" size=30 maxlength=20 onblur="check_somane()" />
+                                <input type="hidden" name="id"  value="{$data.id}"/>
+                                <input type="hidden" name="company_id"  value="{$data.company_id}"/>
+                                <input type="hidden" name="url"  value="{:url('/project_detail')}/"/>
                                 <span id="ts_name"></span>
-
-                                <input id="cpid" value="2" type="hidden" name="cpid" />
-
-                                <input name="fbr" type="hidden" id="fbr" value="test" />
-
-                                <input id="bigclassid" value="2" type="hidden" name="bigclassid" />
-
-                                <input id="token" value="89cb22f13a921f9f174d6ca59b759060" type="hidden" name="token" /></td>
+                            </td>
                         </tr>
                         <tr>
                             <td align="right">手机
                                 <font color=#FF0000>*</font>
                             </td>
-                            <td> <input name='tel' type='text' id='tel' size='30' maxlength='50' />
-                                <input name="tel2" id="tel2" style="display:none" />
-                                <span id="ts_tel"></span> </td>
+                            <td> <input name='tel' type='text' id='tel' size='30' maxlength='11' onblur="check_mobile()" />
+                                <span id="phone"></span> 
+                            </td>
                         </tr>
                         <tr>
                             <td align="right">电子邮箱：</td>
-                            <td> <input name="email" type="text" id="email" size=30 maxlength=50 onblur="check_email()" />
-                                <input name="email2" id="email2" style="display:none" />
-                                <span id="ts_email"></span> </td>
+                            <td> <input name="email" type="text" id="email" size=30 maxlength=50  />
+                                <span id="ts_email">(选填)</span> 
+                            </td>
                         </tr>
                         <tr>
                             <td align="right">留言内容
@@ -170,9 +143,9 @@
 
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td width='35%'><textarea rows=5 cols=30 name='contents' id='contents' onfocus='check_contents()' onblur='check_contents()'>我对这个产品感兴趣，请与我联系。</textarea>
-                                            <input name="contents2" id="contents2" style="display:none" />
-                                            <br/><span id="ts_contents"></span> </td>
+                                        <td width='35%'><textarea rows=5 cols=30 name='contents' maxlength="200" id='contents' onfocus='check_contents()' onblur='check_contents()'>我对这个产品感兴趣，请与我联系。</textarea>
+                                            <br/><span id="ts_contents"></span> 
+                                        </td>
                                         <td width='65%' class="liuyanbg2">
                                             <input name='chcontent' type='checkbox' id='chcontent1' onclick="showinfo('content',1);" value='有兴趣开一个店，请寄资料或给我打电话。' />
                                             <label for='chcontent1' id='content1'>有兴趣开一个店，请寄资料或给我打电话。</label>
@@ -191,7 +164,7 @@
                         </tr>
                         <tr>
                             <td align="right">&nbsp;</td>
-                            <td><input type="submit" class="button_big" name="tj" id="tj" value="填好了，提交" /></td>
+                            <td><input type="button" onclick="CheckForms()" class="button_big" id="tj" value="填好了，提交" /></td>
                         </tr>
                     </table>
                 </div>
@@ -215,6 +188,8 @@
     </div>
 
     {include file="common/footer"/}
+    <script src="__CDN__/static/home/js/msg.js" type="text/javascript" language="JavaScript"></script>
+
 </body>
 
 </html>

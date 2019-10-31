@@ -166,7 +166,7 @@ filter: alpha(opacity=100);border:solid 1px #ff6600}/*z-index 仅能在定位元
 .content3{zoom: 1; overflow:auto;}
 .content3 li{float:left;margin:4px;text-align:center;}/*应用时注意，别套到content中了，content 定了li的高度了·*/
 .content1 {margin-bottom:10px}
-.content2{border:solid 1px #dddddd;border-top:0}
+.content2{border:solid 1px #dddddd;border-top:0;}
 .content2 li {border-bottom:solid 1px #dddddd;height:30px;line-height:30px;}
 .content li{list-style-type: disc;margin: 0 0 0 10px}
 .content li span,.content1 li span,.content2 li span{float:right}

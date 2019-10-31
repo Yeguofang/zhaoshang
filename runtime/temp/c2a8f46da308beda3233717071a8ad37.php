@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/var/www/zs/public/../application/index/view/menber/user/login.html";i:1571133444;s:51:"/var/www/zs/application/index/view/common/meta.html";i:1570700414;s:51:"/var/www/zs/application/index/view/common/head.html";i:1570958945;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/var/www/zs/public/../application/index/view/menber/user/login.html";i:1571133444;s:51:"/var/www/zs/application/index/view/common/meta.html";i:1570700414;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <meta charset="utf-8">
 <title><?php echo (isset($title) && ($title !== '')?$title:''); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -181,7 +181,7 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>

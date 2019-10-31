@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use app\common\controller\Frontend;
 use app\index\controller\Index;
+use think\Validate; 
 use think\db;
 //文章咨询类
 class Article extends Frontend
@@ -48,14 +49,16 @@ class Article extends Frontend
     }
 
 
-    public  function detail($id,$cid){
+    public  function detail($cid,$id){
 
         $data = db::name('article')
                 ->alias('a')
-                ->field('a.id,a.category_id,a.title,a.createtime,a.content,c.name')
+                ->field('a.id,a.category_id,a.company_id,a.title,a.createtime,a.content,c.name')
                 ->join('category c','a.category_id=c.id')
                 ->where('a.id',$id)
                 ->find();
+
+        $data['comment'] = db::name('comment')->where('switch',1)->where('aid',$id)->select();
 
         //上一篇
         $prv = db::name('article')
@@ -82,6 +85,50 @@ class Article extends Frontend
         $this->assign('next',$next);
         $this->assign('hot',$hot);
         $this->assign('data',$data);
+
+
+
+
+        if ($this->request->isAjax()) {
+            $phone = $this->request->param('phone');
+            $content = $this->request->param('content');
+            $token = $this->request->param('token');
+            $aid = $this->request->param('id');
+            $company_id = $this->request->param('company_id');
+
+
+            $rule = [
+                'phone'  => 'require|length:11',
+                'content'  => 'require|length:3,100',
+                '__token__' => 'require|token',
+            ];
+            $res = [
+                'phone'  => $phone,
+                'content' => $content,
+                '__token__' => $token,
+                'company_id' =>$company_id,
+                'aid' =>$aid,
+                'createtime' => time()
+            ];
+            
+            $validate = new Validate($rule, [], ['phone' => __('电话号码为11位数'),'content' => __('内容不能空')]);
+            $va = $validate->check($res);
+            if (!$va) {
+                $msg = $validate->getError();
+                return $this->error($msg);
+            }
+            unset($res['__token__']);
+            $msg = db::name('comment')->where('phone',$phone)->find();
+            if($msg){
+                $this->error('你已评论过了！');
+            }
+
+            $result =db::name('comment')->insert($res);
+            if ($result == 1) {
+              return  $this->success('评论提交成功，正在审核...感谢参与！');
+            }
+
+        }
 
         return $this->view->fetch();
     }

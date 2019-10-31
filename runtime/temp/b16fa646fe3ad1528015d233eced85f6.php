@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/article/list.html";i:1572343522;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572342302;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/article/list.html";i:1572343522;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -77,8 +77,6 @@
                         <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech /><input name="search" type="submit" border="0" class="buttons_search" value="搜索" />
                     </form>
                 </td>
-                <td width="100" align="center">
-                    <input name="fbdl" type="button" border="0" id="fbdl" value="登记代理信息" onclick="window.open('http://3158.zzcms.net/dl/dladd.php')" /> </td>
                 <td width="240" align="center">
                     <div class="bigbigword3 red"><?php echo substr($web['web_phone'],0,3); ?>-<?php echo substr($web['web_phone'],3,4); ?>-<?php echo substr($web['web_phone'],7,4); ?></div>
                     <div>客服时间: 8:30 - 18:00</div>
@@ -213,8 +211,8 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>
 </body>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572344752;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572431319;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -214,20 +214,15 @@
                             </style>
                             <div id="demo01" class="flexslider">
                                 <ul class="slides">
+                                    <?php if(is_array($slide) || $slide instanceof \think\Collection || $slide instanceof \think\Paginator): $i = 0; $__LIST__ = $slide;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$s): $mod = ($i % 2 );++$i;?>
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="/static/home/picture/20180824163934904.jpg"
+                                            <a href="javascript:void(0)"><img src="{}"
                                                     alt="" /></a>
                                         </div>
-                                        <div>dfasdfasf</div>
+                                        <div><?php echo $s['name']; ?></div>
                                     </li>
-                                    <li>
-                                        <div>
-                                            <a href="javascript:void(0)"><img src="/static/home/picture/20180824164042456.jpg"
-                                                    alt="" /></a>
-                                        </div>
-                                        <div>asdfasdf</div>
-                                    </li>
+                                   <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </ul>
                             </div>
                             <script type="text/javascript">
@@ -779,8 +774,8 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>
  

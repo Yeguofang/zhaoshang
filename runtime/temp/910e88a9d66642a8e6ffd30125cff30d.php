@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/project/list.html";i:1571812473;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"/var/www/zs/public/../application/index/view/menber/project/list.html";i:1572493447;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -96,7 +96,7 @@
 				, { field: 'keywords', title: 'tdk-keywords' }
 				, { field: 'description', title: 'tdk-description', }
 				, { field: 'views', title: '查看数量', }
-				, { field: 'createtime', title: '创建时间', }
+				, { field: 'createtime', title: '创建时间',templet:function(d){return layui.util.toDateString(d.createtime*1000,"yyyy-MM-dd HH:mm:ss");}}
 				, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
 			]]
 			, page: true
@@ -112,8 +112,6 @@
 			var ids = obj.data.id;
 			if (obj.event === 'del') {
 				tools.del_ajax('post', "<?php echo url('/menber/project/del'); ?>", ids, obj);
-			} else if (obj.event === 'edit') {
-			
 			}
 		});
 	});

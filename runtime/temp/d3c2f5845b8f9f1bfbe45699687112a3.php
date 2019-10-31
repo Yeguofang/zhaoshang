@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"/var/www/zs/public/../application/index/view/project/ranking.html";i:1572346396;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1570958938;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:65:"/var/www/zs/public/../application/index/view/project/ranking.html";i:1572487831;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -110,19 +110,19 @@
 </div>
 <?php endif; ?>
 
-
     <div class="main">
         <div class="pagebody">
                 <ul>
                     <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$one): $mod = ($i % 2 );++$i;?>
-                    <li style="width:48%;float: left;padding-bottom: 10px;padding-right: 10px;">
+                    <li style="width:30%;float: left;padding-bottom: 10px;padding-right: 10px;">
                         <td>
-                            <div class="titles"><span><a href="<?php echo url('/project'); ?>/<?php echo $one['id']; ?>">更多... </a> </span><?php echo $one['name']; ?> </div> <div class="content2">
+                            <div class="titles"><span><a href="<?php echo url('/project'); ?>/<?php echo $one['id']; ?>">更多... </a> </span><?php echo $one['name']; ?> </div> <div class="content2" style="height: 460px;">
                                         <ul>
                                             <?php if(is_array($one['project']) || $one['project'] instanceof \think\Collection || $one['project'] instanceof \think\Paginator): $i = 0; $__LIST__ = $one['project'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-                                            <LI><span>(801)</span>
-                                                <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1"  <?php else: ?> class="xuhao2"<?php endif; ?>><?php echo $key+1; ?> </font> <a href="/zx/show-38.htm">
-                                                    <A href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>"><?php echo $p['name']; ?></A>
+                                            <LI><span>(<?php echo $p['views']; ?>)</span>
+                                                <font <?php if(($key==0 || $key==1 || $key==2)): ?>class="xuhao1"  <?php else: ?> class="xuhao2"<?php endif; ?>><?php echo $key+1; ?> </font> 
+                                                    <A href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target="_bank"><?php echo $p['name']; ?></A>
+
                                             </LI>
                                             <?php endforeach; endif; else: echo "" ;endif; ?>
                 
@@ -180,8 +180,8 @@
     </div>
 </div>
 <!--返回顶部-->
-<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript">
-</script>
+<script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
+
 <div style="display: none" id="goTopBtn">
 </DIV>
 </body>

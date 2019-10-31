@@ -41,6 +41,7 @@ Route::rule('menber/project/add', 'menber.project/add');
 Route::rule('menber/project/del', 'menber.project/del','post');
 Route::rule('menber/project/edit/:id', 'menber.project/edit');
 Route::rule('menber/project/msg', 'menber.project/msg');
+Route::rule('menber/project/del_msg', 'menber.project/del_msg');
 
 //广告管理
 Route::rule('menber/advert/list', 'menber.advert/list');

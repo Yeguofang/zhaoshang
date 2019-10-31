@@ -17,18 +17,24 @@ class Index extends Frontend
     public function index()
     {
         $tdk = WebTdk::get(1);
-        $menu = self::category('menu',9,9); //首页左侧分类,项目
-        $index = self::category('index',8,8);   //首页分类，项目
+        $menu = self::category('menu',9,4); //首页左侧分类,项目
+        $index = self::category('index',8,9);   //首页分类，项目
         $navs = self::category('navs',8,4);   //首页导航，项目
 
-        $advert_a = self::advert('A',6,80);
-        $advert_b = self::advert('B',6,6);
-        $advert_c = self::advert('C',6,12);
-        $advert_d = self::advert('D',8,8);
-        $advert_e = self::advert('E',6,6);
-
-
+        $advert_a = self::advert('A',6,80); //图文广告a
+        $advert_b = self::advert('B',6,6);  //图文广告b
+        $advert_c = self::advert('C',6,12); //图文广告c
+        $advert_d = self::advert('D',8,8);  //图文广告d
+        $advert_e = self::advert('E',6,6);  //图文广告e
+        
         $article = self::article('index',8,11);
+
+        $slide= db::name('project')
+                ->field('id,name,image,category_id')
+                ->where('switch',1)
+                ->where('flag', 'like', "%slide%")
+                ->limit(10)
+                ->select();
 
         $this->assign([
             'advert_a' =>$advert_a,
@@ -36,6 +42,7 @@ class Index extends Frontend
             'advert_c' =>$advert_c,
             'advert_d' =>$advert_d,
             'advert_e' =>$advert_e,
+            'slide' =>$slide,
             'navs' =>$navs,
             'index' => $index,
             'menu' => $menu,
@@ -54,7 +61,9 @@ class Index extends Frontend
      */
     public function help()
     {
-        
+        $data = db::name('help')->where('switch',1)->select();
+        $this->assign('data',$data);
+
         return $this->view->fetch();
     }
 
@@ -72,7 +81,7 @@ class Index extends Frontend
             ->where('type', 0)
             ->where('switch', 1)
             ->order('createtime desc')
-            ->paginate(2, false, ['var_page'=>'text']);
+            ->paginate(200, false, ['var_page'=>'text']);
 
         //图片广告
         $image =  db::name('advert')
@@ -80,7 +89,7 @@ class Index extends Frontend
             ->where('type',1)
             ->where('switch',1)
             ->order('createtime desc')
-            ->paginate(2,false,['var_page'=>'image']);
+            ->paginate(64,false,['var_page'=>'image']);
         
         //热门项目
         $project['hot'] = db::name('project')
@@ -112,6 +121,7 @@ class Index extends Frontend
     /**
      * 读取分类
      * @param string $flag   标志
+     * @param int    $flag_number  分类数量
      * @param int    $limit  查询数量
      * @return array
      */

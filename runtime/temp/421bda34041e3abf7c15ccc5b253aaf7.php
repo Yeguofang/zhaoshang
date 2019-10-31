@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1572245787;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/menber/project/add.html";i:1572489594;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -88,6 +88,7 @@
                     <label class="layui-form-label">联动选择框</label>
                     <div class="layui-input-inline">
                       <select  lay-filter="area">
+                        <option value="0">全国</option>
                         <?php if(is_array($area) || $area instanceof \think\Collection || $area instanceof \think\Paginator): $i = 0; $__LIST__ = $area;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$a): $mod = ($i % 2 );++$i;?>
                         <option value="<?php echo $a['id']; ?>"><?php echo $a['areaname']; ?></option>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -282,8 +283,12 @@
                     success: function (res) {
                         $("#city").empty();
                         //遍历省级的数组，将每个内容插入下拉框内
-                        for (var i = 0; i < res.length; i++) {
-                            $('#city').append('<option value='+res[i]['id']+'>' + res[i]['areaname'] + '</option>');
+                        if(res.length == 0){
+                            $('#city').append("<option value='1'>全国各地</option>");
+                        }else{
+                            for (var i = 0; i < res.length; i++) {
+                                $('#city').append('<option value='+res[i]['id']+'>' + res[i]['areaname'] + '</option>');
+                            }
                         }
                         form.render();
                     }

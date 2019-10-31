@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/admin/view/article/edit.html";i:1572316919;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/admin/view/article/edit.html";i:1572516880;s:54:"/var/www/zs/application/admin/view/layout/default.html";i:1569854296;s:51:"/var/www/zs/application/admin/view/common/meta.html";i:1569854296;s:53:"/var/www/zs/application/admin/view/common/script.html";i:1569854296;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -85,12 +85,7 @@
             <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" value="<?php echo htmlentities($row['title']); ?>">
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"><?php echo htmlentities($row['content']); ?></textarea>
-        </div>
-    </div>
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Image'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
@@ -146,6 +141,12 @@
         </div>
     </div>
 
+    <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
+            <div class="col-xs-12 col-sm-8">
+                    <script id="container" name="row[content]" type="text/plain"><?php echo $row['content']; ?></script>
+            </div>
+        </div>
 
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>
@@ -155,6 +156,15 @@
         </div>
     </div>
 </form>
+
+  <!-- 配置文件 -->
+  <script type="text/javascript" src="/static/ueditor/ueditor.config.js"></script>
+  <!-- 编辑器源码文件 -->
+  <script type="text/javascript" src="/static/ueditor/ueditor.all.js"></script>
+  <script>
+                // 实例化编辑器 
+                var editor = UE.getEditor('container');
+  </script>
                             </div>
                         </div>
                     </div>
