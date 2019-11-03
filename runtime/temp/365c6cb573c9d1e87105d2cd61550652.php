@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/var/www/zs/public/../application/index/view/project/list.html";i:1572402734;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572676786;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:68:"/var/www/zs/public/../application/index/view/index/project_list.html";i:1572676435;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572676786;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>

@@ -135,6 +135,16 @@
                     </div>
                 </div>
 
+
+                <div class="layui-form-item layui-form-text">
+                        <label for="desc" class="layui-form-label">海报</label>
+                        <div class="layui-input-block">
+                            <!-- 加载编辑器的容器 -->
+                            <script id="poster" name="poster"" type="text/plain">{$data.poster}</script>
+                        </div>
+                    </div>
+
+
                 <div class="layui-form-item layui-form-text">
                     <label for="desc" class="layui-form-label">内容</label>
                     <div class="layui-input-block">
@@ -210,13 +220,15 @@
 
 
 
-                // 实例化编辑器 
+                // 实例化内容编辑器 
                 var editor = UE.getEditor('container');
-
+                // 实例化海报编辑器 
+                var poster_ed = UE.getEditor('poster');
                 //监听提交
                 form.on('submit(edit)', function (data) {
                     //文本编辑器内容
                     data.field.content = editor.getContent();
+                    data.field.poster = poster_ed.getContent();
                     if (data.field.content == '') {
                         layer.msg('文章内容不能为空！', { icon: 2, time: 1300 });
                         return false;

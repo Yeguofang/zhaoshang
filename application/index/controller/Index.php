@@ -26,8 +26,13 @@ class Index extends Frontend
         $advert_c = self::advert('C',6,12); //图文广告c
         $advert_d = self::advert('D',8,8);  //图文广告d
         $advert_e = self::advert('E',6,6);  //图文广告e
-        
-        $article = self::article('index',8,11);
+
+        $article_count =db::name('article')->whereNull('deletetime')->where('switch',1)->count(); //文章数量   
+        $project_count = db::name('project')->whereNull('deletetime')->where('switch',1)->count(); //项目数量
+        $user_count = db::name('user')->count();//用户数量
+
+
+        $article = self::article('index',8,11); //首页文章
 
         $slide= db::name('project')
                 ->field('id,name,image,category_id')
@@ -36,12 +41,18 @@ class Index extends Frontend
                 ->limit(10)
                 ->select();
 
+        $help = db::name('help')->where('switch',1)->whereNull('deletetime')->field('id,title')->select();
+
         $this->assign([
             'advert_a' =>$advert_a,
             'advert_b' =>$advert_b,
             'advert_c' =>$advert_c,
             'advert_d' =>$advert_d,
             'advert_e' =>$advert_e,
+            'user_count' =>$user_count,
+            'article_count' =>$article_count,
+            'project_count' =>$project_count,
+            'help' =>$help,
             'slide' =>$slide,
             'navs' =>$navs,
             'index' => $index,
@@ -61,7 +72,7 @@ class Index extends Frontend
      */
     public function help()
     {
-        $data = db::name('help')->where('switch',1)->select();
+        $data = db::name('help')->where('switch',1)->whereNull('deletetime')->select();
         $this->assign('data',$data);
 
         return $this->view->fetch();
@@ -81,7 +92,7 @@ class Index extends Frontend
             ->where('type', 0)
             ->where('switch', 1)
             ->order('createtime desc')
-            ->paginate(200, false, ['var_page'=>'text']);
+            ->paginate(200, false, ['var_page'=>'text','type'=>'defult']);
 
         //图片广告
         $image =  db::name('advert')
@@ -89,7 +100,8 @@ class Index extends Frontend
             ->where('type',1)
             ->where('switch',1)
             ->order('createtime desc')
-            ->paginate(64,false,['var_page'=>'image']);
+            ->paginate(64,false,['var_page'=>'image','type'=>'defult']);
+
         
         //热门项目
         $project['hot'] = db::name('project')
@@ -114,6 +126,58 @@ class Index extends Frontend
         ]);
         return $this->view->fetch();
     }
+
+
+
+    //项目搜索
+    public function search(){
+
+       $type =  $this->request->param('type');
+       $keyword =  $this->request->param('keyword');
+
+
+       //搜索文章资讯
+       if($type == 'article'){
+        $data = db::name('article')
+            ->where('title','like',"%".$keyword."%")
+            ->paginate(2,false,['type'=>'defult','query' => ['type' => $type,'keyword'=>$keyword]]);
+            $this->assign('data',$data);
+         return   $this->view->fetch('article_search');
+       }
+
+
+
+       //搜索项目
+       if($type == 'project'){
+        $project = db::name('project')
+            ->where('name','like',"%".$keyword."%")
+            ->paginate(2,false,['type'=>'defult','query' => ['type' => $type,'keyword'=>$keyword]]);
+
+        $project_arr= $project->toArray();
+        $p = $project_arr['data'];
+        //处理地区；
+        for ($i=0;$i<count($p);$i++) {
+            if ($p[$i]['city'] != null) {
+                $arr = explode(',',$p[$i]['city']);
+                $p[$i]['city'] =[];
+                for ($j=0;$j<count($arr);$j++) {
+                    $shi = db::name('china')->where('id', $arr[$j])->find();
+                    $shen = db::name('china')->where('id', $shi['parentid'])->find();
+                    $p[$i]['city'][] = $shen['areaname']."-".$shi['areaname'];
+                }
+                $p[$i]['city'] = implode(' | ',$p[$i]['city']);
+            } else {
+                $p[$i]['city'] = "全国-全国各地";
+            }
+        }
+        $this->assign('project', $project);
+        $this->assign('projects', $p);
+        return   $this->view->fetch('project_search');
+       }
+
+
+    }
+
 
 
 

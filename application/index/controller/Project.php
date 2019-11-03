@@ -54,9 +54,10 @@ class Project extends Frontend
 
         $this->assign('category', $category);
         $this->assign('project', $project);
+        $this->assign('projects', $p);
         $this->assign('hot', $hot);
         $this->assign('recommend', $recommend);
-        $this->assign('projects', $p);
+  
 
         return $this->view->fetch();
     }
@@ -65,7 +66,7 @@ class Project extends Frontend
     {
         $project =  db::name('project')
                 ->alias('p')
-                ->field('p.id,p.name,p.price,p.image,p.phone,p.company_id,p.moblie,p.title,p.content,u.company_name,u.address,u.company_desc,c.name `cname`,b.name `bname`')
+                ->field('p.id,p.name,p.price,p.image,p.phone,p.company_id,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,c.name `cname`,b.name `bname`')
                 ->join('user u', 'p.company_id=u.id')
                 ->join('category c', 'p.category_id=c.id')
                 ->join('category b', 'c.pid=b.id')
@@ -111,11 +112,11 @@ class Project extends Frontend
 
         }
 
-      
-
         return $this->view->fetch();
     }
 
+
+    //项目排行
     public function ranking()
      {
 
@@ -139,4 +140,6 @@ class Project extends Frontend
     }
 
 
+
+    
 }

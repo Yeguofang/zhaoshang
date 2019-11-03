@@ -56,7 +56,14 @@ class Article extends Model
     //关联分类表
     public function category()
     {
-        return $this->belongsTo('app\common\model\category', 'category_id','id')->setEagerlyType(0);
+        return $this->hasOne('app\common\model\category', 'id','category_id')->setEagerlyType(0)->joinType('LEFT');
     }
+
+     //关联user表
+    public function user()
+    {
+        return $this->hasOne('user', 'id','company_id')->setEagerlyType(0)->joinType('LEFT');
+    }
+
 
 }

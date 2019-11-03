@@ -55,7 +55,7 @@
             <ul class="nav navbar-nav">
 
                 <li>
-                    <a href="/" target="_blank"><i class="fa fa-home" style="font-size:14px;"></i></a>
+                    <a href="/public" target="_blank"><i class="fa fa-home" style="font-size:14px;"></i></a>
                 </li>
 
                 <!-- 账号信息下拉框 -->

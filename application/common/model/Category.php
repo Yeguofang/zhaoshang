@@ -91,7 +91,7 @@ class Category extends Model
             if (!is_null($status)) {
                 $query->where('status', '=', $status);
             }
-        })->order('weigh', 'desc')->select())->toArray();
+        })->order('weigh', 'desc')->field('id,name,type,flag,pid')->select())->toArray();
         return $list;
     }
 

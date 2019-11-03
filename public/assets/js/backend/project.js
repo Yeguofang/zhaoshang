@@ -20,16 +20,17 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
             table.bootstrapTable({
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 pk: 'id',
-                sortName: 'weigh',
+                sortName: 'id',
                 columns: [
                     [
                         { checkbox: true },
                         { field: 'id', title: __('Id') ,operate:false},
-                        { field: 'admin_id', title: __('用户'),operate:false },
-                        { field: 'category_id', title: __('所属分类') },
+                        // { field: 'user.company_name', title: __('用户') ,operate:'LIKE'},
+                        { field: 'category.name', title: __('所属分类'),operate:false},
+                        { field: 'category_id', title: __('所属分类'),visible:false,operate:'IN',searchList:$.getJSON('/mufan.php/project/search')},
                         { field: 'flag', title: __('标志'), searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }, operate: 'FIND_IN_SET', formatter: Table.api.formatter.label },
                         { field: 'image', title: __('缩略图'), operate:false,events: Table.api.events.image, formatter: Table.api.formatter.image },
-                        { field: 'name', title: __('项目名称') ,operate:false},
+                        { field: 'name', title: __('项目名称') ,operate:'LIKE'},
                         { field: 'city', title: __('招商地区') ,operate: false},
                         { field: 'price', title: __('投资金额'),operate:false},
                         { field: 'views', title: __('浏览量') ,operate: false},
@@ -63,11 +64,14 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 columns: [
                     [
                         { checkbox: true },
-                        { field: 'id', title: __('Id') },
-                        { field: 'title', title: __('Title'), align: 'left' },
+                        { field: 'id', title: __('Id'),operate:false },
+                        { field: 'title', title: __('Title'),operate:'LIKE', align: 'left' },
+                        { field: 'category.name', title: __('所属分类'),operate:false},
+                        { field: 'category_id', title: __('所属分类'),visible:false,operate:'IN',searchList:$.getJSON('/mufan.php/project/search')},
+                        { field: 'flag', title: __('标志'), searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }, operate: 'FIND_IN_SET', formatter: Table.api.formatter.label },
                         {
                             field: 'deletetime',
-                            title: __('Deletetime'),
+                            title: __('删除时间'),
                             operate: 'RANGE',
                             addclass: 'datetimerange',
                             formatter: Table.api.formatter.datetime

@@ -100,7 +100,7 @@
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></div>
                                     <input type="text" name="captcha" class="form-control" placeholder="<?php echo __('Captcha'); ?>" data-rule="<?php echo __('Captcha'); ?>:required;length(4)" />
                                     <span class="input-group-addon" style="padding:0;border:none;cursor:pointer;">
-                                        <img src="<?php echo rtrim('/', '/'); ?>/index.php?s=/captcha" width="100" height="30" onclick="this.src = '<?php echo rtrim('/', '/'); ?>/index.php?s=/captcha&r=' + Math.random();"/>
+                                        <img src="<?php echo rtrim('/public', '/'); ?>/index.php?s=/captcha" width="100" height="30" onclick="this.src = '<?php echo rtrim('/public', '/'); ?>/index.php?s=/captcha&r=' + Math.random();"/>
                                     </span>
                                 </div>
                                 <?php endif; ?>

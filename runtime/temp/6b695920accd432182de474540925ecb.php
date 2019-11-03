@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572431319;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572344873;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/var/www/zs/public/../application/index/view/index/index.html";i:1572597533;s:51:"/var/www/zs/application/index/view/common/head.html";i:1572244106;s:53:"/var/www/zs/application/index/view/common/header.html";i:1572676786;s:53:"/var/www/zs/application/index/view/common/footer.html";i:1572419587;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -78,12 +78,11 @@
                     <li><a
                             href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
-                    <li><a>手机站</a>
-                        <ol class="sub">
+                    <li><a>手机站</a> 
+                    <ol class="sub">
                             <li><img src="<?php echo $web['web_ewm']; ?>" width="100"></li>
                         </ol>
                     </li>
-
                 </ul>
             </div>
 
@@ -105,16 +104,16 @@
                     <a href="/"><img src="<?php echo $web['web_logo']; ?>" border="0" alt="<?php echo $web['web_name']; ?>"></a>
                 </td>
                 <td>
-                    <form action="/one/forsearch.php" method="get">
+                    <form action="<?php echo url('/search'); ?>" method="post">
                         <div id="divselect">
-                            <cite>招商</cite>
-                            <ul>
-                                <li><a href="javascript:;" selectid="zs">招商</a></li>
-                                <li><a href="javascript:;" selectid="zx">资讯</a></li>
-                            </ul>
+                            <select name="type" style="width: 60px;height: 40px;background-color: #fff;font-size: 16px;">
+                                <option value="project">招 商</option>
+                                <option value="article">资 讯</option>
+                            </select>
                         </div>
-                        <input name="kind" type="hidden" value="zs" id="inputselect" />
-                        <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech /><input name="search" type="submit" border="0" class="buttons_search" value="搜索" />
+                        <!-- <input name="kind" type="hidden" value="zs" id="inputselect" /> -->
+                        <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech />
+                        <input  type="submit" border="0" class="buttons_search" value="搜索" />
                     </form>
                 </td>
                 <td width="240" align="center">
@@ -173,7 +172,7 @@
                                 <label>
                                     <h2>
                                         <img src=<?php echo $m['image']; ?>>&nbsp;
-                                        <a href=/zs/tesecanyin><?php echo $m['name']; ?> </a> <span>(共 <b><?php echo $m['sum']; ?></b> 条)</span>
+                                        <a href="<?php echo url('/project'); ?>/<?php echo $m['id']; ?>"><?php echo $m['name']; ?> </a> <span>(共 <b><?php echo $m['sum']; ?></b> 条)</span>
                                     </h2>
                                     <div id="zsLayer<?php echo $m['id']; ?>" class='zsclass_s'>
                                         <div class='bigbigword ico_size'>
@@ -182,11 +181,11 @@
                                         <?php if(is_array($m['nav']) || $m['nav'] instanceof \think\Collection || $m['nav'] instanceof \think\Paginator): $i = 0; $__LIST__ = $m['nav'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$n): $mod = ($i % 2 );++$i;?>
                                         <div class='zsclass_s_li'>
                                             <div class='zsclass_s_name'>
-                                                <a href=/zs/tesecanyin/zhongcan><?php echo $n['name']; ?> </a> 
+                                                <a href="<?php echo url('/project'); ?>/<?php echo $n['pid']; ?>/<?php echo $n['id']; ?>"><?php echo $n['name']; ?> </a> 
                                             </div> 
                                             <div class='zsclass_cp'>
                                                 <?php if(is_array($n['project']) || $n['project'] instanceof \think\Collection || $n['project'] instanceof \think\Paginator): $i = 0; $__LIST__ = $n['project'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-                                                    <a href='/zs/show-110.htm' target='_blank'><?php echo $p['name']; ?></a>&nbsp;
+                                                    <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target='_blank'><?php echo $p['name']; ?></a>&nbsp;
                                                 <?php endforeach; endif; else: echo "" ;endif; ?>
                                             </div>
                                         </div>
@@ -217,7 +216,7 @@
                                     <?php if(is_array($slide) || $slide instanceof \think\Collection || $slide instanceof \think\Paginator): $i = 0; $__LIST__ = $slide;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$s): $mod = ($i % 2 );++$i;?>
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="{}"
+                                            <a href="javascript:void(0)"><img src="<?php echo $s['image']; ?>"
                                                     alt="" /></a>
                                         </div>
                                         <div><?php echo $s['name']; ?></div>
@@ -260,10 +259,10 @@
                         </ul>
                     </div>
                     <div id="sitecount">
-                        <li>用户<span>38</span></li>
-                        <li>招商<span>73</span></li>
+                        <li>用户<span><?php echo $user_count; ?></span></li>
+                        <li>招商<span><?php echo $project_count; ?></span></li>
                         <li>代理<span>64</span></li>
-                        <li>资讯<span>90</span></li>
+                        <li>资讯<span><?php echo $article_count; ?></span></li>
                     </div>
                 </div>
 
@@ -293,24 +292,11 @@
                         });
                     </script>
                     <ul class="mulitline" style="overflow:hidden;height:100px">
+                        <?php if(is_array($help) || $help instanceof \think\Collection || $help instanceof \think\Paginator): $i = 0; $__LIST__ = $help;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                         <LI>【帮助】
-                            <a href=/help.htm#13>前台店铺的qq在线状. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#12>如何上传图片？ </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#11>怎样发布信息才能获得. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#10>发布了信息,为什么看. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#9>注册时为什么要填手机. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#8>金币 </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#7>注册时填了QQ号，为. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#6>如何改变展厅的风格？ </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#4>如何发布信息？ </a> </LI>
+                            <a target="_bank" href="<?php echo url('/help'); ?>#<?php echo $v['id']; ?>"><?php echo $v['title']; ?></a> </LI>
+                        <LI>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </ul>
                 </div>
             </div>
@@ -362,7 +348,7 @@
                             <?php foreach($v['project'] as $p): ?>
                             <li>
                                 <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target="_bank">
-                                    <img class="lazy" src="<?php echo $p['image']; ?>" />
+                                    <img class="lazy" src="<?php echo $p['image']; ?>" style="width: 120px;height:90px;"/>
                                 </a>
                                 <p><?php echo $p['name']; ?></p>
                             </li>

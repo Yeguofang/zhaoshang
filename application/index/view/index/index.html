@@ -76,7 +76,7 @@
                                 <label>
                                     <h2>
                                         <img src={$m.image}>&nbsp;
-                                        <a href=/zs/tesecanyin>{$m.name} </a> <span>(共 <b>{$m.sum}</b> 条)</span>
+                                        <a href="{:url('/project')}/{$m.id}">{$m.name} </a> <span>(共 <b>{$m.sum}</b> 条)</span>
                                     </h2>
                                     <div id="zsLayer{$m.id}" class='zsclass_s'>
                                         <div class='bigbigword ico_size'>
@@ -85,11 +85,11 @@
                                         {volist name="$m.nav" id="n"}
                                         <div class='zsclass_s_li'>
                                             <div class='zsclass_s_name'>
-                                                <a href=/zs/tesecanyin/zhongcan>{$n.name} </a> 
+                                                <a href="{:url('/project')}/{$n.pid}/{$n.id}">{$n.name} </a> 
                                             </div> 
                                             <div class='zsclass_cp'>
                                                 {volist name="$n.project" id="p"}
-                                                    <a href='/zs/show-110.htm' target='_blank'>{$p.name}</a>&nbsp;
+                                                    <a href="{:url('/project_detail')}/{$p.id}" target='_blank'>{$p.name}</a>&nbsp;
                                                 {/volist}
                                             </div>
                                         </div>
@@ -120,7 +120,7 @@
                                     {volist name="slide" id="s"}
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="{}"
+                                            <a href="javascript:void(0)"><img src="{$s.image}"
                                                     alt="" /></a>
                                         </div>
                                         <div>{$s.name}</div>
@@ -163,10 +163,10 @@
                         </ul>
                     </div>
                     <div id="sitecount">
-                        <li>用户<span>38</span></li>
-                        <li>招商<span>73</span></li>
+                        <li>用户<span>{$user_count}</span></li>
+                        <li>招商<span>{$project_count}</span></li>
                         <li>代理<span>64</span></li>
-                        <li>资讯<span>90</span></li>
+                        <li>资讯<span>{$article_count}</span></li>
                     </div>
                 </div>
 
@@ -196,24 +196,11 @@
                         });
                     </script>
                     <ul class="mulitline" style="overflow:hidden;height:100px">
+                        {volist name="help" id="v"}
                         <LI>【帮助】
-                            <a href=/help.htm#13>前台店铺的qq在线状. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#12>如何上传图片？ </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#11>怎样发布信息才能获得. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#10>发布了信息,为什么看. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#9>注册时为什么要填手机. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#8>金币 </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#7>注册时填了QQ号，为. </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#6>如何改变展厅的风格？ </a> </LI>
-                        <LI>【帮助】
-                            <a href=/help.htm#4>如何发布信息？ </a> </LI>
+                            <a target="_bank" href="{:url('/help')}#{$v.id}">{$v.title}</a> </LI>
+                        <LI>
+                        {/volist}
                     </ul>
                 </div>
             </div>
@@ -265,7 +252,7 @@
                             {foreach $v.project as $p}
                             <li>
                                 <a href="{:url('/project_detail')}/{$p.id}" target="_bank">
-                                    <img class="lazy" src="{$p.image}" />
+                                    <img class="lazy" src="{$p.image}" style="width: 120px;height:90px;"/>
                                 </a>
                                 <p>{$p.name}</p>
                             </li>

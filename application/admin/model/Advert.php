@@ -47,4 +47,12 @@ class Advert extends Model
         $list = $this->getFlagList();
         return implode(',', array_intersect_key($list, array_flip($valueArr)));
     }
+
+
+
+    //关联user表
+    public function user()
+    {
+        return $this->belongsTo('user', 'company_id','id')->setEagerlyType(0);
+    }
 }

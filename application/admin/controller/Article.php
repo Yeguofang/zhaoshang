@@ -19,7 +19,9 @@ class Article extends Backend
 
     protected $multiFields = "switch";
     protected $relationSearch = true;//关联查询
-
+    protected $noNeedLogin = [];    //不需要登录能访问的方法
+    protected $noNeedRight = ['search'];     //不用权限但要登录后能访问的方法
+    protected $searchCate = []; //存放分类数据
 
     public function _initialize()
     {
@@ -29,10 +31,10 @@ class Article extends Backend
 
         $tree = Tree::instance();
         $tree->init(Category::getCategoryArray('article', 'normal'), 'pid');
-        $category = $tree->getTreeList($tree->getTreeArray(0), 'name');
+        $this->searchCate = $tree->getTreeList($tree->getTreeArray(0), 'name');
 
 
-        $this->assign('cate', $category);
+        $this->assign('cate', $this->searchCate);
     }
 
 
@@ -45,20 +47,25 @@ class Article extends Backend
             if ($this->request->request('keyField')) {
                 return $this->selectpage();
             }
-            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams('title');
 
             $total = $this->model
                 ->with(["category"])
+                // ->with(['user'])
                 ->where($where)
                 ->order($sort, $order)
                 ->count();
 
             $list = $this->model
-                ->with(["category"])
+                ->with(["category"=>function($query){
+                    $query->withField('name,type,flag');
+                }])
+                // ->with(['user'])
                 ->where($where)
                 ->order($sort, $order)
                 ->limit($offset, $limit)
                 ->select();
+
             $list = collection($list)->toArray();
             $result = array("total" => $total, "rows" => $list);
 
@@ -77,7 +84,7 @@ class Article extends Backend
         //设置过滤方法
         $this->request->filter(['strip_tags']);
         if ($this->request->isAjax()) {
-            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams('title');
             $total = $this->model
                 ->onlyTrashed()
                 ->with(["category"])
@@ -87,7 +94,9 @@ class Article extends Backend
 
             $list = $this->model
                 ->onlyTrashed()
-                ->with(["category"])
+                ->with(["category"=>function($query){
+                    $query->withField('name,type,flag');
+                }])
                 ->where($where)
                 ->order($sort, $order)
                 ->limit($offset, $limit)
@@ -98,6 +107,23 @@ class Article extends Backend
             return json($result);
         }
         return $this->view->fetch();
+    }
+
+    public function search(){
+        $one = $this->searchCate;
+        for($i=0;$i<count($one);$i++){
+                $ids =[]; //存放二级分类的id
+                for ($j=0;$j<count($one);$j++) {
+                    if ($one[$j]['pid'] ===$one[$i]['id']) {
+                        $ids[] = $one[$j]['id'];
+                    }
+                }
+                if ($ids != null) {
+                    //把二级id赋值给一级
+                    $one[$i]['id'] = implode(',', $ids);
+                }
+        }
+        return $one;
     }
 
 

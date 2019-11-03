@@ -47,4 +47,15 @@ class Project extends Model
         $list = $this->getFlagList();
         return implode(',', array_intersect_key($list, array_flip($valueArr)));
     }
+
+     //关联分类表
+     public function category()
+     {
+         return $this->belongsTo('app\common\model\category', 'category_id','id')->setEagerlyType(0);
+     }
+      //关联user表
+    public function user()
+    {
+        return $this->belongsTo('user', 'company_id','id')->setEagerlyType(0);
+    }
 }

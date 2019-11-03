@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>资讯</title>
+    <meta name="keywords" content="资讯" />
+    <meta name="description" content="资讯" />
+    {include file="common/head"/}
+    <!-- <link href="__HOME__/css/style.css" rel="stylesheet" type="text/css" /> -->
+</head>
+
+<body>
+
+    {include file="common/header"/}
+
+    <div class="main">
+        <div class="pagebody">
+            <div class="left">
+                <div class="station2">
+                    <li class='start'><a href="/">首页</a></li>
+                    <li><a href="{:url('/article')}">资讯</a></li>
+                </div>
+         
+
+                <div class="content">
+                    <div class="boxbigclass"></div>
+
+                    {volist name="data" id="a"}
+                    <div class="bigbigword2"><a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title}</a></div>
+                    <div>{$a.desc}<a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">[ 查看... ]</a></div>
+                    <div style="margin-bottom:10px">发布时间：{$a.createtime|@date="Y-m-d H:i:s"} 点击：{$a.views}</div>
+                    {/volist}
+                 
+                </div>
+                        {$data->render()}
+
+            </div>
+   
+        </div>
+    </div>
+
+    {include file="common/footer" /}
+</body>
+
+</html>

@@ -13,7 +13,7 @@ Route::rule('/ranking', 'project/ranking');
 Route::rule('/help', 'index/help');
 Route::rule('/link', 'index/link');
 Route::rule('/brand', 'index/brand');
-
+Route::rule('/search', 'index/search');
 
 
 

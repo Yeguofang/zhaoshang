@@ -35,7 +35,7 @@
     </div>
     <h1><?php echo $msg; ?></h1>
     <p class="clearfix">
-        <a href="/" class="btn btn-grey"><?php echo __('Go back'); ?></a>
+        <a href="/public" class="btn btn-grey"><?php echo __('Go back'); ?></a>
     </p>
 </div>
 <div class="copyright">

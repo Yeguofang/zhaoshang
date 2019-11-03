@@ -68,6 +68,7 @@ class Project extends Frontend
             unset($row['file']);
             $row['company_id'] = $company_id;
             $row['content'] = $_POST['content'];
+            $row['poster'] = $_POST['poster'];
             $row['createtime'] = time();
             if ($row['image'] == null) {//没有缩略图
                 $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
@@ -110,6 +111,7 @@ class Project extends Frontend
             $row = $this->request->post();
             unset($row['file']);
             $row['city'] = implode(',',$row['city']);
+            $row['poster'] = $_POST['poster'];
             $row['content'] = $_POST['content'];
             if ($row['image'] == null) {//没有缩略图
                 $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图

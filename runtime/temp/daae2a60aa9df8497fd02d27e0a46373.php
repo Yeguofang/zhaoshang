@@ -1,8 +1,30 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"/var/www/zs/public/../application/index/view/index/article_list.html";i:1572676940;s:58:"/var/www/zs/application/index/view/menber/common/head.html";i:1571803846;}*/ ?>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
 <head>
-	{include file="menber/common/head"/}
+	<meta charset="UTF-8">
+<title>用户中心</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/static/home/x-admin/css/font.css">
+<link rel="stylesheet" href="/static/home/x-admin/css/xadmin.css">
+<script src="/static/home/layui/layui.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/static/home/layui/css/layui.css"  media="all">
+<script src="/static/home/x-admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/home/js/jquery.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/home/x-admin/js/xadmin.js"></script>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!-- [if lt IE 9]> -->
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<!-- <![endif] -->
+<script>
+    // 是否开启刷新记忆tab功能
+    var is_remember = false;
+</script>
 </head>
 
 <body>
@@ -33,13 +55,13 @@
 
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-  <button class="layui-btn" onclick="xadmin.open('发布文章','{:url('menber/article/add')}')" >发布文章</button>
+  <button class="layui-btn" onclick="xadmin.open('发布文章','<?php echo url('menber/article/add'); ?>')" >发布文章</button>
   <button class="layui-btn layui-btn-danger" lay-event="getCheckData">批量删除</button>
   </div>
 </script>
 
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','{:url('menber/article/edit')}/{{d.id}}')">编辑</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','<?php echo url('menber/article/edit'); ?>/{{d.id}}')">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"  href="javascript:;">删除</a>
 </script>
 
@@ -47,7 +69,7 @@
 <script>
 
 	layui.config({
-		base: '__CDN__/static/home/layui/lay/modules/'      //自定义layui组件的目录
+		base: '/static/home/layui/lay/modules/'      //自定义layui组件的目录
 	});
 
 	layui.use(['table', 'common'], function () {
@@ -56,7 +78,7 @@
 
 		table.render({
 			elem: '#article'
-			, url: "{:url('menber/article/list')}"
+			, url: "<?php echo url('menber/article/list'); ?>"
 			, toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
 			, defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
 				title: '提示'
@@ -82,14 +104,14 @@
 
 
 		table.on('toolbar(article)', function (obj) {
-			tools.delAll_ajax('post', "{:url('/menber/article/del')}", table,obj);
+			tools.delAll_ajax('post', "<?php echo url('/menber/article/del'); ?>", table,obj);
 		});
 
 		//监听行工具事件
 		table.on('tool(article)', function (obj) {
 			var ids = obj.data.id;
 			if (obj.event === 'del') {
-				tools.del_ajax('post', "{:url('/menber/article/del')}", ids, obj);
+				tools.del_ajax('post', "<?php echo url('/menber/article/del'); ?>", ids, obj);
 			} else if (obj.event === 'edit') {
 			
 			}

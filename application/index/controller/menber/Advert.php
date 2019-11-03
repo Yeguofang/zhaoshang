@@ -18,7 +18,7 @@ class Advert extends Frontend
         if ($this->request->isAjax()) {
             $row = $this->request->param();
             $res = db::name('advert')
-                        ->where('admin_id', $this->auth->getUserinfo()['id'])
+                        ->where('company_id', $this->auth->getUserinfo()['id'])
                         ->page($row['page'], $row['limit'])
                         ->order('id createtime')
                         ->select();
@@ -38,9 +38,9 @@ class Advert extends Frontend
     {
 
         if ($this->request->isAjax()) {
-            $admin_id = $this->auth->getUserinfo()['id'];
+            $company_id = $this->auth->getUserinfo()['id'];
             $row = $this->request->post();
-            $row['admin_id'] = $admin_id;
+            $row['company_id'] = $company_id;
             $row['createtime'] = time();
             unset($row['file']);
 

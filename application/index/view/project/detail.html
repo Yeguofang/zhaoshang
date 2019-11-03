@@ -37,7 +37,7 @@
         <div style="display:block;" id="A_con1" class="content bgcolor3">
            
                 <div class="content_sm">
-                      {$data.content}
+                        {$data.poster}
                     </div>
 
         </div>
@@ -51,8 +51,7 @@
                 <tr>
                     <td>公司地址：{$data.address}</td>
                 </tr>
-                <tr>
-                    <td>企业介绍：{$data.company_desc}</td>
+                    <td>企业介绍：<hr>{$data.company_desc}</td>
                 </tr>
             </table>
         </div>
@@ -102,6 +101,8 @@
                             </td>
                         </tr>
                     </table>
+                    <hr>
+                    {$data.content}
         </div>
 
         <div class="pagebody">

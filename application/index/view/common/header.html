@@ -19,12 +19,11 @@
                     <li><a
                             href="javascript:window.external.addFavorite('/','zzcms项目加盟模板演示站');">收藏本站</a>
                     </li>
-                    <li><a>手机站</a>
-                        <ol class="sub">
+                    <li><a>手机站</a> 
+                    <ol class="sub">
                             <li><img src="{$web.web_ewm}" width="100"></li>
                         </ol>
                     </li>
-
                 </ul>
             </div>
 
@@ -46,16 +45,16 @@
                     <a href="/"><img src="{$web.web_logo}" border="0" alt="{$web.web_name}"></a>
                 </td>
                 <td>
-                    <form action="/one/forsearch.php" method="get">
+                    <form action="{:url('/search')}" method="post">
                         <div id="divselect">
-                            <cite>招商</cite>
-                            <ul>
-                                <li><a href="javascript:;" selectid="zs">招商</a></li>
-                                <li><a href="javascript:;" selectid="zx">资讯</a></li>
-                            </ul>
+                            <select name="type" style="width: 60px;height: 40px;background-color: #fff;font-size: 16px;">
+                                <option value="project">招 商</option>
+                                <option value="article">资 讯</option>
+                            </select>
                         </div>
-                        <input name="kind" type="hidden" value="zs" id="inputselect" />
-                        <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech /><input name="search" type="submit" border="0" class="buttons_search" value="搜索" />
+                        <!-- <input name="kind" type="hidden" value="zs" id="inputselect" /> -->
+                        <input name="keyword" type="text" size="38" class="biaodan_search" autocomplete="off" x-webkit-speech />
+                        <input  type="submit" border="0" class="buttons_search" value="搜索" />
                     </form>
                 </td>
                 <td width="240" align="center">

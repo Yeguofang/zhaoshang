@@ -33,13 +33,13 @@
 
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-  <button class="layui-btn" onclick="xadmin.open('发布项目','{:url('menber/project/add')}',900,800)" >发布项目</button>
+  <button class="layui-btn" onclick="xadmin.open('发布项目','{:url('menber/project/add')}')" >发布项目</button>
   <button class="layui-btn layui-btn-danger" lay-event="getCheckData">批量删除</button>
   </div>
 </script>
 
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','{:url('menber/project/edit')}/{{d.id}}',900,800)">编辑</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="xadmin.open('发布文章','{:url('menber/project/edit')}/{{d.id}}')">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"  href="javascript:;">删除</a>
 </script>
 
