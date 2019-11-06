@@ -3,7 +3,7 @@
 namespace app\admin\controller\user;
 
 use app\common\controller\Backend;
-
+use think\db;
 /**
  * 会员管理
  *
@@ -60,16 +60,55 @@ class User extends Backend
         return $this->view->fetch();
     }
 
+
+
+
+    //添加
+    public function add(){
+        if($this->request->isAjax()){
+            $row = $this->request->param('row/a');
+            $row['status'] = 'normal';
+            $row['createtime']  = time();
+            $row['type'] = 2; //内部添加
+
+           $res = $this->model->save($row);
+            if($res){
+                return $this->success('添加成功');
+            }
+            return $this->error('添加失败');
+        }
+        return $this->fetch();
+        
+    }
+
     /**
      * 编辑
      */
     public function edit($ids = NULL)
     {
-        $row = $this->model->get($ids);
-        if (!$row)
-            $this->error(__('No Results were found'));
+
+        $row  = db::name('user')->where('id',$ids)->find();
         $this->view->assign('groupList', build_select('row[group_id]', \app\admin\model\UserGroup::column('id,name'), $row['group_id'], ['class' => 'form-control selectpicker']));
-        return parent::edit($ids);
+        $this->assign('row',$row);
+
+        if($this->request->isAjax()){
+            $row = $this->request->param('row/a');
+            $row['prevtime']=strtotime($row['prevtime']);
+            $row['logintime']=strtotime($row['logintime']);
+            $row['jointime']=strtotime($row['jointime']);
+            $res = db::name('user')->where('id',$ids)->update($row);
+            if($res){
+                return $this->success('修改成功');
+            }
+            return $this->error('修改失败');
+        }
+
+        return $this->fetch();
     }
+
+
+   
+
+
 
 }

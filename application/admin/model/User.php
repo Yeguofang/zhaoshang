@@ -43,21 +43,9 @@ class User extends Model
             }
         });
 
-
-        self::beforeUpdate(function ($row) {
-            $changedata = $row->getChangedData();
-            if (isset($changedata['money'])) {
-                $origin = $row->getOriginData();
-                MoneyLog::create(['user_id' => $row['id'], 'money' => $changedata['money'] - $origin['money'], 'before' => $origin['money'], 'after' => $changedata['money'], 'memo' => '管理员变更金额']);
-            }
-        });
     }
 
-    public function getGenderList()
-    {
-        return ['1' => __('Male'), '0' => __('Female')];
-    }
-
+ 
     public function getStatusList()
     {
         return ['normal' => __('Normal'), 'hidden' => __('Hidden')];

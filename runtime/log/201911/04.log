@@ -1,0 +1,207 @@
+---------------------------------------------------------------
+[ 2019-11-04T18:52:21+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/
+[运行时间：0.125131s] [吞吐率：7.99req/s] [内存消耗：4,537.66kb] [文件加载：133]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000015s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001334s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=vatmednde6r1vvgnh5p7pbakrc',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001376s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index/lang/zh-cn/index.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\Project\zhaoshang\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index\view\index\index.html [ array (
+  0 => 'user',
+  1 => 'web',
+  2 => 'url',
+  3 => 'project_cate',
+  4 => 'article_cate',
+  5 => 'site',
+  6 => 'config',
+  7 => 'advert_a',
+  8 => 'advert_b',
+  9 => 'advert_c',
+  10 => 'advert_d',
+  11 => 'advert_e',
+  12 => 'user_count',
+  13 => 'article_count',
+  14 => 'project_count',
+  15 => 'help',
+  16 => 'slide',
+  17 => 'navs',
+  18 => 'index',
+  19 => 'menu',
+  20 => 'article',
+  21 => 'tdk',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011376s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.001601s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.001052s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000727s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000950s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%menu%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 9 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%menu%' [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000803s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 16  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 18  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 35  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 36  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 37  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 38  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 39  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 34  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 34  AND `flag` LIKE '%menu%' [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%menu%' [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%menu%' [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%menu%' [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%menu%' [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%menu%' [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%menu%' [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 19  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 20  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 21  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%menu%' [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 6  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 7  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 8  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 9  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%index%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%index%' [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%index%' [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%index%' [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%index%' [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%index%' [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%index%' [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%index%' [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (14,19,20,21)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%index%' [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (6,7,8,9)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%navs%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%navs%' [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 16  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 18  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 35  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 36  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 37  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 38  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 39  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%navs%' [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%navs%' [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%navs%' [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%navs%' [ RunTime:0.000187s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%navs%' [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%navs%' [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 14  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 19  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 20  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 21  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%navs%' [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 7  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 8  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 9  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_advert` [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%A%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%A%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 80 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%B%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%B%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000185s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%C%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%C%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 12 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%D%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 8 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%D%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 8 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%E%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%E%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_article` [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_article` WHERE  `deletetime` IS NULL  AND `switch` = 1 LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` WHERE  `deletetime` IS NULL  AND `switch` = 1 LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_user` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_user` LIMIT 1 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%index%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 28 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 26 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 25 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 24 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 23 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 22 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 5 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 4 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `flag` LIKE '%slide%' LIMIT 10 [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_help` [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SELECT `id`,`title` FROM `zs_help` WHERE  `switch` = 1  AND `deletetime` IS NULL [ RunTime:0.000293s ]
+---------------------------------------------------------------
+[ 2019-11-04T18:52:22+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/favicon.ico
+[运行时间：0.032926s] [吞吐率：30.37req/s] [内存消耗：2,218.11kb] [文件加载：110]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000013s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001240s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ LOG ] INIT File

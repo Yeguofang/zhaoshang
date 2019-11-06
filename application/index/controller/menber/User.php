@@ -114,7 +114,6 @@ class User extends Frontend
             $rule = [
                 'username'  => 'require|length:3,30',
                 'password'  => 'require|length:6,30',
-                'email'     => 'require|email',
                 'mobile'    => 'regex:/^1\d{10}$/',
                 '__token__' => 'require|token',
             ];
@@ -126,15 +125,11 @@ class User extends Frontend
                 'password.length'  => 'Password must be 6 to 30 characters',
                 //'captcha.require'  => 'Captcha can not be empty',
                 //'captcha.captcha'  => 'Captcha is incorrect',
-                'email'            => 'Email is incorrect',
                 'mobile'           => 'Mobile is incorrect',
             ];
             $data = [
                 'username'  => $username,
                 'password'  => $password,
-                'company_name' => $company_name,
-                'nickname' => $nickname,
-                'email'     => $email,
                 'mobile'    => $mobile,
                 //'captcha'   => $captcha,
                 '__token__' => $token,
