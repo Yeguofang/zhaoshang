@@ -36,7 +36,7 @@ class Article extends Frontend
 
     public  function list($id = null){
         $name = db::name('category')->where('id',$id)->field('name')->find();
-        $data = db::name('article')->where('category_id',$id)->where('switch',0)->paginate(10);
+        $data = db::name('article')->where('category_id',$id)->where('switch',1)->paginate(10);
         $recommend =self::getData('recommend',15,$id); 
         $hot = self::getData('hot',15,$id);
 

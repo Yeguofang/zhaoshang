@@ -237,38 +237,27 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th width="8%">页面</th>
                                     <th width="15%">标题</th>
-                                    <th width="50%">值</th>
-                                    <th width="30%">说明</th>
+                                    <th width="30%">关键字</th>
+                                    <th width="50%">描述</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 {volist name="$tdk" id="t"}
                                 <tr>
-                                    <td> {$t.name}-title</td>
+                                    <td> {$t.name}</td>
                                     <td>
                                         <input type="text" name="row[{$t.id}][title]" value="{$t.title}" class="form-control" data-rule="" />
                                         <input type="hidden" name="row[{$t.id}][id]" value="{$t.id}" />
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td> {$t.name}-keyword</td>
                                     <td>
                                         <input type="text" name="row[{$t.id}][keyword]" value="{$t.keyword}" class="form-control" data-rule="" />
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td> {$t.name}-description</td>
                                     <td>
-                                        <input type="text" name="row[{$t.id}][description]" value="{$t.description}" class="form-control" data-rule="" />
+                                        <textarea type="text" name="row[{$t.id}][description]"  class="form-control" data-rule="" />{$t.description}</textarea>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
                                 </tr>
                                 {/volist}
 

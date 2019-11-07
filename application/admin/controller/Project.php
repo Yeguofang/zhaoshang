@@ -34,6 +34,9 @@ class Project extends Backend
         $tree->init(Category::getCategoryArray('project', 'normal'), 'pid');
         $this->searchCate = $tree->getTreeList($tree->getTreeArray(0), 'name');
 
+        $province = db::name('china')->where('parentid', 1)->select();
+
+        $this->assign('province', $province);
         $this->assign('cate', $this->searchCate);
     }
 
@@ -56,7 +59,7 @@ class Project extends Backend
                 ->count();
 
             $list = $this->model
-                ->with(["category"=>function($query){
+                ->with(["category" => function ($query) {
                     $query->withField('name,type,flag');
                 }])
                 ->where($where)
@@ -73,9 +76,52 @@ class Project extends Backend
         return $this->view->fetch();
     }
 
+    //添加
+    public function add()
+    {  
+        $user = db::name('user')->where('type',2)->field('id,company_name')->select();
+        $this->assign('user',$user);
+
+        if ($this->request->isAjax()) {
+            $row = $this->request->param('row/a');
+            $row['city'] = implode(',',$row['city']);
+            $res = $this->model->save($row);
+            if($res == 1){
+               return  $this->success('添加成功');
+            }
+            return $this->error('添加失败');
+        }
+        return $this->view->fetch();
+    }
 
 
-     /**
+
+    //修改
+    public function edit($ids =null){
+        $data = $this->model->get($ids);
+        //查询出招商地区
+        $data->city = db::name('china')->where('id','in',$data->city)->field('id,areaname')->select();
+        $user = db::name('user')->where('type',2)->field('id,company_name')->select();
+        $this->assign('user',$user);
+        $this->assign('row',$data);
+
+        if ($this->request->isAjax()) {
+            $row = $this->request->param('row/a');
+            $row['city'] = implode(',',$row['city']);
+            $res = $data->save($row);
+            if($res == 1){
+               return  $this->success('修改成功');
+            }
+            return $this->error('修改失败');
+        }
+       return  $this->view->fetch();
+    }
+
+
+
+
+
+    /**
      * 回收站
      */
     public function recyclebin()
@@ -93,7 +139,7 @@ class Project extends Backend
 
             $list = $this->model
                 ->onlyTrashed()
-                ->with(["category"=>function($query){
+                ->with(["category" => function ($query) {
                     $query->withField('name,type,flag');
                 }])
                 ->where($where)
@@ -111,21 +157,37 @@ class Project extends Backend
 
 
     //用于表格筛选查询
-    public function search(){
+    public function search()
+    {
         $one = $this->searchCate;
-        for($i=0;$i<count($one);$i++){
-                $ids =[]; //存放二级分类的id
-                for ($j=0;$j<count($one);$j++) {
-                    if ($one[$j]['pid'] ===$one[$i]['id']) {
-                        $ids[] = $one[$j]['id'];
-                    }
+        for ($i = 0; $i < count($one); $i++) {
+            $ids = []; //存放二级分类的id
+            for ($j = 0; $j < count($one); $j++) {
+                if ($one[$j]['pid'] === $one[$i]['id']) {
+                    $ids[] = $one[$j]['id'];
                 }
-                if ($ids != null) {
-                    //把二级id赋值给一级
-                    $one[$i]['id'] = implode(',', $ids);
-                }
+            }
+            if ($ids != null) {
+                //把二级id赋值给一级
+                $one[$i]['id'] = implode(',', $ids);
+            }
         }
         return $one;
     }
 
+
+    //市区数据
+    public function shiqu()
+    {
+        $parentid = $this->request->param('parentid');
+        $result = db::name('china')->where('parentid', $parentid)->select();
+
+        $data = [];
+        foreach ($result as $v) {
+            $arr['value'] = $v['id'];
+            $arr['name'] = $v['areaname'];
+            $data[] = $arr;
+        }
+        $this->success('', null, $data);
+    }
 }

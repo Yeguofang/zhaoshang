@@ -24,14 +24,44 @@ class Project extends Frontend
         $category= db::name('category')->where('type', 'project')->where('pid', $pid)->field('id,pid,name')->select();
 
         if ($id !=null) {
-            $project = db::name('project')->where('category_id', $id)->paginate(10);
-            $hot = db::name('project')->field('id,name,views')->where('category_id', $id)->where('flag', 'like', "%hot%")->limit(15)->order('weigh desc')->select();
-            $recommend = db::name('project')->field('id,name,views')->where('category_id', $id)->where('flag', 'like', "%recommend%")->limit(15)->order('weigh desc')->select();
-        } else {
+            //查询二级分类的项目
+            $project = db::name('project')->where('switch',1)->where('category_id', $id)->paginate(10);
+            $hot = db::name('project')
+                    ->field('id,name,views')
+                    ->where('switch',1)
+                    ->where('category_id', $id)
+                    ->where('flag', 'like', "%hot%")
+                    ->limit(15)
+                    ->order('weigh desc')
+                    ->select();
+            $recommend = db::name('project')
+                    ->field('id,name,views')
+                    ->where('switch',1)
+                    ->where('category_id', $id)
+                    ->where('flag', 'like', "%recommend%")
+                    ->limit(15)
+                    ->order('weigh desc')
+                    ->select();
+        } else {    
+            //查询一级分类的项目
             $id = array_column($category, 'id');
-            $project = db::name('project')->where('category_id', 'in', $id)->paginate(10);
-            $hot = db::name('project')->field('id,name,views')->where('category_id', 'in', $id)->where('flag', 'like', "%hot%")->limit(15)->order('weigh desc')->select();
-            $recommend = db::name('project')->field('id,name,views')->where('category_id', 'in', $id)->where('flag', 'like', "%recommend%")->limit(15)->order('weigh desc')->select();
+            $project = db::name('project')->where('switch',1)->where('category_id', 'in', $id)->paginate(10);
+            $hot = db::name('project')
+                    ->field('id,name,views')
+                    ->where('switch',1)
+                    ->where('category_id', 'in', $id)
+                    ->where('flag', 'like', "%hot%")
+                    ->limit(15)
+                    ->order('weigh desc')
+                    ->select();
+            $recommend = db::name('project')
+                    ->field('id,name,views')
+                    ->where('switch',1)
+                    ->where('category_id', 'in', $id)
+                    ->where('flag', 'like', "%recommend%")
+                    ->limit(15)
+                    ->order('weigh desc')
+                    ->select();
         }
 
         $project_arr= $project->toArray();
@@ -66,13 +96,12 @@ class Project extends Frontend
     {
         $project =  db::name('project')
                 ->alias('p')
-                ->field('p.id,p.name,p.price,p.image,p.phone,p.company_id,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,c.name `cname`,b.name `bname`')
-                ->join('user u', 'p.company_id=u.id')
-                ->join('category c', 'p.category_id=c.id')
-                ->join('category b', 'c.pid=b.id')
+                ->field('p.id,p.name,p.price,p.image,p.company_id,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,c.name `cname`,b.name `bname`')
+                ->join('user u', 'p.company_id=u.id','LEFT')
+                ->join('category c', 'p.category_id=c.id','LEFT')
+                ->join('category b', 'c.pid=b.id','LEFT')
                 ->where('p.id', $id)
                 ->find();
-        
         $this->assign('data', $project);
 
 

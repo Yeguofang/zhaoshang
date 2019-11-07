@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:37:44
- * @LastEditTime: 2019-11-06 18:52:04
+ * @LastEditTime: 2019-11-06 19:04:23
  */
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
@@ -34,7 +34,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'group.name', title: __('Group')},
                         {field: 'company_name', title: __('公司名称'), operate: 'LIKE'},
                         {field: 'username', title: __('Username'), operate: 'LIKE'},
-                        {field: 'type', title: __('账户类型'), formatter:Controller.api.formatter.type,searchList:{"1":"注册","2":"后台添加"}},
+                        {field: 'type', title: __('账户类型'), formatter:Controller.api.formatter.type,searchList:{"1":"注册","2":"内部"}},
                         {field: 'email', title: __('Email'), operate: 'LIKE'},
                         {field: 'mobile', title: __('Mobile'), operate: 'LIKE'},
                         {field: 'successions', title: __('Successions'), visible: false, operate: 'BETWEEN', sortable: true},
@@ -64,7 +64,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             formatter:{
                 type:function (value,row,index) {
                     if(value == 2){
-                        return "<label class='label bg-red'>后台</label>"
+                        return "<label class='label bg-red'>内部</label>"
                     }else if(value == 1){
                         return "<label class='label bg-green'>注册</label>"
                     }

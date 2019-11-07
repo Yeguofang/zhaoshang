@@ -4,8 +4,7 @@ namespace app\admin\controller;
 
 use app\common\controller\Backend;
 use app\common\model\Category;
-use fast\Tree;
-
+use think\db;
 /**
  * 项目管理
  *
@@ -64,6 +63,26 @@ class Advert extends Backend
         return $this->view->fetch();
     }
 
+
+
+    //添加
+    public function add()
+    {  
+        $user = db::name('user')->where('type',2)->field('id,company_name')->select();
+        $this->assign('user',$user);
+        parent::add();
+        return $this->view->fetch();
+    }
+
+    //修改
+    public function edit($ids =null){
+        $data = $this->model->get($ids);
+        $user = db::name('user')->where('type',2)->field('id,company_name')->select();
+        $this->assign('user',$user);
+        $this->assign('row',$data);
+        parent::edit($ids);
+       return  $this->view->fetch();
+    }
 
 
      /**

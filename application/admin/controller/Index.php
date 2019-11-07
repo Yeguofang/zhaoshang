@@ -31,9 +31,10 @@ class Index extends Backend
     {
         //左侧菜单
         list($menulist, $navlist, $fixedmenu, $referermenu) = $this->auth->getSidebar([
-            'dashboard' => 'hot',
+            // 'dashboard' => 'hot',
             // 'addon'     => ['new', 'red', 'badge'],
-            'auth/rule' => __('Menu'),
+            'auth/rule' => __('开发者'),
+            'user/rule' => __('开发者'),
             // 'general'   => ['new', 'purple'],
         ], $this->view->site['fixedpage']);
         $action = $this->request->request('action');

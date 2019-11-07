@@ -1,48 +1,68 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-07 16:44:20
+ * @LastEditTime: 2019-11-07 17:21:45
+ -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">所属公司</label>
         <div class="col-xs-12 col-sm-8">
             <select id="c-company_id" data-rule="required" class="form-control selectpicker" name="row[company_id]">
+                <option value="">请选择</option>
                 {volist name="user" id="u"}
-                <option value="{$u.id}"{in name="$u.id" value="$row.company_id"} selected {/in}>{$u.company_name}</option>
+                <option value="{$u.id}">{$u.company_name}</option>
                 {/volist}
             </select>
         </div> 
     </div> 
-    
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">类型</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
                 <label for="row[type]-normal">
-                <input id="row[type]-normal" checked="checked" name="row[type]" type="radio" value="1" {if($row.type == 1)} checked {/if}> 图片</label>
+                <input id="row[type]-normal" checked="checked" name="row[type]" type="radio" value="1"> 图片</label>
                 <label for="row[type]-hidden">
-                <input id="row[type]-hidden" name="row[type]" type="radio" value="0" {if($row.type == 0)} checked {/if}>文字</label>
+                <input id="row[type]-hidden" name="row[type]" type="radio" value="0">文字</label>
             </div>
         </div>
     </div>
-    
-  
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">标题</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" value="{$row.title|htmlentities}">
+            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" >
         </div>
     </div>
    
     <div class="form-group">
-            <label class="control-label col-xs-12 col-sm-2">URL链接</label>
-            <div class="col-xs-12 col-sm-8">
-                <input id="c-url"  class="form-control" name="row[url]" type="text" value="{$row.url|htmlentities}">
-            </div>
+        <label class="control-label col-xs-12 col-sm-2">URL链接</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-url"  class="form-control" name="row[url]" type="text" >
         </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">位置</label>
+        <div class="col-xs-12 col-sm-8">
 
+            <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
+                {foreach name="flagList" item="vo"}
+                <option value="{$key}">{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+
+    
     <div class="form-group" id="img">
         <label class="control-label col-xs-12 col-sm-2">图片</label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
-                <input id="c-image" class="form-control" size="50" name="row[image]" type="text" value="{$row.image|htmlentities}">
+                <input id="c-image" class="form-control" size="50" name="row[image]" type="text" >
                 <div class="input-group-addon no-border no-padding">
                     <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
                     <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
@@ -54,29 +74,18 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">位置</label>
-        <div class="col-xs-12 col-sm-8">
-            <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
-                {foreach name="flagList" item="vo"}
-                <option value="{$key}" {in name="key" value="$row.flag"}selected{/in}>{$vo}</option>
-                {/foreach}
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">权重排序</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-weigh" class="form-control" name="row[weigh]" type="number" value="{$row.weigh|htmlentities}">
+            <input id="c-weigh" class="form-control" name="row[weigh]" type="number">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">状态</label>
         <div class="col-xs-12 col-sm-8">
 
-            <input id="c-switch" name="row[switch]" type="hidden" value="{$row.switch}">
+            <input id="c-switch" name="row[switch]" type="hidden" >
             <a href="javascript:;" data-toggle="switcher" class="btn-switcher" data-input-id="c-switch" data-yes="1" data-no="0">
-                <i class="fa fa-toggle-on text-success {eq name=" $row.switch " value="0 "}fa-flip-horizontal text-gray{/eq} fa-2x"></i>
+                <i class="fa fa-toggle-on text-success fa-flip-horizontal text-gray fa-2x"></i>
             </a>
         </div>
     </div>
@@ -94,12 +103,6 @@
 <script type="text/javascript" src="__CDN__/static/home/js/jquery.js"></script>
 <script>
 $(document).ready(function(){
-
-    var img = $('input[name="row[type]"]:checked').val(); 
-    if(img == 0){
-        $('#img').hide();   //隐藏上传控件
-    }
-    
     $("input[name=row[type]]").click(function(){  
         var type = $('input[name="row[type]"]:checked').val(); 
         if(type == 1){  //图片类型

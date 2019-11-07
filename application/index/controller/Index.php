@@ -5,7 +5,6 @@ namespace app\index\controller;
 use app\admin\controller\general\Web;
 use app\common\controller\Frontend;
 use app\common\model\Category;
-use app\common\model\WebTdk;
 use think\db;
 
 class Index extends Frontend
@@ -16,7 +15,6 @@ class Index extends Frontend
 
     public function index()
     {
-        $tdk = WebTdk::get(1);
         $menu = self::category('menu',9,4); //首页左侧分类,项目
         $index = self::category('index',8,9);   //首页分类，项目
         $navs = self::category('navs',8,4);   //首页导航，项目
@@ -58,7 +56,6 @@ class Index extends Frontend
             'index' => $index,
             'menu' => $menu,
             'article' => $article,
-            'tdk' => $tdk
         ]);
 
 
@@ -174,8 +171,7 @@ class Index extends Frontend
         $this->assign('projects', $p);
         return   $this->view->fetch('project_search');
        }
-
-
+       
     }
 
 

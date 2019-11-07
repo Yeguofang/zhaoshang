@@ -306,30 +306,42 @@
                 }
             })
             
-            //点击已选中值的时候为其添加一个样式标示，由于后面删除
-            $(document).on('click',"#box option",function(){
-                $(this).attr('style','background-color:aqua;');
-                $(this).siblings().attr('style','background-color:#ffffff;');
-            })
             //删除已添加到select的值
-            $('#del').click(function () {
-                var s = $('option[style="background-color:aqua;"]').html();
-                var child = $('#box').children();
-                console.log(child);
-                var Sring = "<option>" + s + "</option>";
-                for(var i=0;i<child.length;i++){
-                    if(child[i].innerHTML==s){
-                        console.log(child[i].innerHTML);
-                        $($("#box").find("option")[i].remove());
-                        for (var i=0;i<DomArr.length;i++) {
-                            if(DomArr[i]==Sring){
-                                DomArr.splice(i,1);
-                            }
-                        }
-                    }
-                }
-                document.getElementById("city").options.selectedIndex = 0; //回到初始状态
+             $('#del').click(function () {
+                var box = $("#box");
+                var name = box.find("option:selected").innerHTML;//获取选中文本
+                var value = box.find("option:selected").value;//获取选中文本
+                box.find("option:selected").remove();   //删除option
+                var String = "<option value="+value+">" + name + "</option>";
+                var local = $.inArray(String, DomArr); //根据元素值查找下标，不存在返回-1
+                DomArr.splice(local,1);//根据下标删除一个元素   1表示删除一个元素
             })
+
+    //         //点击已选中值的时候为其添加一个样式标示，由于后面删除
+    //         $(document).on('click',"#box option",function(){
+    //             $(this).attr('style','background-color:aqua;');
+    //             $(this).siblings().attr('style','background-color:#ffffff;');
+    //         })
+
+    //         //删除已添加到select的值
+    //         $('#del').click(function () {
+    //             var s = $('option[style="background-color:aqua;"]').html();
+    //             var child = $('#box').children();
+    //             console.log(child);
+    //             var Sring = "<option>" + s + "</option>";
+    //             for(var i=0;i<child.length;i++){
+    //                 if(child[i].innerHTML==s){
+    //                     console.log(child[i].innerHTML);
+    //                     $($("#box").find("option")[i].remove());
+    //                     for (var i=0;i<DomArr.length;i++) {
+    //                         if(DomArr[i]==Sring){
+    //                             DomArr.splice(i,1);
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //             document.getElementById("city").options.selectedIndex = 0; //回到初始状态
+    //         })
 
     });
 

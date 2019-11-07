@@ -10,6 +10,7 @@ use think\Hook;
 use think\Lang;
 use think\Loader;
 use think\Validate;
+use app\common\model\WebTdk;
 use app\common\model\Category;
 
 /**
@@ -86,36 +87,6 @@ class Frontend extends Controller
 
         $this->view->assign('user', $this->auth->getUser());
 
-        // 语言检测
-        $lang = strip_tags($this->request->langset());
-
-        $site = Config::get("site");
-
-        $upload = \app\common\model\Config::upload();
-
-        // 上传信息配置后
-        Hook::listen("upload_config_init", $upload);
-
-        // 配置信息
-        $config = [
-            'site'           => array_intersect_key($site, array_flip(['name', 'cdnurl', 'version', 'timezone', 'languages'])),
-            'upload'         => $upload,
-            'modulename'     => $modulename,
-            'controllername' => $controllername,
-            'actionname'     => $actionname,
-            'jsname'         => 'frontend/' . str_replace('.', '/', $controllername),
-            'moduleurl'      => rtrim(url("/{$modulename}", '', false), '/'),
-            'language'       => $lang
-        ];
-        $config = array_merge($config, Config::get("view_replace_str"));
-
-        Config::set('upload', array_merge(Config::get('upload'), $upload));
-
-        // 配置信息后
-        Hook::listen("config_init", $config);
-        // 加载当前控制器语言包
-        $this->loadlang($controllername);
-
         //项目分类
         $project = Category::getCategoryIndex('project', 'normal', 'top');
         //资讯文章分类
@@ -124,23 +95,16 @@ class Frontend extends Controller
         $url = $this->request->controller()  . $this->request->action();
         //网站信息
         $web = db::name('web_config')->where('id',1)->find();
+        $tdk = WebTdk::all();
 
+        $this->assign('tdk', $tdk);
         $this->assign('web', $web);
         $this->assign('url', $url);
         $this->assign('project_cate', $project);
         $this->assign('article_cate', $article);
-        $this->assign('site', $site);
-        $this->assign('config', $config);
     }
 
-    /**
-     * 加载语言文件
-     * @param string $name
-     */
-    protected function loadlang($name)
-    {
-        Lang::load(APP_PATH . $this->request->module() . '/lang/' . $this->request->langset() . '/' . str_replace('.', '/', $name) . '.php');
-    }
+ 
 
     /**
      * 渲染配置信息
