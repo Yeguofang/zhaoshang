@@ -6,6 +6,7 @@ use app\admin\controller\general\Web;
 use app\common\controller\Frontend;
 use app\common\model\Category;
 use think\db;
+use app\index\controller\Jintai;
 
 class Index extends Frontend
 {
@@ -15,6 +16,14 @@ class Index extends Frontend
 
     public function index()
     {
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('index/index');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
+
         $menu = self::category('menu',9,4); //首页左侧分类,项目
         $index = self::category('index',8,9);   //首页分类，项目
         $navs = self::category('navs',8,4);   //首页导航，项目
@@ -32,11 +41,11 @@ class Index extends Frontend
 
         $article = self::article('index',8,11); //首页文章
 
-        $slide= db::name('project')
-                ->field('id,name,image,category_id')
+        $slide= db::name('advert')
+                ->field('id,title,url,image')
                 ->where('switch',1)
-                ->where('flag', 'like', "%slide%")
-                ->limit(10)
+                ->where('flag', 'like', "%S%")
+                ->limit(6)
                 ->select();
 
         $help = db::name('help')->where('switch',1)->whereNull('deletetime')->field('id,title')->select();
@@ -58,8 +67,13 @@ class Index extends Frontend
             'article' => $article,
         ]);
 
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/index');
+        }
 
-        return $this->view->fetch();
+        $this->buildHtml('index','index','index/index.html');
+
     }
 
 
@@ -69,10 +83,20 @@ class Index extends Frontend
      */
     public function help()
     {
+
+        $files = $this->echoHtml('index/help');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
         $data = db::name('help')->where('switch',1)->whereNull('deletetime')->select();
         $this->assign('data',$data);
 
-        return $this->view->fetch();
+          //是否手机端访问
+          if(request()->isMobile()){
+            return $this->view->fetch('mobile/help');
+        }
+        $this->buildHtml('help','index','index/help.html');
     }
 
 
@@ -83,13 +107,30 @@ class Index extends Frontend
      */
     public function link(){
 
+        $image = $this->request->param('image');
+        $text = $this->request->param('text');
+        $path = '';
+        $page = 'link';
+        if($image !=null){
+            $path = "image";
+            $page = $image;
+        }
+        if($text !=null){
+            $path = "text";
+            $page = $text;
+       }
+       $files = $this->echoHtml('link/'.$path.'/'.$page);
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
         //文字广告
         $text =  db::name('advert')
             ->field('id,title,image,url')
             ->where('type', 0)
             ->where('switch', 1)
             ->order('createtime desc')
-            ->paginate(200, false, ['var_page'=>'text','type'=>'defult']);
+            ->paginate(1, false, ['var_page'=>'text','type'=>'defult']);
 
         //图片广告
         $image =  db::name('advert')
@@ -97,7 +138,7 @@ class Index extends Frontend
             ->where('type',1)
             ->where('switch',1)
             ->order('createtime desc')
-            ->paginate(64,false,['var_page'=>'image','type'=>'defult']);
+            ->paginate(1,false,['var_page'=>'image','type'=>'defult']);
 
         
         //热门项目
@@ -121,7 +162,15 @@ class Index extends Frontend
             'text' =>$text,
             'image' =>$image,
         ]);
-        return $this->view->fetch();
+
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/link');
+        }
+
+        //生成静态页面
+        $this->buildHtml($page,'link/'.$path.'/','index/link.html');
+
     }
 
 
@@ -139,6 +188,12 @@ class Index extends Frontend
             ->where('title','like',"%".$keyword."%")
             ->paginate(2,false,['type'=>'defult','query' => ['type' => $type,'keyword'=>$keyword]]);
             $this->assign('data',$data);
+
+            
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/article_search');
+        }
          return   $this->view->fetch('article_search');
        }
 
@@ -169,6 +224,12 @@ class Index extends Frontend
         }
         $this->assign('project', $project);
         $this->assign('projects', $p);
+
+        
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/project_search');
+        }
         return   $this->view->fetch('project_search');
        }
        
@@ -190,7 +251,7 @@ class Index extends Frontend
         $menu =  Category::getCategoryIndex('project', 'normal', $flag,$flag_number);
         for ($i = 0; $i < count($menu); $i++) {
             $menu[$i]['sum'] = Category::where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->count();
-            $menu_two = Db::name('category')->where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->select();
+            $menu_two = Db::name('category')->where('pid', $menu[$i]['id'])->where('flag', 'like',"%".$flag."%")->limit($flag_number)->select();
 
             if ($flag == 'menu' || $flag == 'navs') { //首页左侧菜单栏的二级分类下的项目
                 for ($j=0;$j<count($menu_two);$j++) {

@@ -85,6 +85,8 @@ class Frontend extends Controller
             }
         }
 
+     
+
         $this->view->assign('user', $this->auth->getUser());
 
         //项目分类
@@ -95,6 +97,11 @@ class Frontend extends Controller
         $url = $this->request->controller()  . $this->request->action();
         //网站信息
         $web = db::name('web_config')->where('id',1)->find();
+        
+        if($web['web_status'] == 0){    //关闭网站
+           return $this->fetch();
+        }
+
         $tdk = WebTdk::all();
 
         $this->assign('tdk', $tdk);
@@ -102,6 +109,9 @@ class Frontend extends Controller
         $this->assign('url', $url);
         $this->assign('project_cate', $project);
         $this->assign('article_cate', $article);
+
+     
+    
     }
 
  
@@ -130,5 +140,37 @@ class Frontend extends Controller
 
         //刷新Token
         $this->request->token();
+    }
+
+
+    /**
+    * 创建静态页面
+    * @access protected
+    * @htmlfile 生成的静态文件名称
+    * @path 生成的静态文件路径
+    * @param string $templateFile 指定要调用的模板文件
+    * 默认为空 由系统自动定位模板文件
+    * @return string
+    */
+    protected  function buildHtml($htmlfile = '', $path = '', $templateFile = '')
+    {
+        $htmlpath = APP_PATH.'template/'. $path.'/';
+        $content = $this->fetch(APP_PATH.'index/view/'.$templateFile);
+        $htmlpath = !empty($htmlpath) ? $htmlpath : './appTemplate/';
+        $htmlfile = $htmlpath . $htmlfile . '.html';
+        $File = new  \think\template\driver\File();
+        $File->write($htmlfile, $content);
+        echo  $content;
+    }
+
+
+    //判断静态页面是否存在
+    protected  function echoHtml($htmlFile = '')
+    {
+        $file = APP_PATH.'template/'.$htmlFile.".html";
+        if(file_exists($file)){
+           return  $file;
+        }
+        return null;
     }
 }

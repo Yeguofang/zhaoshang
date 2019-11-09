@@ -27,11 +27,11 @@
                     <table width="87%" height="50" border="0" cellpadding="3" cellspacing="0">
                         <tr>
                             <td width="89%" align="right" valign="top">
-                                <a target=blank href=http://wpa.qq.com/msgrd?v=1&uin=357856668&Site=zzcms项目加盟模板演示站&Menu=yes><img border="0" src=__CDN__/static/home/picture/419f0e821e024082b0cbe95260b93e8b.gif alt="在线客服QQ">在线客服QQ:357856668</a>
-                                客服电话:400-728-9861</td>
+                                <a target=blank href=http://wpa.qq.com/msgrd?v=1&uin={$web.web_qq}&Site={$web.web_name}&Menu=yes>在线客服QQ:{$web.web_qq}</a>
+                                客服电话：{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}</td>
                         </tr>
                         <tr>
-                            <td align="right" valign="bottom" style="color:cccccc"><a href="http://3158.zzcms.net">首页</a>&nbsp;|&nbsp;<a href="/help.htm">帮助</a>
+                            <td align="right" valign="bottom" style="color:cccccc"><a href="/">首页</a>&nbsp;|&nbsp;<a href="/help">帮助</a>
                             </td>
                         </tr>
                     </table>
@@ -74,7 +74,7 @@
                                 </li>
                                 {/volist}
                         </ul>
-                    </div>
+                    </div><br/>
                     {$text->render()}
                     <!-- 文字链接 -->
                 </div>
@@ -90,7 +90,7 @@
                             {volist name="$project.hot" id="h"}
                             <li><span style="width:80px" title="阅832次">({$h.views})</span>
                                 <font {if($key == 0 || $key == 1 || $key==2)}class="xuhao1" {/if}>{$key+1}</font>
-                                <a href="/zx/show-38.htm">{$h.name}</a>
+                                <a target="_bank" href="{:url('/project_detail')}/{$h.id}">{$h.name}</a>
                             </li>
                             {/volist}
                         </ul>
@@ -104,7 +104,7 @@
                             {volist name="$project.rec" id="r"}
                             <li><span style="width:80px">({$r.views})</span>
                                 <font  {if($key == 0 || $key == 1 || $key==2)}class="xuhao1" {/if}>{$key+1}</font>
-                                <a href="/zx/show-92.htm">{$r.name}</a>
+                                <a target="_bank" href="{:url('/project_detail')}/{$r.id}">{$r.name}</a>
                             </li>
                             {/volist}
                         </ul>

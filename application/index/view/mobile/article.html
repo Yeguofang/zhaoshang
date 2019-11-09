@@ -1,0 +1,80 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-09 11:09:00
+ * @LastEditTime: 2019-11-09 11:15:37
+ -->
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{$tdk[1]->title}</title>
+<meta content="{$tdk[1]->description}" name="description" />
+<meta content="{$tdk[1]->keyword}" name="keywords" />
+{include file="mobile/head"}
+<link href="__CDN__/static/mobile/css/jdimg.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__CDN__/static/mobile/js/jdimg.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	  	$.focus("#focus001");
+		$.focus("#focus002");
+	});
+</script>
+<style type="text/css">
+.focus {width:320px; height:240px;}
+.focus img{border:0;width:320px; height:240px;}
+.focus ul li {width:320px; height:240px;  }
+.focus .btnBg {background-color:#000000; display:block;}
+.focus .btnBg {width:320px;}
+.focus .btn {width:320px;}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+	$.divselect("#divselect","#inputselect");
+});
+</script>
+
+{include file="mobile/header"}
+
+
+<div class="box" style="text-align:center">
+<div class="focus" id="focus001">
+	<ul>
+		{volist name="slide" id="s"}
+		<li>
+			<a href="{:url('/article_detail')}/{$s.category_id}/{$s.id}" target="_blank"><img src="{$s.image}" /></a>
+			<div class="divtitlebg"></div>
+			<div class="divtitle">{$s.title}</div>
+		</li>
+		{/volist}
+	</ul>
+</div>
+</div>
+<div class="bordercccccc">
+	<table width="100%" border="0" cellspacing="10" cellpadding="0">
+			{volist name="home" id="h"}
+		<tr>
+			<td style='width:33%;' valign="top">
+				<div class='titles'><span><a href="{:url('/article')}/{$h.id}"> 更多...</a></span>{$h.name}</div>
+				<div class='content2' >
+				<ul>
+					{volist name="h.content" id="c"}
+					<LI>
+						<font {if($key == 0 ||$key ==1 ||$key ==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}</font>
+						<A href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">{$c.title}</A>
+					</LI>
+					{/volist}
+				</ul>
+				</div>
+			</td>
+		</tr>
+		{/volist}
+	</table>
+</div>
+
+{include file="mobile/footer"}
+
+
+</body>
+</html>

@@ -102,6 +102,7 @@ class Project extends Backend
         //查询出招商地区
         $data->city = db::name('china')->where('id','in',$data->city)->field('id,areaname')->select();
         $user = db::name('user')->where('type',2)->field('id,company_name')->select();
+        $data->address = db::name('china')->where('id',$data->address)->find();
         $this->assign('user',$user);
         $this->assign('row',$data);
 

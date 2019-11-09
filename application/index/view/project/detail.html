@@ -2,9 +2,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>太阳公公童装招商</title>
-    <meta name="keywords" content="太阳公公童装招商" />
-    <meta name="description" content="太阳公公童装招商" />
+    <title>{$data.name}</title>
+    <meta name="keywords" content="{$data.keywords}" />
+    <meta name="description" content="{$data.description}" />
     {include file="common/head" /}
   
     <style type="text/css">
@@ -25,21 +25,17 @@
 
     <div class="main">
 
-        <div style="float:right">留言数：0 条 </div>
+        <div style="float:right">留言数：{$data.sum} 条 </div>
         <div class="boxitem" id="A">
             <ul>
-                <li><a id="A1" href="###" onmouseover="javascript:doClick(this,'A','current1')" class="current1">项目信息</a></li>
-                <li><a id="A2" href="###" onmouseover="javascript:doClick(this,'A','current1')">公司信息</a></li>
-                <li><a id="A3" href="###" onmouseover="javascript:doClick(this,'A','current1')">项目详情</a></li>
+                <li><a id="A3" href="###" onmouseover="javascript:doClick(this,'A','current1')" class="current1">项目详情</a></li>
+                <li><a id="A2" href="###" onmouseover="javascript:doClick(this,'A','current1')">企业信息</a></li>
+                <li><a id="A1" href="###" onmouseover="javascript:doClick(this,'A','current1')" >项目海报</a></li>
             </ul>
         </div>
 
-        <div style="display:block;" id="A_con1" class="content bgcolor3">
-           
-                <div class="content_sm">
-                        {$data.poster}
-                    </div>
-
+        <div style="display:none;" id="A_con1" class="content">
+            {$data.poster}
         </div>
         <div style="display:none;" id="A_con2" class="content">
             <table width="95%" border="0" cellpadding="7" cellspacing="1">
@@ -56,13 +52,13 @@
             </table>
         </div>
 
-        <div style="display:none;" id="A_con3" class="content">
+        <div style="display:block;" id="A_con3" class="content bgcolor3" >
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td width="33%" align="center">
                                 <table width="300" height="300" border="0" cellpadding="5" cellspacing="1" bgcolor="dddddd">
                                     <tr>
-                                        <td align="center" bgcolor="#FFFFFF"><img src='__CDN__/static/home/picture/20180824203731559.jpg' alt='太阳公公童装' onload='resizeimg(260,260,this)' /></td>
+                                        <td align="center" bgcolor="#FFFFFF"><img src='{$data.image}' alt='{$data.name}' onload='resizeimg(260,260,this)' /></td>
                                     </tr>
                                 </table>
                             </td>
@@ -75,7 +71,7 @@
                                         <td> 项目分类：{$data.cname}-{$data.bname}</td>
                                     </tr>
                                     <tr>
-                                        <td>所在地区：内蒙古-请选择城区</td>
+                                        <td>所在地区：{$data.areaname}</td>
                                     </tr>
                                     <tr>
                                         <td>投资金额：{if($data.price == 1 )}
@@ -177,7 +173,7 @@
         <div class="main">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td>招商电话：13838064112 </td>
+                    <td>招商电话：{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4} </td>
                     <td align="right" style="font-size:18px">多咨询多留言，降低投资风险！</td>
                     <td><span class="bigbutton"><a href="#guestbook">马上留言</a></span></td>
                 </tr>

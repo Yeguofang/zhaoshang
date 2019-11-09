@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-09 11:09:00
+ * @LastEditTime: 2019-11-09 11:43:15
+ -->
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>{$tdk[5]->title}</title>
+<meta content="{$tdk[5]->description}" name="description" />
+<meta content="{$tdk[5]->keyword}" name="keywords" />
+{include file="mobile/head"}
+</head>
+<body>
+{include file="mobile/header"}
+
+<div class="bordercccccc">
+	<table width="100%" border="0" cellspacing="10" cellpadding="0">
+			{volist name="data" id="one"}
+		<tr>
+			<td style='width:33%;' valign="top">
+				<div class='titles'><span><a href="{:url('/project')}/{$one.id}">更多... </a> </span>{$one.name} </div>
+				<div class='content2' >
+				<ul>
+						{volist name="one.project" id="p"}
+						<LI><span>({$p.views})</span>
+							<font {if($key==0 || $key==1 || $key==2)}class="xuhao1"  {else/} class="xuhao2"{/if}>{$key+1} </font> 
+								<A href="{:url('/project_detail')}/{$p.id}" target="_bank">{$p.name}</A>
+
+						</LI>
+						{/volist}
+				</ul>
+				</div>
+			</td>
+		</tr>
+		{/volist}
+	</table>
+</div>
+
+{include file="mobile/footer"}
+
+</body>
+</html>

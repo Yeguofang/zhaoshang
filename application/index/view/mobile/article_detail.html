@@ -1,0 +1,153 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-09 11:22:13
+ * @LastEditTime: 2019-11-09 14:31:15
+ -->
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$data.title}</title>
+	<meta name="keywords" content="{$data.tdk_key}" />
+	<meta name="description" content="{$data.tdk_desc}" />
+	{include file="mobile/head"}
+</head>
+
+<body>
+	{include file="mobile/header"}
+	<div class="station">
+		<h3>
+			<li class='start'><a href="/">首页</a></li>
+			<li><a href="{:url('/article')}">资讯</a></li>
+			<li>{$data.name}</li>
+		</h3>
+	</div>
+	<div class="box">
+		<div id="BoxInfoTitle">深受创业者喜爱的创业小项目</div>
+		<div id="BoxInfoTitleNext">
+			<!-- 来源：&nbsp;&nbsp;发布日期：2018-10-29&nbsp;&nbsp;发布者：&nbsp;&nbsp;共阅249次 -->
+			来源：{$web.web_name}&nbsp;&nbsp;<br />日期：2018-10-29&nbsp;&nbsp;发布者：{$data.company_name}&nbsp;&nbsp;<br /> 共阅254次 字体：<a
+				href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a
+				href='javascript:fontZoom(12)'>小</a>
+
+		</div>
+		<div id="fontzoom">{$data.content} </div>
+		<div style="text-align:center;padding:10px;">
+			<a href="javascript:printcontent()" target="_self"><img src="static/picture/ico-dy.gif" width="18"
+					height="17" border="0" />
+				打印本文</a>&nbsp;&nbsp;<a href='#top'><img src="static/picture/ico-top.gif" width="16" height="16"
+					border="0" />&nbsp;返回顶部</a>&nbsp;&nbsp;
+			<a href="javascript:window.close()"><img src="static/picture/close.gif" width="16" height="16" border="0" />
+				关闭该页</a>
+		</div>
+	</div>
+
+	<div class="box">
+		{if($prv == null)}
+		上一篇文章：没有了<br />
+		{else/}
+		上一篇文章：<a href="{:url('/article_detail')}/{$prv.category_id}/{$prv.id}">{$prv.title}</a><br />
+		{/if}
+		{if($next == null)}
+		下一篇文章：没有了
+		{else/}
+		下一篇文章：<a href="{:url('/article_detail')}/{$next.category_id}/{$next.id}">{$next.title}</a>
+		{/if}
+	</div>
+
+	<div class="titles">
+		<h3>网友评论</h3>
+	</div>
+	<div class="content1">
+		{if($data.comment == null)}
+		&nbsp;暂无评论
+		{else/}
+		{volist name="data.comment" id="c"}
+		匿名网友：{$c.content}<br />
+		{/volist}
+		{/if}
+	</div>
+
+	<div class="box">
+			<form name="form2" id="form2">
+					<div contenteditable="true" id="divtextarea" onblur="AddContentFromDiv('content','divtextarea')"></div>
+					{:token()}
+					<input name="content" type="hidden"" id="content"  size="22" maxlength="150">
+					<input name="id" type="hidden"" value="{$data.id}">
+					<input type="hidden" name="aid"  value="{$data.category_id}"/>
+					<input type="hidden" name="company_id"  value="{$data.company_id}"/>
+					<input type="hidden" name="url"  value="{:url('/article_detail')}/{$data.category_id}/"/>
+
+					<input name="phone"" type="text" id="phone"  placeholder="请输入手机号" />
+					<input style="margin-left: 20px;" type="button"  onclick="checkform()" value="发表评论" />
+			</form>
+	</div>
+
+	{include file="mobile/footer"}
+
+
+	<script>
+            //控制字体大小
+            function fontZoom(size) {
+                document.getElementById('fontzoom').style.fontSize = size + 'px';
+                document.getElementById('fontzoom').style.lineHeight = size * 2 + 'px';
+            }
+    
+            function printcontent() {
+                document.body.innerHTML = document.getElementById('BoxInfoTitle').innerHTML + '<br/>' + document.getElementById('fontzoom').innerHTML;
+                window.print();
+			}
+			function AddContentFromDiv(obj1,obj2){
+			document.getElementById(obj1).value=document.getElementById(obj2).innerHTML;
+			}
+    
+            function checkform() {
+                var id = document.form2.id.value;
+                var content = document.form2.content.value;
+                var phone = document.form2.phone.value;
+                var aid = document.form2.aid.value;
+                var company_id = document.form2.company_id.value;
+                var url = document.form2.url.value;
+                var token = document.form2.__token__.value;
+
+                if (content== "") {
+                    alert("内容不能为空！");
+                    return false;
+                }
+
+                var txt = /^[1][3,4,5,6,7,8][0-9]{9}$/;
+	            if (phone=="" || !txt.test(phone)){
+                    alert("请输入正确的手机号");
+                    return false;
+                }
+
+                $.ajax({
+                    type: "post",
+                    async: false,
+                    url: url+id,
+                    //后台数据处理-下面有具体实现
+                    data: {
+                        company_id:company_id,
+                        phone:phone,
+                        content:content,
+                        aid:aid,
+                        token:token,
+                        id:id,
+                    },
+                    success: function (res) {
+                        if(res.code == 1){
+                            alert(res.msg);
+                            window.location.reload();
+                        }else{
+                            alert(res.msg);
+                            window.location.reload();
+                        }
+                    }   
+                });
+
+            }
+    
+        </script>
+</body>
+</html>

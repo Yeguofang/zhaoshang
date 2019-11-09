@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-07 18:30:41
- * @LastEditTime: 2019-11-07 18:41:37
+ * @LastEditTime: 2019-11-09 14:48:43
  -->
 <div style="height:10px;clear:both;"></div>
 <div id="dlstepbox" >
@@ -37,7 +37,7 @@
     <div class="main">
         <div class="bottominner">
             <div class="bottomlink">
-                <a href="/siteinfo-1.htm">公司简介</a>|<a href="/siteinfo-2.htm">联系方式</a>|<a href="/help.htm">帮助信息</a>|<a href="/link.htm">友情链接</a>|<a href="/sitemap.htm">网站地图</a></div>
+                <a href="/">公司简介</a>|<a href="/siteinfo-2.htm">联系方式</a>|<a href="{:url('/help')}">帮助信息</a>|<a href="{:url('/link')}">友情链接</a>|<a href="/sitemap.htm">网站地图</a></div>
                 <a href="http://www.beian.miit.gov.cn" target="_blank">{$web.web_icp}</a> <img src="__CDN__/static/home/images/ghs.png"><a href="http://www.beian.gov.cn/portal/index.do" target="_blank">{$web.web_beian}</a> <br /> 
             <script type=text/javascript src=__CDN__/static/home/js/713776.js>
             </script> <br /> {$web.web_copyright}
@@ -48,3 +48,5 @@
 <script src="__CDN__/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
 
 <div style="display: none" id="goTopBtn"></div>
+
+<script>(function() {var _53code = document.createElement("script");_53code.src = "https://tb.53kf.com/code/code/{$web.web_53kf}";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(_53code, s);})();</script>

@@ -12,14 +12,6 @@
     display: flex;
     flex-wrap: wrap;
 }
-/* .content_index>.tabel>ul>li>a{
-    border:1px solid #bebdbd;
-    width: 30%;
-    margin-left: 2%;
-    margin-top: 2%;
-    margin-bottom: 4%;
-    height: 88px;
-} */
 .content_index>.tabel>ul>li>a>img{
     border:1px solid #bebdbd;
     margin-left: 5px;
@@ -38,7 +30,15 @@
     font-size: 14px;
     text-align:center;
 }
+.flexslider {
+    width: 750px;
+    height: 330px
+}
 
+.flexslider img {
+    width: 750px;
+    height: 330px
+}
 </style>
 <body>
 
@@ -102,26 +102,16 @@
             
                     <li style="float:left">
                         <div>
-                            <style type="text/css">
-                                .flexslider {
-                                    width: 750px;
-                                    height: 330px
-                                }
-            
-                                .flexslider img {
-                                    width: 750px;
-                                    height: 330px
-                                }
-                            </style>
+                           
                             <div id="demo01" class="flexslider">
                                 <ul class="slides">
                                     {volist name="slide" id="s"}
                                     <li>
                                         <div>
-                                            <a href="javascript:void(0)"><img src="{$s.image}"
-                                                    alt="" /></a>
+                                            <a href="{$s.url}"><img src="{$s.image}"
+                                                    alt="{$s.title}" /></a>
                                         </div>
-                                        <div>{$s.name}</div>
+                                        <div>{$s.title}</div>
                                     </li>
                                    {/volist}
                                 </ul>
@@ -469,7 +459,7 @@
                     {volist name="navs" id="n"}
                     <div class='zsclass_zhankai'>
                         <div class='zsclass_s_zhankai_style2'>
-                            <h2><img src=__CDN__/static/home/picture/1.png>&nbsp;
+                            <h2><img src="{$n.image}">&nbsp;
                                 <a href="{:url('/project')}/{$n.id}">{$n.name}
                                                                                                                                                                                                                                                                                                                                                                                                         </a>
                             </h2>
@@ -532,7 +522,7 @@
                                     <td class="x_bottom">
                                         <table width="62" height="62 " border="0" cellspacing="1" class="bgcolor3">
                                             <tr>
-                                                <td class="bgcolor1"><img data-original='__CDN__/static/home/picture/20180903134708562_small.gif' onload='resizeimg(60,60,this)'></td>
+                                                <td class="bgcolor1"><img data-original='' onload='resizeimg(60,60,this)'></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -611,7 +601,7 @@
                 <ul>
                     <li>
                         李志阳 手机：17746959588 QQ：357856668
-                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;&amp;Menu=yes" target="blank"><img alt="在线客服QQ" border="0" src="__CDN__/static/home/picture/c2422770bc7e4ad492f0209b171abb24.gif" /> </a>
+                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;&amp;Menu=yes" target="blank"><img alt="在线客服QQ" border="0" src="" /> </a>
                     </li>
                 </ul>
             </div>

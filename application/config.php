@@ -20,7 +20,7 @@ return [
     // 应用调试模式
     'app_debug'              => Env::get('app.debug', true),
     // 应用Trace
-    'app_trace'              => Env::get('app.trace', true),
+    'app_trace'              => Env::get('app.trace', false),
     // 应用模式状态
     'app_status'             => '',
     // 是否支持多模块
@@ -146,8 +146,8 @@ return [
     // | 异常及错误设置
     // +----------------------------------------------------------------------
     // 异常页面的模板文件
-    // 'exception_tmpl'         => APP_PATH . 'common' . DS . 'view' . DS . 'tpl' . DS . 'think_exception.tpl',
-    'exception_tmpl'    => APP_PATH . 'common' . DS . 'view' . DS . 'tpl' . DS . '404.tpl',
+    'exception_tmpl'         => APP_PATH . 'common' . DS . 'view' . DS . 'tpl' . DS . 'think_exception.tpl',
+    // 'exception_tmpl'    => APP_PATH . 'common' . DS . 'view' . DS . 'tpl' . DS . '404.tpl',
     // 错误显示信息,非调试模式有效
     'error_message'          => '你所浏览的页面暂时无法访问',
     // 显示错误信息
@@ -267,7 +267,7 @@ return [
         //登录失败超过10次则1天后重试
         'login_failure_retry' => true,
         //是否同一账号同一时间只能在一个地方登录
-        'login_unique'        => true,
+        'login_unique'        => false,
         //登录页默认背景图
         'login_background'    => "/assets/img/loginbg.jpg",
         //是否启用多级菜单导航

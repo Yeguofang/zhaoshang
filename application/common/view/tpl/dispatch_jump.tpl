@@ -34,12 +34,10 @@
     </div>
     <h1>{$msg}</h1>
     <p class="clearfix">
-        <a href="__PUBLIC__" class="btn btn-grey">{:__('Go back')}</a>
+        <a href="javascript:history.back(-1)" class="btn btn-grey">{:__('Go back')}</a>
     </p>
 </div>
-<div class="copyright">
-    <p>Powered by <a href="＃">木帆科技</a></p>
-</div>
+
 
 </body>
 </html>

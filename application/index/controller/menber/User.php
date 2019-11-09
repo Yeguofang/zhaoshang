@@ -62,6 +62,8 @@ class User extends Frontend
         return $this->view->fetch('user/' . $name);
     }
 
+
+
     /**
      * 会员中心
      */
@@ -105,11 +107,8 @@ class User extends Frontend
         if ($this->request->isPost()) {
             $username = $this->request->post('username');
             $password = $this->request->post('password');
-            $email = $this->request->post('email');
-            $mobile = $this->request->post('mobile', '');
+            $mobile = $this->request->post('mobile');
             $captcha = $this->request->post('captcha');
-            $company_name = $this->request->post('  ');
-            $nickname = $this->request->post('nickname');
             $token = $this->request->post('__token__');
             $rule = [
                 'username'  => 'require|length:3,30',
@@ -123,15 +122,15 @@ class User extends Frontend
                 'username.length'  => 'Username must be 3 to 30 characters',
                 'password.require' => 'Password can not be empty',
                 'password.length'  => 'Password must be 6 to 30 characters',
-                //'captcha.require'  => 'Captcha can not be empty',
-                //'captcha.captcha'  => 'Captcha is incorrect',
+                'captcha.require'  => 'Captcha can not be empty',
+                'captcha.captcha'  => 'Captcha is incorrect',
                 'mobile'           => 'Mobile is incorrect',
             ];
             $data = [
                 'username'  => $username,
                 'password'  => $password,
                 'mobile'    => $mobile,
-                //'captcha'   => $captcha,
+                'captcha'   => $captcha,
                 '__token__' => $token,
             ];
 
@@ -145,7 +144,7 @@ class User extends Frontend
             if (!$result) {
                 $this->error(__($validate->getError()), null, ['token' => $this->request->token()]);
             }
-            if ($this->auth->register($username, $password, $email, $mobile)) {
+            if ($this->auth->register($username, $password, null, $mobile)) {
                 sleep(1);
                 $this->redirect('/');
             } else {
@@ -179,6 +178,10 @@ class User extends Frontend
             $password = $this->request->post('password');
             $keeplogin = (int) $this->request->post('keeplogin');
             $token = $this->request->post('__token__');
+            $captcha = $this->request->post('captcha');
+
+            
+
             $rule = [
                 'account'   => 'require|length:3,50',
                 'password'  => 'require|length:6,30',
@@ -186,18 +189,22 @@ class User extends Frontend
             ];
 
             $msg = [
-                'account.require'  => 'Account can not be empty',
-                'account.length'   => 'Account must be 3 to 50 characters',
-                'password.require' => 'Password can not be empty',
-                'password.length'  => 'Password must be 6 to 30 characters',
+                'account.require'  => '请填写账号',
+                'account.length'   => '账号必须在6~20个字符之间',
+                'password.require' => '请填写密码',
+                'password.length'  => '密码长度必须在6~20个字符之间',
+                'captcha.require'  => '请填写验证码',
+                'captcha.captcha'  => '验证码不正确',
             ];
             $data = [
                 'account'   => $account,
                 'password'  => $password,
+                'captcha'   => $captcha,
                 '__token__' => $token,
             ];
             $validate = new Validate($rule, $msg);
             $result = $validate->check($data);
+
             if (!$result) {
                 $this->error(__($validate->getError()), null, ['token' => $this->request->token()]);
                 return false;

@@ -1,4 +1,7 @@
-{include file="common/meta" /} {include file="common/head" /}
+ {include file="common/head" /}
+ <link href="__CDN__/assets/css/frontend{$Think.config.app_debug?'':'.min'}.css?v={$Think.config.site.version}" rel="stylesheet">
+
+
 <div class="main">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="x_bottom" style="margin-bottom:8px">
         <tbody>
@@ -26,7 +29,7 @@
 <!-- <link href="__CDN__/assets/css/user.css?v={$Think.config.site.version}" rel="stylesheet"> -->
 <div id="content-container" class="container">
     <div class="user-section login-section">
-        <div class="logon-tab clearfix"> <a class="active">{:__('Sign in')}</a> <a href="{:url('menber/user/register')}?url={$url|urlencode}">{:__('Sign up')}</a> </div>
+        <div class="logon-tab clearfix"> <a class="active">{:__('Sign in')}</a> <a href="{:url('menber/user/register')}">{:__('Sign up')}</a> </div>
         <div class="login-main">
             <form name="form" id="login-form" class="form-vertical" method="POST" action="">
                 <input type="hidden" name="url" value="{$url}" /> {:token()}
@@ -42,6 +45,13 @@
                     <div class="controls">
                         <input class="form-control input-lg" id="password" type="password" name="password" data-rule="required;password" placeholder="请输入密码" autocomplete="off">
                     </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></div>
+                    <input type="text" name="captcha" class="form-control input-lg" placeholder="验证码" data-rule="{:__('Captcha')}:required;length(4)" />
+                    <span class="input-group-addon" style="padding:0;border:none;cursor:pointer;">
+                        <img src="{:rtrim('__PUBLIC__', '/')}/index.php?s=/captcha" width="100" height="40" onclick="this.src='{:rtrim('__PUBLIC__', '/')}/index.php?s=/captcha&r=' + Math.random();"/>
+                    </span>
                 </div>
                 <div class="form-group">
                     <div class="controls">

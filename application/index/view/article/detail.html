@@ -2,15 +2,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>顾客进店后，你可千万不要这么说！资讯</title>
-    <meta name="keywords" content="顾客进店后，你可千万不要这么说！资讯" />
-    <meta name="description" content="资讯" />
+    <title>{$data.title}</title>
+    <meta name="keywords" content="{$data.tdk_key}" />
+    <meta name="description" content="{$data.tdk_desc}" />
     {include file="common/head"/}
 
 </head>
 
 <body>
-    <script language="JavaScript" src="__CDN__/static/home/js/qt.js"></script>
 
     {include file="common/header"/}
 
@@ -30,7 +29,7 @@
                 <div class="box">
                     <div id="BoxInfoTitle">{$data.title}</div>
                     <div id="BoxInfoTitleNext">
-                        来源：&nbsp;&nbsp;发布日期：2018-10-29&nbsp;&nbsp;发布者：&nbsp;&nbsp;共阅254次  字体：<a href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a href='javascript:fontZoom(12)'>小</a>
+                        来源：{$web.web_name}&nbsp;&nbsp;发布日期：2018-10-29&nbsp;&nbsp;发布者：{$data.company_name}&nbsp;&nbsp;共阅254次  字体：<a href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a href='javascript:fontZoom(12)'>小</a>
                     </div>
                     <div id="fontzoom">
                         {$data.content}
@@ -141,6 +140,9 @@
                 window.print();
             }
     
+            function AddContentFromDiv(obj1,obj2){
+            document.getElementById(obj1).value=document.getElementById(obj2).innerHTML;
+            }
             function checkform() {
                 var id = document.form2.id.value;
                 var content = document.form2.content.value;

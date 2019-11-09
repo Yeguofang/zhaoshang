@@ -24,7 +24,7 @@ Route::rule('menber/user/login', 'menber.user/login');
 Route::rule('menber/user/index', 'menber.user/index');
 Route::rule('menber/user/profile', 'menber.user/profile');
 Route::rule('menber/user/register', 'menber.user/register');
-Route::rule('menber/checksms', 'api/validate/check_sms_correct');
+// Route::rule('menber/checksms', 'api/validate/check_sms_correct');
 Route::rule('menber/user/logout', 'menber.user/logout');
 Route::rule('menber/user/welcome', 'menber.user/welcome');
 

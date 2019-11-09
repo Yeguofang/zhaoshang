@@ -13,6 +13,7 @@ class Project extends Frontend
     protected $layout = '';
 
 
+
     /**
      * 项目列表
      * @param int   $pid   一级分类的id
@@ -23,9 +24,19 @@ class Project extends Frontend
     {
         $category= db::name('category')->where('type', 'project')->where('pid', $pid)->field('id,pid,name')->select();
 
+        $name1 = db::name('category')->where('id', $pid)->field('id,pid,name')->find();
+        $name2 = db::name('category')->where('id', $id)->field('id,pid,name')->find();
+
         if ($id !=null) {
             //查询二级分类的项目
-            $project = db::name('project')->where('switch',1)->where('category_id', $id)->paginate(10);
+            $project = db::name('project')
+                    ->alias('p')
+                    ->field('p.id,p.address,p.name,p.keywords,p.description,p.city,p.price,p.moblie,p.prouse,p.image,c.areaname,c.areaname')
+                    ->where('switch',1)
+                    ->where('category_id', $id)
+                    ->join('china c','p.address=c.id')
+                    ->paginate(10);
+
             $hot = db::name('project')
                     ->field('id,name,views')
                     ->where('switch',1)
@@ -45,7 +56,15 @@ class Project extends Frontend
         } else {    
             //查询一级分类的项目
             $id = array_column($category, 'id');
-            $project = db::name('project')->where('switch',1)->where('category_id', 'in', $id)->paginate(10);
+            
+            $project = db::name('project')
+                    ->alias('p')
+                    ->field('p.id,p.address,p.name,p.keywords,p.description,p.city,p.price,p.moblie,p.prouse,p.image,c.areaname')
+                    ->where('switch',1)
+                    ->where('category_id', 'in', $id)
+                    ->join('china c','p.address=c.id')
+                    ->paginate(10);
+
             $hot = db::name('project')
                     ->field('id,name,views')
                     ->where('switch',1)
@@ -80,6 +99,7 @@ class Project extends Frontend
             } else {
                 $p[$i]['city'] = "全国-全国各地";
             }
+            $p[$i]['msg'] = db::name('message')->where('pid',$p[$i]['id'])->count();
         }
 
         $this->assign('category', $category);
@@ -87,21 +107,35 @@ class Project extends Frontend
         $this->assign('projects', $p);
         $this->assign('hot', $hot);
         $this->assign('recommend', $recommend);
+        $this->assign('name1', $name1);
+        $this->assign('name2', $name2);
   
+
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/project_list');
+        }
 
         return $this->view->fetch();
     }
 
+
+
+    //项目详情
     public function detail($id)
     {
         $project =  db::name('project')
                 ->alias('p')
-                ->field('p.id,p.name,p.price,p.image,p.company_id,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,c.name `cname`,b.name `bname`')
+                ->field('p.id,p.name,p.price,p.image,p.prouse,p.company_id,p.keywords,p.description,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,a.areaname,c.name `cname`,b.name `bname`')
                 ->join('user u', 'p.company_id=u.id','LEFT')
                 ->join('category c', 'p.category_id=c.id','LEFT')
                 ->join('category b', 'c.pid=b.id','LEFT')
+                ->join('china a', 'p.address=a.id','LEFT')
                 ->where('p.id', $id)
                 ->find();
+        //统计留言
+        $project['sum'] = db::name('message')->where('pid',$id)->count();
+
         $this->assign('data', $project);
 
 
@@ -141,6 +175,13 @@ class Project extends Frontend
 
         }
 
+
+         //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/project_detail');
+        }
+
+
         return $this->view->fetch();
     }
 
@@ -165,6 +206,11 @@ class Project extends Frontend
                 ->select();
         }
         $this->assign('data', $one);
+
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/ranking');
+        }
         return $this->view->fetch();
     }
 

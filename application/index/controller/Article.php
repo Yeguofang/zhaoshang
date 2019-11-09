@@ -17,6 +17,14 @@ class Article extends Frontend
     public function index()
     {
 
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('article/index');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
+            
         $hot = self::getData('hot',3);
         $image =self::getData('img',10);   
         $slide =self::getData('slide',10);  
@@ -31,12 +39,31 @@ class Article extends Frontend
         $this->assign('hot',$hot);
 
 
-        return $this->view->fetch();
+        //是否手机端访问
+        if(request()->isMobile()){
+            return $this->view->fetch('mobile/article');
+        }
+
+        //生成静态页面
+        $this->buildHtml('index','article','article/index.html');
     }
 
+
+
+
+
+    //文章列表
     public  function list($id = null){
+
+        // $page = 
+          //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('article/list/'.$id);
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
         $name = db::name('category')->where('id',$id)->field('name')->find();
-        $data = db::name('article')->where('category_id',$id)->where('switch',1)->paginate(10);
+        $data = db::name('article')->where('category_id',$id)->where('switch',1)->paginate(1);
         $recommend =self::getData('recommend',15,$id); 
         $hot = self::getData('hot',15,$id);
 
@@ -45,16 +72,26 @@ class Article extends Frontend
         $this->assign('hot',$hot);
         $this->assign('data',$data);
 
-        return $this->view->fetch();
+
+        //生成静态页面
+        $this->buildHtml($id,'article/list/','article/list.html');
     }
 
 
     public  function detail($cid,$id){
 
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('article/list/'.$id);
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
         $data = db::name('article')
                 ->alias('a')
-                ->field('a.id,a.category_id,a.company_id,a.title,a.createtime,a.content,c.name')
+                ->field('a.id,a.category_id,a.company_id,a.title,a.createtime,a.tdk_key,a.tdk_desc,a.content,c.name,u.company_name')
                 ->join('category c','a.category_id=c.id')
+                ->join('user u','a.company_id=u.id')
                 ->where('a.id',$id)
                 ->find();
 
@@ -130,6 +167,10 @@ class Article extends Frontend
 
         }
 
+         //是否手机端访问
+         if(request()->isMobile()){
+            return $this->view->fetch('mobile/article_detail');
+        }
         return $this->view->fetch();
     }
 

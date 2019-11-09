@@ -37,7 +37,7 @@ class Advert extends Model
 
     public function getFlagList()
     {
-        return ['A' => __('首页-Ａ区'), 'B' => __('首页-B区'),'C' => __('首页-C区'), 'D' => __('首页-D区'),'E' => __('首页-E区'),];
+        return ['S' =>'首页-轮播','A' => __('首页-A区'), 'B' => __('首页-B区'),'C' => __('首页-C区'), 'D' => __('首页-D区'),'E' => __('首页-E区'),];
     }
 
     public function getFlagTextAttr($value, $data)

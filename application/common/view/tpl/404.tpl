@@ -4,7 +4,7 @@ $publicurl = function_exists('config') ? config('view_replace_str.__PUBLIC__') :
 $debug = function_exists('config') ? config('app_debug') : false;
 
 $lang = [
-    'An error occurred' => '发生错误',
+    'An error occurred' => '404',
     'Home' => '返回主页',
     'Feedback' => '反馈错误',
     'The page you are looking for is temporarily unavailable' => '你所浏览的页面暂时无法访问',

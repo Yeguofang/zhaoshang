@@ -65,18 +65,20 @@ class User extends Backend
 
     //添加
     public function add(){
+
         if($this->request->isAjax()){
             $row = $this->request->param('row/a');
             $row['status'] = 'normal';
             $row['createtime']  = time();
             $row['type'] = 2; //内部添加
-
+     
            $res = $this->model->save($row);
-            if($res){
+            if($res == 1){
                 return $this->success('添加成功');
             }
             return $this->error('添加失败');
         }
+
         return $this->fetch();
         
     }
@@ -97,7 +99,7 @@ class User extends Backend
             $row['logintime']=strtotime($row['logintime']);
             $row['jointime']=strtotime($row['jointime']);
             $res = db::name('user')->where('id',$ids)->update($row);
-            if($res){
+            if($res == 1){
                 return $this->success('修改成功');
             }
             return $this->error('修改失败');

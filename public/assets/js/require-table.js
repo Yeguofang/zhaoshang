@@ -320,7 +320,7 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
                     var row = Table.api.getrowbyid(table, ids);
                     row.ids = ids;
                     var url = Table.api.replaceurl(options.extend.edit_url, row, table);
-                    Fast.api.open(url, __('Edit'), $(this).data() || {});
+                    Fast.api.open(url, __('Edit'), $(this).data("area", '["95%","95%"]') || {});
                 });
                 $(table).on("click", "[data-id].btn-del", function (e) {
                     e.preventDefault();

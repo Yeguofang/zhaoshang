@@ -46,19 +46,13 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th width="15%">标题</th>
+                                    <th width="10%">标题</th>
                                     <th width="50%">值</th>
                                     <th width="30%">说明</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> 网站名称</td>
-                                    <td>
-                                        <input type="text" name="row[web_name]" value="{$date->web_name}" class="form-control" data-rule="" />
-                                    </td>
-                                    <td></td>
-                                </tr>
+                               
                                 <tr>
                                     <td> 网站 logo</td>
                                     <td>
@@ -93,7 +87,13 @@
                                     </tr>
     
                             
-                                
+                                <tr>
+                                    <td> 网站名称</td>
+                                    <td>
+                                        <input type="text" name="row[web_name]" value="{$date->web_name}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td> 公安部备案号</td>
                                     <td>
@@ -116,14 +116,14 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td> email</td>
+                                    <td> 邮箱</td>
                                     <td>
                                         <input type="text" name="row[web_email]" value="{$date->web_email}" class="form-control" data-rule="" />
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td> phone</td>
+                                    <td>招商电话</td>
                                     <td>
                                         <input type="text" name="row[web_phone]" value="{$date->web_phone}" class="form-control" data-rule="" />
                                     </td>
@@ -139,7 +139,14 @@
                                 <tr>
                                     <td> 百度统计代码</td>
                                     <td>
-                                        <textarea name="row[web_baidu]]" class="form-control" rows="5">{$date->web_baidu}</textarea>
+                                        <input type="text" name="row[web_baidu]" value="{$date->web_baidu}" class="form-control" data-rule="" />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> 53客服</td>
+                                    <td>
+                                        <input type="text" name="row[web_53kf]" value="{$date->web_53kf}" class="form-control" data-rule="" />
                                     </td>
                                     <td></td>
                                 </tr>
