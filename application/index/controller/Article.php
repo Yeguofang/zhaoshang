@@ -18,7 +18,7 @@ class Article extends Frontend
     {
 
 
-        //是否有生成静态页面，有则访问静态页面
+        // 是否有生成静态页面，有则访问静态页面
         $files = $this->echoHtml('article/index');
         if($files != null){
             return  $this->view->fetch($files);
@@ -39,25 +39,35 @@ class Article extends Frontend
         $this->assign('hot',$hot);
 
 
+    
+    
         //是否手机端访问
+        $temp = 'article/index.html';
         if(request()->isMobile()){
-            return $this->view->fetch('mobile/article');
+            $temp ='mobile/article.html';
         }
-
         //生成静态页面
-        $this->buildHtml('index','article','article/index.html');
+        $this->buildHtml('index','article',$temp);
     }
 
 
 
 
 
-    //文章列表
+    
+    /**
+     * 文章列表
+     * @param int   $id    分类的id
+     * @return array
+     */
     public  function list($id = null){
 
-        // $page = 
+        $page = $this->request->param('page');
+        if($page == null){
+            $page = 1;
+        }
           //是否有生成静态页面，有则访问静态页面
-        $files = $this->echoHtml('article/list/'.$id);
+        $files = $this->echoHtml('article/list/'.$id.'/'.$page);
         if($files != null){
             return  $this->view->fetch($files);
         }
@@ -72,17 +82,66 @@ class Article extends Frontend
         $this->assign('hot',$hot);
         $this->assign('data',$data);
 
-
-        //生成静态页面
-        $this->buildHtml($id,'article/list/','article/list.html');
+        $this->buildHtml($page,'article/list/'.$id.'/','article/list.html');
     }
 
 
+
+     /**
+     * 文章详情
+     * @param int   $cid   分类的id
+     * @param int   $id    文章的id
+     * @return array
+     */
     public  function detail($cid,$id){
 
 
+
+
+        if ($this->request->isAjax()) {
+            $phone = $this->request->param('phone');
+            $content = $this->request->param('content');
+            $token = $this->request->param('token');
+            $aid = $this->request->param('id');
+            $company_id = $this->request->param('company_id');
+
+            $rule = [
+                'phone'  => 'require|length:11',
+                'content'  => 'require|length:3,100',
+                // '__token__' => 'require|token',
+            ];
+            $res = [
+                'phone'  => $phone,
+                'content' => $content,
+                // '__token__' => $token,
+                'company_id' =>$company_id,
+                'aid' =>$aid,
+                'createtime' => time()
+            ];
+            
+            $validate = new Validate($rule, [], ['phone' => __('电话号码为11位数'),'content' => __('内容不能空')]);
+            $va = $validate->check($res);
+            if (!$va) {
+                $msg = $validate->getError();
+                return $this->error($msg);
+            }
+            // unset($res['__token__']);
+            $msg = db::name('comment')->where('phone',$phone)->find();
+            if($msg){
+                $this->error('你已评论过了！');
+            }
+
+            $result =db::name('comment')->insert($res);
+            if ($result == 1) {
+              return  $this->success('评论提交成功，正在审核...感谢参与！');
+            }
+
+        }
+
+
+
         //是否有生成静态页面，有则访问静态页面
-        $files = $this->echoHtml('article/list/'.$id);
+        $files = $this->echoHtml('article/detail/'.$cid.'/'.$id);
         if($files != null){
             return  $this->view->fetch($files);
         }
@@ -125,53 +184,15 @@ class Article extends Frontend
 
 
 
-
-        if ($this->request->isAjax()) {
-            $phone = $this->request->param('phone');
-            $content = $this->request->param('content');
-            $token = $this->request->param('token');
-            $aid = $this->request->param('id');
-            $company_id = $this->request->param('company_id');
-
-
-            $rule = [
-                'phone'  => 'require|length:11',
-                'content'  => 'require|length:3,100',
-                '__token__' => 'require|token',
-            ];
-            $res = [
-                'phone'  => $phone,
-                'content' => $content,
-                '__token__' => $token,
-                'company_id' =>$company_id,
-                'aid' =>$aid,
-                'createtime' => time()
-            ];
-            
-            $validate = new Validate($rule, [], ['phone' => __('电话号码为11位数'),'content' => __('内容不能空')]);
-            $va = $validate->check($res);
-            if (!$va) {
-                $msg = $validate->getError();
-                return $this->error($msg);
-            }
-            unset($res['__token__']);
-            $msg = db::name('comment')->where('phone',$phone)->find();
-            if($msg){
-                $this->error('你已评论过了！');
-            }
-
-            $result =db::name('comment')->insert($res);
-            if ($result == 1) {
-              return  $this->success('评论提交成功，正在审核...感谢参与！');
-            }
-
+       
+        //是否手机端访问
+        $temp = 'article/detail.html';
+        if(request()->isMobile()){
+            $temp ='mobile/article_detail.html';
         }
+         //生成静态页面
+         $this->buildHtml($id,'article/detail/'.$cid.'/',$temp);
 
-         //是否手机端访问
-         if(request()->isMobile()){
-            return $this->view->fetch('mobile/article_detail');
-        }
-        return $this->view->fetch();
     }
 
 

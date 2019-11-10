@@ -143,6 +143,8 @@ class Frontend extends Controller
     }
 
 
+
+
     /**
     * 创建静态页面
     * @access protected
@@ -154,9 +156,15 @@ class Frontend extends Controller
     */
     protected  function buildHtml($htmlfile = '', $path = '', $templateFile = '')
     {
-        $htmlpath = APP_PATH.'template/'. $path.'/';
+
+        //是否手机端访问
+        if(request()->isMobile()){
+            $htmlpath = ROOT_PATH.'public/template/mobile/'. $path.'/';
+        }else{
+            $htmlpath =ROOT_PATH.'public/template/pc/'. $path.'/';
+        }
         $content = $this->fetch(APP_PATH.'index/view/'.$templateFile);
-        $htmlpath = !empty($htmlpath) ? $htmlpath : './appTemplate/';
+        $htmlpath = !empty($htmlpath) ? $htmlpath : './template/';
         $htmlfile = $htmlpath . $htmlfile . '.html';
         $File = new  \think\template\driver\File();
         $File->write($htmlfile, $content);
@@ -164,10 +172,18 @@ class Frontend extends Controller
     }
 
 
-    //判断静态页面是否存在
+    /**
+    * 判断静态页面是否存在
+    * @return string    $thmlFile   文件路径
+    */
     protected  function echoHtml($htmlFile = '')
     {
-        $file = APP_PATH.'template/'.$htmlFile.".html";
+        //是否手机端访问
+        if(request()->isMobile()){
+            $file = ROOT_PATH.'public/template/mobile/'.$htmlFile.".html";
+        }else{
+            $file = ROOT_PATH.'public/template/pc/'.$htmlFile.".html";
+        }
         if(file_exists($file)){
            return  $file;
         }

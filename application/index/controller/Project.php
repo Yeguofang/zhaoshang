@@ -22,8 +22,28 @@ class Project extends Frontend
      */
     public function list($pid, $id = null)
     {
-        $category= db::name('category')->where('type', 'project')->where('pid', $pid)->field('id,pid,name')->select();
 
+
+        $page = $this->request->param('page');
+        if($page == null){
+            $page = 1;
+        }
+
+        if($id ==null){
+            $path = 'project/list/'.$pid;
+        }else{
+             $path = 'project/list/'.$pid.'/'.$id;
+        }
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml($path.'/'.$page);
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
+
+
+        $category= db::name('category')->where('type', 'project')->where('pid', $pid)->field('id,pid,name')->select();
         $name1 = db::name('category')->where('id', $pid)->field('id,pid,name')->find();
         $name2 = db::name('category')->where('id', $id)->field('id,pid,name')->find();
 
@@ -110,13 +130,14 @@ class Project extends Frontend
         $this->assign('name1', $name1);
         $this->assign('name2', $name2);
   
-
         //是否手机端访问
+        $temp = 'project/list.html';
         if(request()->isMobile()){
-            return $this->view->fetch('mobile/project_list');
+            $temp ='mobile/project_list.html';
         }
+        //生成静态页面
+        $this->buildHtml($page,$path,$temp);
 
-        return $this->view->fetch();
     }
 
 
@@ -124,6 +145,16 @@ class Project extends Frontend
     //项目详情
     public function detail($id)
     {
+
+        
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('project/detail');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
+
         $project =  db::name('project')
                 ->alias('p')
                 ->field('p.id,p.name,p.price,p.image,p.prouse,p.company_id,p.keywords,p.description,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,a.areaname,c.name `cname`,b.name `bname`')
@@ -176,19 +207,25 @@ class Project extends Frontend
         }
 
 
-         //是否手机端访问
+        //是否手机端访问
+        $temp = 'project/detail.html';
         if(request()->isMobile()){
-            return $this->view->fetch('mobile/project_detail');
+            $temp ='mobile/project_detail.html';
         }
-
-
-        return $this->view->fetch();
+        //生成静态页面
+        $this->buildHtml($id,'project/detail',$temp);
     }
 
 
     //项目排行
     public function ranking()
      {
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('project/ranking');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
 
         $one = Db::name('category')->where('type', "project")->where('pid', 0)->select();
         for ($i = 0; $i < count($one); $i++) {
@@ -207,11 +244,13 @@ class Project extends Frontend
         }
         $this->assign('data', $one);
 
-        //是否手机端访问
-        if(request()->isMobile()){
-            return $this->view->fetch('mobile/ranking');
-        }
-        return $this->view->fetch();
+         //是否手机端访问
+         $temp = 'project/ranking.html';
+         if(request()->isMobile()){
+             $temp ='mobile/ranking.html';
+         }
+         //生成静态页面
+         $this->buildHtml('ranking','project',$temp);
     }
 
 

@@ -67,12 +67,13 @@ class Index extends Frontend
             'article' => $article,
         ]);
 
-        //是否手机端访问
-        if(request()->isMobile()){
-            return $this->view->fetch('mobile/index');
-        }
-
-        $this->buildHtml('index','index','index/index.html');
+       //是否手机端访问
+       $temp = 'index/index.html';
+       if(request()->isMobile()){
+           $temp ='mobile/index.html';
+       }
+       //生成静态页面
+        $this->buildHtml('index','index',$temp);
 
     }
 
@@ -92,11 +93,13 @@ class Index extends Frontend
         $data = db::name('help')->where('switch',1)->whereNull('deletetime')->select();
         $this->assign('data',$data);
 
-          //是否手机端访问
-          if(request()->isMobile()){
-            return $this->view->fetch('mobile/help');
-        }
-        $this->buildHtml('help','index','index/help.html');
+         //是否手机端访问
+         $temp = 'index/help.html';
+         if(request()->isMobile()){
+             $temp ='mobile/help.html';
+         }
+         //生成静态页面
+        $this->buildHtml('help','index',$temp);
     }
 
 
@@ -164,12 +167,12 @@ class Index extends Frontend
         ]);
 
         //是否手机端访问
+        $temp = 'index/link.html';
         if(request()->isMobile()){
-            return $this->view->fetch('mobile/link');
+            $temp ='mobile/link.html';
         }
-
         //生成静态页面
-        $this->buildHtml($page,'link/'.$path.'/','index/link.html');
+        $this->buildHtml($page,'link/'.$path.'/',$temp);
 
     }
 

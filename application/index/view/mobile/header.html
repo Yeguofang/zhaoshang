@@ -1,3 +1,9 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-10 10:08:05
+ * @LastEditTime: 2019-11-10 10:11:37
+ -->
 
 <script language="JavaScript" src="__CDN__/static/mobile/js/divselect.js"></script>
 	<script type="text/javascript">
@@ -6,15 +12,7 @@
 		});
 	</script>
 	<div class="top1">
-		<img src='__CDN__/static/mobile/picture/user.gif' style="margin-top:5px"> 您好！
-
-			{if condition="$user.nickname" neq null} 您好！
-			<b>{$user.nickname}</b>&nbsp;[ <a target="_bank" href="{:url('menber/user/index')}">进入用户中心</a>&nbsp;|&nbsp;<a href="{:url('menber/user/logout')}">安全退出</a> ]&nbsp;
-			{else/} 
-			欢迎来到 {$web.web_name}站！
-			<a href="{:url('menber/user/login')}" target='_blank'>[登录]</a> <a href="{:url('menber/user/register')}" target='_blank'>[免费注册]</a> 
-			{/if}
-			<br/>电话：{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}
+	 您好！欢迎来到 {$web.web_name}站！电话：{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}
 			<a href="{:url('/help')}">帮助</a>
 	</div>
 	<div class="top2">
