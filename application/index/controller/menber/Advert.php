@@ -93,6 +93,8 @@ class Advert extends Frontend
     }
 
 
+
+    //删除
     public function del()
     {
         $ids = $this->request->param('ids');

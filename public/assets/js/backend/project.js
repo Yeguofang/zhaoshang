@@ -14,6 +14,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 }
             });
 
+              //控制弹窗大小
+            Fast.config.openArea = ['90%','90%'];
+
             var table = $("#table");
 
             // 初始化表格

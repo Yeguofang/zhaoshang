@@ -1,3 +1,9 @@
+/*
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-10 12:21:54
+ * @LastEditTime: 2019-11-10 15:44:14
+ */
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
     var Controller = {
@@ -14,27 +20,26 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     table: 'category',
                 }
             });
+            
+         
 
             var table = $("#table");
             var tableOptions = {
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 escape: false,
                 pk: 'id',
-                sortName: 'weigh',
+                sortName: 'id',
                 pagination: false,
-                commonSearch: false,
-                search: false,
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'id', title: __('Id')},
-                        {field: 'type', title: __('Type'), operate: false, searchList: Config.searchList, formatter: Table.api.formatter.normal},
-                        {field: 'name', title: __('Name'), align: 'left'},
-                        {field: 'nickname', title: __('Nickname')},
-                        {field: 'flag', title: __('Flag'), formatter: Table.api.formatter.flag},
+                        {field: 'id', title: __('Id'),operate: false,},
+                        {field: 'type', title: __('Type'),searchList:{"project": __('项目'),'article' : __('文章')},formatter: Table.api.formatter.normal},
                         {field: 'image', title: __('Image'), operate: false, events: Table.api.events.image, formatter: Table.api.formatter.image},
-                        {field: 'weigh', title: __('Weigh')},
-                        {field: 'status', title: __('Status'), operate: false, formatter: Table.api.formatter.status},
+                        {field: 'name', title: __('Name'),operate: 'LIKE',align: 'left'},
+                        {field: 'flag', title: __('位置'), operate: 'LIKE',searchList:{'index': __('首页'),'navs' : __('首页导航'), 'menu' : __('菜单'),'hot':__('热门'),'recommend' : __('推荐'),'top' : __('顶部'),'home' : __('主页')},formatter: Table.api.formatter.flag},
+                        {field: 'weigh', title: __('Weigh'),operate: false,},
+                        {field: 'status', title: __('Status'), searchList:{"normal": __('正常'),'hidden' : __('隐藏')}, formatter: Table.api.formatter.status},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

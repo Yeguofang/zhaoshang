@@ -1,0 +1,1684 @@
+---------------------------------------------------------------
+[ 2019-11-10T17:38:21+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/ajax/wipecache?type=all&_=1573378700325
+[运行时间：0.053139s] [吞吐率：18.82req/s] [内存消耗：3,332.51kb] [文件加载：125]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001373s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'wipecache',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/general/attachment?ref=addtabs',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'type' => 'all',
+  '_' => '1573378700325',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001493s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->wipecache[ D:\Project\zhaoshang\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000295s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T17:54:56+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/general/attachment?ref=addtabs
+[运行时间：0.058005s] [吞吐率：17.24req/s] [内存消耗：3,882.23kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000015s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001708s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'general.attachment',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'ref' => 'addtabs',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002055s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000226s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001336s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_group_access` [ RunTime:0.000731s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `zs_auth_group_access` `aga` LEFT JOIN `zs_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000671s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.002294s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `zs_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000972s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:54:56+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/index/index
+[运行时间：0.086325s] [吞吐率：11.58req/s] [内存消耗：4,618.53kb] [文件加载：146]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000013s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001244s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001310s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\Project\zhaoshang\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/admin\view\index\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'menulist',
+  6 => 'navlist',
+  7 => 'fixedmenu',
+  8 => 'referermenu',
+  9 => 'title',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000198s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000997s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_group_access` [ RunTime:0.000693s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `zs_auth_group_access` `aga` LEFT JOIN `zs_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.000971s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `zs_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_auth_rule` WHERE  `status` = 'normal'  AND `ismenu` = 1 ORDER BY `weigh` DESC [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT `name`,`pid` FROM `zs_auth_rule` WHERE  `status` = 'normal'  AND `ismenu` = 0  AND `name` LIKE '%/index' [ RunTime:0.000495s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:54:57+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/dashboard?addtabs=1
+[运行时间：0.060410s] [吞吐率：16.55req/s] [内存消耗：4,476.88kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000044s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001364s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'dashboard',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/index/index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001735s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/dashboard.php
+[ info ] [ RUN ] app\admin\controller\Dashboard->index[ D:\Project\zhaoshang\application\admin\controller\Dashboard.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/admin\view\dashboard\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'totaluser',
+  6 => 'totalviews',
+  7 => 'totalorder',
+  8 => 'totalorderamount',
+  9 => 'todayuserlogin',
+  10 => 'todayusersignup',
+  11 => 'todayorder',
+  12 => 'unsettleorder',
+  13 => 'sevendnu',
+  14 => 'sevendau',
+  15 => 'paylist',
+  16 => 'createlist',
+  17 => 'addonversion',
+  18 => 'uploadmode',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000226s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000865s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_group_access` [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `zs_auth_group_access` `aga` LEFT JOIN `zs_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `zs_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `zs_auth_rule` WHERE  `name` = 'dashboard' LIMIT 1 [ RunTime:0.000456s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:54:57+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/general/attachment?addtabs=1
+[运行时间：0.146796s] [吞吐率：6.81req/s] [内存消耗：4,351.66kb] [文件加载：135]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000016s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001455s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'general.attachment',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/index/index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001484s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/general/attachment.php
+[ info ] [ RUN ] app\admin\controller\general\Attachment->index[ D:\Project\zhaoshang\application\admin\controller\general\Attachment.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/admin\view\general\attachment\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000226s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000870s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_group_access` [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `zs_auth_group_access` `aga` LEFT JOIN `zs_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `zs_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `zs_auth_rule` WHERE  `name` = 'general/attachment' LIMIT 1 [ RunTime:0.000546s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:54:57+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/ajax/lang?callback=define&controllername=index&v=1573379696
+[运行时间：0.043906s] [吞吐率：22.78req/s] [内存消耗：3,336.08kb] [文件加载：125]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001669s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/index/index',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'index',
+  'v' => '1573379696',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001763s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\Project\zhaoshang\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000273s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T17:54:57+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/ajax/lang?callback=define&controllername=dashboard&v=1573379697
+[运行时间：0.035479s] [吞吐率：28.19req/s] [内存消耗：3,334.76kb] [文件加载：125]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000016s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001188s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/dashboard?addtabs=1',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'dashboard',
+  'v' => '1573379697',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001377s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\Project\zhaoshang\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/dashboard.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000168s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T17:54:57+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/ajax/lang?callback=define&controllername=general.attachment&v=1573379697
+[运行时间：0.039172s] [吞吐率：25.53req/s] [内存消耗：3,332.58kb] [文件加载：125]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000016s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001470s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/general/attachment?addtabs=1',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'general.attachment',
+  'v' => '1573379697',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001401s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\Project\zhaoshang\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/general/attachment.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000182s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T17:54:58+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/general/attachment/index?sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1573379697677
+[运行时间：0.046074s] [吞吐率：21.70req/s] [内存消耗：4,218.98kb] [文件加载：133]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001168s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'general.attachment',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/mufan.php/general/attachment?addtabs=1',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'sort' => 'id',
+  'order' => 'desc',
+  'offset' => '0',
+  'limit' => '10',
+  'filter' => '{}',
+  'op' => '{}',
+  '_' => '1573379697677',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001257s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin/lang/zh-cn/general/attachment.php
+[ info ] [ RUN ] app\admin\controller\general\Attachment->index[ D:\Project\zhaoshang\application\admin\controller\general\Attachment.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000171s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000886s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_group_access` [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `zs_auth_group_access` `aga` LEFT JOIN `zs_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_auth_rule` [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `zs_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_attachment` [ RunTime:0.000827s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_attachment` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_attachment` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000334s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:20+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project_detail/29
+[运行时间：0.078492s] [吞吐率：12.74req/s] [内存消耗：4,262.38kb] [文件加载：135]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000015s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001339s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'detail',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => '29',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001553s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->detail[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_detail.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011561s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.001107s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000768s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`name`,`p`.`price`,`p`.`image`,`p`.`prouse`,`p`.`company_id`,`p`.`keywords`,`p`.`description`,`p`.`moblie`,`p`.`title`,`p`.`content`,`p`.`poster`,`u`.`company_name`,`u`.`address`,`u`.`company_desc`,`a`.`areaname`,c.name `cname`,b.name `bname` FROM `zs_project` `p` LEFT JOIN `zs_user` `u` ON `p`.`company_id`=`u`.`id` LEFT JOIN `zs_category` `c` ON `p`.`category_id`=`c`.`id` LEFT JOIN `zs_category` `b` ON `c`.`pid`=`b`.`id` LEFT JOIN `zs_china` `a` ON `p`.`address`=`a`.`id` WHERE  `p`.`id` = '29' LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_message` [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_message` WHERE  `pid` = 29 LIMIT 1 [ RunTime:0.001149s ]
+[ error ] [8]未定义数组索引: title[D:\Project\zhaoshang\runtime\temp\99b43ff141835c4de32db6ba0f96bab2.php:8]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:21+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/favicon.ico
+[运行时间：0.032107s] [吞吐率：31.15req/s] [内存消耗：2,170.96kb] [文件加载：107]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000017s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001317s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T17:59:24+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project_detail/29
+[运行时间：0.068388s] [吞吐率：14.62req/s] [内存消耗：4,105.31kb] [文件加载：133]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000013s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001264s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'detail',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => '29',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001333s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->detail[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_detail.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011102s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.001177s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000874s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000741s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`name`,`p`.`price`,`p`.`image`,`p`.`prouse`,`p`.`company_id`,`p`.`keywords`,`p`.`description`,`p`.`moblie`,`p`.`title`,`p`.`content`,`p`.`poster`,`u`.`company_name`,`u`.`address`,`u`.`company_desc`,`a`.`areaname`,c.name `cname`,b.name `bname` FROM `zs_project` `p` LEFT JOIN `zs_user` `u` ON `p`.`company_id`=`u`.`id` LEFT JOIN `zs_category` `c` ON `p`.`category_id`=`c`.`id` LEFT JOIN `zs_category` `b` ON `c`.`pid`=`b`.`id` LEFT JOIN `zs_china` `a` ON `p`.`address`=`a`.`id` WHERE  `p`.`id` = '29' LIMIT 1 [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_message` [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_message` WHERE  `pid` = 29 LIMIT 1 [ RunTime:0.000422s ]
+[ error ] [8]未定义数组索引: title[D:\Project\zhaoshang\runtime\temp\99b43ff141835c4de32db6ba0f96bab2.php:8]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:30+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project_detail/29
+[运行时间：0.063740s] [吞吐率：15.69req/s] [内存消耗：4,105.06kb] [文件加载：133]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000017s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001365s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'detail',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => '29',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002495s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->detail[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_detail.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002254s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000919s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000762s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`name`,`p`.`price`,`p`.`image`,`p`.`prouse`,`p`.`company_id`,`p`.`keywords`,`p`.`description`,`p`.`moblie`,`p`.`title`,`p`.`content`,`p`.`poster`,`u`.`company_name`,`u`.`address`,`u`.`company_desc`,`a`.`areaname`,c.name `cname`,b.name `bname` FROM `zs_project` `p` LEFT JOIN `zs_user` `u` ON `p`.`company_id`=`u`.`id` LEFT JOIN `zs_category` `c` ON `p`.`category_id`=`c`.`id` LEFT JOIN `zs_category` `b` ON `c`.`pid`=`b`.`id` LEFT JOIN `zs_china` `a` ON `p`.`address`=`a`.`id` WHERE  `p`.`id` = '29' LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_message` [ RunTime:0.000819s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_message` WHERE  `pid` = 29 LIMIT 1 [ RunTime:0.000430s ]
+[ error ] [8]未定义数组索引: title[D:\Project\zhaoshang\runtime\temp\99b43ff141835c4de32db6ba0f96bab2.php:8]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:39+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/
+[运行时间：0.118830s] [吞吐率：8.42req/s] [内存消耗：4,546.38kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000015s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002344s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002456s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\Project\zhaoshang\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/index.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'advert_a',
+  7 => 'advert_b',
+  8 => 'advert_c',
+  9 => 'advert_d',
+  10 => 'advert_e',
+  11 => 'user_count',
+  12 => 'article_count',
+  13 => 'project_count',
+  14 => 'help',
+  15 => 'slide',
+  16 => 'navs',
+  17 => 'index',
+  18 => 'menu',
+  19 => 'article',
+  20 => 'user_msg',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001285s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.002167s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000577s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000799s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%menu%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 9 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000592s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 16  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 18  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 35  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 36  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 37  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000554s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 38  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 39  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 40  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 34  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 34  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 43  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 44  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 45  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 46  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 47  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 48  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 49  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 50  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 51  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 52  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 53  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 54  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 55  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 56  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 57  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 58  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 59  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 60  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000206s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 19  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 20  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 21  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 6  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 7  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 8  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 9  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%index%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000620s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39,40,41,42)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30 [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000187s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (14,19,20,21)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (6,7,8,9)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%navs%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 16  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 18  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 35  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 36  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 37  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 38  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 39  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000499s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 52  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 53  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 54  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 55  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 56  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 57  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 58  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 59  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 14  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 19  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 20  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 21  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 7  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 8  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 9  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_advert` [ RunTime:0.000574s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%A%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%A%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 80 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%B%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%B%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%C%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%C%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 12 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%D%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 8 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%D%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 8 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%E%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%E%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_article` [ RunTime:0.000916s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_article` WHERE  `deletetime` IS NULL  AND `switch` = 1 LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` WHERE  `deletetime` IS NULL  AND `switch` = 1 LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_user` [ RunTime:0.000553s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_user` LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_message` [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_message` LIMIT 1 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%index%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 28 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 26 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 25 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 24 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 23 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 22 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 5 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 4 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`url`,`image` FROM `zs_advert` WHERE  `switch` = 1  AND `flag` LIKE '%S%' LIMIT 6 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_help` [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT `id`,`title` FROM `zs_help` WHERE  `switch` = 1  AND `deletetime` IS NULL [ RunTime:0.000233s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:53+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project/1
+[运行时间：0.064294s] [吞吐率：15.55req/s] [内存消耗：4,235.40kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000015s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001125s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'visitor_type=old; 53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'pid' => '1',
+  'id' => NULL,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003170s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->list[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_list.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'category',
+  7 => 'project',
+  8 => 'projects',
+  9 => 'hot',
+  10 => 'recommend',
+  11 => 'name1',
+  12 => 'name2',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002598s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000767s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000412s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `type` = 'project'  AND `pid` = 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.001131s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39,40,41,42) LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`address`,`p`.`name`,`p`.`keywords`,`p`.`description`,`p`.`city`,`p`.`price`,`p`.`moblie`,`p`.`prouse`,`p`.`image`,`c`.`areaname` FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39,40,41,42) LIMIT 0,10 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39,40,41,42)  AND `flag` LIKE '%hot%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000640s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39,40,41,42)  AND `flag` LIKE '%recommend%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000729s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:54+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project/favicon.ico
+[运行时间：0.055641s] [吞吐率：17.97req/s] [内存消耗：4,083.21kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000016s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001090s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/project/1',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'pid' => 'favicon.ico',
+  'id' => NULL,
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001210s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->list[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_list.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'category',
+  7 => 'project',
+  8 => 'projects',
+  9 => 'hot',
+  10 => 'recommend',
+  11 => 'name1',
+  12 => 'name2',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001048s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000795s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `type` = 'project'  AND `pid` = 0 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000808s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` IN (1,2,10,29,30,31,32,33,34) LIMIT 1 [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`address`,`p`.`name`,`p`.`keywords`,`p`.`description`,`p`.`city`,`p`.`price`,`p`.`moblie`,`p`.`prouse`,`p`.`image`,`c`.`areaname` FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` IN (1,2,10,29,30,31,32,33,34) LIMIT 0,10 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (1,2,10,29,30,31,32,33,34)  AND `flag` LIKE '%hot%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (1,2,10,29,30,31,32,33,34)  AND `flag` LIKE '%recommend%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000210s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:55+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project/1/15
+[运行时间：0.066982s] [吞吐率：14.93req/s] [内存消耗：4,079.31kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000013s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001146s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'visitor_type=old; 53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/project/1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'pid' => '1',
+  'id' => '15',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001927s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->list[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_list.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'category',
+  7 => 'project',
+  8 => 'projects',
+  9 => 'hot',
+  10 => 'recommend',
+  11 => 'name1',
+  12 => 'name2',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011232s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000813s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `type` = 'project'  AND `pid` = 1 [ RunTime:0.000896s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001082s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000746s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.001054s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` = 15 LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`address`,`p`.`name`,`p`.`keywords`,`p`.`description`,`p`.`city`,`p`.`price`,`p`.`moblie`,`p`.`prouse`,`p`.`image`,`c`.`areaname` FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` = 15 LIMIT 0,10 [ RunTime:0.000605s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%hot%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%recommend%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000335s ]
+---------------------------------------------------------------
+[ 2019-11-10T17:59:55+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project/1/favicon.ico
+[运行时间：0.068157s] [吞吐率：14.67req/s] [内存消耗：4,078.13kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000026s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003238s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'visitor_type=old; 53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/project/1/15',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'pid' => '1',
+  'id' => 'favicon.ico',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001755s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->list[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/mobile/project_list.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'category',
+  7 => 'project',
+  8 => 'projects',
+  9 => 'hot',
+  10 => 'recommend',
+  11 => 'name1',
+  12 => 'name2',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001019s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000857s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000796s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000697s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `type` = 'project'  AND `pid` = 1 [ RunTime:0.000753s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001031s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `zs_category` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` = 0 LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`p`.`address`,`p`.`name`,`p`.`keywords`,`p`.`description`,`p`.`city`,`p`.`price`,`p`.`moblie`,`p`.`prouse`,`p`.`image`,`c`.`areaname` FROM `zs_project` `p` INNER JOIN `zs_china` `c` ON `p`.`address`=`c`.`id` WHERE  `switch` = 1  AND `category_id` = 0 LIMIT 0,10 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 0  AND `flag` LIKE '%hot%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`views` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 0  AND `flag` LIKE '%recommend%' ORDER BY `weigh` DESC LIMIT 15 [ RunTime:0.000307s ]
+---------------------------------------------------------------
+[ 2019-11-10T18:01:42+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/
+[运行时间：0.139211s] [吞吐率：7.18req/s] [内存消耗：4,827.09kb] [文件加载：129]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001358s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; PHPSESSID=nloucr1c7u7l7acaiknstvh9jr; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%208%2C%20%22expires%22%3A%201573380453081%7D; __51laig__=259',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001482s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\Project\zhaoshang\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+  6 => 'advert_a',
+  7 => 'advert_b',
+  8 => 'advert_c',
+  9 => 'advert_d',
+  10 => 'advert_e',
+  11 => 'user_count',
+  12 => 'article_count',
+  13 => 'project_count',
+  14 => 'help',
+  15 => 'slide',
+  16 => 'navs',
+  17 => 'index',
+  18 => 'menu',
+  19 => 'article',
+  20 => 'user_msg',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000877s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.001751s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000677s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000895s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000664s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%menu%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 9 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_project` [ RunTime:0.000678s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 16  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 18  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 35  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 36  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 37  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 38  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 39  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 40  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 34  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 34  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 43  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 44  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 45  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000371s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 46  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 47  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000917s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 48  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 49  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 50  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 51  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 52  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 53  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 54  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 55  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 56  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 57  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 58  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 59  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 60  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 19  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 20  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 21  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%menu%' LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%menu%' LIMIT 9 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 6  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 7  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 8  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 9  AND `flag` LIKE '%menu%' LIMIT 4 [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%index%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (15,16,18,35,36,37,38,39,40,41,42)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33 [ RunTime:0.000389s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN ('')  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10 [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (14,19,20,21)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%index%' LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%index%' LIMIT 8 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2 [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` IN (6,7,8,9)  AND `flag` LIKE '%index%' LIMIT 9 [ RunTime:0.000678s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%navs%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 1  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 15  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 16  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 18  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 35  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 36  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 37  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 38  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 39  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 33  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 52  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 53  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 54  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 55  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 56  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 57  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 58  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 59  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 32  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 31  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 30  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 29  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 10  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 14  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 19  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 20  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 21  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%navs%' LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_category` WHERE  `pid` = 2  AND `flag` LIKE '%navs%' LIMIT 8 [ RunTime:0.000858s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 7  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 8  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`image`,`category_id` FROM `zs_project` WHERE  `switch` = 1  AND `category_id` = 9  AND `flag` LIKE '%navs%' LIMIT 4 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_advert` [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%A%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%A%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 80 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%B%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%B%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%C%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%C%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 12 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%D%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 8 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%D%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 8 [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%E%'  AND `type` = 0  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`url` FROM `zs_advert` WHERE  `flag` LIKE '%E%'  AND `type` = 1  AND `switch` = 1 ORDER BY `createtime` DESC LIMIT 6 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_article` [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_article` WHERE  `deletetime` IS NULL  AND `switch` = 1 LIMIT 1 [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_project` WHERE  `deletetime` IS NULL  AND `switch` = 1 LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_user` [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_user` LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_message` [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `zs_message` LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%index%'  AND `pid` = 0 ) ORDER BY `weigh` DESC LIMIT 8 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 28 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 26 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 25 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 24 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 23 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 22 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 5 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`image`,`category_id`,`views` FROM `zs_article` WHERE  `category_id` = 4 ORDER BY `createtime` DESC LIMIT 11 [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`url`,`image` FROM `zs_advert` WHERE  `switch` = 1  AND `flag` LIKE '%S%' LIMIT 6 [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_help` [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT `id`,`title` FROM `zs_help` WHERE  `switch` = 1  AND `deletetime` IS NULL [ RunTime:0.000210s ]
+---------------------------------------------------------------
+[ 2019-11-10T18:17:39+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/general/attachment?ref=addtabs
+[运行时间：0.050617s] [吞吐率：19.76req/s] [内存消耗：3,028.18kb] [文件加载：124]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000018s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001360s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'general.attachment',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%209%2C%20%22expires%22%3A%201573381902600%7D; __51laig__=260',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'ref' => 'addtabs',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002451s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/common\view\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000280s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T18:17:41+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/mufan.php/general/attachment?ref=addtabs
+[运行时间：0.042533s] [吞吐率：23.51req/s] [内存消耗：2,891.27kb] [文件加载：122]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000084s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001496s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'general.attachment',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%209%2C%20%22expires%22%3A%201573381902600%7D; __51laig__=260; PHPSESSID=krln1o8ss3rvuoegekb4hn5eq6',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'ref' => 'addtabs',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001524s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 7200,
+)
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/../application/common\view\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000229s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-10T18:20:11+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project/1/15
+[运行时间：0.064735s] [吞吐率：15.45req/s] [内存消耗：4,188.95kb] [文件加载：130]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000056s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001839s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'visitor_type=old; 53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%209%2C%20%22expires%22%3A%201573381902600%7D; __51laig__=260; PHPSESSID=krln1o8ss3rvuoegekb4hn5eq6',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'pid' => '1',
+  'id' => '15',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001481s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->list[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/template/mobile/project/list/1/15/1.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001234s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.001034s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000637s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000901s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.001608s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000682s ]
+---------------------------------------------------------------
+[ 2019-11-10T18:20:12+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/project/1/favicon.ico
+[运行时间：0.059663s] [吞吐率：16.76req/s] [内存消耗：4,188.80kb] [文件加载：130]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000031s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003030s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'project',
+    2 => 'list',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'visitor_type=old; 53gid2=10867952942009; visitor_type=old; 53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%209%2C%20%22expires%22%3A%201573381902600%7D; __51laig__=260; PHPSESSID=krln1o8ss3rvuoegekb4hn5eq6',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://10.0.0.197:8888/project/1/15',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'pid' => '1',
+  'id' => 'favicon.ico',
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001547s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Project->list[ D:\Project\zhaoshang\application\index\controller\Project.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/template/mobile/project/list/1/favicon.ico/1.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001004s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000662s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000207s ]
+---------------------------------------------------------------
+[ 2019-11-10T18:23:04+08:00 ] 10.0.0.197 GET 10.0.0.197:8888/
+[运行时间：0.063688s] [吞吐率：15.70req/s] [内存消耗：4,505.25kb] [文件加载：130]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000032s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001683s ]
+[ info ] [ LANG ] D:\Project\zhaoshang\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'index'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '53revisit=1573283187537; 53gid2=10867952942009; __51cke__=; 53gid0=10867952942009; visitor_type=old; 53kf_72121217_from_host=10.0.0.197%3A8888; 53kf_72121217_land_page=http%253A%252F%252F10.0.0.197%253A8888%252F; kf_72121217_land_page_ok=1; 53uvid=1; onliner_zdfq72121217=0; 53kf_72121217_keyword=http%3A%2F%2F10.0.0.197%3A8888%2F; my_acc_reauto_time=null; 53gid1=10867952942009; invite_53kf_totalnum_5=90; __tins__713776=%7B%22sid%22%3A%201573378462462%2C%20%22vd%22%3A%209%2C%20%22expires%22%3A%201573381902600%7D; __51laig__=260; PHPSESSID=krln1o8ss3rvuoegekb4hn5eq6',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '10.0.0.197:8888',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\Project\zhaoshang\public/../application/index\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001347s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\Project\zhaoshang\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\Project\zhaoshang\public/template/pc/index/index.html [ array (
+  0 => 'user',
+  1 => 'tdk',
+  2 => 'web',
+  3 => 'url',
+  4 => 'project_cate',
+  5 => 'article_cate',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001500s ] mysql:host=127.0.0.1;dbname=zhaoshang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_category` [ RunTime:0.000905s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'project'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`type`,`status`,`flag`,`pid`,`image` FROM `zs_category` WHERE  (  `type` = 'article'  AND `status` = 'normal'  AND `flag` LIKE '%top%'  AND `pid` = 0 ) ORDER BY `weigh` DESC [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_config` [ RunTime:0.000939s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `zs_web_tdk` [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT * FROM `zs_web_tdk` [ RunTime:0.000358s ]

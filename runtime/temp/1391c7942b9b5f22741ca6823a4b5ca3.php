@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:56:"D:\Project\zhaoshang\public/template/pc/index/index.html";i:1573380102;}*/ ?>
 <!DOCTYPE html>
 
 <head>

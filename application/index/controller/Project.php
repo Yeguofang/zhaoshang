@@ -28,7 +28,6 @@ class Project extends Frontend
         if($page == null){
             $page = 1;
         }
-
         if($id ==null){
             $path = 'project/list/'.$pid;
         }else{
@@ -147,29 +146,6 @@ class Project extends Frontend
     {
 
         
-
-        //是否有生成静态页面，有则访问静态页面
-        $files = $this->echoHtml('project/detail');
-        if($files != null){
-            return  $this->view->fetch($files);
-        }
-
-
-        $project =  db::name('project')
-                ->alias('p')
-                ->field('p.id,p.name,p.price,p.image,p.prouse,p.company_id,p.keywords,p.description,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,a.areaname,c.name `cname`,b.name `bname`')
-                ->join('user u', 'p.company_id=u.id','LEFT')
-                ->join('category c', 'p.category_id=c.id','LEFT')
-                ->join('category b', 'c.pid=b.id','LEFT')
-                ->join('china a', 'p.address=a.id','LEFT')
-                ->where('p.id', $id)
-                ->find();
-        //统计留言
-        $project['sum'] = db::name('message')->where('pid',$id)->count();
-
-        $this->assign('data', $project);
-
-
         if ($this->request->isPost()) {
             $data = $this->request->param();
             $rule = [
@@ -205,6 +181,28 @@ class Project extends Frontend
             }
 
         }
+        
+
+        //是否有生成静态页面，有则访问静态页面
+        $files = $this->echoHtml('project/detail');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
+
+
+        $project =  db::name('project')
+                ->alias('p')
+                ->field('p.id,p.name,p.price,p.image,p.prouse,p.company_id,p.keywords,p.description,p.moblie,p.title,p.content,p.poster,u.company_name,u.address,u.company_desc,a.areaname,c.name `cname`,b.name `bname`')
+                ->join('user u', 'p.company_id=u.id','LEFT')
+                ->join('category c', 'p.category_id=c.id','LEFT')
+                ->join('category b', 'c.pid=b.id','LEFT')
+                ->join('china a', 'p.address=a.id','LEFT')
+                ->where('p.id', $id)
+                ->find();
+        //统计留言
+        $project['sum'] = db::name('message')->where('pid',$id)->count();
+
+        $this->assign('data', $project);
 
 
         //是否手机端访问

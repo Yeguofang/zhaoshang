@@ -164,11 +164,11 @@ class Frontend extends Controller
             $htmlpath =ROOT_PATH.'public/template/pc/'. $path.'/';
         }
         $content = $this->fetch(APP_PATH.'index/view/'.$templateFile);
-        $htmlpath = !empty($htmlpath) ? $htmlpath : './template/';
+        $htmlpath = !empty($htmlpath) ? $htmlpath : ROOT_PATH.'public/template/';
         $htmlfile = $htmlpath . $htmlfile . '.html';
         $File = new  \think\template\driver\File();
         $File->write($htmlfile, $content);
-        echo  $content;
+        echo  $content;die;
     }
 
 

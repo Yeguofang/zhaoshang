@@ -37,6 +37,7 @@ class Index extends Frontend
         $article_count =db::name('article')->whereNull('deletetime')->where('switch',1)->count(); //文章数量   
         $project_count = db::name('project')->whereNull('deletetime')->where('switch',1)->count(); //项目数量
         $user_count = db::name('user')->count();//用户数量
+        $user_msg = db::name('message')->count();//用户数量
 
 
         $article = self::article('index',8,11); //首页文章
@@ -65,6 +66,7 @@ class Index extends Frontend
             'index' => $index,
             'menu' => $menu,
             'article' => $article,
+            'user_msg' =>$user_msg,
         ]);
 
        //是否手机端访问
@@ -92,6 +94,7 @@ class Index extends Frontend
 
         $data = db::name('help')->where('switch',1)->whereNull('deletetime')->select();
         $this->assign('data',$data);
+
 
          //是否手机端访问
          $temp = 'index/help.html';

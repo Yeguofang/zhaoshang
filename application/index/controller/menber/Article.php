@@ -101,6 +101,7 @@ class Article extends Frontend
 		$row = $this->request->post();
 		$row['content'] = $_POST['content'];
         $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
+        img_file_del($data['image'],$row['image']);  //删除原来的缩略图
         $text = preg_replace("/<[^>]+>/","",$row['content']);//去除文本内容的ＨＴＭＬ跟图片标签，只保留文本
         $row['desc'] = mb_substr($text,0,100);//截取文本100个紫作为文章摘要
 	
@@ -117,11 +118,14 @@ class Article extends Frontend
     }
 
 
+
+    //删除
     public function del()
     {
 	$ids = $this->request->param('ids');
 	$data = db::name('article')->where('id', 'in', $ids)->select();
 	foreach($data as $a){
+        img_file_del($a['image'],'111');  //删除缩略图
 		del_content_img($a['content']);//删除富文本图片
 	}
 	$res = db::name('article')->where('id', 'in', $ids)->delete();

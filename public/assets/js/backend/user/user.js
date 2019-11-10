@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:37:44
- * @LastEditTime: 2019-11-06 19:04:23
+ * @LastEditTime: 2019-11-10 15:50:08
  */
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
@@ -21,6 +21,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             });
 
             var table = $("#table");
+            //控制弹窗大小
+            Fast.config.openArea = ['90%','90%'];
 
             // 初始化表格
             table.bootstrapTable({

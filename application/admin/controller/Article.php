@@ -129,6 +129,48 @@ class Article extends Backend
         return $this->view->fetch();
     }
 
+
+    /**
+     * 真实删除
+     */
+    public function destroy($ids = "")
+    {
+        $pk = $this->model->getPk();
+        $adminIds = $this->getDataLimitAdminIds();
+        if (is_array($adminIds)) {
+            $this->model->where($this->dataLimitField, 'in', $adminIds);
+        }
+        if ($ids) {
+            $this->model->where($pk, 'in', $ids);
+        }
+        $count = 0;
+        Db::startTrans();
+        try {
+            $list = $this->model->onlyTrashed()->select();
+            foreach ($list as $k => $v) {
+                img_file_del($v['image'],'111');  //删除缩略图
+                del_content_img($v['content']);//删除富文本内容的图片
+                
+                $count += $v->delete(true); //删除数据
+            }
+            Db::commit();
+        } catch (PDOException $e) {
+            Db::rollback();
+            $this->error($e->getMessage());
+        } catch (Exception $e) {
+            Db::rollback();
+            $this->error($e->getMessage());
+        }
+        if ($count) {
+            $this->success();
+        } else {
+            $this->error(__('No rows were deleted'));
+        }
+        $this->error(__('Parameter %s can not be empty', 'ids'));
+    }
+
+
+    //用于筛选
     public function search(){
         $one = $this->searchCate;
         for($i=0;$i<count($one);$i++){

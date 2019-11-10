@@ -50,31 +50,25 @@ class Category extends Backend
         //设置过滤方法
         $this->request->filter(['strip_tags']);
         if ($this->request->isAjax()) {
-            $search = $this->request->request("search");
-            $type = $this->request->request("type");
+         
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams('name');
 
-            //构造父类select列表选项数据
-            $list = [];
+            $total = db::name('category')
+                ->where($where)
+                ->order($sort, $order)
+                ->count();
 
-            foreach ($this->categorylist as $k => $v) {
-                if ($search) {
-                    if ($v['type'] == $type && stripos($v['name'], $search) !== false || stripos($v['nickname'], $search) !== false) {
-                        if ($type == "all" || $type == null) {
-                            $list = $this->categorylist;
-                        } else {
-                            $list[] = $v;
-                        }
-                    }
-                } else {
-                    if ($type == "all" || $type == null) {
-                        $list = $this->categorylist;
-                    } elseif ($v['type'] == $type) {
-                        $list[] = $v;
-                    }
-                }
-            }
+            $list_data = db::name('category')
+                ->where($where)
+                ->order($sort, $order)
+                ->limit($offset, $limit)
+                ->select();
 
-            $total = count($list);
+            $tree = Tree::instance();
+            $tree->init($list_data,'pid');
+            $list = $tree->getTreeList($tree->getTreeArray(0), 'name');
+
+
             $result = array("total" => $total, "rows" => $list);
 
             return json($result);

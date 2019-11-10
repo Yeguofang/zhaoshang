@@ -116,6 +116,7 @@ class Project extends Frontend
             if ($row['image'] == null) {//没有缩略图
                 $row['image'] = oneImg($row['content']);//文章内容的一张图片作为缩略图
             }
+            img_file_del($data['image'],$row['image']);  //删除原来的缩略图
             $res = db::name('project')->where('id', $id)->update($row);
             if ($res == 1) {
                 return  $this->success('修改成功');
@@ -127,11 +128,14 @@ class Project extends Frontend
     }
 
 
+
+    //删除
     public function del()
     {
         $ids = $this->request->param('ids');
         $data = db::name('project')->where('id', 'in', $ids)->select();
         foreach ($data as $a) {
+            img_file_del($a['image'],'111');  //删除缩略图
             del_content_img($a['content']);//删除富文本图片
         }
         $res = db::name('project')->where('id', 'in', $ids)->delete();
@@ -144,6 +148,7 @@ class Project extends Frontend
 
 
 
+    //分类
     public static function category(){
         $result = db::name('category')->where('type', 'project')->where('pid', 0)->field('id,name')->select();
         for ($i=0;$i<count($result);$i++) {
