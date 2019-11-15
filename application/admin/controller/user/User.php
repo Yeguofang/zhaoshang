@@ -66,17 +66,19 @@ class User extends Backend
     //添加
     public function add(){
 
-        if($this->request->isAjax()){
+        if($this->request->isPost()){
             $row = $this->request->param('row/a');
             $row['status'] = 'normal';
             $row['createtime']  = time();
-            $row['type'] = 2; //内部添加
-     
+            $row['prevtime']  = time();
+            $row['logintime']  = time();
+            $row['jointime']  = time();
+            $row['type'] = 1; //内部添加
            $res = $this->model->save($row);
-            if($res == 1){
-                return $this->success('添加成功');
+            if($res > 0){
+                  $this->success('添加成功');
             }
-            return $this->error('添加失败');
+              $this->error('添加失败');
         }
 
         return $this->fetch();
@@ -88,22 +90,13 @@ class User extends Backend
      */
     public function edit($ids = NULL)
     {
-
-        $row  = db::name('user')->where('id',$ids)->find();
-        $this->view->assign('groupList', build_select('row[group_id]', \app\admin\model\UserGroup::column('id,name'), $row['group_id'], ['class' => 'form-control selectpicker']));
+        $row = $this->model->get($ids);
+        $user = \app\admin\model\UserGroup::column('id,name');
+        $groupList = build_select('row[group_id]', $user, $row['group_id'], ['class' => 'form-control selectpicker']);
+        $this->assign('groupList',$groupList );
         $this->assign('row',$row);
 
-        if($this->request->isAjax()){
-            $row = $this->request->param('row/a');
-            $row['prevtime']=strtotime($row['prevtime']);
-            $row['logintime']=strtotime($row['logintime']);
-            $row['jointime']=strtotime($row['jointime']);
-            $res = db::name('user')->where('id',$ids)->update($row);
-            if($res == 1){
-                return $this->success('修改成功');
-            }
-            return $this->error('修改失败');
-        }
+        parent::edit($ids);
 
         return $this->fetch();
     }

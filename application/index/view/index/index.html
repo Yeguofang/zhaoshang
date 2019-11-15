@@ -218,11 +218,22 @@
          <!-- 图片链接 -->
 
         <!-- 推荐项目开始 -->
+     
         <div class="pagebody">
-            <div>
                 {foreach $index as $key=>$v}
+
+                <div class="titles titlebig{$key+1}">
+                    <span>
+                            {foreach $v.nav as $n}
+                        <a href="{:url('/project')}/{$n.pid}/{$n.id}" target="_blank" >{$n.name}</a>|
+                        {/foreach}
+                        <a href="{:url('/link')}">更多...</a>
+                    </span> 
+                   <h1>{$v.name}</h1>
+                </div>
+
                 <div class="boxrow{$key+1}">
-                    <div class='titlebigs titlebig{$key+1}'>
+                    <!-- <div class='titlebigs titlebig{$key+1}'>
                         <h3>
                             <a href="{:url('/project')}/{$v.id}">{$v.name} </a>
                          </h3> 
@@ -232,7 +243,7 @@
                                 </li>
                                 {/foreach}
                             </span>
-                    </div>
+                    </div> -->
 
                     <div class="content_index">
                       <div class="tabel">
@@ -251,7 +262,6 @@
                 </div>
 
                 {/foreach}
-            </div>
         </div>
 <!-- 推荐项目结束 -->
 

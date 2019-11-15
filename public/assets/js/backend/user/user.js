@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:37:44
- * @LastEditTime: 2019-11-10 15:50:08
+ * @LastEditTime: 2019-11-13 15:55:12
  */
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
@@ -32,7 +32,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'id', title: __('Id'), sortable: true},
+                        {field: 'id', title: __('Id'), operate:false,sortable: true},
                         {field: 'group.name', title: __('Group')},
                         {field: 'company_name', title: __('公司名称'), operate: 'LIKE'},
                         {field: 'username', title: __('Username'), operate: 'LIKE'},

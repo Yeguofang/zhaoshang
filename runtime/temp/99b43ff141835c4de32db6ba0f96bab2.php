@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\Project\zhaoshang\public/../application/index/view/mobile/project_detail.html";i:1573280286;s:60:"D:\Project\zhaoshang\application\index\view\mobile\head.html";i:1573204135;s:62:"D:\Project\zhaoshang\application\index\view\mobile\header.html";i:1573351931;s:62:"D:\Project\zhaoshang\application\index\view\mobile\footer.html";i:1573271844;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:80:"D:\Project\zhaoshang\public/../application/index/view/mobile/project_detail.html";i:1573280286;s:60:"D:\Project\zhaoshang\application\index\view\mobile\head.html";i:1573204135;s:62:"D:\Project\zhaoshang\application\index\view\mobile\header.html";i:1573642868;s:62:"D:\Project\zhaoshang\application\index\view\mobile\footer.html";i:1573271844;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -43,7 +43,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-10 10:08:05
- * @LastEditTime: 2019-11-10 10:11:37
+ * @LastEditTime: 2019-11-13 19:01:08
  -->
 
 <script language="JavaScript" src="/static/mobile/js/divselect.js"></script>
@@ -86,9 +86,8 @@
                     </a>
 				</li>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
-				<li><a href="<?php echo url('/article'); ?>">   <img src=""><h2>资讯</h2></a></li>
-				<li><a href="<?php echo url('/ranking'); ?>">   <img src=""><h2>排行</h2></a></li>
-				<li><a href="<?php echo url('/help'); ?>">   <img src=""><h2>帮助</h2></a></li>
+				<li><a href="<?php echo url('/article'); ?>">   <img src="/static/home/images/zx.png"><h2>创业资讯</h2></a></li>
+				<li><a href="<?php echo url('/ranking'); ?>">   <img src="/static/home/images/ph.png"><h2>排行</h2></a></li>
 		</ul>
 	</div>
 

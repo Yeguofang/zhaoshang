@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:36:00
- * @LastEditTime: 2019-11-10 15:55:59
+ * @LastEditTime: 2019-11-13 15:51:29
  -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
@@ -12,6 +12,20 @@
             {$groupList}
         </div>
     </div>
+    <div class="form-group">
+        <label for="c-company_name" class="control-label col-xs-12 col-sm-1">公司名称</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-company_name" data-rule="" class="form-control" name="row[company_name]" type="text" value="{$row.company_name|htmlentities}">
+        </div>
+    </div>
+        
+    <div class="form-group">
+        <label for="c-mobile" class="control-label col-xs-12 col-sm-1">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-mobile" data-rule="" class="form-control" name="row[mobile]" type="text" value="{$row.mobile|htmlentities}">
+        </div>
+    </div>
+<!--     
     <div class="form-group">
         <label for="c-username" class="control-label col-xs-12 col-sm-1">{:__('Username')}:</label>
         <div class="col-xs-12 col-sm-4">
@@ -30,24 +44,14 @@
             <input id="c-password"  class="form-control" name="row[password]" type="text" value="" placeholder="{:__('Leave password blank if dont want to change')}" autocomplete="new-password" />
         </div>
     </div>
-    <div class="form-group">
-        <label for="c-company_name" class="control-label col-xs-12 col-sm-1">公司名称</label>
-        <div class="col-xs-12 col-sm-4">
-            <input id="c-company_name" data-rule="" class="form-control" name="row[company_name]" type="text" value="{$row.company_name|htmlentities}">
-        </div>
-    </div>
+ 
     <div class="form-group">
         <label for="c-email" class="control-label col-xs-12 col-sm-1">{:__('Email')}:</label>
         <div class="col-xs-12 col-sm-4">
             <input id="c-email" data-rule="" class="form-control" name="row[email]" type="text" value="{$row.email|htmlentities}">
         </div>
     </div>
-    <div class="form-group">
-        <label for="c-mobile" class="control-label col-xs-12 col-sm-1">{:__('Mobile')}:</label>
-        <div class="col-xs-12 col-sm-4">
-            <input id="c-mobile" data-rule="" class="form-control" name="row[mobile]" type="text" value="{$row.mobile|htmlentities}">
-        </div>
-    </div>
+ 
     <div class="form-group">
         <label for="c-successions" class="control-label col-xs-12 col-sm-1">{:__('Successions')}:</label>
         <div class="col-xs-12 col-sm-4">
@@ -77,7 +81,7 @@
         <div class="col-xs-12 col-sm-4">
             <input id="c-jointime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[jointime]" type="text" value="{$row.jointime|datetime}">
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <label for="content" class="control-label col-xs-12 col-sm-1">{:__('Status')}:</label>
         <div class="col-xs-12 col-sm-8">
@@ -107,6 +111,6 @@
  <!-- 编辑器源码文件 -->
  <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
  <script>
-               // 实例化编辑器 
-               var editor = UE.getEditor('container');
+    // 实例化编辑器 
+    var editor = UE.getEditor('container');
  </script>
