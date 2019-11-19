@@ -43,6 +43,9 @@ class Frontend extends Controller
      */
     protected $auth = null;
 
+    //网站信息
+    protected $web = [];
+
     public function _initialize()
     {
         //移除HTML标签
@@ -85,7 +88,7 @@ class Frontend extends Controller
             }
         }
 
-     
+
 
         $this->view->assign('user', $this->auth->getUser());
 
@@ -96,25 +99,22 @@ class Frontend extends Controller
         //用于控制首页不显示文章资讯的分类
         $url = $this->request->controller()  . $this->request->action();
         //网站信息
-        $web = db::name('web_config')->where('id',1)->find();
-        
-        if($web['web_status'] == 0){    //关闭网站
-           return $this->fetch();
+        $this->web = db::name('web_config')->where('id', 1)->find();
+
+        if ($this->web['web_status'] == 0) {    //关闭网站
+            return $this->fetch();
         }
 
         $tdk = WebTdk::all();
 
         $this->assign('tdk', $tdk);
-        $this->assign('web', $web);
+        $this->assign('web',  $this->web);
         $this->assign('url', $url);
         $this->assign('project_cate', $project);
         $this->assign('article_cate', $article);
-
-     
-    
     }
 
- 
+
 
     /**
      * 渲染配置信息
@@ -144,48 +144,56 @@ class Frontend extends Controller
 
 
 
-
     /**
-    * 创建静态页面
-    * @access protected
-    * @htmlfile 生成的静态文件名称
-    * @path 生成的静态文件路径
-    * @param string $templateFile 指定要调用的模板文件
-    * 默认为空 由系统自动定位模板文件
-    * @return string
-    */
+     * 创建静态页面
+     * @access protected
+     * @htmlfile 生成的静态文件名称
+     * @path 生成的静态文件路径
+     * @param string $templateFile 指定要调用的模板文件
+     * 默认为空 由系统自动定位模板文件
+     * @return string
+     */
     protected  function buildHtml($htmlfile = '', $path = '', $templateFile = '')
     {
 
-        //是否手机端访问
-        if(request()->isMobile()){
-            $htmlpath = ROOT_PATH.'public/template/mobile/'. $path.'/';
-        }else{
-            $htmlpath =ROOT_PATH.'public/template/pc/'. $path.'/';
+        if ($this->web['web_cache'] == 0) {
+            $content = $this->fetch(APP_PATH . 'index/view/' . $templateFile);
+            echo $content;
+            return ;
         }
-        $content = $this->fetch(APP_PATH.'index/view/'.$templateFile);
-        $htmlpath = !empty($htmlpath) ? $htmlpath : ROOT_PATH.'public/template/';
+
+        //是否手机端访问
+        if (request()->isMobile()) {
+            $htmlpath = ROOT_PATH . 'public/template/mobile/' . $path . '/';
+        } else {
+            $htmlpath = ROOT_PATH . 'public/template/pc/' . $path . '/';
+        }
+
+        $content = $this->fetch(APP_PATH . 'index/view/' . $templateFile);
+        $htmlpath = !empty($htmlpath) ? $htmlpath : ROOT_PATH . 'public/template/';
         $htmlfile = $htmlpath . $htmlfile . '.html';
         $File = new  \think\template\driver\File();
         $File->write($htmlfile, $content);
-        echo  $content;die;
+        echo  $content;
+        return ;
     }
 
 
+
     /**
-    * 判断静态页面是否存在
-    * @return string    $thmlFile   文件路径
-    */
+     * 判断静态页面是否存在
+     * @return string    $thmlFile   文件路径
+     */
     protected  function echoHtml($htmlFile = '')
     {
         //是否手机端访问
-        if(request()->isMobile()){
-            $file = ROOT_PATH.'public/template/mobile/'.$htmlFile.".html";
-        }else{
-            $file = ROOT_PATH.'public/template/pc/'.$htmlFile.".html";
+        if (request()->isMobile()) {
+            $file = ROOT_PATH . 'public/template/mobile/' . $htmlFile . ".html";
+        } else {
+            $file = ROOT_PATH . 'public/template/pc/' . $htmlFile . ".html";
         }
-        if(file_exists($file)){
-           return  $file;
+        if (file_exists($file)) {
+            return  $file;
         }
         return null;
     }

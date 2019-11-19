@@ -231,13 +231,13 @@ class Defult extends Paginator
                 line-height:24px;
             }
             .pagination a:hover{
-                color:#90969a;
+                color:red;
                 background: white;
-                border:1px #90969a solid;
+                border:1px red solid;
             }
             .pagination a.cur{
                 border:none;
-                background:#90969a;
+                background:red;
                 color:#fff;
             }
             .pagination p{

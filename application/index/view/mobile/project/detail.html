@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<head>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{$data.title}</title>
+	<meta name="keywords" content="{$data.keywords}" />
+	<meta name="description" content="{$data.description}" />
+	{include file="mobile/head" /}
+	<style type="text/css">
+		body {
+			background: url({#bodybg}) {
+				#bodybgrepeat
+			}
+
+			;
+		}
+	</style>
+	<script language="JavaScript" type="text/JavaScript" src="__CDN__/static/mobile/js/qt.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="__CDN__/static/home/js/msg.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#tel").blur(function () { //jquery 中change()函数  
+				$("#ts_tel").load(encodeURI("/ajax/dl_liuyan_check_ajax.php?action=checktel&id=" + $("#tel").val()));
+			});
+
+		});  
+	</script>
+</head>
+
+<body>
+
+	{include file="mobile/header"}
+
+	<div class="boxitem2" id="A">
+		<ul>
+			<!-- <li><a id="A1" href="###" onMouseOver="javascript:doClick(this,'A','current2')" class="current2">项目信息</a></li> -->
+			<li><a id="A2" href="###" onMouseOver="javascript:doClick(this,'A','current2')">项目详情</a></li>
+			<!-- <li><a id="A3" href="###" onMouseOver="javascript:doClick(this,'A','current2')">公司信息</a></li> -->
+		</ul>
+	</div>
+
+
+	<!-- <div style="display:block;" id="A_con1" class="content">
+		{$data.poster}
+
+	</div> -->
+	<div style="display:block;" id="A_con2" class="content bgcolor3">
+		<table width="100%" border="0" cellspacing="0" cellpadding="5">
+			<tr>
+				<td> </td>
+				<td   class="bigbigword">{$data.name}</td>
+			</tr>
+			<tr>
+				<td width="40%" align="center"><img src='{$data.image}' style="width: 100%;"/></td>
+				<td width="60%">
+					<table width="100%" border="0" cellpadding="5" cellspacing="1">
+
+						<tr>
+							<td>项目分类：{$data.cname}-{$data.bname}</td>
+						</tr>
+						
+						<tr>
+							<td>所在地区：</td>
+						</tr>
+						<tr>
+							<td>
+								投资金额：{if($data.price == 1 )}
+								1-3万
+								{elseif($data.price == 2)}
+								3-5万
+								{elseif($data.price == 3)}
+								5-10万
+								{elseif($data.price == 4)}
+								10万以上
+								{/if}
+							</td>
+						</tr>
+						<tr>
+							<td>加盟电话：{$data.moblie|substr=0,3}****{$data.moblie|substr=7,4}</td>
+						</tr>
+						<tr>
+								<td>代理留言：{$data.sum} 条</td>
+							</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input name="Submit" type="button" class="button_big" value="我想加盟该项目"
+						onClick="location.href='#guestbook'" /></td>
+			</tr>
+		</table>
+
+		<hr>
+		{$data.content}
+
+	</div>
+	<div style="display:none;" id="A_con3" class="content">
+		<table width="95%" border="0" cellpadding="7" cellspacing="1">
+			<tr>
+				<td>
+					<p align="left">公司名称：{$data.company_name}</p>
+				</td>
+			</tr>
+			<tr>
+				<td>公司地址：{$data.address}</td>
+			</tr>
+			<td>企业介绍：
+				<hr>{$data.company_desc}</td>
+			</tr>
+		</table>
+	</div>
+
+
+
+	<div class="titles">代理留言</div>
+	<div class="content" style="text-align: center;">
+		<form action="dl_liuyan_save.php" method="post" name="ly">
+			<a name="guestbook" id="guestbook"></a>
+			{:token()}
+			<div class="liuyanbg">
+				<table width="100%" border="0" cellpadding="5" cellspacing="0">
+					<tr>
+						<td>
+							<input name="name" type="text" size="26" maxlength="50" onblur="check_somane()" placeholder="请输入姓名（必填）" />
+							<span id="ts_name"></span>
+							<input type="hidden" name="id"  value="{$data.id}" />
+							<input type="hidden" name="company_id"  value="{$data.company_id}"/>
+							<input type="hidden" name="url"  value="{:url('/project_detail')}/"/>
+						</td>
+					</tr>
+					<tr>
+						<td><input name='tel' type='text' id='tel' size='26' maxlength='50' onblur="check_mobile()" placeholder="请输入电话（必填）"/>
+							<span id="phone"></span></td>
+					</tr>
+					<tr>
+						<td><input name="email" type="text" id="email" size="26" maxlength="50" placeholder="请输入邮箱（可不填）"/></td>
+					</tr>
+					<tr>
+						<td>
+							<textarea rows=5 cols=30 name='contents' id='contents' onfocus='check_contents()'
+								onblur='check_contents()'>我对这个产品感兴趣，请与我联系。</textarea>
+							<input name="contents2" id="contents2" style="display:none" />
+							<span id="ts_contents"></span>
+							<br />
+							<span class="liuyanbg2">
+								<input name='chcontent' type='checkbox' id='chcontent1' onClick="showinfo('content',1)"
+									value='有兴趣开一个店，请寄资料或给我打电话。' />
+								<label for='chcontent1' id='content1'>有兴趣开一个店，请寄资料或给我打电话。 </label>
+								<br />
+								<input name='chcontent' type='checkbox' id='chcontent2' onClick="showinfo('content',2);"
+									value='想了解招商细节，请尽快寄一份资料。' />
+								<label for='chcontent2' id='content2'>想了解招商细节，请尽快寄一份资料。</label>
+								<br />
+								<input name='chcontent' type='checkbox' id='chcontent3' onClick="showinfo('content',3);"
+									value='我想找一个合适的项目做，想加入您们。' />
+								<label for='chcontent3' id='content3'>我想找一个合适的项目做，想加入您们。</label>
+								<br />
+								<input name='chcontent' type='checkbox' id='chcontent4' onClick="showinfo('content',4);"
+									value='我加入你们后，您们还会提供哪些服务？' />
+								<label for='chcontent4' id='content4'>我加入你们后，您们还会提供哪些服务？</label>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<input type="button" onclick="CheckForms()"  name="tj" id="tj" value="提交" class="button_big" /> </td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+	<div style="height:30px"></div>
+	<div id="divbottomtouming">
+	</div>
+	<div id="divbottom">
+			招商电话：<a href="tel:{$web.web_phone}" style="color:#FFFFFF">{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}</a>
+	</div>
+
+
+	{include file="mobile/footer"}
+
+</body>
+
+</html>

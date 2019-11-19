@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => '9118创业商机网',
+  'name' => '991创业商机网',
   'beian' => '',
   'cdnurl' => '',
   'version' => '1.0.1',

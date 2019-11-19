@@ -7,6 +7,8 @@ use app\common\model\Category;
 use fast\Tree;
 use think\db;
 
+use function GuzzleHttp\json_encode;
+
 /**
  * 项目管理
  *
@@ -53,21 +55,23 @@ class Project extends Backend
             list($where, $sort, $order, $offset, $limit) = $this->buildparams('name');
 
             $total = $this->model
-                ->with(["category"])
+                ->with(['category','user'])
                 ->where($where)
                 ->order($sort, $order)
                 ->count();
 
             $list = $this->model
-                ->with(["category" => function ($query) {
-                    $query->withField('name,type,flag');
-                }])
+                ->with(['category','user'])
                 ->where($where)
                 ->order($sort, $order)
                 ->limit($offset, $limit)
                 ->select();
 
             $list = collection($list)->toArray();
+
+           for($i=0;$i<count($list);$i++){
+                $list[$i]['flag_data'] = $this->model->getFlagList();
+            }
 
             $result = array("total" => $total, "rows" => $list);
 
@@ -92,6 +96,31 @@ class Project extends Backend
             return $this->error('添加失败');
         }
         return $this->view->fetch();
+    }
+
+
+
+    //添加的时候公司搜索
+    public function company(){
+        $name = $this->request->param('company_name');
+        $page = $this->request->param('pageNumber');
+
+        if($name != null){
+            $user = db::name('user')->where('company_name','like','%'.$name.'%')->field('id,company_name')->page($page,10)->select();
+            $count =   db::name('user')->where('company_name','like','%'.$name.'%')->count();
+            $arr = ['list' => $user,'total' => $count];
+            return $arr;
+        }
+        $user = db::name('user')->where('type',2)->field('id,company_name')->page($page,10)->select();
+        $count = db::name('user')->count();
+        $arr = ['list' => $user,'total' => $count];
+        return $arr;
+    }
+
+
+    public function flag_edit(){
+        $data = $this->request->param('flag[]');
+        dump($data);
     }
 
 

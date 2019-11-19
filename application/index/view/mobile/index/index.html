@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{$tdk[0]->title}</title>
+	<meta content="{$tdk[0]->description}" name="description" />
+	<meta content="{$tdk[0]->keyword}" name="keywords" />
+	{include file="mobile/head"}
+</head>
+<style>
+	.content_index>.tabel>ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.content_index>.tabel>ul>li>a>img {
+		border: 1px solid #bebdbd;
+		margin-left: 10px;
+		margin-top: 5px;
+		width: 50%;
+	}
+
+	.content_index>.tabel>ul>li>p {
+		height: 20px;
+		padding-top: 2px;
+		font-size: 14px;
+		text-align: center;
+	}
+</style>
+
+<body>
+
+	{include file="mobile/header"}
+
+
+	<div style="margin-bottom:10px">
+		<div id="demo01" class="flexslider">
+
+			<div class="flex-viewport" style="overflow: hidden; position: relative; height: 198px;">
+				<ul class="slides"
+					style="height: 800%; position: absolute; width: 100%; transition-duration: 0s; transform: translate3d(0px, -396px, 0px);">
+					{volist name="slide" id="s"}
+				<li class="clone" style="display: block;">
+					<div >
+						<a href="{$s.url}">
+							<img src="{$s.image}" alt="{$s.title}" />
+						</a>
+					</div>
+					<!-- <div>{$s.title}</div> -->
+				</li>
+				{/volist}
+
+					<li class="clone" style="display: block;">
+						<div><a href="javascript:void(0)"><img
+									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824164042456.jpg" width="642"
+									height="233" alt=""></a></div>
+					</li>
+					<li class="" style="display: block;">
+						<div><a href="javascript:void(0)"><img
+									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824163934904.jpg" width="642"
+									height="233" alt=""></a></div>
+					</li>
+					<li style="display: block;" class="flex-active-slide">
+						<div><a href="javascript:void(0)"><img
+									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824164042456.jpg" width="642"
+									height="233" alt=""></a></div>
+					</li>
+					<li class="clone" style="display: block;">
+						<div><a href="javascript:void(0)"><img
+									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824163934904.jpg" width="642"
+									height="233" alt=""></a></div>
+					</li>
+				</ul>
+			</div>
+			<ol class="flex-control-nav flex-control-paging">
+				<li><a class="">1</a></li>
+				<li><a class="flex-active">2</a></li>
+			</ol>
+			<ul class="flex-direction-nav">
+				<li><a class="flex-prev" href="#">Previous</a></li>
+				<li><a class="flex-next" href="#">Next</a></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function () {
+
+				$('#demo01').flexslider({
+					animation: "slide",
+					//direction:"horizontal",
+					direction: "vertical",
+					easing: "swing"
+				});
+
+				$('#demo02').flexslider({
+					animation: "slide",
+					direction: "vertical",
+					easing: "swing"
+				});
+
+			});
+		</script>
+	</div>
+
+
+	<div style="margin-bottom:10px">
+		<div id="demo01" class="flexslider">
+			<ul class="slides">
+				{volist name="slide" id="s"}
+				<li>
+					<div>
+						<a href="{$s.url}">
+							<img src="{$s.image}" alt="{$s.title}" />
+						</a>
+					</div>
+					<!-- <div>{$s.title}</div> -->
+				</li>
+				{/volist}
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function () {
+
+				$('#demo01').flexslider({
+					animation: "slide",
+					//direction:"horizontal",
+					direction: "vertical",
+					easing: "swing"
+				});
+
+				$('#demo02').flexslider({
+					animation: "slide",
+					direction: "vertical",
+					easing: "swing"
+				});
+
+			});
+		</script>
+	</div>
+	<div>
+
+		{foreach $index as $key=>$v}
+
+		<div class="boxrow{$key+1}">
+			<div class='titlebigs titlebig{$key+1}'>
+				<h3>
+					<img src="{$v.image}" />
+					<a href="{:url('/project')}/{$v.id}">{$v.name} </a>
+				</h3>
+				<span>
+					{foreach $v.nav as $n}
+					<li><a href="{:url('/project')}/{$n.pid}/{$n.id}">{$n.name}</a>
+					</li>
+					{/foreach}
+				</span>
+			</div>
+
+			<div class="content_index">
+				<div class="tabel">
+					<ul>
+						{volist name="$v.project" id="p" offset="1" length='15'}
+						<li>
+							<a href="{:url('/project_detail')}/{$p.id}">
+								<img class="lazy" src="{$p.image}" style="width: 120px;height:90px;" />
+							</a>
+							<p>{$p.name}</p>
+						</li>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+		</div>
+		{/foreach}
+
+
+
+
+	</div>
+
+	<!-- 图文广告－Ａ区 -->
+	<div class="titles">
+		<span>
+			{volist name="advert_a.text" id="a"}
+			<a href="{$a.url}" target="_blank">{$a.title}</a>|
+			{/volist}
+			<a href="{:url('/link')}">更多...</a>
+		</span>
+		<h3>火爆招商a区</h3>
+	</div>
+	<div class="pagebody">
+		<div class="adStyle1">
+			<ul>
+				{volist name="advert_a.image" id="a"}
+				<li>
+					<a href="{$a.url}" target="_blank" style="text-align: center;">
+						<img data-original="{$a.image}" alt="{$a.title}" src="{$a.image}" style="display: inline;">
+						{$a.title}
+					</a>
+				</li>
+				{/volist}
+			</ul>
+		</div>
+	</div>
+	<!-- 图文广告－Ａ区 -->
+
+
+	<!-- 图文广告－B区 -->
+	<div class="titles">
+		<span>
+			{volist name="advert_b.text" id="b"}
+			<a href="{$b.url}" target="_blank">{$b.title}</a>|
+			{/volist}
+			<a href="{:url('/link')}">更多...</a>
+		</span>
+		<h3>火爆招商B区</h3>
+	</div>
+
+	<div class="adStyle2">
+		<ul>
+			{volist name="advert_b.image" id="b"}
+			<li>
+				<a href="{$b.url}" target="_blank" style="text-align: center;">
+					<img data-original="{$b.image}" alt="{$b.title}" src="{$b.image}" style="display: inline;">
+					{$b.title}
+				</a>
+			</li>
+			{/volist}
+		</ul>
+	</div>
+	<!-- 图文广告－B区 -->
+
+
+	<!-- 图文广告－C区 -->
+	<div class="titles">
+		<span>
+			{volist name="advert_c.image" id="c"}
+			<a href="{$c.url}" target="_blank">{$c.title}</a>|
+			{/volist}
+			<a href="{:url('/link')}">更多...</a>
+		</span>
+		<h3>火爆招商C区</h3>
+	</div>
+	<div class="adStyle3">
+		<ul>
+			{volist name="advert_c.image" id="c"}
+			<li>
+				<a href="{$c.url}" target="_blank">
+					<img data-original="{$c.image}" alt="{$c.title}" src="{$c.image}" style="display: block;">
+
+				</a>
+			</li>
+			{/volist}
+		</ul>
+	</div>
+	<!-- 图文广告－C区 -->
+
+
+	{include file="mobile/footer"}
+
+</body>
+
+</html>

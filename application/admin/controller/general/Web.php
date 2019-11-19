@@ -41,7 +41,6 @@ class Web extends Backend
     public function edit($ids = null)
     {
         if ($this->request->isPost()) {
-            $this->token();
             $row = $this->request->post("row/a");
 
             if ($row) {
@@ -62,7 +61,6 @@ class Web extends Backend
     public function tdk($ids = null)
     {
         if ($this->request->isPost()) {
-            $this->token();
             $row = $this->request->post("row/a");
 
             if ($row) {

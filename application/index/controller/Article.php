@@ -44,7 +44,7 @@ class Article extends Frontend
         //是否手机端访问
         $temp = 'article/index.html';
         if(request()->isMobile()){
-            $temp ='mobile/article.html';
+            $temp ='mobile/article/index.html';
         }
         //生成静态页面
         $this->buildHtml('index','article',$temp);
@@ -149,8 +149,8 @@ class Article extends Frontend
         $data = db::name('article')
                 ->alias('a')
                 ->field('a.id,a.category_id,a.company_id,a.title,a.createtime,a.tdk_key,a.tdk_desc,a.content,c.name,u.company_name')
-                ->join('category c','a.category_id=c.id')
-                ->join('user u','a.company_id=u.id')
+                ->join('category c','a.category_id=c.id','LEFT')
+                ->join('user u','a.company_id=u.id','LEFT')
                 ->where('a.id',$id)
                 ->find();
 
@@ -188,7 +188,7 @@ class Article extends Frontend
         //是否手机端访问
         $temp = 'article/detail.html';
         if(request()->isMobile()){
-            $temp ='mobile/article_detail.html';
+            $temp ='mobile/article/detail.html';
         }
          //生成静态页面
          $this->buildHtml($id,'article/detail/'.$cid.'/',$temp);

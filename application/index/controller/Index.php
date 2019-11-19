@@ -17,15 +17,15 @@ class Index extends Frontend
     public function index()
     {
 
-        // //是否有生成静态页面，有则访问静态页面
-        // $files = $this->echoHtml('index/index');
-        // if($files != null){
-        //     return  $this->view->fetch($files);
-        // }
+         //是否有生成静态页面，有则访问静态页面
+        $files =  parent::echoHtml('index/index');
+        if($files != null){
+            return  $this->view->fetch($files);
+        }
 
 
-        $menu = self::category('menu',9,4); //首页左侧分类,项目
-        $index = self::category('index',8,9);   //首页分类，项目
+        $menu = self::category('menu',9,9); //首页左侧分类,项目
+        $index = self::category('index',8,27);   //首页分类，项目
         $navs = self::category('navs',8,4);   //首页导航，项目
 
         $advert_a = self::advert('A',6,80); //图文广告a
@@ -69,17 +69,15 @@ class Index extends Frontend
             'user_msg' =>$user_msg,
         ]);
 
-    //    //是否手机端访问
-    //    $temp = 'index/index.html';
-    //    if(request()->isMobile()){
-    //        $temp ='mobile/index.html';
-    //    }
-    //    //生成静态页面
-    //     $this->buildHtml('index','index',$temp);
+
+     
+        //是否手机端访问
+        $temp = 'index/index.html';
         if(request()->isMobile()){
-            return   $this->view->fetch('mobile/index');
-       }
-  return   $this->view->fetch();
+            $temp ='mobile/index/index.html';
+        }
+        //生成静态页面
+        $this->buildHtml('index','index',$temp);
 
     }
 
@@ -91,21 +89,23 @@ class Index extends Frontend
     public function help()
     {
 
-        $files = $this->echoHtml('index/help');
-        if($files != null){
-            return  $this->view->fetch($files);
-        }
+         //是否有生成静态页面，有则访问静态页面
+         $files = $this->echoHtml('index/help');
+         if($files != null){
+             return  $this->view->fetch($files);
+         }
+
 
         $data = db::name('help')->where('switch',1)->whereNull('deletetime')->select();
         $this->assign('data',$data);
 
 
-         //是否手机端访问
-         $temp = 'index/help.html';
-         if(request()->isMobile()){
-             $temp ='mobile/help.html';
-         }
-         //生成静态页面
+        //是否手机端访问
+        $temp = 'index/help.html';
+        if(request()->isMobile()){
+            $temp ='mobile/index/help.html';
+        }
+        //生成静态页面
         $this->buildHtml('help','index',$temp);
     }
 
@@ -176,7 +176,7 @@ class Index extends Frontend
         //是否手机端访问
         $temp = 'index/link.html';
         if(request()->isMobile()){
-            $temp ='mobile/link.html';
+            $temp ='mobile/index/link.html';
         }
         //生成静态页面
         $this->buildHtml($page,'link/'.$path.'/',$temp);
@@ -202,7 +202,7 @@ class Index extends Frontend
             
         //是否手机端访问
         if(request()->isMobile()){
-            return $this->view->fetch('mobile/article_search');
+            return $this->view->fetch('mobile/index/article_search');
         }
          return   $this->view->fetch('article_search');
        }
@@ -238,7 +238,7 @@ class Index extends Frontend
         
         //是否手机端访问
         if(request()->isMobile()){
-            return $this->view->fetch('mobile/project_search');
+            return $this->view->fetch('mobile/index/project_search');
         }
         return   $this->view->fetch('project_search');
        }
@@ -260,7 +260,7 @@ class Index extends Frontend
     {
         $menu =  Category::getCategoryIndex('project', 'normal', $flag,$flag_number);
         for ($i = 0; $i < count($menu); $i++) {
-            $menu[$i]['sum'] = Category::where('pid', $menu[$i]['id'])->where('status','normal')->where('flag', 'like',"%".$flag."%")->count();
+            // $menu[$i]['sum'] = Category::where('pid', $menu[$i]['id'])->where('status','normal')->where('flag', 'like',"%".$flag."%")->count();
             $menu_two = Db::name('category')->where('pid', $menu[$i]['id'])->where('status','normal')->where('flag', 'like',"%".$flag."%")->limit($flag_number)->select();
 
             if ($flag == 'menu' || $flag == 'navs') { //首页左侧菜单栏的二级分类下的项目

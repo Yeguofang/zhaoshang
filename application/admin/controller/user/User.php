@@ -73,7 +73,7 @@ class User extends Backend
             $row['prevtime']  = time();
             $row['logintime']  = time();
             $row['jointime']  = time();
-            $row['type'] = 1; //内部添加
+            $row['type'] = 2; //内部添加
            $res = $this->model->save($row);
             if($res > 0){
                   $this->success('添加成功');

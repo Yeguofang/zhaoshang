@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:40:24
- * @LastEditTime: 2019-11-08 10:40:02
+ * @LastEditTime: 2019-11-19 15:42:49
  -->
 {include file="common/head" /}
 <link href="__CDN__/assets/css/frontend{$Think.config.app_debug?'':'.min'}.css?v={$Think.config.site.version}" rel="stylesheet">
@@ -62,7 +62,14 @@
                         <p class="help-block"></p>
                     </div>
                 </div>
-
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></div>
+                    <input type="text" name="captcha" class="form-control input-lg" placeholder="验证码" data-rule="{:__('Captcha')}:required;length(4)" />
+                    <span class="input-group-addon" style="padding:0;border:none;cursor:pointer;">
+                        <img src="{:rtrim('__PUBLIC__', '/')}/index.php?s=/captcha" width="100" height="40" onclick="this.src='{:rtrim('__PUBLIC__', '/')}/index.php?s=/captcha&r=' + Math.random();"/>
+                    </span>
+                </div>
+                <br/>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">{:__('Sign up')}</button>
                 </div>

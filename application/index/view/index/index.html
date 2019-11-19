@@ -7,75 +7,39 @@
     <meta content="{$tdk[0]->keyword}" name="keywords" />
     {include file="common/head" /}
 </head>
-<style>
-.content_index>.tabel>ul{
-    display: flex;
-    flex-wrap: wrap;
-}
-.content_index>.tabel>ul>li>a>img{
-    border:1px solid #bebdbd;
-    margin-left: 5px;
-    margin-top: 5px;
-    width: 120px;
-    transition: all 0.5s;  
-}
-.lazy:hover{
-    transform: scale(1.5);
-    border:5px solid #6d6a6a;
-}
 
-.content_index>.tabel>ul>li>p{
-    height: 20px;
-    padding-top: 2px;
-    font-size: 14px;
-    text-align:center;
-}
-.flexslider {
-    width: 750px;
-    height: 330px
-}
 
-.flexslider img {
-    width: 750px;
-    height: 330px
-}
-</style>
 <body>
-
-    <script type="text/javascript">
-        $(function() {
-            $("#nav").addClass("nav");
-            $("#nav").removeClass("nav2");
-        });
-    </script>
 
     {include file="common/header" /}
 
-    <!--焦点广告效果JS-->
-    <script src="__CDN__/static/home/js/slider.js" type="text/javascript" language="JavaScript"></script>
-    <!--顶部广告效果-->
-    <script type="text/javascript">
-        $(function() {
-            $("#banner").slideDown();
-            $("#banner span").click(function() {
-                $("#banner").slideUp();
-            });
-        });
-    </script>
+        <div id="demo01" class="flexslider">
+            
+            <ul class="slides">
+                {volist name="slide" id="s"}
+                <li>
+                    <div>
+                        <a href="{$s.url}"><img src="{$s.image}" style="width: 100%;" alt="{$s.title}" /></a>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+
+
     <div class="main">
         <div class="pagebody">
+
             <div class="left" style="width: 960px;">
                 <ul>
-                <!-- 项目分类 -->
-                    <li style="float:left;width:200px;">
+                    <!-- 项目分类 -->
+                    <li>
                         <div id="flzs">
                             {volist name="$menu" id="m"}
                             <div class='zsclass' onMouseOver="showfilter2(zsLayer{$m.id})" onMouseOut="showfilter2(zsLayer{$m.id})">
                                 <label>
-                                    <h2>
-                                        <img src={$m.image}>&nbsp;
-                                        <a href="{:url('/project')}/{$m.id}">{$m.name} </a> <span>(共 <b>{$m.sum}</b> 条)</span>
-                                    </h2>
+                                    <img src={$m.image}>&nbsp;
+                                    <a href="{:url('/project')}/{$m.id}" style="font-size: 16px;">{$m.name} </a>
                                     <div id="zsLayer{$m.id}" class='zsclass_s'>
                                         <div class='bigbigword ico_size'>
                                             <img src={$m.image}>&nbsp;{$m.name}
@@ -83,11 +47,12 @@
                                         {volist name="$m.nav" id="n"}
                                         <div class='zsclass_s_li'>
                                             <div class='zsclass_s_name'>
-                                                <a href="{:url('/project')}/{$n.pid}/{$n.id}">{$n.name} </a> 
-                                            </div> 
+                                                <a href="{:url('/project')}/{$n.pid}/{$n.id}">{$n.name} </a>
+                                            </div>
                                             <div class='zsclass_cp'>
                                                 {volist name="$n.project" id="p"}
-                                                    <a href="{:url('/project_detail')}/{$p.id}" target='_blank'>{$p.name}</a>&nbsp;
+                                                <a href="{:url('/project_detail')}/{$p.id}"
+                                                    target='_blank'>{$p.name}</a>&nbsp;
                                                 {/volist}
                                             </div>
                                         </div>
@@ -98,46 +63,10 @@
                             {/volist}
                         </div>
                     </li>
-            <!-- 项目分类结束 -->
-            
-                    <li style="float:left">
-                        <div>
-                           
-                            <div id="demo01" class="flexslider">
-                                <ul class="slides">
-                                    {volist name="slide" id="s"}
-                                    <li>
-                                        <div>
-                                            <a href="{$s.url}"><img src="{$s.image}"
-                                                    alt="{$s.title}" /></a>
-                                        </div>
-                                        <div>{$s.title}</div>
-                                    </li>
-                                   {/volist}
-                                </ul>
-                            </div>
-                            <script type="text/javascript">
-                                $(function () {
-
-                                    $('#demo01').flexslider({
-                                        animation: "slide",
-                                        direction: "horizontal",
-                                        //direction:"vertical",
-                                        easing: "swing"
-                                    });
-
-                                    $('#demo02').flexslider({
-                                        animation: "slide",
-                                        direction: "vertical",
-                                        easing: "swing"
-                                    });
-
-                                });
-                            </script>
-                        </div>
-                    </li>
+                    <!-- 项目分类结束 -->
                 </ul>
             </div>
+
 
             <div class="right" style="width:240px;">
                 <div class="bordercccccc">
@@ -163,107 +92,103 @@
                 </div>
                 <div class="content1">
                     <script language="javascript">
-                        $(function() {
+                        $(function () {
                             //多行应用@Mr.Think
                             var _wrap = $('ul.mulitline'); //定义滚动区域
                             var _interval = 2000; //定义滚动间隙时间
                             var _moving; //需要清除的动画
-                            _wrap.hover(function() {
+                            _wrap.hover(function () {
                                 clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
-                            }, function() {
-                                _moving = setInterval(function() {
-                                        var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处，li:first取值是变化的
-                                        var _h = _field.height(); //取得每次滚动高度
-                                        _field.animate({
-                                            marginTop: -_h + 'px'
-                                        }, 600, function() { //通过取负margin值，隐藏第一行
-                                            _field.css('marginTop', 0).appendTo(_wrap); //隐藏后，将该行的margin值置零，并插入到最后，实现无缝滚动
-                                        })
-                                    }, _interval) //滚动间隔时间取决于_interval
+                            }, function () {
+                                _moving = setInterval(function () {
+                                    var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处，li:first取值是变化的
+                                    var _h = _field.height(); //取得每次滚动高度
+                                    _field.animate({
+                                        marginTop: -_h + 'px'
+                                    }, 600, function () { //通过取负margin值，隐藏第一行
+                                        _field.css('marginTop', 0).appendTo(_wrap); //隐藏后，将该行的margin值置零，并插入到最后，实现无缝滚动
+                                    })
+                                }, _interval) //滚动间隔时间取决于_interval
                             }).trigger('mouseleave'); //函数载入时，模拟执行mouseleave，即自动滚动
                         });
                     </script>
-                    <ul class="mulitline" style="overflow:hidden;height:100px">
+                    <ul class="mulitline" style="overflow:hidden;height:240px">
                         {volist name="help" id="v"}
                         <LI>【帮助】
                             <a target="_bank" href="{:url('/help')}#{$v.id}">{$v.title}</a> </LI>
                         <LI>
-                        {/volist}
+                            {/volist}
                     </ul>
                 </div>
             </div>
         </div>
-
-
-    <!-- 图片链接 -->
-    <div class="titles">
-            <span>
-                {volist name="advert_d.text" id="d"}
-                <a href="{$d.url}" target="_blank" >{$d.title}</a>|
-                {/volist}
-                <a href="{:url('/link')}">更多...</a>
-            </span> 
-            图片链接</div>
-        <div class="content">
-            <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
-                <tr>
-                    <td width=25% bgcolor=#FFFFFF>
-                        {volist name="advert_d.image" id="d"}
-                        <a href="{$d.url}" target='_blank'><img src="{$d.image}" alt="{$d.title}" width=144 height=70 border=0 /></a>
-                        {/volist}
-                    </td>
-                </tr>
-            </table>
-        </div>
-         <!-- 图片链接 -->
+        
 
         <!-- 推荐项目开始 -->
-     
-        <div class="pagebody">
-                {foreach $index as $key=>$v}
 
-                <div class="titles titlebig{$key+1}">
-                    <span>
-                            {foreach $v.nav as $n}
-                        <a href="{:url('/project')}/{$n.pid}/{$n.id}" target="_blank" >{$n.name}</a>|
-                        {/foreach}
-                        <a href="{:url('/link')}">更多...</a>
-                    </span> 
-                   <h1>{$v.name}</h1>
-                </div>
+        <div class="pagebody" style="padding-top: 20px;">
+            {foreach $index as $key=>$v}
+            <!-- titlebig{$key+1} -->
+            <div class="titles ">
+                <span>
+                    {foreach $v.nav as $n}
+                    <a href="{:url('/project')}/{$n.pid}/{$n.id}" target="_blank">{$n.name}</a>|
+                    {/foreach}
+                    <a href="{:url('/link')}">更多...</a>
+                </span>
+                <div>
+                <h1><img src="{$v.image}" /> {$v.name}</h1>
+            </div>
+            </div>
 
-                <div class="boxrow{$key+1}">
-                    <!-- <div class='titlebigs titlebig{$key+1}'>
-                        <h3>
-                            <a href="{:url('/project')}/{$v.id}">{$v.name} </a>
-                         </h3> 
-                            <span>
-                                {foreach $v.nav as $n}
-                                <li><a href="{:url('/project')}/{$n.pid}/{$n.id}">{$n.name}</a>
-                                </li>
-                                {/foreach}
-                            </span>
-                    </div> -->
+            <div class="boxrow1">
 
-                    <div class="content_index">
-                      <div class="tabel">
+                <div class="content_index">
+                    <div class="tabel">
                         <ul>
                             {foreach $v.project as $p}
                             <li>
                                 <a href="{:url('/project_detail')}/{$p.id}" target="_bank">
-                                    <img class="lazy" src="{$p.image}" style="width: 120px;height:90px;"/>
+                                    <img class="lazy" src="{$p.image}" style="width: 120px;height:90px;" />
                                 </a>
                                 <p>{$p.name}</p>
                             </li>
                             {/foreach}
                         </ul>
-                      </div>
                     </div>
                 </div>
+            </div>
 
-                {/foreach}
+            {/foreach}
         </div>
-<!-- 推荐项目结束 -->
+        <!-- 推荐项目结束 -->
+
+
+         <!-- 图文广告－Ａ区 -->
+         <div class="titles">
+                <span>
+                    {volist name="advert_a.text" id="a"}
+                    <a href="{$a.url}" target="_blank">{$a.title}</a>|
+                    {/volist}
+                    <a href="{:url('/link')}">更多...</a>
+                </span>
+                <h3>火爆招商a区</h3>
+            </div>
+            <div class="pagebody">
+                <div class="adStyle1">
+                    <ul>
+                        {volist name="advert_a.image" id="a"}
+                        <li>
+                            <a href="{$a.url}" target="_blank" style="text-align: center;">
+                                <img data-original="{$a.image}" alt="{$a.title}" src="{$a.image}" style="display: inline;">
+                                {$a.title}
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <!-- 图文广告－Ａ区 -->
 
 
 
@@ -272,7 +197,7 @@
             <table width="100%" border="0" cellspacing="10" cellpadding="0">
                 <tr>
                     {volist name="article" id="vo" offset="0" length='4'}
-                      
+
                     <td style='width:20%;' valign="top">
                         <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}"> 更多...</a></span>
                             <h3>{$vo.name}</h3>
@@ -287,7 +212,8 @@
                                         <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                             <tr>
                                                 <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                    <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}" target="_blank">
+                                                    <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}"
+                                                        target="_blank">
                                                         <img src="{$a.image}" width="120px" height="80px">
                                                     </a>
                                                 </td>
@@ -300,19 +226,21 @@
                                         </a>
                                     </td>
                                 </tr>
-                    
+
                             </table>
                             <div class="boxxian"></div>
                             {/eq}
 
                             <ul>
                                 <LI>
-                                        <font {if($key == 0 ||$key ==1 ||$key ==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}</font>
-                                        <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title|mb_substr=0,17} </a> 
-                                </LI> 
-                            </ul> 
+                                    <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1
+                                        {else/}class=xuhao2{/if}>{$key+1} </font> <a
+                                        href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">
+                                        {$a.title|mb_substr=0,17} </a>
+                                </LI>
+                            </ul>
                             {/foreach}
-                        </div> 
+                        </div>
                     </td>
                     {/volist}
                 </tr>
@@ -320,53 +248,28 @@
         </div>
         <!-- 文章咨询－１ -->
 
-        
-
-
-        <!-- 图文广告－Ａ区 -->
-        <div class="titles">
-            <span>
-                {volist name="advert_a.text" id="a"}
-                <a href="{$a.url}" target="_blank" >{$a.title}</a>|
-                {/volist}
-                <a href="{:url('/link')}">更多...</a>
-            </span>
-            <h3>火爆招商a区</h3>
-        </div>
-        <div class="pagebody">
-            <div class="adStyle1">
-                <ul>
-                    {volist name="advert_a.image" id="a"}
-                    <li>
-                        <a  href="{$a.url}" target="_blank" style="text-align: center;">
-                            <img data-original="{$a.image}" alt="{$a.title}" src="{$a.image}" style="display: inline;">
-                            {$a.title}
-                        </a>
-                    </li>
-                    {/volist}
-                </ul>
-            </div>
-        </div>
-         <!-- 图文广告－Ａ区 -->
 
 
 
-          <!-- 图文广告－B区 -->
+       
+
+
+        <!-- 图文广告－B区 -->
         <div class="titles">
             <span>
                 {volist name="advert_b.text" id="b"}
-                <a href="{$b.url}" target="_blank" >{$b.title}</a>|
+                <a href="{$b.url}" target="_blank">{$b.title}</a>|
                 {/volist}
                 <a href="{:url('/link')}">更多...</a>
             </span>
             <h3>火爆招商B区</h3>
         </div>
-        
+
         <div class="adStyle2">
             <ul>
                 {volist name="advert_b.image" id="b"}
                 <li>
-                    <a  href="{$b.url}" target="_blank" style="text-align: center;">
+                    <a href="{$b.url}" target="_blank" style="text-align: center;">
                         <img data-original="{$b.image}" alt="{$b.title}" src="{$b.image}" style="display: inline;">
                         {$b.title}
                     </a>
@@ -377,11 +280,11 @@
         <!-- 图文广告－B区 -->
 
 
-         <!-- 图文广告－C区 -->
+        <!-- 图文广告－C区 -->
         <div class="titles">
             <span>
                 {volist name="advert_c.image" id="c"}
-                <a href="{$c.url}" target="_blank" >{$c.title}</a>|
+                <a href="{$c.url}" target="_blank">{$c.title}</a>|
                 {/volist}
                 <a href="{:url('/link')}">更多...</a>
             </span>
@@ -391,71 +294,74 @@
             <ul>
                 {volist name="advert_c.image" id="c"}
                 <li>
-                    <a href="{$c.url}" target="_blank" >
+                    <a href="{$c.url}" target="_blank">
                         <img data-original="{$c.image}" alt="{$c.title}" src="{$c.image}" style="display: block;">
-                      
+
                     </a>
                 </li>
                 {/volist}
             </ul>
         </div>
-         <!-- 图文广告－C区 -->
-        
+        <!-- 图文广告－C区 -->
+
 
         <!-- 文章咨询－2 -->
         <div class="bordercccccc" style="margin-bottom:10px">
-                <table width="100%" border="0" cellspacing="10" cellpadding="0">
-                    <tr>
-                        {volist name="article" id="vo" offset="4" length='4'}
-                          
-                        <td style='width:20%;' valign="top">
-                            <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}"> 更多...</a></span>
-                                <h3>{$vo.name}</h3>
-                            </div>
-                            <div class='content2'>
-                                {foreach $vo.content as $key=>$a}
-    
-                                {eq name="$key" value="0"}
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td height="90px">
-                                            <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
-                                                <tr>
-                                                    <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                                        <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}" target="_blank">
-                                                            <img src="{$a.image}" width="150px" height="110px">
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style='padding-left:5px'>
-                                            <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}" target="_blank">
-                                                <b>{$a.title}</b><br>
-                                            </a>
-                                        </td>
-                                    </tr>
-                        
-                                </table>
-                                <div class="boxxian"></div>
-                                {/eq}
-    
-                                <ul>
-                                    <LI>
-                                        <font {if($key == 0 ||$key ==1 ||$key ==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}</font>
-                                        <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title|mb_substr=0,15}... </a> 
-                                    </LI> 
-                                </ul> 
-                                {/foreach}
-                            </div> 
-                        </td>
-                        {/volist}
-                    </tr>
-                </table>
-            </div>
-            <!-- 文章咨询－2 -->
-    
-    
+            <table width="100%" border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                    {volist name="article" id="vo" offset="4" length='4'}
+
+                    <td style='width:20%;' valign="top">
+                        <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}"> 更多...</a></span>
+                            <h3>{$vo.name}</h3>
+                        </div>
+                        <div class='content2'>
+                            {foreach $vo.content as $key=>$a}
+
+                            {eq name="$key" value="0"}
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="90px">
+                                        <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
+                                            <tr>
+                                                <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
+                                                    <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}"
+                                                        target="_blank">
+                                                        <img src="{$a.image}" width="150px" height="110px">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style='padding-left:5px'>
+                                        <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}" target="_blank">
+                                            <b>{$a.title}</b><br>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            <div class="boxxian"></div>
+                            {/eq}
+
+                            <ul>
+                                <LI>
+                                    <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1
+                                        {else/}class=xuhao2{/if}>{$key+1} </font> <a
+                                        href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">
+                                        {$a.title|mb_substr=0,15}... </a>
+                                </LI>
+                            </ul>
+                            {/foreach}
+                        </div>
+                    </td>
+                    {/volist}
+                </tr>
+            </table>
+        </div>
+        <!-- 文章咨询－2 -->
+
+
 
 
         <div class="pagebody">
@@ -471,14 +377,14 @@
                         <div class='zsclass_s_zhankai_style2'>
                             <h2><img src="{$n.image}">&nbsp;
                                 <a href="{:url('/project')}/{$n.id}">{$n.name}
-                                                                                                                                                                                                                                                                                                                                                                                                        </a>
+                                </a>
                             </h2>
 
                             {volist name="$n.nav" id="t"}
                             <div class='zsclass_s_li'>
                                 <div class='zsclass_s_name'>
                                     <a href="{:url('/project')}/{$t.pid}/{$t.id}">{$t.name}
-                                                                                                                                                                                                                                                                                                                                                                                                            </a>
+                                    </a>
                                 </div>
                                 <div class='zsclass_cp'>
                                     {volist name="$t.project" id="p"}
@@ -486,11 +392,11 @@
                                     {/volist}
                                 </div>
                             </div>
-                           {/volist}
+                            {/volist}
                         </div>
                     </div>
                     {/volist}
-                    
+
                 </div>
             </div>
             <!-- 创业项目导航 -->
@@ -504,23 +410,23 @@
                 </div>
                 <div class="content1">
                     <script language="javascript">
-                        $(function() {
+                        $(function () {
                             //多行应用@Mr.Think
                             var _wrap = $('ul.dl'); //定义滚动区域
                             var _interval = 2000; //定义滚动间隙时间
                             var _moving; //需要清除的动画
-                            _wrap.hover(function() {
+                            _wrap.hover(function () {
                                 clearInterval(_moving); //当鼠标在滚动区域中时,停止滚动
-                            }, function() {
-                                _moving = setInterval(function() {
-                                        var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处，li:first取值是变化的
-                                        var _h = _field.height(); //取得每次滚动高度
-                                        _field.animate({
-                                            marginTop: -_h + 'px'
-                                        }, 600, function() { //通过取负margin值，隐藏第一行
-                                            _field.css('marginTop', 0).appendTo(_wrap); //隐藏后，将该行的margin值置零，并插入到最后，实现无缝滚动
-                                        })
-                                    }, _interval) //滚动间隔时间取决于_interval
+                            }, function () {
+                                _moving = setInterval(function () {
+                                    var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处，li:first取值是变化的
+                                    var _h = _field.height(); //取得每次滚动高度
+                                    _field.animate({
+                                        marginTop: -_h + 'px'
+                                    }, 600, function () { //通过取负margin值，隐藏第一行
+                                        _field.css('marginTop', 0).appendTo(_wrap); //隐藏后，将该行的margin值置零，并插入到最后，实现无缝滚动
+                                    })
+                                }, _interval) //滚动间隔时间取决于_interval
                             }).trigger('mouseleave'); //函数载入时，模拟执行mouseleave，即自动滚动
                         });
                     </script>
@@ -532,7 +438,8 @@
                                     <td class="x_bottom">
                                         <table width="62" height="62 " border="0" cellspacing="1" class="bgcolor3">
                                             <tr>
-                                                <td class="bgcolor1"><img data-original='' onload='resizeimg(60,60,this)'></td>
+                                                <td class="bgcolor1"><img data-original=''
+                                                        onload='resizeimg(60,60,this)'></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -553,15 +460,15 @@
 
 
 
-        
+
         <!-- 图片链接 -->
         <div class="titles">
             <span>
                 {volist name="advert_d.text" id="d"}
-                <a href="{$d.url}" target="_blank" >{$d.title}</a>|
+                <a href="{$d.url}" target="_blank">{$d.title}</a>|
                 {/volist}
                 <a href="{:url('/link')}">更多...</a>
-            </span> 
+            </span>
             图片链接</div>
         <div class="content">
             <table width='100%' border='0' cellpadding='2' cellspacing='1' class='bgcolor2'>
@@ -576,17 +483,17 @@
                 </tr>
             </table>
         </div>
-         <!-- 图片链接 -->
-        
+        <!-- 图片链接 -->
 
-         <!-- 文字链接 -->
+
+        <!-- 文字链接 -->
         <div class="titles">
             <span>
                 {volist name="advert_e.text" id="e"}
-                <a href="{$e.url}" target="_blank" >{$e.title}</a>|
+                <a href="{$e.url}" target="_blank">{$e.title}</a>|
                 {/volist}
                 <a href="{:url('/link')}">更多...</a>
-            </span> 
+            </span>
             <h3>文字链接</h3>
         </div>
         <div class="content1">
@@ -601,9 +508,9 @@
             </table>
         </div>
         <!-- 文字链接 -->
-        
+
         <!-- 客服中心 -->
-        <div class="titles"><span></span>
+        <!-- <div class="titles"><span></span>
             <h3> 客服中心</h3>
         </div>
         <div id="kefu">
@@ -611,18 +518,44 @@
                 <ul>
                     <li>
                         李志阳 手机：17746959588 QQ：357856668
-                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin=357856668&amp;&amp;Menu=yes" target="blank"><img alt="在线客服QQ" border="0" src="" /> </a>
+                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin={$web.web_qq}&amp;&amp;Menu=yes"
+                            target="blank"><img alt="在线客服QQ" border="0" src="" /> </a>
                     </li>
                 </ul>
             </div>
             <br />
-        </div>
+        </div> -->
         <!-- 客服中心 -->
     </div>
 
 
     {include file="common/footer"}
- 
+
+    <!--焦点广告效果JS-->
+    <script src="__CDN__/static/home/js/slider.js" type="text/javascript" language="JavaScript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#nav").addClass("nav");
+            $("#nav").removeClass("nav2");
+
+            $("#banner").slideDown();
+            $("#banner span").click(function () {
+                $("#banner").slideUp();
+            });
+            $('#demo01').flexslider({
+                animation: "slide",
+                direction: "horizontal",
+                //direction:"vertical",
+                easing: "swing"
+            });
+
+            $('#demo02').flexslider({
+                animation: "slide",
+                direction: "vertical",
+                easing: "swing"
+            });
+        });
+    </script>
 </body>
 
 </html>

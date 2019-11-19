@@ -1,6 +1,6 @@
 @charset "utf-8";
 div, address, iframe, ul, ol,h1, h2, h3, h4, h5, h6, p, pre, caption,form, legend, fieldset, textarea{margin: 0;padding: 0;font-weight: normal;font-style: normal;font-family: inherit;font-size: 100%;}
-ul,li{list-style:none;}
+ul,li{list-style:none;margin-bottom: 5px;}
 body{max-width:760px;color: #444444;background-color:#FFFFFF;margin:0px auto;font-size: 14px;line-height:20px;word-break:break-all;font-family: Arial, Helvetica, sans-serif,宋体,simsun;}
 a{color: #444444;text-decoration: none;}
 a:hover {color: #FF0000;text-decoration: underline;}
@@ -218,16 +218,17 @@ hr{height:1px;border:none;border-top:solid 1px #cccccc;}
 .titlebigs span li a{display:block;min-width:40px;padding:0 8px;background:url(../images/tm_fff.png);text-align:center;height:30px;line-height:30px;overflow: hidden;}
 .titlebigs span li a:hover{background:url(../images/tm_000.png);}
 
+
 .titlebig1{background-color:#e7b800;}
-.titlebig2{background-color:#399B9C;}
-.titlebig3{background-color:#FF4b78;}
-.titlebig4{background-color:#e04dff;}
-.titlebig5{background-color:#924bff;}
-.titlebig6{background-color:#4d8cff;}
+.titlebig2{background-color:rgb(124, 206, 207);}
+.titlebig3{background-color:rgb(243, 141, 167);}
+.titlebig4{background-color:#f39fc6;}
+.titlebig5{background-color:#d0b1fd;}
+.titlebig6{background-color:#89ccd1;}
 .titlebig7{background-color:#84d151;}
 .titlebig8{background-color:#E66440;}
 
-.content_index{padding:5px;color:#666666;background-color:#FFF;height:300px;width:100%}
+.content_index{padding:5px;color:#666666;background-color:#FFF;height:650px;width:100%}
 
 /*图片广告效果*/
 .chanagecolor a{display:block;padding:1px;border:1px solid #eeeeee;}

@@ -2,12 +2,7 @@
     <div class="form-group">
             <label class="control-label col-xs-12 col-sm-1">所属公司</label>
             <div class="col-xs-12 col-sm-4">
-                <select id="c-company_id" data-rule="required" class="form-control selectpicker" name="row[company_id]">
-                    <option value="">请选择</option>
-                    {volist name="user" id="u"}
-                    <option value="{$u.id}">{$u.company_name}</option>
-                    {/volist}
-                </select>
+                <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text" value="">
             </div> 
         </div> 
 

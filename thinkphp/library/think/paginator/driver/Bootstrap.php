@@ -236,7 +236,7 @@ class Bootstrap extends Paginator
                 margin:0 auto;
             }
             .pagination p:hover{
-                color:#90969a;
+                color:red;
                 background: white;
                 border:1px red solid;
             }
@@ -259,13 +259,13 @@ class Bootstrap extends Paginator
                 line-height:24px;
             }
             .pagination a:hover{
-                color:#90969a;
+                color:red;
                 background: white;
                 border:1px red solid;
             }
             .pagination a.cur{
                 border:none;
-                background:#90969a;
+                background:red;
                 color:#fff;
             }
             .pagination p{

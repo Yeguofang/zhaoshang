@@ -7,6 +7,9 @@
                 <option value="{$u.id}"{in name="$u.id" value="$row.company_id"} selected {/in}>{$u.company_name}</option>
                 {/volist}
             </select>
+
+            <!-- <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text" value=""> -->
+           
         </div> 
     </div> 
     <div class="form-group">

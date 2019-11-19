@@ -53,7 +53,7 @@ class Project extends Frontend
                     ->field('p.id,p.address,p.name,p.keywords,p.description,p.city,p.price,p.moblie,p.prouse,p.image,c.areaname,c.areaname')
                     ->where('switch',1)
                     ->where('category_id', $id)
-                    ->join('china c','p.address=c.id')
+                    ->join('china c','p.address=c.id','LEFT')
                     ->paginate(10);
 
             $hot = db::name('project')
@@ -81,7 +81,7 @@ class Project extends Frontend
                     ->field('p.id,p.address,p.name,p.keywords,p.description,p.city,p.price,p.moblie,p.prouse,p.image,c.areaname')
                     ->where('switch',1)
                     ->where('category_id', 'in', $id)
-                    ->join('china c','p.address=c.id')
+                    ->join('china c','p.address=c.id','LEFT')
                     ->paginate(10);
 
             $hot = db::name('project')
@@ -121,6 +121,7 @@ class Project extends Frontend
             $p[$i]['msg'] = db::name('message')->where('pid',$p[$i]['id'])->count();
         }
 
+
         $this->assign('category', $category);
         $this->assign('project', $project);
         $this->assign('projects', $p);
@@ -132,7 +133,7 @@ class Project extends Frontend
         //是否手机端访问
         $temp = 'project/list.html';
         if(request()->isMobile()){
-            $temp ='mobile/project_list.html';
+            $temp ='mobile/project/list.html';
         }
         //生成静态页面
         $this->buildHtml($page,$path,$temp);
@@ -208,7 +209,7 @@ class Project extends Frontend
         //是否手机端访问
         $temp = 'project/detail.html';
         if(request()->isMobile()){
-            $temp ='mobile/project_detail.html';
+            $temp ='mobile/project/detail.html';
         }
         //生成静态页面
         $this->buildHtml($id,'project/detail',$temp);
@@ -245,7 +246,7 @@ class Project extends Frontend
          //是否手机端访问
          $temp = 'project/ranking.html';
          if(request()->isMobile()){
-             $temp ='mobile/ranking.html';
+             $temp ='mobile/project/ranking.html';
          }
          //生成静态页面
          $this->buildHtml('ranking','project',$temp);

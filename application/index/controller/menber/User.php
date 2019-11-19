@@ -118,7 +118,7 @@ class User extends Frontend
             ];
 
             $msg = [
-                'username.require' => 'Username can not be empty',
+                'username.require' => '账号不能为空',
                 'username.length'  => 'Username must be 3 to 30 characters',
                 'password.require' => 'Password can not be empty',
                 'password.length'  => 'Password must be 6 to 30 characters',

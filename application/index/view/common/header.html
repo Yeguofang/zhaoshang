@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-09 12:00:21
- * @LastEditTime: 2019-11-09 12:00:21
+ * @LastEditTime: 2019-11-19 15:31:19
  -->
 <div class="main">
     <div id="banner"><span>关闭</span></div>
@@ -72,9 +72,10 @@
     </div>
 </div>
 
-<div class="nav2" id="nav">
+<div class="nav2">
     <div class="main">
         <ul>
+            <li class="current"><a>创业好项目</a></li>
             <li class="current"><a href="{:url('/')}">首页</a></li>
             {volist name="project_cate" id="c"}
             <li><a href="{:url('/project')}/{$c.id}">{$c.name}</a></li>
