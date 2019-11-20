@@ -68,6 +68,9 @@ class Category extends Backend
             $tree->init($list_data,'pid');
             $list = $tree->getTreeList($tree->getTreeArray(0), 'name');
 
+            for($i=0;$i<count($list);$i++){
+                $list[$i]['flag_data'] = $this->model->getFlagList();
+            }
 
             $result = array("total" => $total, "rows" => $list);
 
@@ -75,6 +78,8 @@ class Category extends Backend
         }
         return $this->view->fetch();
     }
+
+
 
     /**
      * 编辑
@@ -129,6 +134,20 @@ class Category extends Backend
     }
 
 
+
+        //修改位置
+        public function flag_edit(){
+            $row = $this->request->param();
+            $res = db::name('category')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+            if($res == 1){
+                 return  $this->success('修改成功');
+            }
+            return $this->error('修改失败');
+        }
+    
+
+
+    //删除
     public function del($ids= null){
 
         if ($ids) {

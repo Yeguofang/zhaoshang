@@ -51,23 +51,24 @@ class Article extends Backend
             list($where, $sort, $order, $offset, $limit) = $this->buildparams('title');
 
             $total = $this->model
-                ->with(["category"])
-                // ->with(['user'])
+                ->with(['category','user'])
                 ->where($where)
                 ->order($sort, $order)
                 ->count();
 
             $list = $this->model
-                ->with(["category"=>function($query){
-                    $query->withField('name,type,flag');
-                }])
-                // ->with(['user'])
+                ->with(['category','user'])
                 ->where($where)
                 ->order($sort, $order)
                 ->limit($offset, $limit)
                 ->select();
 
+                
             $list = collection($list)->toArray();
+            for($i=0;$i<count($list);$i++){
+                $list[$i]['flag_data'] = $this->model->getFlagList();
+            }
+
             $result = array("total" => $total, "rows" => $list);
 
             return json($result);
@@ -94,6 +95,17 @@ class Article extends Backend
         parent::edit($ids);
        return  $this->view->fetch();
     }
+
+        //修改位置
+        public function flag_edit(){
+            $row = $this->request->param();
+            $res = db::name('article')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+            if($res == 1){
+                 return  $this->success('修改成功');
+            }
+            return $this->error('修改失败');
+        }
+    
 
 
      /**

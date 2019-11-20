@@ -1,5 +1,5 @@
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefined, Backend, Table, Form) {
-
+   
     var Controller = {
         index: function() {
             // 初始化表格参数配置
@@ -14,8 +14,42 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 }
             });
 
-              //控制弹窗大小
-            Fast.config.openArea = ['90%','90%'];
+        var buttons = [
+                    //修改flag的按钮操操作
+                    {
+                        name: 'edit_flag',
+                        text: '修改',
+                        title: '修改标志',
+                        classname: 'btn btn-xs btn-info btn-click',
+                        click:function(row,data){
+                            var chk_value =[];//定义一个数组    
+                            $("input[name='"+data.id+"_flag']:checked").each(function(){//遍历每一个名字为nodes的复选框，其中选中的执行函数    
+                                chk_value.push($(this).val());//将选中的值添加到数组chk_value中    
+                            });
+                            var groups = chk_value.join(",");
+                            $.ajax({
+                                type: "post",
+                                async: false,
+                                url: "project/flag_edit",
+                                //后台数据处理-下面有具体实现
+                                data: {flag:groups,id:data.id},
+                                success: function (res) {
+                                    if (res.code == 1) {
+                                        layer.msg(res.msg, { icon: 1, time: 1000 });
+                                        //关闭当前frame
+                                        $(".btn-refresh").trigger("click");
+                                    } else {
+                                        layer.msg(res.msg, { icon: 2, time: 1300 });
+                                    }
+                                }
+                            });
+                        },
+                    },
+
+                ];
+
+             
+            Fast.config.openArea = ['90%','90%']; //控制弹窗大小
 
             var table = $("#table");
 
@@ -24,27 +58,30 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 pk: 'id',
                 sortName: 'id',
+                clickToSelect:false,
                 columns: [
                     [
                         { checkbox: true },
-                        { field: 'id', title: __('Id') ,operate:false},
-                        { field: 'category.name', title: __('所属分类'),operate:false},
-                        { field: 'category_id', title: __('所属分类'),visible:false,operate:'IN',searchList:$.getJSON('/mufan.php/project/search')},
-                        { field: 'flag', title: __('位置'),witdh:200,formatter:Controller.api.formatter.falg,searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }, operate: 'FIND_IN_SET'},//formatter: Table.api.formatter.label
-                        { field: 'image', title: __('缩略图'), operate:false,events: Table.api.events.image, formatter: Table.api.formatter.image },
-                        { field: 'user.company_name', title: __('公司名称') ,operate:'LIKE'},
-                        { field: 'name', title: __('项目名称') ,operate:'LIKE'},
-                        { field: 'createtime', title: __('创建时间'), operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
-                        { field: 'updatetime', title: __('更新时间'), operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
-                        { field: 'weigh', title: __('排序') ,operate:false},
-                        { field: 'switch', title: __('状态'), searchList: { 1: "显示", 0: "隐藏" }, formatter: Table.api.formatter.toggle },
-                        { field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate }
+                        { field: 'id', title: 'Id' ,operate:false},
+                        { field: 'category.name', title: '所属分类',operate:false},
+                        { field: 'category_id', title: '所属分类',visible:false,operate:'IN',searchList:$.getJSON('/mufan.php/project/search')},
+                        { field: 'name', title: '项目名称' ,operate:'LIKE',},
+                        { field: 'image', title: '缩略图', operate:false,events: Table.api.events.image, formatter: Table.api.formatter.image },
+                        { field: 'user.company_name', title: '公司名称' ,operate:'LIKE'},
+                        { field: 'flag', title: '标志',operate: 'FIND_IN_SET',width:200,formatter:Controller.api.formatter.falg,searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }},
+                        { field: '-', title:'',table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
+                        { field: 'switch', title: '状态', searchList: { 1: "显示", 0: "隐藏" }, formatter: Table.api.formatter.toggle },
+                        { field: 'weigh', title: '排序' ,operate:false},
+                        { field: 'createtime', title: '创建时间', operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
+                        { field: 'updatetime', title: '更新时间', operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
+                        { field: 'operate', title: '操作', table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate, },
                     ]
                 ]
             });
 
             // 为表格绑定事件
             Table.api.bindevent(table);
+            table.off('dbl-click-row.bs.table'); //取消双击行之后进入编辑页面
         },
   
 
@@ -66,14 +103,14 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 columns: [
                     [
                         { checkbox: true },
-                        { field: 'id', title: __('Id'),operate:false },
-                        { field: 'title', title: __('Title'),operate:'LIKE', align: 'left' },
-                        { field: 'category.name', title: __('所属分类'),operate:false},
-                        { field: 'category_id', title: __('所属分类'),visible:false,operate:'IN',searchList:$.getJSON('/mufan.php/project/search')},
-                        { field: 'flag', title: __('标志'), searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }, operate: 'FIND_IN_SET', formatter: Table.api.formatter.label },
+                        { field: 'id', title: 'Id',operate:false },
+                        { field: 'title', title: 'Title',operate:'LIKE', align: 'left' },
+                        { field: 'category.name', title: '所属分类',operate:false},
+                        { field: 'category_id', title: '所属分类',visible:false,operate:'IN',searchList:$.getJSON('/mufan.php/project/search')},
+                        { field: 'flag', title: '标志', searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }, operate: 'FIND_IN_SET', formatter: Table.api.formatter.label },
                         {
                             field: 'deletetime',
-                            title: __('删除时间'),
+                            title: '删除时间',
                             operate: 'RANGE',
                             addclass: 'datetimerange',
                             formatter: Table.api.formatter.datetime
@@ -81,12 +118,12 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                         {
                             field: 'operate',
                             width: '130px',
-                            title: __('Operate'),
+                            title: 'Operate',
                             table: table,
                             events: Table.api.events.operate,
                             butts: [{
                                     name: 'Restore',
-                                    text: __('Restore'),
+                                    text: 'Restore',
                                     classname: 'btn btn-xs btn-info btn-ajax btn-restoreit',
                                     icon: 'fa fa-rotate-left',
                                     url: 'project/restore',
@@ -94,7 +131,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                                 },
                                 {
                                     name: 'Destroy',
-                                    text: __('Destroy'),
+                                    text: 'Destroy',
                                     classname: 'btn btn-xs btn-danger btn-ajax btn-destroyit',
                                     icon: 'fa fa-times',
                                     url: 'project/destroy',
@@ -123,24 +160,26 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 Form.api.bindevent($("form[role=form]"));
             },
             formatter:{
+                //渲染位置的方法
                 falg:function (value,row,index) {
-                    var html ="<form id='edit-form' class='form-horizontal' role='form' method='POST' action='/mufan.php/project/flag_edit'>"; //html内容
-                    var flag = value.split(','); //将flag字段的值转换为数组
+                    var html='';
+                    var flag = value.split(',') //将flag字段的值转换为数组
                     $.each(row.flag_data, function(i, item){    //遍历 flag_data 数组
                         var ck = '';
+                        var bg ="style='color:green'";
                           for(var v in flag){   //遍历flag数组
                             if(flag[v] == i){   //比较是否相同 相同则选中
                                 ck = "checked='checked'";
+                                bg ="style='color:red'";
                             }
-                          }
-                            html+= "<input type='checkbox' value='"+i+"'"+ck+" name='flag[]'>"+item+" ";
+                        }
+                        html+= "<input type='checkbox'  value='"+i+"'"+ck+" name='"+row.id+"_flag'><label class='label' "+bg+">"+item+"</label>";
                     });
-
-                    html+=" <button type='submit' class='btn btn-success btn-embossed'>修改</button></form>";
-                     return html;
+                    return html;
                 },
             },
         },
     };
+  
     return Controller;
 });

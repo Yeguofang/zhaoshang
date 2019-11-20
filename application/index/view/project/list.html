@@ -38,7 +38,7 @@
                         {volist name="hot" id="h"}
                         <li><span style="width:80px" title="阅832次">({$h.views})</span>
                             <font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2"
-                                {/if}>{$key+1} </font> <a href="/zx/show-38.htm">
+                                {/if}>{$key+1} </font> <a target="_bank" href="{:url('/project_detail')}/{$h.id}">
                                 {$h.name|mb_substr=0,10}</a>
                         </li>
                         {/volist}
@@ -53,7 +53,7 @@
                         {volist name="recommend"" id="h"}
                         <li><span style="width:80px" title="阅832次">({$h.views})</span>
                             <font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2"
-                                {/if}>{$key+1} </font> <a href="/zx/show-38.htm">
+                                {/if}>{$key+1} </font> <a target="_bank" href="{:url('/project_detail')}/{$h.id}">
                                 {$h.name|mb_substr=0,10}</a>
                         </li>
                         {/volist}
@@ -107,7 +107,7 @@
                                         <tr>
                                             <td valign='top' style='padding-right:10px'> 所在地区：{$p.areaname}
                                                 <br> 招商区域：{$p.city}
-                                                <br> 产品特点：{$p.prouse}
+                                                <br> 项目特点：{$p.prouse}
                                                 <br> 投资额度：{if($p.price == 1 )}
                                                 1-3万
                                                 {elseif($p.price == 2)}

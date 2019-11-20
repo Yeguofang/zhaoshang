@@ -57,8 +57,11 @@ class Advert extends Backend
 
             $list = collection($list)->toArray();
 
-            $result = array("total" => $total, "rows" => $list);
+            for($i=0;$i<count($list);$i++){
+                $list[$i]['flag_data'] = $this->model->getFlagList();
+            }
 
+            $result = array("total" => $total, "rows" => $list);
             return json($result);
         }
         return $this->view->fetch();
@@ -85,6 +88,16 @@ class Advert extends Backend
        return  $this->view->fetch();
     }
 
+
+      //修改位置
+      public function flag_edit(){
+        $row = $this->request->param();
+        $res = db::name('advert')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+        if($res == 1){
+             return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
+    }
 
      /**
      * 回收站

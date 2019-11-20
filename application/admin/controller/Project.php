@@ -118,9 +118,14 @@ class Project extends Backend
     }
 
 
+    //修改位置
     public function flag_edit(){
-        $data = $this->request->param('flag[]');
-        dump($data);
+        $row = $this->request->param();
+        $res = db::name('project')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+        if($res == 1){
+             return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
     }
 
 

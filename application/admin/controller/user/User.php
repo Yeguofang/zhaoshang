@@ -19,6 +19,7 @@ class User extends Backend
      * @var \app\admin\model\User
      */
     protected $model = null;
+    protected $multiFields = "status";  //开关字段
 
     public function _initialize()
     {

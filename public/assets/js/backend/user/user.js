@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:37:44
- * @LastEditTime: 2019-11-13 15:55:12
+ * @LastEditTime: 2019-11-20 16:48:51
  */
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
@@ -15,7 +15,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     add_url: 'user/user/add',
                     edit_url: 'user/user/edit',
                     // del_url: 'user/user/del',
-                    // multi_url: 'user/user/multi',
+                    multi_url: 'user/user/multi',
                     table: 'user',
                 }
             });
@@ -44,7 +44,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'logintime', title: __('Logintime'), formatter: Table.api.formatter.datetime, operate: 'RANGE', addclass: 'datetimerange', sortable: true},
                         {field: 'loginip', title: __('Loginip'), formatter: Table.api.formatter.search},
                         {field: 'jointime', title: __('注册时间'), formatter: Table.api.formatter.datetime, operate: 'RANGE', addclass: 'datetimerange', sortable: true},
-                        {field: 'status', title: __('Status'), formatter: Table.api.formatter.status, searchList: {normal: __('Normal'), hidden: __('Hidden')}},
+                        {field: 'status', title: __('Status'), searchList:{"normal": __('正常'),'hidden' : __('隐藏')}, formatter: Table.api.formatter.toggle,yes: 'normal', no: 'hidden'},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

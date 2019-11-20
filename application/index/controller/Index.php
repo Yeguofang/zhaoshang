@@ -140,7 +140,7 @@ class Index extends Frontend
             ->where('type', 0)
             ->where('switch', 1)
             ->order('createtime desc')
-            ->paginate(1, false, ['var_page'=>'text','type'=>'defult']);
+            ->paginate(60, false, ['var_page'=>'text','type'=>'defult']);
 
         //图片广告
         $image =  db::name('advert')
@@ -148,7 +148,7 @@ class Index extends Frontend
             ->where('type',1)
             ->where('switch',1)
             ->order('createtime desc')
-            ->paginate(1,false,['var_page'=>'image','type'=>'defult']);
+            ->paginate(30,false,['var_page'=>'image','type'=>'defult']);
 
         
         //热门项目
@@ -312,6 +312,7 @@ class Index extends Frontend
             $category[$i]['content'] = db::name('article')
                 ->field('id,title,image,category_id,views')
                 ->where('category_id',$category[$i]['id'])
+                ->where('flag','like','%'.$flag.'%')
                 ->order('createtime desc')
                 ->limit($limit)
                 ->select();
