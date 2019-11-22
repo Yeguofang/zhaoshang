@@ -182,6 +182,8 @@ class Project extends Frontend
             }
 
         }
+
+        db::name('project')->where('id',$id)->setInc('views',1);
         
 
         //是否有生成静态页面，有则访问静态页面

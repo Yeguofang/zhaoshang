@@ -117,6 +117,17 @@
   <!-- 编辑器源码文件 -->
   <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
   <script>
-                // 实例化编辑器 
-                var editor = UE.getEditor('container');
-  </script>
+        // 实例化编辑器 
+        UE.getEditor('container');
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function (action) {
+            console.log(action);
+            if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+                return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+            } else if (action == 'uploadvideo') {
+                return '';
+            } else {
+                return this._bkGetActionUrl.call(this, action);
+            }
+        }   
+    </script>

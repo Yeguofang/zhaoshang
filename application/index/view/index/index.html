@@ -151,7 +151,7 @@
                                 <a href="{:url('/project_detail')}/{$p.id}" target="_bank">
                                     <img class="lazy" src="{$p.image}" style="width: 120px;height:90px;" />
                                 </a>
-                                <p>{$p.name}</p>
+                                <p>{$p.name|mb_substr=0,8}</p>
                             </li>
                             {/foreach}
                         </ul>

@@ -72,7 +72,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'image', title: __('Image'), operate: false, events: Table.api.events.image, formatter: Table.api.formatter.image},
                         {field: 'name', title: __('Name'),width:200,operate: 'LIKE',align: 'left'},
                         {field: 'flag', title: __('位置'), operate: 'FIND_IN_SET',width:500, formatter:Controller.api.formatter.flag,searchList:{'index': __('首页'),'navs' : __('首页导航'), 'menu' : __('菜单'),'hot':__('热门'),'recommend' : __('推荐'),'top' : __('顶部'),'home' : __('主页')}},
-                        { field: '-', title:'',width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
+                        { field: '-', title:'',operate:false,width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
                         {field: 'weigh', title: __('Weigh'),operate: false,},
                         {field: 'status', title: __('Status'), searchList:{"normal": __('正常'),'hidden' : __('隐藏')}, formatter: Table.api.formatter.status},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}

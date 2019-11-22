@@ -177,7 +177,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1">{:__('项目特点')}:</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-description" data-rule="required" class="form-control" name="row[prouse]"
+                    <input id="c-description" class="form-control" name="row[prouse]"
                         type="text" value="{$row.prouse|htmlentities}">
                 </div>
             </div>
@@ -212,44 +212,50 @@
 <script>
         $(document).ready(function(){
         
-                      // 实例化编辑器 
-                      var editor = UE.getEditor('container');
-        
-                       // 实例化编辑器 
-                       var poster = UE.getEditor('poster');
-        
-        
-                    var city = document.getElementById("city");//获取ID
-                    //定义对应的省 市 区数组
-                    var DomArr = [];//此数组用于存储数据，判断重复
-                    city.onchange = function()//触发事件
-                    {
-                        var name = city.options[city.selectedIndex].innerHTML;//获取选中文本
-                        var value = city.options[city.selectedIndex].value;//获取选中文本
-        
-                        var String = "<option selected value="+value+">" + name + "</option>";
-                        var istrue = false;//是否添加（重复）
-                        DomArr.forEach(function( val, index ) {
-                            if(val==String){
-                                istrue=true;
-                            }
-                        });
-                        if(!istrue){
-                            DomArr.push(String);
-                            $('#box').append(String);
-                        }
-                    }
-                    
-                    
-                    //删除已添加到select的值
-                     $('#del').click(function () {
-                        var box = $("#box");
-                        var name = box.find("option:selected").innerHTML;//获取选中文本
-                        var value = box.find("option:selected").value;//获取选中文本
-                        box.find("option:selected").remove();   //删除option
-                        var String = "<option value="+value+">" + name + "</option>";
-                        var local = $.inArray(String, DomArr); //根据元素值查找下标，不存在返回-1
-                        DomArr.splice(local,1);//根据下标删除一个元素   1表示删除一个元素
-                    })
-        });
-        </script>
+            UE.getEditor('container');
+            UE.getEditor('poster');
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype.getActionUrl = function (action) {
+                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+                    return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+                } else if (action == 'uploadvideo') {
+                    return '';
+                } else {
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            }   
+
+            var city = document.getElementById("city");//获取ID
+            //定义对应的省 市 区数组
+            var DomArr = [];//此数组用于存储数据，判断重复
+            city.onchange = function()//触发事件
+            {
+                var name = city.options[city.selectedIndex].innerHTML;//获取选中文本
+                var value = city.options[city.selectedIndex].value;//获取选中文本
+
+                var String = "<option selected value="+value+">" + name + "</option>";
+                var istrue = false;//是否添加（重复）
+                DomArr.forEach(function( val, index ) {
+                    if(val==String){
+                        istrue=true;
+                    }
+                });
+                if(!istrue){
+                    DomArr.push(String);
+                    $('#box').append(String);
+                }
+            }
+            
+            
+            //删除已添加到select的值
+                $('#del').click(function () {
+                var box = $("#box");
+                var name = box.find("option:selected").innerHTML;//获取选中文本
+                var value = box.find("option:selected").value;//获取选中文本
+                box.find("option:selected").remove();   //删除option
+                var String = "<option value="+value+">" + name + "</option>";
+                var local = $.inArray(String, DomArr); //根据元素值查找下标，不存在返回-1
+                DomArr.splice(local,1);//根据下标删除一个元素   1表示删除一个元素
+            })
+});
+</script>

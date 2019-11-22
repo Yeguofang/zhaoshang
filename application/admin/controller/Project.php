@@ -22,7 +22,7 @@ class Project extends Backend
     protected $relationSearch = true; //开启关联查询
     protected $multiFields = "switch";  //开关字段
     protected $noNeedLogin = [];    //不需要登录能访问的方法
-    protected $noNeedRight = ['search'];     //不用权限但要登录后能访问的方法
+    protected $noNeedRight = ['search,flag_edit'];     //不用权限但要登录后能访问的方法
     protected $searchCate = []; //存放分类数据
 
 
@@ -211,8 +211,13 @@ class Project extends Backend
             $list = $this->model->onlyTrashed()->select();
             foreach ($list as $k => $v) {
                 img_file_del($v['image'],'111');  //删除缩略图
-                del_content_img($v['content']);//删除富文本内容的图片
-                del_content_img($v['poster']);//删除海报富文本的图片
+                $cont_img = del_content_img($v['content']);//删除富文本内容的图片
+                $poster_img =del_content_img($v['poster']);//删除海报富文本的图片
+                array_push($cont_img,$v['image']); 
+                $count_img = array_merge($poster_img,$cont_img); //合并要删除的链接
+                foreach($count_img as $i){
+                    db::name('attachment')->where('url',$i)->delete();
+                } 
 
                 $count += $v->delete(true); //删除数据
             }

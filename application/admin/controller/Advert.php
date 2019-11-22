@@ -18,6 +18,7 @@ class Advert extends Backend
 
     protected $multiFields = "switch";
     protected $relationSearch = true; //开启关联查询
+    protected $noNeedRight = ['flag_edit'];     //不用权限但要登录后能访问的方法
 
     public function _initialize()
     {
@@ -152,6 +153,7 @@ class Advert extends Backend
             foreach ($list as $k => $v) {
                 if($v['type'] != 0){ //是图片类型的数据才删除图片
                     img_file_del($v['image'],'111');  //删除缩略图
+                    db::name('attachment')->where('url',$v['image'])->delete();
                 }
                 $count += $v->delete(true); //删除数据
             }

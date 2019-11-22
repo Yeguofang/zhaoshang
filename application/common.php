@@ -3,12 +3,12 @@
 // 公共助手函数
 
 
-//返回表格数据
+//用户后台中心的返回表格数据
 if (!function_exists('tableData')) {
-    function tableData($code='', $msg='', $data='', $count='')
+    function tableData($code = '', $msg = '', $data = '', $count = '')
     {
         $result = [
-            'code' =>$code,
+            'code' => $code,
             'msg' => $msg,
             'data' => $data,
             'count' => $count,
@@ -25,9 +25,9 @@ if (!function_exists('oneImg')) {
         $images = '~<img [^>]*>~';
         preg_match_all($images, $content, $ereg);
         if (count($ereg[0]) > 0) {
-	    $img = $ereg[0][0];//图片
-            $p = "#src=('|\")(.*)('|\")#isU";//正则表达式
-	    preg_match_all($p, $img, $imgs);
+            $img = $ereg[0][0]; //图片
+            $p = "#src=('|\")(.*)('|\")#isU"; //正则表达式
+            preg_match_all($p, $img, $imgs);
             $img_path = $imgs[2][0];
             return $img_path;
         }
@@ -39,53 +39,57 @@ if (!function_exists('oneImg')) {
 if (!function_exists('del_content_img')) {
     function del_content_img($content)
     {
+        $result = []; //返回图片路径用于删除数据库记录
         $images = '~<img [^>]*>~';
         preg_match_all($images, $content, $ereg);
         if (count($ereg[0]) > 0) {
-            for ($i=0;$i<count($ereg[0]);$i++) {
-                $img = $ereg[0][$i];//图片
-        $p = "#src=('|\")(.*)('|\")#isU";//正则表达式
-        preg_match_all($p, $img, $imgs);
-                if (file_exists($_SERVER['DOCUMENT_ROOT'].$imgs[2][0])) {
-                    unlink($_SERVER['DOCUMENT_ROOT'].$imgs[2][0]);
+            for ($i = 0; $i < count($ereg[0]); $i++) {
+                $img = $ereg[0][$i]; //图片
+                $p = "#src=('|\")(.*)('|\")#isU"; //正则表达式
+                preg_match_all($p, $img, $imgs);
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $imgs[2][0])) {
+                    array_push($result,$imgs[2][0]);
+                    unlink($_SERVER['DOCUMENT_ROOT'] . $imgs[2][0]);
+                }
+            }
+        }
+        return $result;
+    }
+}
+
+
+//删除图片文件
+if (!function_exists('img_file_del')) {
+    function img_file_del($img, $new_img)
+    {
+        if ($new_img != null) {
+            if (strcmp($new_img, $img) != 0) {
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $img)) {
+                    unlink($_SERVER['DOCUMENT_ROOT'] . $img);
                 }
             }
         }
     }
 }
 
-
-//删除图片文件
-if(!function_exists('img_file_del')){
-	function img_file_del($img,$new_img){
-		if($new_img != null){
-			if(strcmp($new_img,$img) !=0 ){
-				if(file_exists($_SERVER['DOCUMENT_ROOT'].$img)){
-					unlink($_SERVER['DOCUMENT_ROOT'].$img);
-				}
-			}
-		}
-	}   
-}
-
 //递归
 if (!function_exists('getTree')) {
-	function getTree($data, $id = 0)
-	{
-	    $child = [];
-	    foreach ($data as $key => $datum) {
-		if ($datum['pid'] == $id) {
-			$datum['name'] = substr($datum['name'],strpos($datum['name'],"/"));
-			if ($datum['menu'] ==1) { // 是否菜单实例化
-		   		 $child[$datum['id']] = $datum;
-				unset($data[$key]);
-				$child[$datum['id']]['child'] = getTree($data, $datum['id']);
-			}
-		}
-	    }
-	    
-	    return $child;
-	}
+    function getTree($data, $id = 0)
+    {
+        $child = [];
+        foreach ($data as $key => $datum) {
+            if ($datum['pid'] == $id) {
+                $datum['name'] = substr($datum['name'], strpos($datum['name'], "/"));
+                if ($datum['menu'] == 1) { // 是否菜单实例化
+                    $child[$datum['id']] = $datum;
+                    unset($data[$key]);
+                    $child[$datum['id']]['child'] = getTree($data, $datum['id']);
+                }
+            }
+        }
+
+        return $child;
+    }
 }
 
 if (!function_exists('__')) {
@@ -249,12 +253,10 @@ if (!function_exists('copydirs')) {
         if (!is_dir($dest)) {
             mkdir($dest, 0755, true);
         }
-        foreach (
-            $iterator = new RecursiveIteratorIterator(
+        foreach ($iterator = new RecursiveIteratorIterator(
                 new RecursiveDirectoryIterator($source, RecursiveDirectoryIterator::SKIP_DOTS),
                 RecursiveIteratorIterator::SELF_FIRST
-            ) as $item
-        ) {
+            ) as $item) {
             if ($item->isDir()) {
                 $sontDir = $dest . DS . $iterator->getSubPathName();
                 if (!is_dir($sontDir)) {

@@ -1,35 +1,51 @@
-
-
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-22 12:04:24
+ * @LastEditTime: 2019-11-22 12:04:24
+ -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
-        <div class="form-group">
-            <label class="control-label col-xs-12 col-sm-2">{:__('标题')}:</label>
-            <div class="col-xs-12 col-sm-8">
-                <input id="c-title" data-rule="required" class="form-control" name="row[title]" value="{$row.title}" type="text" >
-            </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('标题')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" data-rule="required" class="form-control" name="row[title]" value="{$row.title}"
+                type="text">
         </div>
-       
-        <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-2">{:__('内容')}:</label>
-                <div class="col-xs-12 col-sm-8">
-                        <script id="container" name="row[content]" type="text/plain">{$row.content}</script>
-                </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('内容')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <script id="container" name="row[content]" type="text/plain">{$row.content}</script>
         </div>
-    
-        <div class="form-group layer-footer">
-            <label class="control-label col-xs-12 col-sm-2"></label>
-            <div class="col-xs-12 col-sm-8">
-                <button type="submit" class="btn btn-success btn-embossed ">{:__('OK')}</button>
-                <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
-            </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed ">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
         </div>
-    </form>
-    
-      <!-- 配置文件 -->
-      <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.config.js"></script>
-      <!-- 编辑器源码文件 -->
-      <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
-      <script>
-                    // 实例化编辑器 
-                    var editor = UE.getEditor('container');
-      </script>
+    </div>
+</form>
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="__CDN__/static/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
+<script>
+    // 实例化编辑器 
+    UE.getEditor('container');
+    UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+    UE.Editor.prototype.getActionUrl = function (action) {
+        console.log(action);
+        if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+            return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+        } else if (action == 'uploadvideo') {
+            return '';
+        } else {
+            return this._bkGetActionUrl.call(this, action);
+        }
+    }   
+</script>

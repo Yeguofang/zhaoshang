@@ -139,6 +139,7 @@ class Article extends Frontend
         }
 
 
+        db::name('article')->where('id',$id)->setInc('views',1);
 
         //是否有生成静态页面，有则访问静态页面
         $files = $this->echoHtml('article/detail/'.$cid.'/'.$id);

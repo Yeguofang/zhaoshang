@@ -156,6 +156,7 @@ class Frontend extends Controller
     protected  function buildHtml($htmlfile = '', $path = '', $templateFile = '')
     {
 
+        //是否开启缓存
         if ($this->web['web_cache'] == 0) {
             $content = $this->fetch(APP_PATH . 'index/view/' . $templateFile);
             echo $content;
@@ -169,7 +170,9 @@ class Frontend extends Controller
             $htmlpath = ROOT_PATH . 'public/template/pc/' . $path . '/';
         }
 
+
         $content = $this->fetch(APP_PATH . 'index/view/' . $templateFile);
+
         $htmlpath = !empty($htmlpath) ? $htmlpath : ROOT_PATH . 'public/template/';
         $htmlfile = $htmlpath . $htmlfile . '.html';
         $File = new  \think\template\driver\File();

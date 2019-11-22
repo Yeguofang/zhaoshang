@@ -12,12 +12,16 @@
 		display: flex;
 		flex-wrap: wrap;
 	}
+	.content_index>.tabel>ul>li {
+		margin:2% 1% 0px 1%;
+		margin-top: 5px;
+		width: 31%;
+	}
 
 	.content_index>.tabel>ul>li>a>img {
 		border: 1px solid #bebdbd;
-		margin-left: 10px;
-		margin-top: 5px;
-		width: 50%;
+		width: 100%;
+		height: 90px;
 	}
 
 	.content_index>.tabel>ul>li>p {
@@ -31,75 +35,6 @@
 <body>
 
 	{include file="mobile/header"}
-
-
-	<div style="margin-bottom:10px">
-		<div id="demo01" class="flexslider">
-
-			<div class="flex-viewport" style="overflow: hidden; position: relative; height: 198px;">
-				<ul class="slides"
-					style="height: 800%; position: absolute; width: 100%; transition-duration: 0s; transform: translate3d(0px, -396px, 0px);">
-					{volist name="slide" id="s"}
-				<li class="clone" style="display: block;">
-					<div >
-						<a href="{$s.url}">
-							<img src="{$s.image}" alt="{$s.title}" />
-						</a>
-					</div>
-					<!-- <div>{$s.title}</div> -->
-				</li>
-				{/volist}
-
-					<li class="clone" style="display: block;">
-						<div><a href="javascript:void(0)"><img
-									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824164042456.jpg" width="642"
-									height="233" alt=""></a></div>
-					</li>
-					<li class="" style="display: block;">
-						<div><a href="javascript:void(0)"><img
-									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824163934904.jpg" width="642"
-									height="233" alt=""></a></div>
-					</li>
-					<li style="display: block;" class="flex-active-slide">
-						<div><a href="javascript:void(0)"><img
-									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824164042456.jpg" width="642"
-									height="233" alt=""></a></div>
-					</li>
-					<li class="clone" style="display: block;">
-						<div><a href="javascript:void(0)"><img
-									src="http://3158.zzcms.net/uploadfiles/2018-08/20180824163934904.jpg" width="642"
-									height="233" alt=""></a></div>
-					</li>
-				</ul>
-			</div>
-			<ol class="flex-control-nav flex-control-paging">
-				<li><a class="">1</a></li>
-				<li><a class="flex-active">2</a></li>
-			</ol>
-			<ul class="flex-direction-nav">
-				<li><a class="flex-prev" href="#">Previous</a></li>
-				<li><a class="flex-next" href="#">Next</a></li>
-			</ul>
-		</div>
-		<script type="text/javascript">
-			$(function () {
-
-				$('#demo01').flexslider({
-					animation: "slide",
-					//direction:"horizontal",
-					direction: "vertical",
-					easing: "swing"
-				});
-
-				$('#demo02').flexslider({
-					animation: "slide",
-					direction: "vertical",
-					easing: "swing"
-				});
-
-			});
-		</script>
-	</div>
 
 
 	<div style="margin-bottom:10px">
@@ -160,9 +95,9 @@
 						{volist name="$v.project" id="p" offset="1" length='15'}
 						<li>
 							<a href="{:url('/project_detail')}/{$p.id}">
-								<img class="lazy" src="{$p.image}" style="width: 120px;height:90px;" />
+								<img class="lazy" src="{$p.image}" />
 							</a>
-							<p>{$p.name}</p>
+							<p>{$p.name|mb_substr=0,12}</p>
 						</li>
 						{/volist}
 					</ul>

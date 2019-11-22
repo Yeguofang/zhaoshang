@@ -64,14 +64,14 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                         { field: 'title', title: __('Title') ,operate:'LIKE'},
                         { field: 'image', title: __('缩略图'), operate:false,events: Table.api.events.image, formatter: Table.api.formatter.image },
                         { field: 'user.company_name', title: __('用户') ,operate:'LIKE'},
-                        { field: 'url', title: __('URL链接') ,operate:'LIKE'},
+                        { field: 'url', title: __('URL链接') ,operate:'LIKE',formatter: Table.api.formatter.url},
                         { field: 'flag', title: __('标志'), operate: 'FIND_IN_SET',formatter:Controller.api.formatter.flag,searchList: { "A": 'A区', "B": 'B区', "C": 'C区',"D": 'D区',"E": 'E区'},  },
-                        { field: '-', title:'',width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
+                        { field: '-', title:'',operate:false,width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
                         { field: 'weigh', title: __('排序') ,operate:false},
                         { field: 'switch', title: __('状态'), searchList: { 1: "显示", 0: "隐藏" }, formatter: Table.api.formatter.toggle },
-                        { field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate },
                         { field: 'createtime', title: __('创建时间'), operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
                         { field: 'updatetime', title: __('更新时间'), operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
+                        { field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate },
                     ]
                 ]
             });

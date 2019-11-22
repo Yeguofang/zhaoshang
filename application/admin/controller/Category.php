@@ -21,7 +21,7 @@ class Category extends Backend
      */
     protected $model = null;
     protected $categorylist = [];
-    protected $noNeedRight = ['selectpage'];
+    protected $noNeedRight = ['search,flag_edit,selectpage'];     //不用权限但要登录后能访问的方法
 
     public function _initialize()
     {

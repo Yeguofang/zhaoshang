@@ -10,7 +10,7 @@
     <script type="text/javascript" src="__CDN__/static/home/js/jquery.js"></script>
     <script type="text/javascript" src="__CDN__/static/home/js/jdimg.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $.focus("#focus001");
             $.focus("#focus002");
         });
@@ -20,26 +20,26 @@
             width: 300px;
             height: 315px;
         }
-        
+
         .focus img {
             border: 0;
             width: 300px;
             height: 315px;
         }
-        
+
         .focus ul li {
             width: 300px;
             height: 315px;
         }
-        
+
         .focus .btnBg {
             display: block;
         }
-        
+
         .focus .btnBg {
             width: 300px;
         }
-        
+
         .focus .btn {
             width: 300px;
         }
@@ -60,7 +60,8 @@
                                 <ul>
                                     {volist name="slide" id="s"}
                                     <li>
-                                        <a href="{:url('/article_detail')}/{$s.category_id}/{$s.id}" target="_blank"><img src="{$s.image}" /></a>
+                                        <a href="{:url('/article_detail')}/{$s.category_id}/{$s.id}"
+                                            target="_blank"><img src="{$s.image}" /></a>
                                         <div class="divtitle">{$s.title}</div>
                                     </li>
                                     {/volist}
@@ -75,7 +76,8 @@
                                     <tr>
                                         <td>
                                             <div class="bigbigword2 center">
-                                                <A href="{:url('/article_detail')}/{$h.category_id}/{$h.id}" target="_blank">{$h.title}</a>
+                                                <A href="{:url('/article_detail')}/{$h.category_id}/{$h.id}"
+                                                    target="_blank">{$h.title}</a>
                                             </div>
                                             <div style="padding-bottom:10px">{$h.desc}</div>
                                         </td>
@@ -94,8 +96,9 @@
                     <ul>
                         {volist name="recommend" id="r"}
                         <LI><span style='width:80px' title="阅832次">(832)</span>
-                            <font {if($key == 0 ||$key ==1 ||$key ==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}</font>
-                            <A href="{:url('/article_detail')}/{$r.category_id}/{$r.id}">{$r.title|mb_substr=0,11}...</A>
+                            <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}
+                                </font> <A href="{:url('/article_detail')}/{$r.category_id}/{$r.id}">
+                                {$r.title|mb_substr=0,11}...</A>
                         </LI>
                         {/volist}
                     </ul>
@@ -103,15 +106,14 @@
 
             </div>
         </div>
-        
-        
-      
+
+
 
         <div class='titles'>
             <span></span>图片资讯
         </div>
-            <ul>
-                {volist name="image" id="i"}
+        <ul>
+            {volist name="image" id="i"}
             <li style='width:50%;float: left;' valign="top">
                 <div class='content2'>
                     <table border="0" cellspacing="0" cellpadding="0">
@@ -120,8 +122,9 @@
                                 <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
                                     <tr>
                                         <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
-                                            <a href="{:url('/article_detail')}/{$i.category_id}/{$i.id}" target="_blank">
-                                                <img src="{$i.image}" width="150px"height="110px">
+                                            <a href="{:url('/article_detail')}/{$i.category_id}/{$i.id}"
+                                                target="_blank">
+                                                <img src="{$i.image}" width="150px" height="110px">
                                             </a>
                                         </td>
                                     </tr>
@@ -134,37 +137,40 @@
                                 {$i.desc}<a href="{:url('/article_detail')}/{$i.category_id}/{$i.id}">[ 查看... ]</a>
                             </td>
                         </tr>
-            
+
                     </table>
                     <div class="boxxian"></div>
-                </div> 
+                </div>
             </li>
             {/volist}
         </ul>
 
-
         <div class="bordercccccc">
             <table width="100%" border="0" cellspacing="10" cellpadding="0">
-                
-                    {volist name="home" id="h"}
-                    {if($key == 3 || $key == 6)} <tr>{/if}
+                {volist name="home" id="h"}
+                {if($key%3 == 0)} <tr>{/if}
                     <td style='width:33%;' valign="top">
-                        <div class='titles'><span><a href="{:url('/article')}/{$h.id}"> 更多...</a></span>{$h.name}</div>
+                        <div class='titles'><span><a href="{:url('/article_list')}/{$h.id}"> 更多...</a></span>{$h.name}</div>
                         <div class='content2'>
                             <ul>
                                 {volist name="h.content" id="c"}
                                 <LI>
-                                        <font {if($key == 0 ||$key ==1 ||$key ==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}</font>
-                                    <A href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">{$c.title}</A>
+                                    <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1
+                                        {else/}class=xuhao2{/if}>{$key+1} </font> <A
+                                        href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">{$c.title}</A>
                                 </LI>
-                               {/volist}
+                                {/volist}
                             </ul>
                         </div>
                     </td>
-                    {if($key == 3|| $key == 6)}</tr>{/if}
-                    {/volist}
+                    {if($key%3 == 2)}</tr>{/if}
+                {/volist}
             </table>
         </div>
+
+
+
+
 
         <div class="box" style="margin-top:8px">
             声明：本站部分图文内容取自互联网。您若发现有侵犯您著作权行为，请及时告知，我们将在第一时间删除侵权作品、停止继续传播。

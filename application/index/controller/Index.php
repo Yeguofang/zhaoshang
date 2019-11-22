@@ -69,14 +69,13 @@ class Index extends Frontend
             'user_msg' =>$user_msg,
         ]);
 
-
-     
         //是否手机端访问
         $temp = 'index/index.html';
         if(request()->isMobile()){
             $temp ='mobile/index/index.html';
         }
         //生成静态页面
+      
         $this->buildHtml('index','index',$temp);
 
     }
@@ -105,6 +104,7 @@ class Index extends Frontend
         if(request()->isMobile()){
             $temp ='mobile/index/help.html';
         }
+
         //生成静态页面
         $this->buildHtml('help','index',$temp);
     }
@@ -172,7 +172,7 @@ class Index extends Frontend
             'text' =>$text,
             'image' =>$image,
         ]);
-
+     
         //是否手机端访问
         $temp = 'index/link.html';
         if(request()->isMobile()){

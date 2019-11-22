@@ -222,6 +222,18 @@
                   // 实例化海报编辑器 
                 var poster_ed = UE.getEditor('poster');
 
+                UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+                UE.Editor.prototype.getActionUrl = function (action) {
+                    console.log(action);
+                    if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+                        return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+                    } else if (action == 'uploadvideo') {
+                        return '';
+                    } else {
+                        return this._bkGetActionUrl.call(this, action);
+                    }
+                }   
+
                 //监听提交
                 form.on('submit(add)', function (data) {
                     //文本编辑器内容

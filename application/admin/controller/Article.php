@@ -21,7 +21,7 @@ class Article extends Backend
     protected $multiFields = "switch";
     protected $relationSearch = true;//关联查询
     protected $noNeedLogin = [];    //不需要登录能访问的方法
-    protected $noNeedRight = ['search'];     //不用权限但要登录后能访问的方法
+    protected $noNeedRight = ['search,flag_edit'];     //不用权限但要登录后能访问的方法
     protected $searchCate = []; //存放分类数据
 
     public function _initialize()
@@ -161,8 +161,11 @@ class Article extends Backend
             $list = $this->model->onlyTrashed()->select();
             foreach ($list as $k => $v) {
                 img_file_del($v['image'],'111');  //删除缩略图
-                del_content_img($v['content']);//删除富文本内容的图片
-                
+                $cont_img = del_content_img($v['content']);//删除富文本内容的图片
+                array_push($cont_img,$v['image']);
+                foreach($cont_img as $i){
+                    db::name('attachment')->where('url',$i)->delete();
+                } 
                 $count += $v->delete(true); //删除数据
             }
             Db::commit();

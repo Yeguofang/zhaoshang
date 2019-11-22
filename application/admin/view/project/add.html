@@ -165,14 +165,12 @@
                 </div>
             </div>
             <div class="form-group">
-                    <label class="control-label col-xs-12 col-sm-1">{:__('项目特点')}:</label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input id="c-description" data-rule="required" class="form-control" name="row[prouse]"
-                            type="text" >
-                    </div>
+                <label class="control-label col-xs-12 col-sm-1">{:__('项目特点')}:</label>
+                <div class="col-xs-12 col-sm-4">
+                    <input id="c-description" class="form-control" name="row[prouse]"
+                        type="text" >
                 </div>
-    
-
+            </div>
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1">海报</label>
                 <div class="col-xs-12 col-sm-11">
@@ -205,11 +203,20 @@
 <script>
 $(document).ready(function(){
 
-              // 实例化编辑器 
-              var editor = UE.getEditor('container');
+            UE.getEditor('container');
+            UE.getEditor('poster');
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype.getActionUrl = function (action) {
+                console.log(action);
+                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+                    return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+                } else if (action == 'uploadvideo') {
+                    return '';
+                } else {
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            }   
 
-               // 实例化编辑器 
-               var poster = UE.getEditor('poster');
 
 
             var city = document.getElementById("city");//获取ID

@@ -103,6 +103,35 @@ class User extends Backend
     }
 
 
+
+    //删除
+    public function del($ids =null){
+        $project = db::name('project')->where('company_id',$ids)->count();
+        if($project > 0){
+            $this->error('该公司还有项目数据，禁止删除！');
+        }
+        $article = db::name('article')->where('company_id',$ids)->count();
+        if($article > 0){
+            $this->error('该公司还有新闻数据，禁止删除！');
+        }
+        $advert = db::name('advert')->where('company_id',$ids)->count();
+        if($advert > 0){
+            $this->error('该公司还有广告数据，禁止删除！');
+        }
+        $row = $this->model->get($ids);
+        $count_img =del_content_img($row->company_desc);//删除富文本的图片
+        foreach($count_img as $v){
+            db::name('attachment')->where('url',$v)->delete();
+        } 
+        $res = $row->delete();
+        if($res > 0 ){
+            $this->success('删除成功');
+        }
+        $this->error('删除失败！');
+
+    }
+
+
    
 
 

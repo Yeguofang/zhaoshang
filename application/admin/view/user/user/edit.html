@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:36:00
- * @LastEditTime: 2019-11-13 15:51:29
+ * @LastEditTime: 2019-11-22 10:52:31
  -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
@@ -111,6 +111,17 @@
  <!-- 编辑器源码文件 -->
  <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
  <script>
-    // 实例化编辑器 
-    var editor = UE.getEditor('container');
- </script>
+        // 实例化编辑器 
+        UE.getEditor('container');
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function (action) {
+            console.log(action);
+            if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
+                return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+            } else if (action == 'uploadvideo') {
+                return '';
+            } else {
+                return this._bkGetActionUrl.call(this, action);
+            }
+        }   
+    </script>

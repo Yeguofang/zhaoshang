@@ -1,0 +1,1 @@
+DIR *.* /ash>LIST.TXT
