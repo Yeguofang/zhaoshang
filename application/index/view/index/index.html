@@ -134,7 +134,7 @@
                     {foreach $v.nav as $n}
                     <a href="{:url('/project')}/{$n.pid}/{$n.id}" target="_blank">{$n.name}</a>|
                     {/foreach}
-                    <a href="{:url('/link')}">更多...</a>
+                    <a href="{:url('/project')}/{$v.id}" rel="nofollow" >更多...</a>
                 </span>
                 <div>
                 <h1><img src="{$v.image}" /> {$v.name}</h1>
@@ -147,7 +147,7 @@
                     <div class="tabel">
                         <ul>
                             {foreach $v.project as $p}
-                            <li>
+                            <li style="margin: 0px 2px 0px 2px;">
                                 <a href="{:url('/project_detail')}/{$p.id}" target="_bank">
                                     <img class="lazy" src="{$p.image}" style="width: 120px;height:90px;" />
                                 </a>
@@ -170,7 +170,7 @@
                     {volist name="advert_a.text" id="a"}
                     <a href="{$a.url}" target="_blank">{$a.title}</a>|
                     {/volist}
-                    <a href="{:url('/link')}">更多...</a>
+                    <a href="{:url('/link')}" rel="nofollow" >更多...</a>
                 </span>
                 <h3>火爆招商a区</h3>
             </div>
@@ -199,10 +199,10 @@
                     {volist name="article" id="vo" offset="0" length='4'}
 
                     <td style='width:20%;' valign="top">
-                        <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}"> 更多...</a></span>
+                        <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}" rel="nofollow" >更多...</a></span>
                             <h3>{$vo.name}</h3>
                         </div>
-                        <div class='content2'>
+                        <div class='content2' style="height: 390px;">
                             {foreach $vo.content as $key=>$a}
 
                             {eq name="$key" value="0"}
@@ -230,15 +230,16 @@
                             </table>
                             <div class="boxxian"></div>
                             {/eq}
-
+                            {if($key > 0)}
                             <ul>
                                 <LI>
                                     <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1
                                         {else/}class=xuhao2{/if}>{$key+1} </font> <a
                                         href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">
-                                        {$a.title|mb_substr=0,17} </a>
+                                        {$a.title|mb_substr=0,15}... </a>
                                 </LI>
                             </ul>
+                            {/if}
                             {/foreach}
                         </div>
                     </td>
@@ -248,19 +249,13 @@
         </div>
         <!-- 文章咨询－１ -->
 
-
-
-
-       
-
-
         <!-- 图文广告－B区 -->
         <div class="titles">
             <span>
                 {volist name="advert_b.text" id="b"}
                 <a href="{$b.url}" target="_blank">{$b.title}</a>|
                 {/volist}
-                <a href="{:url('/link')}">更多...</a>
+                <a href="{:url('/link')}" rel="nofollow" >更多...</a>
             </span>
             <h3>火爆招商B区</h3>
         </div>
@@ -268,9 +263,9 @@
         <div class="adStyle2">
             <ul>
                 {volist name="advert_b.image" id="b"}
-                <li>
+                <li style="width: 16.6%;">
                     <a href="{$b.url}" target="_blank" style="text-align: center;">
-                        <img data-original="{$b.image}" alt="{$b.title}" src="{$b.image}" style="display: inline;">
+                        <img src="{$b.image}" style="display: inline;">
                         {$b.title}
                     </a>
                 </li>
@@ -286,7 +281,7 @@
                 {volist name="advert_c.image" id="c"}
                 <a href="{$c.url}" target="_blank">{$c.title}</a>|
                 {/volist}
-                <a href="{:url('/link')}">更多...</a>
+                <a href="{:url('/link')}" rel="nofollow" >更多...</a>
             </span>
             <h3>火爆招商C区</h3>
         </div>
@@ -312,10 +307,10 @@
                     {volist name="article" id="vo" offset="4" length='4'}
 
                     <td style='width:20%;' valign="top">
-                        <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}"> 更多...</a></span>
+                        <div class='titles'><span><a href="{:url('/article_list')}/{$vo.id}" rel="nofollow" >更多...</a></span>
                             <h3>{$vo.name}</h3>
                         </div>
-                        <div class='content2'>
+                        <div class='content2' style="height: 390px;">
                             {foreach $vo.content as $key=>$a}
 
                             {eq name="$key" value="0"}
@@ -327,7 +322,11 @@
                                                 <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
                                                     <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}"
                                                         target="_blank">
+                                                        {if($a.image != null)}
                                                         <img src="{$a.image}" width="150px" height="110px">
+                                                        {else/}
+                                                        <img src="{$web.web_logo}" width="150px" height="110px">
+                                                        {/if}
                                                     </a>
                                                 </td>
                                             </tr>
@@ -339,19 +338,20 @@
                                         </a>
                                     </td>
                                 </tr>
-
                             </table>
                             <div class="boxxian"></div>
                             {/eq}
-
+                            {if($key > 0)}
                             <ul>
                                 <LI>
                                     <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1
                                         {else/}class=xuhao2{/if}>{$key+1} </font> <a
                                         href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">
-                                        {$a.title|mb_substr=0,15}... </a>
+                                        {$a.title|mb_substr=0,30}...</a>
+                                        <span style="float: right;">{$a.createtime|date='Y-m-d',###}</span>
                                 </LI>
                             </ul>
+                            {/if}
                             {/foreach}
                         </div>
                     </td>
@@ -370,10 +370,10 @@
                 <div class="titles">
                     创业项目导航
                 </div>
-                <div class="flzs_zhankai">
+                <div class="flzs_zhankai" >
 
                     {volist name="navs" id="n"}
-                    <div class='zsclass_zhankai'>
+                    <div class="zsclass_zhankai" {if($key%2 == 1)} style="border-left: 1px rgb(201, 199, 199) solid;"{/if}>
                         <div class='zsclass_s_zhankai_style2'>
                             <h2><img src="{$n.image}">&nbsp;
                                 <a href="{:url('/project')}/{$n.id}">{$n.name}
@@ -386,10 +386,12 @@
                                     <a href="{:url('/project')}/{$t.pid}/{$t.id}">{$t.name}
                                     </a>
                                 </div>
-                                <div class='zsclass_cp'>
-                                    {volist name="$t.project" id="p"}
-                                    <a href="{:url('/project_detail')}/{$p.id}" target='_blank'>{$p.name}</a>&nbsp;
-                                    {/volist}
+                                <div class='zsclass_cp'">
+                                    <ul>
+                                        {volist name="$t.project" id="p"}
+                                        <li><a href="{:url('/project_detail')}/{$p.id}" target='_blank'>{$p.name}</a></li>
+                                        {/volist}
+                                     </ul>
                                 </div>
                             </div>
                             {/volist}
@@ -467,7 +469,7 @@
                 {volist name="advert_d.text" id="d"}
                 <a href="{$d.url}" target="_blank">{$d.title}</a>|
                 {/volist}
-                <a href="{:url('/link')}">更多...</a>
+                <a href="{:url('/link')}" rel="nofollow" >更多...</a>
             </span>
             图片链接</div>
         <div class="content">
@@ -476,7 +478,7 @@
                     <td width=25% bgcolor=#FFFFFF>
                         {volist name="advert_d.image" id="d"}
                         <a href="{$d.url}" target='_blank'>
-                            <img src="{$d.image}" alt="{$d.title}" width=144 height=70 border=0 />
+                            <img src="{$d.image}"  style="margin-bottom: 5px;" alt="{$d.title}" width=190 height=72 border=0 />
                         </a>
                         {/volist}
                     </td>
@@ -492,7 +494,7 @@
                 {volist name="advert_e.text" id="e"}
                 <a href="{$e.url}" target="_blank">{$e.title}</a>|
                 {/volist}
-                <a href="{:url('/link')}">更多...</a>
+                <a href="{:url('/link')}" rel="nofollow" >更多...</a>
             </span>
             <h3>文字链接</h3>
         </div>
@@ -509,23 +511,22 @@
         </div>
         <!-- 文字链接 -->
 
-        <!-- 客服中心 -->
-        <!-- <div class="titles"><span></span>
-            <h3> 客服中心</h3>
+        <!-- 友情链接 -->
+        <div class="titles"><span></span>
+            <h3> 友情链接</h3>
         </div>
-        <div id="kefu">
+        <!-- style="background: url({$web.web_logo});" -->
+        <div id="kefu" >
             <div id="kefu_content">
                 <ul>
-                    <li>
-                        李志阳 手机：17746959588 QQ：357856668
-                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin={$web.web_qq}&amp;&amp;Menu=yes"
-                            target="blank"><img alt="在线客服QQ" border="0" src="" /> </a>
-                    </li>
+                    {volist name="frend_url" id="u"}
+                    <a href="{$u.url}" target="_blank" style="padding-right:20px;" {if($u.nofollow == 1)} rel="nofollow" {/if}>{$u.title}</a>
+                    {/volist}
                 </ul>
             </div>
             <br />
-        </div> -->
-        <!-- 客服中心 -->
+        </div>
+        <!-- 友情链接 -->
     </div>
 
 

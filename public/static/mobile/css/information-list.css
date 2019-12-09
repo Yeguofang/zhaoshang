@@ -1,0 +1,272 @@
+.header.second .title {
+  color: #000;
+}
+
+.news {
+  padding: 0 10px;
+}
+
+.news .swiper-container {
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide {
+  background: #fff;
+  padding: 0 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul {
+  overflow: hidden;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg {
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .left a .title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 15px;
+  color: #262626;
+  line-height: 16px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .left a .date {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  color: #828282;
+  font-size: 12px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .left .date img {
+  width: 12px;
+  margin-right: 5px;
+  height: 12px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .left a .desc {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #828282;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .left {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+}
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .left a{
+  display: block;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img {
+  width: 100px;
+  margin-left: 20px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img {
+  position: relative;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img img {
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn {
+  width: 115px;
+  height: 25px;
+  box-sizing: border-box;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn .down, .news .swiper-container .swiper-wrapper .swiper-slide .more-btn .up {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn.active .down {
+  display: none;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn.active .up {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn .down {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn .up {
+  display: none;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn span {
+  font-size: 12px;
+  color: #d1d1d1;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn img {
+  margin-left: 5px;
+  width: 7px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img img {
+  height: 100%;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img img {
+  height: 80px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg .img img {
+  height: 65px;
+  border-radius: 5px;
+}
+
+.news {
+  margin-top: 67px;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn {
+  margin-bottom: 0;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li {
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide ul li .nofollowImg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  background: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide {
+  background: none;
+}
+
+.news .swiper-container {
+  margin-top: 0;
+}
+
+.news {
+  margin-top: 57px;
+}
+
+.parentbtn {
+  width: 100%;
+  border-radius: 10px;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.news .swiper-container .swiper-wrapper .swiper-slide .more-btn {
+  margin-top: 0;
+}
+
+.commonStatement {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/*# sourceMappingURL=information-list.css.map */

@@ -2,7 +2,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>{$data.name}</title>
+    <title>{$data.title}_{$web.web_name}</title>
     <meta name="keywords" content="{$data.keywords}" />
     <meta name="description" content="{$data.description}" />
     {include file="common/head" /}
@@ -65,7 +65,7 @@
                             <td width="67%">
                                 <table width="95%" border="0" cellpadding="8" cellspacing="1">
                                     <tr>
-                                        <td>{$data.name}</td>
+                                        <td><span style="font-size: 18px;font-weight: 600;">{$data.name}</span></td>
                                     </tr>
                                     <tr>
                                         <td> 项目分类：{$data.cname}-{$data.bname}</td>

@@ -80,18 +80,71 @@
                     </div>
                 </div>
 
+
+
                 <div class="left_content">
                     <div class="content4">
 
                         {volist name="projects" id="p"}
-                        <div id='Layer{$key}' class='hiddiv'></div>
+
+                        <div style="height: 150px;display: flex;border-bottom: 1px rgb(196, 193, 193) solid;">
+                            <div style="width: 20%;">
+                                <a href="{:url('/project_detail')}/{$p.id}">
+                                    <img src="{$p.image}" style="width: 90%;margin-right: 10px;" />
+                                </a>
+                            </div>
+                            <div style="width: 55%; ">
+                                <div style="display: flex;justify-content: space-between; margin: 5px;">
+                                    <div>
+                                        <a href="{:url('/project_detail')}/{$p.id}">
+                                        <span style="font-size: 18px;font-weight: 600;">{$p.name}</span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        门店：<span style="color: orange;font-weight: bolder;"><?php echo rand(0,299)?>
+                                        </span>家
+                                        |&nbsp; 地区：<span
+                                            style="color: rgb(77, 169, 231);font-weight: bolder;">{$p.areaname}</span>
+                                    </div>
+                                </div>
+                                <div style="text-indent: 2em; color: grey">
+                                    {$p.description|mb_substr=0,100}... 
+                                            <a href="{:url('/project_detail')}/{$p.id}" style="color: rgb(77, 169, 231);"> 查看详情>></a>
+                                </div>
+                            </div>
+                            <div style="width: 25%;">
+                                <p style="margin: 5px;text-align: center;">
+                                    投资额度：
+                                    <span style="color: rgb(236, 58, 82);font-weight: bolder;">￥
+                                        {if($p.price == 1 )}
+                                        1-3万
+                                        {elseif($p.price == 2)}
+                                        3-5万
+                                        {elseif($p.price == 3)}
+                                        5-10万
+                                        {elseif($p.price == 4)}
+                                        10万以上
+                                        {/if}
+                                    </span>
+                                </p>
+                                <p style="text-align: center;">
+                                        <a href="{:url('/project_detail')}/{$p.id}#guestbook"  target='_blank'>
+                                    <button style="width: 150px;height: 40px;background-color:rgb(236, 58, 82);color: #fff;border-radius:5px; border: 0px;">申请加盟</button>
+                                            </a>
+                                </p>
+                                <p style="text-align: center;">招商区域：{$p.city}</p>
+                            </div>
+
+                        </div>
+
+                        <!-- <div id='Layer{$key}' class='hiddiv'></div>
                         <table width='100%' border='0' cellspacing='0' cellpadding='0' class="zslist">
                             <tr onClick='setbgcolor(this)'>
                                 <td width='30' align='center'> </td>
                                 <td width='150'>
                                         <table width='130' height='130' border='0' cellpadding='0' cellspacing='1' class='bordercccccc'>
                                             <tr>
-                                                <td align='center' onMouseOver="showfilter(Layer{$key});window.document.getElementById('Layer{$key}').innerHTML='<img src={$p.image} width=260>'" onMouseOut='showfilter(Layer{$key})'>
+                                                <td >
                                                     <a href="{:url('/project_detail')}/{$p.id}"><img data-original="{$p.image}" onload="resizeimg(130,130,this)"></a>
                                                 </td>
                                             </tr>
@@ -136,7 +189,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <div class='boxxian'></div>
+                        <div class='boxxian'></div> -->
                         {/volist}
 
 
@@ -156,22 +209,9 @@
     </div>
 
 
-    <script type=text/javascript>
-        $(function() {  
-            $("img").lazyload({
-                effect: "fadeIn", // 载入使用何种效果//effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
-                threshold: 200 // 提前开始加载//threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉   
-            });
-            $("#redirect").click(function(){
-              var page = $("#pages").val();
-              console.log(page)
-              window.location.href = "{:url('/project')}/{$c.pid}/{$c.id}?page="+page;
-            });
-
-        });
-    </script>
-
-{include file="common/footer"/}
-  
- </body>
- </html>
+    <script type=text/javascript> $(function() { $("img").lazyload({ effect: "fadeIn" , //
+        载入使用何种效果//effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn threshold: 200 //
+        提前开始加载//threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉 });
+        $("#redirect").click(function(){ var page=$("#pages").val(); console.log(page)
+        window.location.href="{:url('/project')}/{$c.pid}/{$c.id}?page=" +page; }); }); </script> {include
+        file="common/footer"/} </body> </html>

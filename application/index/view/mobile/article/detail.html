@@ -1,153 +1,155 @@
-<!--
- * @Descripttion: 
- * @Author: Jason
- * @Date: 2019-11-09 11:22:13
- * @LastEditTime: 2019-11-09 14:31:15
- -->
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>{$data.title}</title>
-	<meta name="keywords" content="{$data.tdk_key}" />
-	<meta name="description" content="{$data.tdk_desc}" />
-	{include file="mobile/head"}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{$data.title}_{$web.web_name}</title>
+    <meta name="keywords" content="{$data.tdk_key}" />
+    <meta name="description" content="{$data.tdk_desc}" />
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/common.css">
+    <script src="__CDN__/static/mobile/js/jquery.js"></script>
+    <script src="__CDN__/static/mobile/js/jquery.lazyload.js"></script>
+    <script src="__CDN__/static/mobile/js/common.js"></script>
+    <script src="__CDN__/static/mobile/js/projectlibrary.js"></script>
+    <script src="__CDN__/static/mobile/js/layer.js"></script>
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/layer.css">
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/information-details.css">
+    <script src="__CDN__/static/mobile/js/information-details.js"></script>
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/information-project.css">
 </head>
 
 <body>
-	{include file="mobile/header"}
-	<div class="station">
-		<h3>
-			<li class='start'><a href="/">首页</a></li>
-			<li><a href="{:url('/article')}">资讯</a></li>
-			<li>{$data.name}</li>
-		</h3>
-	</div>
-	<div class="box">
-		<div id="BoxInfoTitle">深受创业者喜爱的创业小项目</div>
-		<div id="BoxInfoTitleNext">
-			<!-- 来源：&nbsp;&nbsp;发布日期：2018-10-29&nbsp;&nbsp;发布者：&nbsp;&nbsp;共阅249次 -->
-			来源：{$web.web_name}&nbsp;&nbsp;<br />日期：2018-10-29&nbsp;&nbsp;发布者：{$data.company_name}&nbsp;&nbsp;<br /> 共阅254次 字体：<a
-				href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a
-				href='javascript:fontZoom(12)'>小</a>
+    <header class="header second active">
+        <div class="left">
+            <div class="return">
+                <a href="javascript:history.go(-1);">
+                    <img src="__CDN__/static/mobile/picture/c27e82981d1f8cf843cb80c467ca4d4d.png">
+                </a>
+            </div>
+        </div>
+        <div class="title">{$data.name}</div>
+    </header>
+    <section class="contentdetail" style="margin-top: 70px;">
+        <div class="title">{$data.title}</div>
+        <div class="other">
+            <span class="timer">{$data.createtime|date='Y-m-d',###}</span>
+            <span class="ly">来源:&nbsp;{$web.web_name}</span>
+            <span class="eg">{$data.views}</span>
+        </div>
+        <div class="con">{$data.content}</div>
+        <div class="btnmore">
+            {if($prv == null)}
+            <a> 上一篇文章：没有了</a>
+            {else/}
+            <a href="{:url('/article_detail')}/{$prv.category_id}/{$prv.id}">上一篇文章：{$prv.title}</a>
+            {/if}
+            {if($next == null)}
+            <a>下一篇文章：没有了</a>
+            {else/}
+            <a href="{:url('/article_detail')}/{$next.category_id}/{$next.id}">下一篇文章：{$next.title}</a>
+            {/if}
+        </div>
+    </section>
 
-		</div>
-		<div id="fontzoom">{$data.content} </div>
-		<div style="text-align:center;padding:10px;">
-			<a href="javascript:printcontent()" target="_self"><img src="static/picture/ico-dy.gif" width="18"
-					height="17" border="0" />
-				打印本文</a>&nbsp;&nbsp;<a href='#top'><img src="static/picture/ico-top.gif" width="16" height="16"
-					border="0" />&nbsp;返回顶部</a>&nbsp;&nbsp;
-			<a href="javascript:window.close()"><img src="static/picture/close.gif" width="16" height="16" border="0" />
-				关闭该页</a>
-		</div>
-	</div>
+        <div class="cont">
+            <ul class="m-list">
+                    {if($data.comment == null)}
+                    <li>暂无评论</li>
+                    {else/}
+                    {volist name="data.comment" id="c"}
+                    <li> 匿名网友：{$c.content}</li>
+                    {/volist}
+                    {/if}
+            </ul>
+        </div>
 
-	<div class="box">
-		{if($prv == null)}
-		上一篇文章：没有了<br />
-		{else/}
-		上一篇文章：<a href="{:url('/article_detail')}/{$prv.category_id}/{$prv.id}">{$prv.title}</a><br />
-		{/if}
-		{if($next == null)}
-		下一篇文章：没有了
-		{else/}
-		下一篇文章：<a href="{:url('/article_detail')}/{$next.category_id}/{$next.id}">{$next.title}</a>
-		{/if}
-	</div>
+    <section class="item-section item_zx">
+        <div class="common_tit">文章评论</div>
+        <div class="cont">
+            <ul>
+                <li>
+                    <span>电话</span>
+                    <div class="p">
+                        <input class="inpt" type="text" id="Tel2" name="tel" placeholder="请输入您的手机号" maxlength="11">
+                           {:token()}
+                    </div>
+                </li>
+                <li class="area">
+                    <span>评论</span>
+                    <div class="p">
+                        <textarea class="textarea" name="msg" id="msg2" cols="30" rows="10"
+                            placeholder="请输入你评论的内容"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <div class="btn-box"><input type="submit" name="" onclick="myform2()" value="提交评论" class="btn"></div>
+        </div>
+    </section>
 
-	<div class="titles">
-		<h3>网友评论</h3>
-	</div>
-	<div class="content1">
-		{if($data.comment == null)}
-		&nbsp;暂无评论
-		{else/}
-		{volist name="data.comment" id="c"}
-		匿名网友：{$c.content}<br />
-		{/volist}
-		{/if}
-	</div>
+    <br/>
 
-	<div class="box">
-			<form name="form2" id="form2">
-					<div contenteditable="true" id="divtextarea" onblur="AddContentFromDiv('content','divtextarea')"></div>
-					{:token()}
-					<input name="content" type="hidden"" id="content"  size="22" maxlength="150">
-					<input name="id" type="hidden"" value="{$data.id}">
-					<input type="hidden" name="aid"  value="{$data.category_id}"/>
-					<input type="hidden" name="company_id"  value="{$data.company_id}"/>
-					<input type="hidden" name="url"  value="{:url('/article_detail')}/{$data.category_id}/"/>
-
-					<input name="phone"" type="text" id="phone"  placeholder="请输入手机号" />
-					<input style="margin-left: 20px;" type="button"  onclick="checkform()" value="发表评论" />
-			</form>
-	</div>
-
-	{include file="mobile/footer"}
-
-
-	<script>
-            //控制字体大小
-            function fontZoom(size) {
-                document.getElementById('fontzoom').style.fontSize = size + 'px';
-                document.getElementById('fontzoom').style.lineHeight = size * 2 + 'px';
-            }
+    <section class="latest-information">
+            <div class="title">推荐资讯</div>
+            <div class="content">
+                    {volist name="recommend" id="h"}
+                <div class="ponge">
+                    <div class="nofollowImg" href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
+                        <div class="img">
+                            <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}" rel="nofollow"><img src="{$h.image}""></a>
+                        </div>
+                        <div class="text">
+                            <div class="tit"><a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">{$h.title}</a></div>
+                            <div class="desc"><a
+                                    href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">{$h.desc}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {/volist}
+            </div>
+        </section>
+    </body>
     
-            function printcontent() {
-                document.body.innerHTML = document.getElementById('BoxInfoTitle').innerHTML + '<br/>' + document.getElementById('fontzoom').innerHTML;
-                window.print();
-			}
-			function AddContentFromDiv(obj1,obj2){
-			document.getElementById(obj1).value=document.getElementById(obj2).innerHTML;
-			}
-    
-            function checkform() {
-                var id = document.form2.id.value;
-                var content = document.form2.content.value;
-                var phone = document.form2.phone.value;
-                var aid = document.form2.aid.value;
-                var company_id = document.form2.company_id.value;
-                var url = document.form2.url.value;
-                var token = document.form2.__token__.value;
-
-                if (content== "") {
-                    alert("内容不能为空！");
-                    return false;
-                }
-
-                var txt = /^[1][3,4,5,6,7,8][0-9]{9}$/;
-	            if (phone=="" || !txt.test(phone)){
-                    alert("请输入正确的手机号");
-                    return false;
-                }
-
-                $.ajax({
-                    type: "post",
-                    async: false,
-                    url: url+id,
-                    //后台数据处理-下面有具体实现
-                    data: {
-                        company_id:company_id,
-                        phone:phone,
-                        content:content,
-                        aid:aid,
-                        token:token,
-                        id:id,
-                    },
-                    success: function (res) {
-                        if(res.code == 1){
-                            alert(res.msg);
-                            window.location.reload();
-                        }else{
-                            alert(res.msg);
-                            window.location.reload();
-                        }
-                    }   
-                });
-
-            }
-    
-        </script>
+ {include file="mobile/footer"}
 </body>
+
 </html>
+<script>
+    function myform2() {
+        var tel = $("#Tel2").val();
+        var token = $("input[name='__token__']").val();
+        var msg = $("#msg2").val();
+        var mobile = /^1[3|4|5|6|7|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+        var http = /^http[s]?:\/\/([\w-]+\.)+[\w-]+([\w-./?%&=]*)?$/;
+        if (tel == "" || (tel != "" && !mobile.test(tel) && !phone.test(tel))) {
+            layer.msg('请输入正确有效的手机号码');
+            $("#Tel2").focus();
+            return false;
+        } else if (msg == "" || (http.test(msg))) {
+            layer.msg('请输入中文问题！');
+            $("#msg2").focus();
+            return false;
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "{:url('/article_detail')}/{$data.category_id}//{$data.id}",
+                data: {phone: tel, content: msg, token: token },
+                success: function (data) {
+                    if (data.code == 1) {
+                        layer.msg(data.msg);
+                        setTimeout(function () {
+                            window.location.reload()
+                        }, 1000)
+                    } else {
+                        layer.msg(data.msg);
+                        setTimeout(function () {
+                            window.location.reload()
+                        }, 1000)
+                    }
+                }
+            });
+        }
+    };
+</script>

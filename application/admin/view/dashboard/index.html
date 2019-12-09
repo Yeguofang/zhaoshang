@@ -203,7 +203,7 @@
                         </div>
                     </div>
                     {/volist}
-
+                    
 
                 </div>
 
@@ -223,13 +223,13 @@
                                     <div class="ibox-content">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h1 class="no-margins">{$user.inner}</h1>
+                                                <h2 class="no-margins">{$user.inner}</h2>
                                                 <div class="font-bold"><i class="fa fa-home"></i>
                                                     <small>内部公司</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <h1 class="no-margins">{$user.outer}</h1>
+                                                <h2 class="no-margins">{$user.outer}</h2>
                                                 <div class="font-bold"><i class="fa fa-home"></i>
                                                     <small>外部公司</small>
                                                 </div>
@@ -252,13 +252,13 @@
                                 <div class="ibox-content">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h1 class="no-margins">{$project.data}</h1>
+                                            <h2 class="no-margins">{$project.data}</h2>
                                             <div class="font-bold"><i class="fa fa-list-alt"></i>
                                                 <small>项目总数</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="no-margins">{$project.msg}</h1>
+                                            <h2 class="no-margins">{$project.msg}</h2>
                                             <div class="font-bold"><i class="fa fa-commenting"></i>
                                                 <small>项目留言总数</small>
                                             </div>
@@ -269,7 +269,6 @@
                         </div>
                     </div>
 
-                    
                     <div class="col-xs-6 col-md-2">
                         <div class="panel bg-green-gradient">
                             <div class="panel-body">
@@ -281,13 +280,13 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h1 class="no-margins">{$article.text}</h1>
+                                            <h2 class="no-margins">{$article.text}</h2>
                                             <div class="font-bold"><i class="fa fa-list-alt"></i>
                                                 <small>新闻总数量</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="no-margins">{$article.comment}</h1>
+                                            <h2 class="no-margins">{$article.comment}</h2>
                                             <div class="font-bold"><i class="fa fa-commenting"></i>
                                                 <small>评论总数量</small>
                                             </div>
@@ -309,13 +308,13 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h1 class="no-margins">{$advert.image}</h1>
+                                            <h2 class="no-margins">{$advert.image}</h2>
                                             <div class="font-bold"><i class="fa fa-image"></i>
                                                 <small>图片广告数量</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="no-margins">{$advert.text}</h1>
+                                            <h2 class="no-margins">{$advert.text}</h2>
                                             <div class="font-bold"><i class="fa fa-font"></i>
                                                 <small>文字广告数量</small>
                                             </div>
@@ -326,34 +325,40 @@
                         </div>
                     </div>
                 
+                
+                
 
                     <div class="col-xs-6 col-md-3">
-                            <div class="panel bg-yellow-gradient">
-                                <div class="panel-body">
-                                    <div class="ibox-title">
-                                        <span class="label label-primary pull-right">{:__('Real time')}</span>
-                                        <h3>附件统计</h3>
-                                    </div>
-                                    <div class="ibox-content">
-    
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h1 class="no-margins">{$file.number}</h1>
-                                                <div class="font-bold"><i class="fa fa-file"></i>
-                                                    <small>上传文件数量</small>
-                                                </div>
+                        <div class="panel bg-yellow-gradient">
+                            <div class="panel-body">
+                                <div class="ibox-title">
+                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+                                    <h3>附件统计</h3>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h2 class="no-margins">{$file.number}</h2>
+                                            <div class="font-bold"><i class="fa fa-file"></i>
+                                                <small>上传文件数量</small>
                                             </div>
-                                            <div class="col-md-6">
-                                                <h1 class="no-margins">{$file.size}M</h1>
-                                                <div class="font-bold"><i class="fa fa-font"></i>
-                                                    <small>文件占用空间</small>
-                                                </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h2 class="no-margins">{$file.size}M</h2>
+                                            <div class="font-bold"><i class="fa fa-font"></i>
+                                                <small>文件占用空间</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    
+                        
+                   
                
                 </div>
 
@@ -493,10 +498,3 @@
         </div>
     </div>
 </div>
-<script>
-    var Orderdata = {
-        column: {:json_encode(array_keys($paylist))},
-        paydata: {:json_encode(array_values($paylist))},
-        createdata: {:json_encode(array_values($createlist))},
-    };
-</script>

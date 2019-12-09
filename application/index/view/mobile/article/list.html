@@ -1,0 +1,97 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-30 18:21:46
+ * @LastEditTime: 2019-12-02 11:03:02
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{$tdk[2]->title}</title>
+    <meta content="{$tdk[2]->description}" name="description" />
+    <meta content="{$tdk[2]->keyword}" name="keywords" />
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/common.css">
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/information-list.css">
+</head>
+
+<body>
+        <header class="header second active">
+                <div class="left">
+                    <div class="return">
+                        <a href="javascript:history.go(-1);">
+                            <img src="__CDN__/static/mobile/picture/c27e82981d1f8cf843cb80c467ca4d4d.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="title">{$name.name}</div>
+            </header>
+
+            
+    <div class="news">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <ul>
+                            {volist name="data" id="a"}
+                        <li>
+                            <div class="nofollowImg" href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">
+                                <div class="left">
+                                    <a href={:url('/article_detail')}/{$a.category_id}/{$a.id}">
+                                        <div class="title">{$a.title}</div>
+                                        <div class="desc">{$a.desc}</div>
+                                        <div class="date">
+                                            <img src="__CDN__/static/mobile/picture/3cd87f6675b141d9d3350de6078f1d61.png">
+                                            <span>{$a.createtime|date='Y-m-d',###}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="img">
+                                    <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}" rel="nofollow">
+                                        <img class="swiper-lazy lazy"  src="{$a.image}">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        {/volist}
+                    </ul>
+                </div>
+                {$data->render()}
+            </div>
+        </div>
+    </div>
+    {include file="mobile/footer"}
+</body>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?912f17081295b3c5623472573e1a1a7e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script>
+    (function () {
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5294d4276f52adb2e38d1599fd6e2815";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</html>

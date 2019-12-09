@@ -18,10 +18,10 @@ class Article extends Backend
 
     protected $model = null;
 
-    protected $multiFields = "switch";
+    protected $multiFields = "switch";  //状态开关指定字段
     protected $relationSearch = true;//关联查询
     protected $noNeedLogin = [];    //不需要登录能访问的方法
-    protected $noNeedRight = ['search,flag_edit'];     //不用权限但要登录后能访问的方法
+    protected $noNeedRight = ['search','flag_edit','weigh_edit'];     //不用权限但要登录后能访问的方法
     protected $searchCate = []; //存放分类数据
 
     public function _initialize()
@@ -77,34 +77,65 @@ class Article extends Backend
     }
 
 
+
+
     //添加
     public function add()
     {  
+
         $user = db::name('user')->where('type',2)->field('id,company_name')->select();
         $this->assign('user',$user);
-        parent::add();
+
+        if ($this->request->isPost()) {
+            $row = $this->request->post("row/a");
+
+            if(isset($row['flag'])){
+                 $row['flag'] = implode(',',$row['flag']);
+            }
+            if(isset($row['content'])){
+                $row['content'] = str_replace(config('http'),"",$row['content']);    //去除文本内容图片src里面的域名，只保留文字
+                $contentes= preg_replace("/<[^>]+>/", '', $row['content']);  //去除文本内容的图片跟html标签，只保留文字
+                $row['tdk_desc']  = str_replace("　　","",mb_substr($contentes, 0, 100));     //截取150个字作为文章描述
+                $row['desc']  = str_replace("　　","",mb_substr($contentes, 0, 130));   //去掉首行缩进的字符
+            }
+            $res = $this->model->save($row);
+            if($res > 0){
+               return  $this->success();
+            }
+            return $this->error('添加失败');
+        }
         return $this->view->fetch();
     }
 
+    
     //修改
     public function edit($ids =null){
         $data = $this->model->get($ids);
         $user = db::name('user')->where('type',2)->field('id,company_name')->select();
         $this->assign('user',$user);
         $this->assign('row',$data);
-        parent::edit($ids);
-       return  $this->view->fetch();
-    }
 
-        //修改位置
-        public function flag_edit(){
-            $row = $this->request->param();
-            $res = db::name('article')->where('id',$row['id'])->update(['flag' => $row['flag']]);
-            if($res == 1){
-                 return  $this->success('修改成功');
+        if ($this->request->isPost()) {
+            $row = $this->request->post('row/a');
+            $row['flag'] = implode(',',$row['flag']);
+            if(isset($row['content'])){
+                $row['content'] = str_replace(config('http'),"",$row['content']);    //去除文本内容图片src里面的域名，只保留文字
+                $contentes= preg_replace("/<[^>]+>/", '', $row['content']);  //去除文本内容的图片跟html标签，只保留文字
+                $row['tdk_desc']  = str_replace("　　","",mb_substr($contentes, 0, 100));     //截取150个字作为文章描述
+                $row['desc']  = str_replace("　　","",mb_substr($contentes, 0, 130));   //去掉首行缩进的字符
+            }
+            $res = $data->save($row);
+            if($res > 0){
+               return  $this->success('修改成功');
             }
             return $this->error('修改失败');
         }
+
+       return  $this->view->fetch();
+    }
+
+      
+    
     
 
 
@@ -182,6 +213,28 @@ class Article extends Backend
             $this->error(__('No rows were deleted'));
         }
         $this->error(__('Parameter %s can not be empty', 'ids'));
+    }
+
+
+      //修改位置
+      public function flag_edit(){
+        $row = $this->request->param();
+        $res = db::name('article')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+        if($res == 1){
+             return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
+    }
+
+
+     //修改权重
+    public function weigh_edit(){
+        $row = $this->request->param();
+        $res = db::name('article')->where('id',$row['id'])->update(['weigh' => $row['weigh']]);
+        if($res == 1){
+                return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
     }
 
 

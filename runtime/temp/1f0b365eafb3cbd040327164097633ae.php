@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"D:\Project\zhaoshang\public/../application/index/view/index/index.html";i:1574308971;s:60:"D:\Project\zhaoshang\application\index\view\common\head.html";i:1574144721;s:62:"D:\Project\zhaoshang\application\index\view\common\header.html";i:1574148679;s:62:"D:\Project\zhaoshang\application\index\view\common\footer.html";i:1573375824;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"D:\Project\zhaoshang\public/../application/index/view/index/index.html";i:1575801153;s:60:"D:\Project\zhaoshang\application\index\view\common\head.html";i:1574144721;s:62:"D:\Project\zhaoshang\application\index\view\common\header.html";i:1574148679;s:62:"D:\Project\zhaoshang\application\index\view\common\footer.html";i:1575796502;}*/ ?>
 <!DOCTYPE html>
 
 <head>
@@ -245,7 +245,7 @@
                     <?php foreach($v['nav'] as $n): ?>
                     <a href="<?php echo url('/project'); ?>/<?php echo $n['pid']; ?>/<?php echo $n['id']; ?>" target="_blank"><?php echo $n['name']; ?></a>|
                     <?php endforeach; ?>
-                    <a href="<?php echo url('/link'); ?>">更多...</a>
+                    <a href="<?php echo url('/project'); ?>/<?php echo $v['id']; ?>">更多...</a>
                 </span>
                 <div>
                 <h1><img src="<?php echo $v['image']; ?>" /> <?php echo $v['name']; ?></h1>
@@ -258,7 +258,7 @@
                     <div class="tabel">
                         <ul>
                             <?php foreach($v['project'] as $p): ?>
-                            <li>
+                            <li style="margin: 0px 2px 0px 2px;">
                                 <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target="_bank">
                                     <img class="lazy" src="<?php echo $p['image']; ?>" style="width: 120px;height:90px;" />
                                 </a>
@@ -313,7 +313,7 @@
                         <div class='titles'><span><a href="<?php echo url('/article_list'); ?>/<?php echo $vo['id']; ?>"> 更多...</a></span>
                             <h3><?php echo $vo['name']; ?></h3>
                         </div>
-                        <div class='content2'>
+                        <div class='content2' style="height: 390px;">
                             <?php foreach($vo['content'] as $key=>$a): if($key == '0'): ?>
                             <table border="0" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -338,17 +338,16 @@
 
                             </table>
                             <div class="boxxian"></div>
-                            <?php endif; ?>
-
+                            <?php endif; if(($key > 0)): ?>
                             <ul>
                                 <LI>
                                     <font <?php if(($key==0 ||$key==1 ||$key==2)): ?> class=xuhao1
                                         <?php else: ?>class=xuhao2<?php endif; ?>><?php echo $key+1; ?> </font> <a
                                         href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>">
-                                        <?php echo mb_substr($a['title'],0,17); ?> </a>
+                                        <?php echo mb_substr($a['title'],0,15); ?>... </a>
                                 </LI>
                             </ul>
-                            <?php endforeach; ?>
+                            <?php endif; endforeach; ?>
                         </div>
                     </td>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -356,12 +355,6 @@
             </table>
         </div>
         <!-- 文章咨询－１ -->
-
-
-
-
-       
-
 
         <!-- 图文广告－B区 -->
         <div class="titles">
@@ -377,9 +370,9 @@
         <div class="adStyle2">
             <ul>
                 <?php if(is_array($advert_b['image']) || $advert_b['image'] instanceof \think\Collection || $advert_b['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_b['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$b): $mod = ($i % 2 );++$i;?>
-                <li>
+                <li style="width: 16.6%;">
                     <a href="<?php echo $b['url']; ?>" target="_blank" style="text-align: center;">
-                        <img data-original="<?php echo $b['image']; ?>" alt="<?php echo $b['title']; ?>" src="<?php echo $b['image']; ?>" style="display: inline;">
+                        <img src="<?php echo $b['image']; ?>" style="display: inline;">
                         <?php echo $b['title']; ?>
                     </a>
                 </li>
@@ -424,7 +417,7 @@
                         <div class='titles'><span><a href="<?php echo url('/article_list'); ?>/<?php echo $vo['id']; ?>"> 更多...</a></span>
                             <h3><?php echo $vo['name']; ?></h3>
                         </div>
-                        <div class='content2'>
+                        <div class='content2' style="height: 390px;">
                             <?php foreach($vo['content'] as $key=>$a): if($key == '0'): ?>
                             <table border="0" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -434,7 +427,11 @@
                                                 <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
                                                     <a href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>"
                                                         target="_blank">
+                                                        <?php if(($a['image'] != null)): ?>
                                                         <img src="<?php echo $a['image']; ?>" width="150px" height="110px">
+                                                        <?php else: ?>
+                                                        <img src="<?php echo $web['web_logo']; ?>" width="150px" height="110px">
+                                                        <?php endif; ?>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -446,20 +443,19 @@
                                         </a>
                                     </td>
                                 </tr>
-
                             </table>
                             <div class="boxxian"></div>
-                            <?php endif; ?>
-
+                            <?php endif; if(($key > 0)): ?>
                             <ul>
                                 <LI>
                                     <font <?php if(($key==0 ||$key==1 ||$key==2)): ?> class=xuhao1
                                         <?php else: ?>class=xuhao2<?php endif; ?>><?php echo $key+1; ?> </font> <a
                                         href="<?php echo url('/article_detail'); ?>/<?php echo $a['category_id']; ?>/<?php echo $a['id']; ?>">
-                                        <?php echo mb_substr($a['title'],0,15); ?>... </a>
+                                        <?php echo mb_substr($a['title'],0,30); ?>...</a>
+                                        <span style="float: right;"><?php echo date('Y-m-d',$a['createtime']); ?></span>
                                 </LI>
                             </ul>
-                            <?php endforeach; ?>
+                            <?php endif; endforeach; ?>
                         </div>
                     </td>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -477,10 +473,10 @@
                 <div class="titles">
                     创业项目导航
                 </div>
-                <div class="flzs_zhankai">
+                <div class="flzs_zhankai" >
 
                     <?php if(is_array($navs) || $navs instanceof \think\Collection || $navs instanceof \think\Paginator): $i = 0; $__LIST__ = $navs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$n): $mod = ($i % 2 );++$i;?>
-                    <div class='zsclass_zhankai'>
+                    <div class="zsclass_zhankai" <?php if(($key%2 == 1)): ?> style="border-left: 1px rgb(201, 199, 199) solid;"<?php endif; ?>>
                         <div class='zsclass_s_zhankai_style2'>
                             <h2><img src="<?php echo $n['image']; ?>">&nbsp;
                                 <a href="<?php echo url('/project'); ?>/<?php echo $n['id']; ?>"><?php echo $n['name']; ?>
@@ -493,10 +489,12 @@
                                     <a href="<?php echo url('/project'); ?>/<?php echo $t['pid']; ?>/<?php echo $t['id']; ?>"><?php echo $t['name']; ?>
                                     </a>
                                 </div>
-                                <div class='zsclass_cp'>
-                                    <?php if(is_array($t['project']) || $t['project'] instanceof \think\Collection || $t['project'] instanceof \think\Paginator): $i = 0; $__LIST__ = $t['project'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
-                                    <a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target='_blank'><?php echo $p['name']; ?></a>&nbsp;
-                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                <div class='zsclass_cp'">
+                                    <ul>
+                                        <?php if(is_array($t['project']) || $t['project'] instanceof \think\Collection || $t['project'] instanceof \think\Paginator): $i = 0; $__LIST__ = $t['project'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?>
+                                        <li><a href="<?php echo url('/project_detail'); ?>/<?php echo $p['id']; ?>" target='_blank'><?php echo $p['name']; ?></a></li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                     </ul>
                                 </div>
                             </div>
                             <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -583,7 +581,7 @@
                     <td width=25% bgcolor=#FFFFFF>
                         <?php if(is_array($advert_d['image']) || $advert_d['image'] instanceof \think\Collection || $advert_d['image'] instanceof \think\Paginator): $i = 0; $__LIST__ = $advert_d['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;?>
                         <a href="<?php echo $d['url']; ?>" target='_blank'>
-                            <img src="<?php echo $d['image']; ?>" alt="<?php echo $d['title']; ?>" width=144 height=70 border=0 />
+                            <img src="<?php echo $d['image']; ?>"  style="margin-bottom: 5px;" alt="<?php echo $d['title']; ?>" width=190 height=72 border=0 />
                         </a>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </td>
@@ -616,23 +614,22 @@
         </div>
         <!-- 文字链接 -->
 
-        <!-- 客服中心 -->
-        <!-- <div class="titles"><span></span>
-            <h3> 客服中心</h3>
+        <!-- 友情链接 -->
+        <div class="titles"><span></span>
+            <h3> 友情链接</h3>
         </div>
-        <div id="kefu">
+        <!-- style="background: url(<?php echo $web['web_logo']; ?>);" -->
+        <div id="kefu" >
             <div id="kefu_content">
                 <ul>
-                    <li>
-                        李志阳 手机：17746959588 QQ：357856668
-                        <a href="http://wpa.qq.com/msgrd?v=1&amp;uin=<?php echo $web['web_qq']; ?>&amp;&amp;Menu=yes"
-                            target="blank"><img alt="在线客服QQ" border="0" src="" /> </a>
-                    </li>
+                    <?php if(is_array($frend_url) || $frend_url instanceof \think\Collection || $frend_url instanceof \think\Paginator): $i = 0; $__LIST__ = $frend_url;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u): $mod = ($i % 2 );++$i;?>
+                    <a href="<?php echo $u['url']; ?>" target="_blank" style="padding-right:20px;" <?php if(($u['nofollow'] == 1)): ?> rel="nofollow" <?php endif; ?>><?php echo $u['title']; ?></a>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                 </ul>
             </div>
             <br />
-        </div> -->
-        <!-- 客服中心 -->
+        </div>
+        <!-- 友情链接 -->
     </div>
 
 
@@ -640,10 +637,10 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-07 18:30:41
- * @LastEditTime: 2019-11-10 16:50:23
+ * @LastEditTime: 2019-12-08 17:15:02
  -->
 <div style="height:10px;clear:both;"></div>
-<div id="dlstepbox" >
+<div id="dlstepbox">
     <div class="main">
         <div id="dl5"></div>
         <div id="dlstep">
@@ -673,20 +670,27 @@
 
 <div class="bottom">
     <div class="main">
+        <?php echo $web['web_avow']; ?>
         <div class="bottominner">
             <div class="bottomlink">
-                <a href="/">公司简介</a>|<a href="/siteinfo-2.htm">联系方式</a>|<a href="<?php echo url('/help'); ?>">帮助信息</a>|<a href="<?php echo url('/link'); ?>">友情链接</a>|<a href="/sitemap.htm">网站地图</a></div>
-                <a href="http://www.beian.miit.gov.cn" target="_blank"><?php echo $web['web_icp']; ?></a> <img src="/static/home/images/ghs.png"><a href="http://www.beian.gov.cn/portal/index.do" target="_blank"><?php echo $web['web_beian']; ?></a> <br /> 
-            <script type=text/javascript src=/static/home/js/713776.js>
-            </script> <br /> <?php echo $web['web_copyright']; ?>
+                <a href="/about">关于我们</a>|
+                <a href="/mzsm">免责申明</a>|
+                <a href="/tssc">投诉删除</a>|
+                <a href="<?php echo url('/help'); ?>">帮助信息</a>|
+                <a href="<?php echo url('/link'); ?>">友情链接</a>
+               </div>
+            <a href="http://www.beian.miit.gov.cn" target="_blank"><?php echo $web['web_icp']; ?></a> 
+            <img src="/static/home/images/ghs.png"><a href="http://www.beian.gov.cn/portal/index.do"
+                target="_blank"><?php echo $web['web_beian']; ?></a> <br />
+             
+                <?php echo $web['web_copyright']; ?>
         </div>
     </div>
 </div>
 <!--返回顶部-->
 <script src="/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
 
-<div style="display: none" id="goTopBtn"></div>
-
+            <div style="display: none" id="goTopBtn"></div>
 
     <!--焦点广告效果JS-->
     <script src="/static/home/js/slider.js" type="text/javascript" language="JavaScript"></script>

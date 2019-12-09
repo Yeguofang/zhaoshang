@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-07 17:50:06
- * @LastEditTime: 2019-11-08 10:32:18
+ * @LastEditTime: 2019-12-02 14:04:41
  -->
 <!DOCTYPE html>
 
@@ -26,50 +26,63 @@
                     <li><a href="{:url('/article')}">资讯</a></li>
                     <li>{$name.name}</li>
                 </div>
-         
+
 
                 <div class="content">
-                    <div class="boxbigclass"></div>
-
-                    {volist name="data" id="a"}
-                    <div class="bigbigword2"><a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title}</a></div>
-                    <div>{$a.desc}<a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">[ 查看... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：{$a.createtime|@date="Y-m-d H:i:s"} 点击：{$a.views}</div>
-                    {/volist}
-                 
-                </div>
-                        {$data->render()}
-
-            </div>
-            <div class="right">
-               
-                    <div class="titles"><span>&nbsp;</span>
-                        <h3>热门项目</h3>
+                    <div class="boxbigclass">
+                        {volist name="data" id="a"}
+                        <div style="width: 870px;margin-bottom: 20px;margin-bottom:10px">
+                            {if($a.image != null)}
+                            <img src="{$a.image}" style="width: 200px;height: 130px;float: left;margin-right: 10px;" />
+                            {/if}
+                            <div class="bigbigword2">
+                                <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title}</a>
+                                <span style="float: right;">{$a.createtime|date='Y-m-d',###}</span>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$a.desc}    
+                             <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">[ 查看... ]</a>
+                           <br/>  阅读量：{$a.views}
+                        
+                        </div>
+                        {/volist}
                     </div>
-                    <div class="content1">
+
+                    {$data->render()}
+                </div>
+            </div>
+
+            
+            <div class="right">
+
+                <div class="titles"><span>&nbsp;</span>
+                    <h3>热门项目</h3>
+                </div>
+                <div class="content1">
                     <ul>
                         {volist name="hot" id="h"}
                         <li><span style="width:80px" title="阅832次">({$h.views})</span>
-                            <font {if($key==0 || $key==1 || $key==2)}class="xuhao1"  {else/} class="xuhao2"{/if}>{$key+1} </font> <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
+                            <font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2"
+                                {/if}>{$key+1} </font> <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
                                 {$h.title|mb_substr=0,10}...</a>
                         </li>
                         {/volist}
                     </ul>
-                    </div>
-    
-                    <div class="titles"><span>&nbsp;</span>
-                        <h3>推荐项目</h3>
-                    </div>
-                    <div class="content1">
+                </div>
+
+                <div class="titles"><span>&nbsp;</span>
+                    <h3>推荐项目</h3>
+                </div>
+                <div class="content1">
                     <ul>
                         {volist name="recommend"" id="h"}
                         <li><span style="width:80px" title="阅832次">({$h.views})</span>
-                            <font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2" {/if}>{$key+1} </font> <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
+                            <font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2"
+                                {/if}>{$key+1} </font> <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
                                 {$h.title|mb_substr=0,10}...</a>
                         </li>
                         {/volist}
                     </ul>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

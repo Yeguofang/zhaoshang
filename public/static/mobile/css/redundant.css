@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "ROBOTO-BLACKITALIC_0";
+  src: url("../fonts/roboto-blackitalic_0.ttf");
+}
+.redundant {
+  padding: 0 8px;
+  margin-top: 60px;
+}
+.redundant .new-redundant-title {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.redundant .new-redundant-title span:nth-of-type(1) {
+  font-size: 18px;
+  color: #242424;
+  font-weight: bold;
+}
+.redundant .new-redundant-title span:nth-of-type(2) {
+  font-size: 36px;
+  color: #ededed;
+}
+.redundant .banner img {
+  max-width: 100%;
+}
+.redundant .new-redundant-title {
+  position: relative;
+}
+.redundant .new-redundant-title span:nth-of-type(1) {
+  color: #242424;
+  font-size: 18px;
+  font-weight: bold;
+}
+.redundant .new-redundant-title span:nth-of-type(2) {
+  color: #ededed;
+  font-size: 36px;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  font-family: "ROBOTO-BLACKITALIC_0";
+  font-weight: bold;
+  z-index: -1;
+}
+.redundant .block {
+  margin-bottom: 30px;
+}
+.redundant .block.complaints ul li {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
+}
+.redundant .block.complaints ul li:last-child {
+  border-bottom: 0;
+}
+.redundant .block.complaints ul li:first-child .q {
+  padding-top: 0;
+}
+.redundant .block.complaints ul li .q {
+  font-size: 14px;
+  color: #ff8314;
+  margin: 5px 0;
+  padding-top: 17px;
+}
+.redundant .block.complaints ul li .s {
+  font-size: 14px;
+  color: #7e7e7e;
+  line-height: 1.8;
+}
+.redundant .block.complaints ul li .s .margin30 {
+  margin-bottom: 20px;
+}
+.redundant .block .newfontweigttitle {
+  font-size: 14px;
+  color: #202020;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.redundant .block .content {
+  font-size: 14px;
+  color: #818181;
+  line-height: 2;
+}
+.redundant .block .content p span {
+  color: #ec2b42;
+}
+.redundant .block .downloada {
+  width: 150px;
+  height: 30px;
+  background: #ec2b42;
+  font-size: 12px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.commonStatement {
+  margin-bottom: 0;
+}
+
+.header.second .title {
+  color: #2d2d2d;
+}
+
+.header.second .return.return2 {
+  width: 20px;
+}
+
+.commonStatement .addnewfooter {
+  text-align: center;
+  margin-top: 17px;
+}
+.commonStatement .addnewfooter a {
+  font-size: 12px;
+  color: #868686;
+  padding: 0 12px;
+  position: relative;
+}
+.commonStatement .addnewfooter a:last-child::after {
+  content: none;
+}
+.commonStatement .addnewfooter a::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background: #c0c0c0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/*# sourceMappingURL=redundant.css.map */

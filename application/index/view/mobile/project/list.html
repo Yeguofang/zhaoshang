@@ -1,145 +1,108 @@
-<!--
- * @Descripttion: 
- * @Author: Jason
- * @Date: 2019-11-08 17:25:10
- * @LastEditTime: 2019-11-20 17:57:28
- -->
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>{$tdk[3]->title}</title>
     <meta content="{$tdk[3]->description}" name="description" />
     <meta content="{$tdk[3]->keyword}" name="keywords" />
-	{include file="mobile/head"}
-	<script type="text/javascript">
-		var CRT = 10; // 如果大于等于3
-		jQuery(function ($) {
-			$("div.boxbigclass li").filter("li:gt(" + (CRT - 1) + ")").hide().filter(":last").show().click(function () {
-				$(this).siblings("li:gt(" + (CRT - 1) + ")").toggle();
-				var more = document.getElementById("more_class");
-				if (more.innerHTML == "显示更多...") {
-					more.innerHTML = "收起";
-				} else {
-					more.innerHTML = "显示更多...";
-				}
-			});
-		});
-	</script>
+    <link href="__CDN__/static/mobile/css/projectpage.css" rel="stylesheet">
+      
+    {include file="mobile/head"}
+    
 </head>
 
-
 <body>
+        {include file="mobile/header"}
+        
+    
 
-	{include file="mobile/header"}
+    <div class="latestin3"  >
+            <div class="title">热门项目</div>
+            <div class="bg">
+                <div class="tab">
+                    <ul>
+                   
+                        {volist name="project_cate" id="c"}
+                        <li class="" style="width:20%;"><a href="{:url('/project')}/{$c.id}">{$c.name}</a></li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="swiper-container">
+                        <div class="swiper-wrapper" style="height: 100%;">
+                            <!-- <div class="swiper-slide"> -->
+                                <div class="content">
+                                    <ul style="height: 100%;">
+                                            {volist name="category" id="c"}
+                                            <li ><a href="{:url('/project')}/{$c.pid}/{$c.id}">{$c.name}</a></li>
+                                        {/volist}
+                                    </ul>
+                                </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+               
+            </div>
+        </div>
 
-	<div class="station2">
-		<li class='start'><a href='/'>首页</a></li>
-		<li><a >{$name1.name}</a></li>
-		<li><a >{$name2.name}</a></li>
-	</div>
-	<div class="left_content">
+        <div class="projectPage" style="margin-top: 10px;" >
+                <div class="contentList">
+                    <div class="bg">
+                        <ul class="asd">
+                                {volist name="projects" id="p"}
+                            <li>
+                                <div class="img">
+                                    <a href="{:url('/project_detail')}/{$p.id}" rel="nofollow">
+                                        <img class="lazy" src="{$p.image}">
+                                     </a>
+                                </div>
+                                <div class="text">
+                                    <div class="left">
+                                        <div class="title">
+                                            <h2><a href="{:url('/project_detail')}/{$p.id}">{$p.name}</a>
+                                            </h2>
+                                        </div>
+                                        <div class="price"> ￥  
+                                             {if($p.price == 1 )}
+                                                1-3万
+                                                {elseif($p.price == 2)}
+                                                3-5万
+                                                {elseif($p.price == 3)}
+                                                5-10万
+                                                {elseif($p.price == 4)}
+                                                10万以上
+                                            {/if}
+                                        </div>
+        
+                                        <div class="smallTab">
+                                            <a class="tag">{$name1.name}</a>
+                                            {if($name2.name != null)}
+                                             <a  class="tag">{$name2.name}</a>
+                                            {/if}
+                                            <a >{$p.areaname}</a></div>
+                                        <div class="desc">招商区域：{$p.city}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="join">
+                                            <a href="{:url('/project_detail')}/{$p.id}"> <button class="btn-confirm">申请加盟</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {/volist}
+                        </ul>
+                                
+                    </div>
+                </div>
+            </div>
+            
 
-		<div class="boxbigclass">
-			{volist name="category" id="c"}
-			<li><a href="{:url('/project')}/{$c.pid}/{$c.id}">{$c.name}</a></li>
-			{/volist}
-			<li id="more_class" style="color: red;">显示更多...</li>
-		</div>
-	</div>
+    {$project->render()}
+
+    {include file="mobile/footer"}
 
 
 
-	<div class="left_content">
-
-		<div id="more">
-			 {volist name="projects" id="p"}
-			<div class="loop">
-				<table width='100%' border='0' cellspacing='0' cellpadding='0'>
-					<tr>
-						<td width='120' align="center">
-							<table width='100' height='100' border='0' cellpadding='0' cellspacing='1'
-								class='bordercccccc'>
-								<tr>
-									<td align='center'>
-										<div class="img">
-											<img src="{$p.image}"/>
-										</div>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<div class="title">
-								<a href="{:url('/project_detail')}/{$p.id}" class="bigbigword">{$p.name}</a>
-							</div>
-							<div class="prouse">
-								投资额度：{if($p.price == 1 )}
-									1-3万
-									{elseif($p.price == 2)}
-									3-5万
-									{elseif($p.price == 3)}
-									5-10万
-									{elseif($p.price == 4)}
-									10万以上
-								{/if}</div>
-							<div class="companyname">项目特点：{$p.prouse}</div>
-							<div>招商区域：<span class="city">{$p.city}</span></div>
-							<div>代理留言：<span class="dl_num">{$p.msg} /条</span></div>
-							<div class="zslist_button">
-								<li>
-									<div class="lxfs">
-										<a href='https://tb.53kf.com/code/client/{$web.web_53kf}' target='_blank'></a>
-									</div>
-								</li>
-								<li>
-									<div class="liuyan">
-										<a href="{:url('/project_detail')}/{$p.id}#guestbook"
-											target='_blank'></a>
-									</div>
-								</li>
-							</div>
-						</td>
-					</tr>
-				</table>
-				<hr>
-			</div>
-			{/volist}
-			{$project->render()}
-		</div>
-
-	</div>
-	
-	<div class="titles"><span>&nbsp;</span>
-		<h3>热门项目</h3>
-	</div>
-	<div class="content1">
-		<ul>
-			{volist name="hot" id="h"}
-			<li><span style="width:80px" title="阅832次">({$h.views})</span>
-				<font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2"
-					{/if}>{$key+1} </font> <a href="/zx/show-38.htm">
-					{$h.name|mb_substr=0,10}</a>
-			</li>
-			{/volist}
-		</ul>
-	</div>
-
-	<div class="titles"><span>&nbsp;</span>
-		<h3>推荐项目</h3>
-	</div>
-	<div class="content1">
-		<ul>
-			{volist name="recommend"" id="h"}
-			<li><span style="width:80px" title="阅832次">({$h.views})</span>
-				<font {if($key==0 || $key==1 || $key==2)}class="xuhao1" {else/} class="xuhao2"
-					{/if}>{$key+1} </font> <a href="/zx/show-38.htm">
-					{$h.name|mb_substr=0,10}</a>
-			</li>
-			{/volist}
-		</ul>
-	</div>
-	
-	{include file="mobile/footer"}
-</body> 
 </html>

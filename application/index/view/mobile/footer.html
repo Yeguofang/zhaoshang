@@ -1,9 +1,76 @@
-<div style="height:10px;clear:both;"></div>
-<div class="bottom">
-    <div style="color:#999999">
-            <a href="/">公司简介</a>|<a href="/siteinfo-2.htm">联系方式</a>|<a href="{:url('/help')}">帮助信息</a>|<a href="{:url('/link')}">友情链接</a>|<a href="/sitemap.htm">网站地图</a></div>
-  <a href="http://www.miibeian.gov.cn/" target="_blank">{$web.web_icp}</a> &nbsp;
-   <br />
-   {$web.web_beian}   <br />
-   {$web.web_copyright}
-   </div>
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-11-30 15:16:30
+ * @LastEditTime: 2019-12-03 15:44:44
+ -->
+
+ <div class="commonStatement" style="padding-bottom: 50px;">
+    <div class="bg">
+        <div class="title">本站声明</div>
+        <div class="desc">
+           {$web.web_avow}
+        </div>
+    </div>
+    <div class="bg2">
+        <p>Copyright © {$web.web_name}</p>
+        <p>友情提示：<span>投资有风险，咨询请细致</span>，以便成功加盟。</p>
+        <div class="addnewfooter">
+            <a href="{:url('/about')}" rel="nofollow">关于我们</a>
+            <a href="{:url('/lxwm')}" rel="nofollow">联系我们</a>
+            <a href="{:url('/mzsm')}" rel="nofollow">免责声明</a>
+            <a href="{:url('/tssc')}" rel="nofollow">投诉删除</a>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <ul>
+        <li >
+            <a href="/">
+                {if(request()->controller() == 'Index' && request()->action() == 'index')}
+                <img src="__CDN__/static/mobile/picture/a2024139e8d4ab4fae68087c6ee8c030.png">
+                {else/}
+                <img src="__CDN__/static/mobile/picture/9004914b98fa09eb39f3719a94ec8a94.png">
+                {/if}
+                <span>首页</span>
+            </a>
+        </li>
+        <li >
+            <h1>
+                 {volist name="project_cate" id="c"}
+                 {if($key == 0)}
+                <a href="{:url('/project')}/{$c.id}">
+                    {if(request()->controller() == 'Project' &&  request()->action() != 'ranking')}
+                    <img src="__CDN__/static/mobile/picture/7f9f322c2462b2501a79e548b0ef0969.png">
+                    {else/}
+                    <img src="__CDN__/static/mobile/picture/97e9f713f8859d9cab0422fa3ed61396.png">
+                    {/if}
+                    <span>项目库</span>
+                </a>
+                {/if}
+                {/volist}
+            </h1>
+        </li>
+        <li >
+            <a href="/ranking">
+                {if(request()->action() == 'ranking')}
+                <img  src="__CDN__/static/mobile/picture/c1f301996e866215f80987290da25fce.png">
+                {else/}
+                <img src="__CDN__/static/mobile/picture/30132e0d9549c2976eee067b8b9ffe3a.png">
+                {/if}
+                <span>排行榜</span>
+            </a>
+        </li>
+        
+        <li >
+            <a href="/article">
+                {if(request()->controller() == 'Article')}
+                <img src="__CDN__/static/mobile/picture/e6b23ae996955e5be242ffdca92beefe2.png">
+                {else/}
+                <img  src="__CDN__/static/mobile/picture/e6b23ae996955e5be242ffdca92beefe.png">
+                {/if}
+                <span>资讯</span>
+            </a>
+        </li>
+    </ul>
+</footer>

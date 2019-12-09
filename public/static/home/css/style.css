@@ -27,7 +27,7 @@ input {
 ul,
 li {
   list-style: none;
- margin: 0px 2px 0px 2px;
+ /* margin: 0px 2px 0px 2px; */
 }
 body {
   color: #444444;
@@ -326,7 +326,7 @@ img {
 .flzs_zhankai {
   background-color: #dddddd;
   zoom: 1;
-  overflow: auto;
+  /* overflow: auto; */
   padding: 0px;
 }
 .zsclass {
@@ -364,8 +364,11 @@ img {
 }
 
 .zsclass_zhankai {
-  width: 50%;
+  width: 49.9%;
   float: left;
+  height: 595px;
+  border-bottom: 1px rgb(201, 199, 199) solid;
+ 
 } /*展开的样式*/
 .zsclass_zhankai h2 {
   font-size: 16px;
@@ -384,6 +387,8 @@ img {
   background-color: #ffffff;
   padding: 10px;
   min-height: 230px;
+  height: 575px;
+ 
 }
 .zsclass_s_zhankai_style1 h2 img,
 .zsclass_s_zhankai_style2 h2 img {
@@ -407,6 +412,7 @@ img {
 } /*z-index 仅能在定位元素上奏效,如让div随大类向下走，则去除top:-35,加margin-top:-55px*/
 .zsclass_s_li {
   float: left;
+  height: 175px;
   line-height: 25px;
   margin: 3px 0px;
   width: 33%;
@@ -845,7 +851,7 @@ img {
   padding: 0px 0 0 0px;
 }
 .adStyle1 li {
-  width: 12.5%;
+  width: 13.9%;
   float: left;
   text-align: left;
 }
@@ -874,7 +880,7 @@ img {
   padding: 0px;
 }
 .adStyle2 li {
-  width: 16.66%;
+  width: 16.2%;
   float: left;
   text-align: center;
 }
@@ -888,12 +894,12 @@ img {
   border: solid 1px #dddddd;
   padding: 5px;
   margin: 5px;
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
 }
 .adStyle2 li a:hover {
   background-color: #4d9b11;
   color: #ffffff;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   border: solid 1px #336600;
 }
 

@@ -38,6 +38,7 @@ class Dashboard extends Backend
         $addonVersion = isset($config['version']) ? $config['version'] : __('Unknown');
 
 
+
         $po = new Project();
         $cate = $po->search();
         $category = [];
@@ -94,12 +95,12 @@ class Dashboard extends Backend
 
         $today[3][0] =Db::name('advert')->where('type',0)->whereTime('createtime', 'today')->count();
         $today[3][1] =Db::name('advert')->where('type',1)->whereTime('createtime', 'today')->count();
-        $today[3][2] ="今日发布图片广告";
-        $today[3][3] ="今日发布文字广告";
+        $today[3][2] ="今日发布文字广告";
+        $today[3][3] ="今日发布图片广告";
 
         $today[4][0]=db::name('attachment')->whereTime('createtime', 'today')->count();
         $today[4][1] = db::name('attachment')->whereTime('createtime', 'today')->sum('filesize');
-        $today[4][1] =  round(round($today[4][1]/1024,2)/1024,2)."/M";
+        $today[4][1] =  round(round($today[4][1]/1024,2)/1024,3)."/M";
         $today[4][2] ="今日上传文件量";
         $today[4][3] ="今日上传文件大小";
 

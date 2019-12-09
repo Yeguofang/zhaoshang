@@ -2,7 +2,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{$data.title}</title>
+    <title>{$data.title}_{$web.web_name}</title>
     <meta name="keywords" content="{$data.tdk_key}" />
     <meta name="description" content="{$data.tdk_desc}" />
     {include file="common/head"/}
@@ -29,18 +29,15 @@
                 <div class="box">
                     <div id="BoxInfoTitle">{$data.title}</div>
                     <div id="BoxInfoTitleNext">
-                        来源：{$web.web_name}&nbsp;&nbsp;发布日期：2018-10-29&nbsp;&nbsp;发布者：{$data.company_name}&nbsp;&nbsp;共阅254次  字体：<a href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a href='javascript:fontZoom(12)'>小</a>
+                      发布日期：{$data.createtime|date='Y-m-d',###} &nbsp;&nbsp; &nbsp;&nbsp;来源：<a href="/">{$web.web_name}</a> &nbsp;&nbsp;共阅{$data.views}次  字体：<a href='javascript:fontZoom(22)'>大</a> <a href='javascript:fontZoom(14)'>中</a> <a href='javascript:fontZoom(12)'>小</a>
                     </div>
                     <div id="fontzoom">
                         {$data.content}
                     </div>
 
                     <div style="text-align:center;padding:10px;">
-                        <a href="http://www.jiathis.com/share/" class="jiathis" target="_blank">[分享到...]</a>
-                        <a href="javascript:printcontent()" target="_self">
-          [打印本文]</a> <a href='#top'>[返回顶部]</a>
-                        <a href="javascript:window.close()">
-          [关闭该页]</a>
+                        <a href="javascript:printcontent()" target="_self">[打印本文]</a> 
+                        <a href='#top'>[返回顶部]</a>
                     </div>
                 </div>
 
@@ -78,17 +75,19 @@
                             <input name="content" type="hidden"" id="content"  size="22" maxlength="150">
                             <input name="id" type="hidden"" value="{$data.id}">
                             <input type="hidden" name="aid"  value="{$data.category_id}"/>
-                            <input type="hidden" name="company_id"  value="{$data.company_id}"/>
                             <input type="hidden" name="url"  value="{:url('/article_detail')}/{$data.category_id}/"/>
 
                             <input name="phone"" type="text" id="phone"  placeholder="请输入手机号" />
                             <input style="margin-left: 20px;" type="button"  onclick="checkform()" value="发表评论" />
                     </form>
                 </div>
+                <div class="box" style="margin-top:8px">
+                        声明：本站部分图文内容取自互联网。您若发现有侵犯您著作权行为，请及时告知，我们将在第一时间删除侵权作品、停止继续传播。
+                    </div>
+    
             </div>
 
-
-
+         
 
             <div class="right">
                
@@ -121,7 +120,7 @@
                     </div>
             </div>
 
-
+          
 
         </div>
 
@@ -148,7 +147,6 @@
                 var content = document.form2.content.value;
                 var phone = document.form2.phone.value;
                 var aid = document.form2.aid.value;
-                var company_id = document.form2.company_id.value;
                 var url = document.form2.url.value;
                 var token = document.form2.__token__.value;
 
@@ -169,7 +167,6 @@
                     url: url+id,
                     //后台数据处理-下面有具体实现
                     data: {
-                        company_id:company_id,
                         phone:phone,
                         content:content,
                         aid:aid,

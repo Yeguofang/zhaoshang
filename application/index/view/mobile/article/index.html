@@ -1,80 +1,161 @@
-<!--
- * @Descripttion: 
- * @Author: Jason
- * @Date: 2019-11-09 11:09:00
- * @LastEditTime: 2019-11-09 11:15:37
- -->
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>{$tdk[1]->title}</title>
-<meta content="{$tdk[1]->description}" name="description" />
-<meta content="{$tdk[1]->keyword}" name="keywords" />
-{include file="mobile/head"}
-<link href="__CDN__/static/mobile/css/jdimg.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="__CDN__/static/mobile/js/jdimg.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-	  	$.focus("#focus001");
-		$.focus("#focus002");
-	});
-</script>
-<style type="text/css">
-.focus {width:320px; height:240px;}
-.focus img{border:0;width:320px; height:240px;}
-.focus ul li {width:320px; height:240px;  }
-.focus .btnBg {background-color:#000000; display:block;}
-.focus .btnBg {width:320px;}
-.focus .btn {width:320px;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>{$tdk[1]->title}</title>
+    <meta content="{$tdk[1]->description}" name="description" />
+    <meta content="{$tdk[1]->keyword}" name="keywords" />
+     <link rel="stylesheet" href="__CDN__/static/mobile/css/common.css">
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/swiper.css">
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/ranking.css">
+    <script src="__CDN__/static/mobile/js/jquery.js"></script>
+    <script src="__CDN__/static/mobile/js/swiper.js"></script>
+    <script src="__CDN__/static/mobile/js/jquery.lazyload.js"></script>
+    <script src="__CDN__/static/mobile/js/common.js"></script>
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/information-project.css">
+    <script src="__CDN__/static/mobile/js/information-project.js"></script>
 </head>
+
 <body>
-<script type="text/javascript">
-$(function(){
-	$.divselect("#divselect","#inputselect");
-});
+ 
+        {include file="mobile/header"}
+   
+    <section class="slide" style="padding-top: 55px;">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                    {volist name="slide" id="s"}
+                <div class="swiper-slide">
+                    <a href="{:url('/article_detail')}/{$s.category_id}/{$s.id}" rel="nofollow">
+                        <img class="swiper-lazy lazy" src="{$s.image}">
+                    </a>
+                </div>
+                {/volist}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <section class="latest-information">
+        <div class="title">最新资讯</div>
+        <div class="content">
+                {volist name="hot" id="h"}
+            <div class="ponge">
+                <div class="nofollowImg" href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">
+                    <div class="img">
+                        <a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}" rel="nofollow"><img src="{$h.image}""></a>
+                    </div>
+                    <div class="text">
+                        <div class="tit"><a href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">{$h.title}</a></div>
+                        <div class="desc"><a
+                                href="{:url('/article_detail')}/{$h.category_id}/{$h.id}">{$s.desc}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           {/volist}
+        </div>
+    </section>
+    
+    <section class="latestin3 news">
+        <div class="title">
+            资讯分类
+        </div>
+        <div class="bg">
+            <div class="tab">
+                <ul>
+                {volist name="home" id="p"  offset="0" length='3'}
+                <li class="" style="width: 33%;"> <a href="javasription:;">{$p.name}</a>  </li>
+                {/volist}
+                </ul>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                        {volist name="home" id="h"  offset="0" length='3'}
+                    <div class="swiper-slide">
+                        <ul>
+                                {volist name="h.content" id="c"}
+                            <li>
+                                <div class="followImg" href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">
+                                    <div class="left">
+                                        <div class="title"><a href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">{$c.title}</a></div>
+                                        <div class="desc"><a>{$c.desc}</a>
+                                        </div>
+                                        <div class="date">
+                                            <a>
+                                                <img src="__CDN__/static/mobile/picture/3cd87f6675b141d9d3350de6078f1d61.png">
+                                                <span>{$c.createtime|date='Y-m-d',###}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="img">
+                                        <a href="{:url('/article_detail')}/{$c.category_id}/{$c.id}" rel="nofollow">
+                                            {if($c.image != null)}
+                                            <img class="swiper-lazy lazy" src="{$c.image}">
+                                            {/if}
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            {/volist}
+                        </ul>
+                        <div class="more-btn">
+                            <div class="down">
+                                <a href="{:url('/article_list')}/{$h.id}">
+                                    <span>更多</span>
+                                    <img src="__CDN__/static/mobile/picture/55ec8b835ce39d4ece38224a8bab98de.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {/volist}
+                    
+                </div>
+            </div>
+        
+        </div>
+    </section>
+    {include file="mobile/footer"}
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?912f17081295b3c5623472573e1a1a7e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
-{include file="mobile/header"}
+<script>
+    (function () {
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+</script>
 
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5294d4276f52adb2e38d1599fd6e2815";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
-<div class="box" style="text-align:center">
-<div class="focus" id="focus001">
-	<ul>
-		{volist name="slide" id="s"}
-		<li>
-			<a href="{:url('/article_detail')}/{$s.category_id}/{$s.id}" target="_blank"><img src="{$s.image}" /></a>
-			<div class="divtitlebg"></div>
-			<div class="divtitle">{$s.title}</div>
-		</li>
-		{/volist}
-	</ul>
-</div>
-</div>
-<div class="bordercccccc">
-	<table width="100%" border="0" cellspacing="10" cellpadding="0">
-			{volist name="home" id="h"}
-		<tr>
-			<td style='width:33%;' valign="top">
-				<div class='titles'><span><a href="{:url('/article')}/{$h.id}"> 更多...</a></span>{$h.name}</div>
-				<div class='content2' >
-				<ul>
-					{volist name="h.content" id="c"}
-					<LI>
-						<font {if($key == 0 ||$key ==1 ||$key ==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}</font>
-						<A href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">{$c.title}</A>
-					</LI>
-					{/volist}
-				</ul>
-				</div>
-			</td>
-		</tr>
-		{/volist}
-	</table>
-</div>
-
-{include file="mobile/footer"}
-
-
-</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

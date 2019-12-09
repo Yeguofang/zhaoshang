@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"D:\Project\zhaoshang\public/../application/admin\view\dashboard\index.html";i:1574410360;s:63:"D:\Project\zhaoshang\application\admin\view\layout\default.html";i:1572765525;s:60:"D:\Project\zhaoshang\application\admin\view\common\meta.html";i:1572765525;s:62:"D:\Project\zhaoshang\application\admin\view\common\script.html";i:1572765525;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:74:"D:\Project\zhaoshang\public/../application/admin\view\dashboard\index.html";i:1574841427;s:63:"D:\Project\zhaoshang\application\admin\view\layout\default.html";i:1572765525;s:60:"D:\Project\zhaoshang\application\admin\view\common\meta.html";i:1572765525;s:62:"D:\Project\zhaoshang\application\admin\view\common\script.html";i:1572765525;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -255,7 +255,7 @@
                         </div>
                     </div>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
-
+                    
 
                 </div>
 
@@ -275,13 +275,13 @@
                                     <div class="ibox-content">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h1 class="no-margins"><?php echo $user['inner']; ?></h1>
+                                                <h2 class="no-margins"><?php echo $user['inner']; ?></h2>
                                                 <div class="font-bold"><i class="fa fa-home"></i>
                                                     <small>内部公司</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <h1 class="no-margins"><?php echo $user['outer']; ?></h1>
+                                                <h2 class="no-margins"><?php echo $user['outer']; ?></h2>
                                                 <div class="font-bold"><i class="fa fa-home"></i>
                                                     <small>外部公司</small>
                                                 </div>
@@ -304,13 +304,13 @@
                                 <div class="ibox-content">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h1 class="no-margins"><?php echo $project['data']; ?></h1>
+                                            <h2 class="no-margins"><?php echo $project['data']; ?></h2>
                                             <div class="font-bold"><i class="fa fa-list-alt"></i>
                                                 <small>项目总数</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="no-margins"><?php echo $project['msg']; ?></h1>
+                                            <h2 class="no-margins"><?php echo $project['msg']; ?></h2>
                                             <div class="font-bold"><i class="fa fa-commenting"></i>
                                                 <small>项目留言总数</small>
                                             </div>
@@ -321,7 +321,6 @@
                         </div>
                     </div>
 
-                    
                     <div class="col-xs-6 col-md-2">
                         <div class="panel bg-green-gradient">
                             <div class="panel-body">
@@ -333,13 +332,13 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h1 class="no-margins"><?php echo $article['text']; ?></h1>
+                                            <h2 class="no-margins"><?php echo $article['text']; ?></h2>
                                             <div class="font-bold"><i class="fa fa-list-alt"></i>
                                                 <small>新闻总数量</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="no-margins"><?php echo $article['comment']; ?></h1>
+                                            <h2 class="no-margins"><?php echo $article['comment']; ?></h2>
                                             <div class="font-bold"><i class="fa fa-commenting"></i>
                                                 <small>评论总数量</small>
                                             </div>
@@ -361,13 +360,13 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h1 class="no-margins"><?php echo $advert['image']; ?></h1>
+                                            <h2 class="no-margins"><?php echo $advert['image']; ?></h2>
                                             <div class="font-bold"><i class="fa fa-image"></i>
                                                 <small>图片广告数量</small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="no-margins"><?php echo $advert['text']; ?></h1>
+                                            <h2 class="no-margins"><?php echo $advert['text']; ?></h2>
                                             <div class="font-bold"><i class="fa fa-font"></i>
                                                 <small>文字广告数量</small>
                                             </div>
@@ -378,34 +377,40 @@
                         </div>
                     </div>
                 
+                
+                
 
                     <div class="col-xs-6 col-md-3">
-                            <div class="panel bg-yellow-gradient">
-                                <div class="panel-body">
-                                    <div class="ibox-title">
-                                        <span class="label label-primary pull-right"><?php echo __('Real time'); ?></span>
-                                        <h3>附件统计</h3>
-                                    </div>
-                                    <div class="ibox-content">
-    
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h1 class="no-margins"><?php echo $file['number']; ?></h1>
-                                                <div class="font-bold"><i class="fa fa-file"></i>
-                                                    <small>上传文件数量</small>
-                                                </div>
+                        <div class="panel bg-yellow-gradient">
+                            <div class="panel-body">
+                                <div class="ibox-title">
+                                    <span class="label label-primary pull-right"><?php echo __('Real time'); ?></span>
+                                    <h3>附件统计</h3>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h2 class="no-margins"><?php echo $file['number']; ?></h2>
+                                            <div class="font-bold"><i class="fa fa-file"></i>
+                                                <small>上传文件数量</small>
                                             </div>
-                                            <div class="col-md-6">
-                                                <h1 class="no-margins"><?php echo $file['size']; ?>M</h1>
-                                                <div class="font-bold"><i class="fa fa-font"></i>
-                                                    <small>文件占用空间</small>
-                                                </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h2 class="no-margins"><?php echo $file['size']; ?>M</h2>
+                                            <div class="font-bold"><i class="fa fa-font"></i>
+                                                <small>文件占用空间</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    
+                        
+                   
                
                 </div>
 
@@ -511,7 +516,7 @@
                             </div>
                             <div class="box-body">
                                 <ul class="products-list product-list-in-box">
-                                    <?php $__FOR_START_541570712__=1;$__FOR_END_541570712__=6;for($i=$__FOR_START_541570712__;$i < $__FOR_END_541570712__;$i+=1){ ?>
+                                    <?php $__FOR_START_828341265__=1;$__FOR_END_828341265__=6;for($i=$__FOR_START_828341265__;$i < $__FOR_END_828341265__;$i+=1){ ?>
                                     <li class="item">
                                         <!-- <div class="product-img">
                                             <img src="/assets/img/avatar.png" style="height:40px;width:40px;">
@@ -545,13 +550,7 @@
         </div>
     </div>
 </div>
-<script>
-    var Orderdata = {
-        column: <?php echo json_encode(array_keys($paylist)); ?>,
-        paydata: <?php echo json_encode(array_values($paylist)); ?>,
-        createdata: <?php echo json_encode(array_values($createlist)); ?>,
-    };
-</script>
+
                             </div>
                         </div>
                     </div>

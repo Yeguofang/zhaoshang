@@ -34,17 +34,6 @@ class Attachment extends Backend
         if ($this->request->isAjax()) {
             $mimetypeQuery = [];
             $filter = $this->request->request('filter');
-            $filterArr = (array)json_decode($filter, TRUE);
-            if (isset($filterArr['mimetype']) && stripos($filterArr['mimetype'], ',') !== false) {
-                $this->request->get(['filter' => json_encode(array_merge($filterArr, ['mimetype' => '']))]);
-                $mimetypeQuery = function ($query) use ($filterArr) {
-                    $mimetypeArr = explode(',', $filterArr['mimetype']);
-                    foreach ($mimetypeArr as $index => $item) {
-                        $query->whereOr('mimetype', 'like', '%' . $item . '%');
-                    }
-                };
-            }
-
             list($where, $sort, $order, $offset, $limit) = $this->buildparams();
             $total = $this->model
                 ->where($mimetypeQuery)

@@ -69,6 +69,13 @@ class User extends Backend
 
         if($this->request->isPost()){
             $row = $this->request->param('row/a');
+            $user = $this->model->where('company_name',$row['company_name'])->find();
+            if($user != null){
+               return $this->error('已存在该公司名称');
+            }
+            if(isset($row['company_desc'])){
+                $row['company_desc'] = str_replace(config('http'),"",$row['company_desc']);
+            }
             $row['status'] = 'normal';
             $row['createtime']  = time();
             $row['prevtime']  = time();
@@ -77,13 +84,11 @@ class User extends Backend
             $row['type'] = 2; //内部添加
            $res = $this->model->save($row);
             if($res > 0){
-                  $this->success('添加成功');
+                return     $this->success('添加成功');
             }
-              $this->error('添加失败');
+            return  $this->error('添加失败');
         }
-
         return $this->fetch();
-        
     }
 
     /**
@@ -93,8 +98,8 @@ class User extends Backend
     {
         $row = $this->model->get($ids);
         $user = \app\admin\model\UserGroup::column('id,name');
-        $groupList = build_select('row[group_id]', $user, $row['group_id'], ['class' => 'form-control selectpicker']);
-        $this->assign('groupList',$groupList );
+  
+        $this->assign('user',$user );
         $this->assign('row',$row);
 
         parent::edit($ids);

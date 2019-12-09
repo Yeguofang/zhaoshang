@@ -4,7 +4,6 @@ namespace app\admin\controller;
 
 use app\common\controller\Backend;
 use fast\Random;
-use think\addons\Service;
 use think\Cache;
 use think\Config;
 use think\Db;
@@ -17,7 +16,7 @@ use think\Lang;
 class Ajax extends Backend
 {
 
-    protected $noNeedLogin = ['lang'];
+    protected $noNeedLogin = ['lang','wipecache'];
     protected $noNeedRight = ['*'];
     protected $layout = '';
 
@@ -42,9 +41,11 @@ class Ajax extends Backend
     }
 
     /**
-     * 上传文件
+     * 上传文件方法
+     * @param file file     //上传的文件
+     * @param string ueditor  //百度富文本上传的请求标识
      */
-    public function upload()
+    public function upload($file = null,$ueditor = null)
     {
         Config::set('default_return_type', 'json');
         $file = $this->request->file('file');
@@ -133,6 +134,22 @@ class Ajax extends Backend
             $attachment->data(array_filter($params));
             $attachment->save();
             \think\Hook::listen("upload_after", $attachment);
+
+
+            //如果是百度富文本上传文件的请求就按照百度富文本的规范返回数据
+            if($ueditor  == 'ueditor'){
+                $ueditor_data = [
+                    'original'  => $fileInfo['name'],
+                    'size'      => $fileInfo['size'],
+                    'state'     => "SUCCESS",
+                    'title'     => "",
+                    'type'      => ".".$suffix,
+                    'url'       => $uploadDir . $splInfo->getSaveName()
+                ];
+                return  $ueditor_data;
+            }
+
+            //普通的上传文件返回数据
             $this->success(__('Upload successful'), null, [
                 'url' => $uploadDir . $splInfo->getSaveName()
             ]);
@@ -141,6 +158,103 @@ class Ajax extends Backend
             $this->error($file->getError());
         }
     }
+
+
+
+    /**
+     *  百度富文本上传文件
+     */
+    public function ue_upload()
+    {
+
+        Config::set('default_return_type', 'json');
+        $file = $this->request->file('file');
+
+        //获取远程抓取链接
+        $file_yc = $this->request->post('file/a');
+        //判断是否有远程抓取的图片链接
+        if(isset($file_yc)){
+            $arr =  ['list'=>[],'state'=>"SUCCESS"];
+            foreach($file_yc as $v){
+                $arr['list'][] = self::get_img($v);
+            }
+            return $arr;
+        }
+        
+        if (empty($file)) {
+            $this->error(__('No file upload or server upload limit exceeded'));
+        }
+        //调用上传文件方法
+        $result = $this->upload($file,'ueditor');
+        return $result;
+
+    }
+
+
+
+     //远程抓取url图片
+     public static function get_img($url){
+
+        $path= ROOT_PATH . 'public/uploads/'.date("Ymd");
+        //判断目录存在否，存在给出提示，不存在则创建目录
+        if (!is_dir($path)){  
+            mkdir(iconv("UTF-8", "GBK", $path),0777,true); 
+        }
+        
+        $content = @file_get_contents($url);    //抓取图片内容
+
+        //判断是否抓取成功
+        if($content === false){
+            $ueditor = [
+                'original'  => "",
+                'size'      => "",
+                'source'    => $url,
+                'state'     => "SUCCESS",   //抓取失败也要返回SUCCESS，百度富文本的js才会执行替换链接。这样返回的链接为空，文本内容的图片就会显示不出来。
+                'title'     => "图片抓取失败",
+                'url'       => "图片抓取失败"
+            ];
+            return $ueditor;
+        }
+
+        $file_name = md5(time().uniqid()).".png";    //图文件名
+        $get_file = file_put_contents($path.'/'.$file_name, $content);  //抓取抓取成功把内容写入到新的图片文件
+        $file_info = getimagesize($path.'/'.$file_name);    //获取图片的信息
+
+        //插入上传记录到数据库
+        $params = array(
+            'admin_id'    => 1,
+            'filesize'    => $get_file,
+            'imagewidth'  => $file_info[0],
+            'imageheight' => $file_info[1],
+            'imagetype'   => "png",
+            'mimetype'    => "image/png",
+            'imageframes' => 0,
+            'url'         => "/uploads/".date("Ymd")."/".$file_name,
+            'createtime'  => time(),
+        );
+        db::name("attachment")->insert($params);
+
+        //一定要按照百度富文本编辑器的返回数据规范，返回相应的数据内容
+        $ueditor = [        
+            'original'  => $file_name,
+            'size'      => $get_file,
+            'source'    => $url,
+            'state'     => "SUCCESS",
+            'title'     => "",
+            'url'       => "/uploads/".date("Ymd")."/".$file_name
+        ];
+
+        return $ueditor;
+
+    }
+
+
+
+
+
+
+
+
 
     /**
      * 通用排序
@@ -273,5 +387,12 @@ class Ajax extends Backend
         }
         $this->success('', null, $provincelist);
     }
+
+
+
+   
+
+
+    
 
 }

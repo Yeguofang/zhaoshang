@@ -2,10 +2,10 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-07 18:30:41
- * @LastEditTime: 2019-11-10 16:50:23
+ * @LastEditTime: 2019-12-09 10:44:03
  -->
 <div style="height:10px;clear:both;"></div>
-<div id="dlstepbox" >
+<div id="dlstepbox">
     <div class="main">
         <div id="dl5"></div>
         <div id="dlstep">
@@ -35,16 +35,24 @@
 
 <div class="bottom">
     <div class="main">
+        {$web.web_avow}
         <div class="bottominner">
             <div class="bottomlink">
-                <a href="/">公司简介</a>|<a href="/siteinfo-2.htm">联系方式</a>|<a href="{:url('/help')}">帮助信息</a>|<a href="{:url('/link')}">友情链接</a>|<a href="/sitemap.htm">网站地图</a></div>
-                <a href="http://www.beian.miit.gov.cn" target="_blank">{$web.web_icp}</a> <img src="__CDN__/static/home/images/ghs.png"><a href="http://www.beian.gov.cn/portal/index.do" target="_blank">{$web.web_beian}</a> <br /> 
-            <script type=text/javascript src=__CDN__/static/home/js/713776.js>
-            </script> <br /> {$web.web_copyright}
+                <a href="/about" rel="nofollow">关于我们</a>|
+                <a href="/mzsm" rel="nofollow">免责申明</a>|
+                <a href="/tssc" rel="nofollow">投诉删除</a>|
+                <a href="{:url('/help')}" rel="nofollow">帮助信息</a>|
+                <a href="{:url('/link')}" rel="nofollow">友情链接</a>
+               </div>
+            <a href="http://www.beian.miit.gov.cn" target="_blank">{$web.web_icp}</a> 
+            <img src="__CDN__/static/home/images/ghs.png"><a href="http://www.beian.gov.cn/portal/index.do"
+                target="_blank">{$web.web_beian}</a> <br />
+             
+                {$web.web_copyright}
         </div>
     </div>
 </div>
 <!--返回顶部-->
 <script src="__CDN__/static/home/js/scrolltop.js" type="text/javascript" language="JavaScript"></script>
 
-<div style="display: none" id="goTopBtn"></div>
+            <div style="display: none" id="goTopBtn"></div>

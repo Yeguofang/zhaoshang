@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-22 12:04:14
- * @LastEditTime: 2019-11-22 12:04:33
+ * @LastEditTime: 2019-11-28 14:08:24
  -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
@@ -39,8 +39,8 @@
     UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
     UE.Editor.prototype.getActionUrl = function (action) {
         console.log(action);
-        if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
-            return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+        if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'catchimage') {
+            return "{:url('ajax/ue_upload')}";//此处写自定义的图片上传路径
         } else if (action == 'uploadvideo') {
             return '';
         } else {

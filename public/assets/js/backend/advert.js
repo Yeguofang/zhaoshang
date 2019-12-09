@@ -62,12 +62,13 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                         { checkbox: true },
                         { field: 'id', title: __('Id'),operate:false},
                         { field: 'title', title: __('Title') ,operate:'LIKE'},
+                        { field: 'type', title: __('类型'),formatter:Controller.api.formatter.type,searchList: { "0": '文字', "1": '图片', "2": '友链'}, },
                         { field: 'image', title: __('缩略图'), operate:false,events: Table.api.events.image, formatter: Table.api.formatter.image },
                         { field: 'user.company_name', title: __('用户') ,operate:'LIKE'},
                         { field: 'url', title: __('URL链接') ,operate:'LIKE',formatter: Table.api.formatter.url},
-                        { field: 'flag', title: __('标志'), operate: 'FIND_IN_SET',formatter:Controller.api.formatter.flag,searchList: { "A": 'A区', "B": 'B区', "C": 'C区',"D": 'D区',"E": 'E区'},  },
+                        { field: 'flag', title: __('标志'),width:300, operate: 'FIND_IN_SET',formatter:Controller.api.formatter.flag,searchList: { "A": 'A区', "B": 'B区', "C": 'C区',"D": 'D区',"E": 'E区'},  },
                         { field: '-', title:'',operate:false,width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
-                        { field: 'weigh', title: __('排序') ,operate:false},
+                        { field: 'weigh', title: __('排序') ,operate:false,formatter:Controller.api.formatter.weigh,},
                         { field: 'switch', title: __('状态'), searchList: { 1: "显示", 0: "隐藏" }, formatter: Table.api.formatter.toggle },
                         { field: 'createtime', title: __('创建时间'), operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
                         { field: 'updatetime', title: __('更新时间'), operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
@@ -149,26 +150,69 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
             bindevent: function() {
                 Form.api.bindevent($("form[role=form]"));
             },
-            formatter:{
+            formatter:{  
+                type:function (value,row,index) {
+                    if(value == 0){
+                        return "<label class='label bg-blue'>文字</label>"
+                    }else if(value == 1){
+                        return "<label class='label bg-red'>图片</label>"
+                    }else if(value == 2){
+                        return "<label class='label bg-green'>友链</label>"
+                    }
+                },
                 //渲染位置的方法
                 flag:function (value,row,index) {
-                    var html='';
-                    var flag = value.split(','); //将flag字段的值转换为数组
-                    $.each(row.flag_data, function(i, item){    //遍历 flag_data 数组
-                        var ck = '';
-                        var bg ="style='color:green'";
-                          for(var v in flag){   //遍历flag数组
-                            if(flag[v] == i){   //比较是否相同 相同则选中
-                                ck = "checked='checked'";
-                                bg ="style='color:red'";
+                    if(row.type != 2){
+                        var html='';
+                        var flag = value.split(','); //将flag字段的值转换为数组
+                        $.each(row.flag_data, function(i, item){    //遍历 flag_data 数组
+                            var ck = '';
+                            var bg ="style='color:green'";
+                            for(var v in flag){   //遍历flag数组
+                                if(flag[v] == i){   //比较是否相同 相同则选中
+                                    ck = "checked='checked'";
+                                    bg ="style='color:red'";
+                                }
                             }
-                          }
-                          html+= "<input type='checkbox'  value='"+i+"'"+ck+" name='"+row.id+"_flag'><label class='label' "+bg+">"+item+"</label>";
-                    });
-                    return html;
+                            html+= "<input type='checkbox'  value='"+i+"'"+ck+" name='"+row.id+"_flag'><label class='label' "+bg+">"+item+"</label>";
+                        });
+                        return html;
+                    }else{
+                        if(row.nofollow == 1){
+                            return "<label class='label bg-green'>显示 nofollow</label>"
+                        }else{
+                            return "<label class='label bg-red'>隐藏 nofollow</label>"
+                        }
+                    }
                 },
+                 //权重
+                 weigh:function (value,row,index) {
+                    return "<input type='text' style='width:50px;text-align: center;'  onBlur='weigh(this.value,this.name)' value='"+value+"' name='"+row.id+"'>";
+                }
             },
         }
     };
     return Controller;
 });
+
+
+// 修改权重的方法
+function weigh(value,name){
+    console.log(name);
+    $.ajax({
+        type: "post",
+        async: false,
+        url: "advert/weigh_edit",
+        //后台数据处理-下面有具体实现
+        data: {id:name,weigh:value},
+        success: function (res) {
+            if (res.code == 1) {
+                layer.msg(res.msg, { icon: 1, time: 1000 });
+                //关闭当前frame
+                // $(".btn-refresh").trigger("click");
+            } else {
+                layer.msg(res.msg, { icon: 2, time: 1300 });
+            }
+        }
+    });
+}

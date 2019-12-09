@@ -31,9 +31,7 @@ define(['jquery', 'bootstrap', 'backend', 'form', 'table'], function ($, undefin
                         {field: 'imagewidth', title: __('Imagewidth'), sortable: true},
                         {field: 'imageheight', title: __('Imageheight'), sortable: true},
                         {field: 'imagetype', title: __('Imagetype'), formatter: Table.api.formatter.search},
-                        {field: 'storage', title: __('Storage'), formatter: Table.api.formatter.search},
-                        {field: 'filesize', title: __('Filesize'), operate: 'BETWEEN', sortable: true},
-                        {field: 'mimetype', title: __('Mimetype'), formatter: Table.api.formatter.search},
+                        {field: 'filesize', title: __('Filesize'), operate: 'BETWEEN', sortable: true,formatter: Controller.api.formatter.size},
                         {
                             field: 'createtime',
                             title: __('Createtime'),
@@ -145,7 +143,15 @@ define(['jquery', 'bootstrap', 'backend', 'form', 'table'], function ($, undefin
                 url: function (value, row, index) {
                     return '<a href="' + row.fullurl + '" target="_blank" class="label bg-green">' + value + '</a>';
                 },
-            }
+                size: function (value, row, index) {
+                    var number = Math.round(value/1024);
+                    if(number < 1024){
+                        return number+" kb";
+                    }
+                    return Math.round(number/1024)+" M"
+                   
+                },
+            }    // round(round($today[4][1]/1024,2)/1024,2)."/M";
         }
 
     };

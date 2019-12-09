@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-10 12:21:54
- * @LastEditTime: 2019-11-20 16:43:18
+ * @LastEditTime: 2019-11-27 16:25:24
  */
 define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
 
@@ -71,7 +71,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'type', title: __('Type'),searchList:{"project": __('项目'),'article' : __('文章')},formatter: Table.api.formatter.normal},
                         {field: 'image', title: __('Image'), operate: false, events: Table.api.events.image, formatter: Table.api.formatter.image},
                         {field: 'name', title: __('Name'),width:200,operate: 'LIKE',align: 'left'},
-                        {field: 'flag', title: __('位置'), operate: 'FIND_IN_SET',width:500, formatter:Controller.api.formatter.flag,searchList:{'index': __('首页'),'navs' : __('首页导航'), 'menu' : __('菜单'),'hot':__('热门'),'recommend' : __('推荐'),'top' : __('顶部'),'home' : __('主页')}},
+                        {field: 'flag', title: __('位置'), operate: 'FIND_IN_SET',width:420, formatter:Controller.api.formatter.flag,searchList:{'index': __('首页'),'navs' : __('首页导航'), 'menu' : __('菜单'),'hot':__('热门'),'recommend' : __('推荐'),'top' : __('顶部'),'home' : __('主页')}},
                         { field: '-', title:'',operate:false,width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
                         {field: 'weigh', title: __('Weigh'),operate: false,},
                         {field: 'status', title: __('Status'), searchList:{"normal": __('正常'),'hidden' : __('隐藏')}, formatter: Table.api.formatter.status},

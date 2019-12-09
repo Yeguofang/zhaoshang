@@ -649,7 +649,8 @@
         //but, if set data-init and value attribute in the same time, plugin will choose data-init attribute first
         if (!refresh && !p.initRecord && el.combo_input.val())
             p.initRecord = el.combo_input.val();
-        el.combo_input.val('');
+        // el.combo_input.val('');
+        el.combo_input.val(p.initRecord);
         if (!refresh)
             el.hidden.val(p.initRecord);
         key = refresh && el.hidden.val() ? el.hidden.val() : p.initRecord;
@@ -734,6 +735,14 @@
             self.prop.init_set = false;
         } else {
             var row = data[0];
+            if (p.initRecord != null) {
+                for (var i = 0; i<data.length; i++) {
+                    if (data[i][p.keyField] == p.initRecord) {
+                        console.log(data[i]);
+                        row = data[i]; break;
+                    }
+                }
+            }
             self.elem.combo_input.val(getText(row));
             self.elem.hidden.val(row[p.keyField]);
             self.prop.prev_value = getText(row);

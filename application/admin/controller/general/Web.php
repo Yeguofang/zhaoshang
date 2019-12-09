@@ -28,7 +28,9 @@ class Web extends Backend
     {
         $web_data = $this->model->get(1);   //网站配置
         $tdk_data = Db::name('web_tdk')->select(); //ｔｄｋ
+        $data =db::name('web_sm')->select();    //申明。关于。投诉
 
+        $this->assign('sm',$data);
         $this->assign('tdk', $tdk_data);
         $this->assign('date', $web_data);
         return $this->view->fetch();
@@ -73,4 +75,17 @@ class Web extends Backend
             $this->error(__('Parameter %s can not be empty', ''));
         }
     }
+
+    public function sm($id){
+        if ($this->request->isPost()) {
+            $row = $this->request->post("content");
+            $res = db::name('web_sm')->where('id',$id)->update(['content' => $row]);
+            if ($res > 0) {
+                $this->success('修改成功！');
+            }
+            $this->error('修改失败！');
+        }
+    }
+
+
 }

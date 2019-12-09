@@ -1,1 +1,0 @@
-DIR *.* /ash>LIST.TXT

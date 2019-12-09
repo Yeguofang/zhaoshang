@@ -1,51 +1,32 @@
 <!--
  * @Descripttion: 
  * @Author: Jason
- * @Date: 2019-11-10 10:08:05
- * @LastEditTime: 2019-11-13 19:01:08
+ * @Date: 2019-11-30 16:29:56
+ * @LastEditTime: 2019-12-01 16:20:14
  -->
-
-<script language="JavaScript" src="__CDN__/static/mobile/js/divselect.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			$.divselect("#divselect", "#inputselect");
-		});
-	</script>
-	<div class="top1">
-	 您好！欢迎来到 {$web.web_name}站！电话：{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}
-			<a href="{:url('/help')}">帮助</a>
-	</div>
-	<div class="top2">
-		<span>
-			<form action="{:url('/search')}"" method="post">
-				<div id="divselect">
-					<cite>招商</cite>
-					<ul>
-						<li><a href="javascript:;" selectid="project">招商</a></li>
-						<li><a href="javascript:;" selectid="article">资讯</a></li>
-					</ul>
-				</div>
-				<input name="type" type="hidden" value="project" id="inputselect" />
-				<input name="keyword" type="text" class="biaodan_search" x-webkit-speech />
-				<input type="submit" class="buttons_search" value="搜索" />
-			</form>
-		</span>
-
-		<div class="bigbigword3"><a href="/index.php"><img src="{$web.web_logo}" height="33"
-					width="115"></a></div>
-	</div>
-
-	<div class="nav">
-		<ul>
-                {volist name="project_cate" id="c"}
-                <li>
-                    <a href="{:url('/project')}/{$c.id}">
-                        <img src="{$c.image}">
-                        <h2>{$c.name}</h2>
+<header class="header">
+        <div class="left">
+            <div class="logo">
+                    <a href="/">
+                        <img src="{$web.web_logo}">
                     </a>
-				</li>
-				{/volist}
-				<li><a href="{:url('/article')}">   <img src="/static/home/images/zx.png"><h2>创业资讯</h2></a></li>
-				<li><a href="{:url('/ranking')}">   <img src="/static/home/images/ph.png"><h2>排行</h2></a></li>
-		</ul>
-	</div>
+            </div>
+            <div class="return">
+                <a href="javascript:history.go(-1);">
+                    <img src="__CDN__/static/mobile/picture/c27e82981d1f8cf843cb80c467ca4d4d.png">
+                </a>
+            </div>
+        </div>
+        <div class="title">项目库</div>
+        <div class="search">
+            <form action="{:url('/search')}" method="post">
+                <select name="type" style="width: 60px;height: 25px;font-size: 12px;border: 0px;background-color: rgb(241, 238, 238);">
+                        <option value="project" selected>招 商</option>
+                        <option value="article">资 讯</option>
+                    </select>
+                <input placeholder="感兴趣的品牌项目" class="search-input" type="text" value="" name="keyword">
+                <span><img src="__CDN__/static/mobile/picture/24e35ae249e906015475e3040991b772.png"></span>
+                <input class="submit-input" type="submit">
+            </form>
+        </div>
+    </header>

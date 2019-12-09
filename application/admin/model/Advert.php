@@ -53,6 +53,6 @@ class Advert extends Model
     //关联user表
     public function user()
     {
-        return $this->belongsTo('user', 'company_id','id')->setEagerlyType(0);
+        return $this->hasOne('user', 'id','company_id')->setEagerlyType(0)->joinType('LEFT');
     }
 }

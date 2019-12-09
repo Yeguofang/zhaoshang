@@ -1,43 +1,22 @@
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-1">所属公司</label>
-        <div class="col-xs-12 col-sm-4">
-            <select id="c-company_id" data-rule="required" class="form-control selectpicker" name="row[company_id]">
-                <option value="">请选择</option>
-                {volist name="user" id="u"}
-                <option value="{$u.id}">{$u.company_name}</option>
-                {/volist}
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">所属分类</label>
         <div class="col-xs-12 col-sm-4">
-            <select id="c-pid" data-rule="required" class="form-control selectpicker" name="row[category_id]">
-                <option value="">请选择</option>
-                {foreach name="cate" item="vo"}
-                <option data-type="{$vo.type}" value="{$vo.id}">{$vo.name}</option>
-                {/foreach}
-            </select>
+            {foreach name="cate" item="vo"}
+            <input id="row[category_id]-normal" checked="checked" name="row[category_id]" type="radio" value="{$vo.id}"> {$vo.name}</label>
+            {/foreach}
         </div>
     </div>
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">位置</label>
         <div class="col-xs-12 col-sm-4">
-
-            <select id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
-                {foreach name="flagList" item="vo"}
-                <option value="{$key}">{$vo}</option>
-                {/foreach}
-            </select>
-
+            {foreach name="flagList" item="vo"}
+            <input type='checkbox'  value="{$key}" name="row[flag][]"> <label>{$vo}</label>
+            {/foreach}
         </div>
     </div>
-
 
 
     <div class="form-group">
@@ -57,9 +36,9 @@
                             data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp"
                             data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i>
                             {:__('Upload')}</button></span>
-                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose"
+                    <!-- <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose"
                             data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i
-                                class="fa fa-list"></i> {:__('Choose')}</button></span>
+                                class="fa fa-list"></i> {:__('Choose')}</button></span> -->
                 </div>
                 <span class="msg-box n-right" for="c-image"></span>
             </div>
@@ -74,20 +53,13 @@
             <input id="c-tdk_key" class="form-control" name="row[tdk_key]" type="text">
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-1">tdk-描述</label>
-        <div class="col-xs-12 col-sm-4">
-            <input id="c-tdk_desc" class="form-control" name="row[tdk_desc]" type="text">
-        </div>
-    </div>
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">点击量</label>
         <div class="col-xs-12 col-sm-4">
-            <input id="c-views" class="form-control" name="row[views]" type="number">
+            <input id="c-views" class="form-control" name="row[views]" value="<?php echo rand(1000,2999) ?>" type="number">
         </div>
     </div>
-
 
 
     <div class="form-group">
@@ -99,12 +71,8 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">状态</label>
         <div class="col-xs-12 col-sm-4">
-
-            <input id="c-switch" name="row[switch]" type="hidden">
-            <a href="javascript:;" data-toggle="switcher" class="btn-switcher" data-input-id="c-switch" data-yes="1"
-                data-no="0">
-                <i class="fa fa-toggle-on text-success fa-flip-horizontal text-gray fa-2x"></i>
-            </a>
+            <input id="row[switch]-normal" checked="checked" name="row[switch]" type="radio" value="1"> <label>显示</label>
+            <input id="row[switch]-normal"  name="row[switch]" type="radio" value="0"> <label>隐藏</label>
         </div>
     </div>
 
@@ -134,12 +102,13 @@
     UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
     UE.Editor.prototype.getActionUrl = function (action) {
         console.log(action);
-        if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
-            return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+        if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'catchimage') {
+            return "{:url('ajax/ue_upload')}";//此处写自定义的图片上传路径
         } else if (action == 'uploadvideo') {
             return '';
         } else {
             return this._bkGetActionUrl.call(this, action);
         }
     }   
+
 </script>

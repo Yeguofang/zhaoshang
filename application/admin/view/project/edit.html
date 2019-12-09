@@ -2,16 +2,9 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">所属公司</label>
         <div class="col-xs-12 col-sm-4">
-            <select id="c-company_id" data-rule="required" class="form-control selectpicker" name="row[company_id]">
-                {volist name="user" id="u"}
-                <option value="{$u.id}"{in name="$u.id" value="$row.company_id"} selected {/in}>{$u.company_name}</option>
-                {/volist}
-            </select>
-
-            <!-- <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text" value=""> -->
-           
+            <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text"  value="{$row.company_id|htmlentities}">
         </div> 
-    </div> 
+    </div>  
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">所属分类</label>
         <div class="col-xs-12 col-sm-4">
@@ -26,17 +19,16 @@
         </div>
     </div> 
     
+    
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">位置</label>
         <div class="col-xs-12 col-sm-4">
-            <select id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
-                    {foreach name="flagList" item="vo"}
-                        <option value="{$key}" {in name="key" value="$row.flag" }selected{/in}>{$vo} </option>
-                    {/foreach} 
-            </select>
+            {foreach name="flagList" item="vo"}
+            <input type='checkbox'  value="{$key}" {in name="key" value="$row.flag"}checked="checked"{/in} name="row[flag][]"> <label>{$vo}</label>
+            {/foreach}
         </div>
     </div>
-    
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">{:__('项目名称')}:</label>
         <div class="col-xs-12 col-sm-4">
@@ -56,9 +48,9 @@
                             data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false"
                             data-preview-id="p-image"><i class="fa fa-upload"></i>
                             {:__('Upload')}</button></span>
-                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image"
+                    <!-- <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image"
                             data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i>
-                            {:__('Choose')}</button></span>
+                            {:__('Choose')}</button></span> -->
                 </div>
                 <span class="msg-box n-right" for="c-image"></span>
             </div>
@@ -89,7 +81,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1">点击量</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-views" data-rule="required" class="form-control" name="row[views]" type="number"
+                    <input id="c-views" class="form-control" name="row[views]" type="number"
                         value="{$row.views|htmlentities}">
                 </div>
             </div>
@@ -98,7 +90,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1">权重排序</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]"
+                    <input id="c-weigh" class="form-control" name="row[weigh]"
                         type="number" value="{$row.weigh|htmlentities}">
                 </div>
             </div>
@@ -216,8 +208,8 @@
             UE.getEditor('poster');
             UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
             UE.Editor.prototype.getActionUrl = function (action) {
-                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
-                    return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'catchimage') {
+                    return "{:url('ajax/ue_upload')}";//此处写自定义的图片上传路径
                 } else if (action == 'uploadvideo') {
                     return '';
                 } else {
@@ -257,5 +249,7 @@
                 var local = $.inArray(String, DomArr); //根据元素值查找下标，不存在返回-1
                 DomArr.splice(local,1);//根据下标删除一个元素   1表示删除一个元素
             })
+
+
 });
 </script>

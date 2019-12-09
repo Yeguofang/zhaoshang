@@ -62,7 +62,7 @@ if (!function_exists('del_content_img')) {
 if (!function_exists('img_file_del')) {
     function img_file_del($img, $new_img)
     {
-        if ($new_img != null) {
+        if ($new_img != null && $img != null) {
             if (strcmp($new_img, $img) != 0) {
                 if (file_exists($_SERVER['DOCUMENT_ROOT'] . $img)) {
                     unlink($_SERVER['DOCUMENT_ROOT'] . $img);

@@ -14,6 +14,14 @@ Route::rule('/help', 'index/help');
 Route::rule('/link', 'index/link');
 Route::rule('/brand', 'index/brand');
 Route::rule('/search', 'index/search');
+Route::rule('/mufan666', '/mufan.php/index/login');
+
+Route::rule('/mzsm', 'index/mzsm');
+Route::rule('/about', 'index/about');
+Route::rule('/lxwm', 'index/lxwm');
+Route::rule('/tssc', 'index/tssc');
+
+
 
 
 

@@ -2,30 +2,41 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-06 17:36:00
- * @LastEditTime: 2019-11-22 10:52:31
+ * @LastEditTime: 2019-11-25 18:56:04
  -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group">
-        <label for="c-group_id" class="control-label col-xs-12 col-sm-1">{:__('Group')}:</label>
+        <label class="control-label col-xs-12 col-sm-1">{:__('Group')}:</label>
         <div class="col-xs-12 col-sm-4">
-            {$groupList}
+            {foreach name="user" item="vo"}
+            <input id="row[group_id]-normal"  {in name="$key" value="$row.group_id"}checked="checked"{/in} name="row[group_id]" type="radio" value="{$key}">{$vo}</label>
+            {/foreach}
         </div>
     </div>
+
+
     <div class="form-group">
         <label for="c-company_name" class="control-label col-xs-12 col-sm-1">公司名称</label>
         <div class="col-xs-12 col-sm-4">
             <input id="c-company_name" data-rule="" class="form-control" name="row[company_name]" type="text" value="{$row.company_name|htmlentities}">
         </div>
     </div>
-        
+    
+    <div class="form-group">
+        <label for="c-address" class="control-label col-xs-12 col-sm-1">公司地址</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-address" data-rule="required" class="form-control" name="row[address]" type="text" value="{$row.address|htmlentities}">
+        </div>
+    </div>
+<!-- 
     <div class="form-group">
         <label for="c-mobile" class="control-label col-xs-12 col-sm-1">{:__('Mobile')}:</label>
         <div class="col-xs-12 col-sm-4">
             <input id="c-mobile" data-rule="" class="form-control" name="row[mobile]" type="text" value="{$row.mobile|htmlentities}">
         </div>
     </div>
-<!--     
+    
     <div class="form-group">
         <label for="c-username" class="control-label col-xs-12 col-sm-1">{:__('Username')}:</label>
         <div class="col-xs-12 col-sm-4">
@@ -116,8 +127,8 @@
         UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
         UE.Editor.prototype.getActionUrl = function (action) {
             console.log(action);
-            if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
-                return "{:url('ajax/upload')}";//此处写自定义的图片上传路径
+            if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'catchimage') {
+                return "{:url('ajax/ue_upload')}";//此处写自定义的图片上传路径
             } else if (action == 'uploadvideo') {
                 return '';
             } else {

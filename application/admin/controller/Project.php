@@ -17,12 +17,11 @@ use function GuzzleHttp\json_encode;
 class Project extends Backend
 {
 
-
     protected $model = null;
     protected $relationSearch = true; //开启关联查询
     protected $multiFields = "switch";  //开关字段
     protected $noNeedLogin = [];    //不需要登录能访问的方法
-    protected $noNeedRight = ['search,flag_edit'];     //不用权限但要登录后能访问的方法
+    protected $noNeedRight = ['search','flag_edit','company','shiqu','weigh_edit'];     //不用权限但要登录后能访问的方法
     protected $searchCate = []; //存放分类数据
 
 
@@ -88,7 +87,13 @@ class Project extends Backend
 
         if ($this->request->isAjax()) {
             $row = $this->request->param('row/a');
+            $name = $this->model->where('name',$row['name'])->find();
+            if($name != null){
+               return $this->error('已存在该项目名称');
+            }
             $row['city'] = implode(',',$row['city']);
+            $row['content'] = str_replace(config('http'),"",$row['content']);
+            
             $res = $this->model->save($row);
             if($res == 1){
                return  $this->success('添加成功');
@@ -99,39 +104,9 @@ class Project extends Backend
     }
 
 
+      //修改
+      public function edit($ids =null){
 
-    //添加的时候公司搜索
-    public function company(){
-        $name = $this->request->param('company_name');
-        $page = $this->request->param('pageNumber');
-
-        if($name != null){
-            $user = db::name('user')->where('company_name','like','%'.$name.'%')->field('id,company_name')->page($page,10)->select();
-            $count =   db::name('user')->where('company_name','like','%'.$name.'%')->count();
-            $arr = ['list' => $user,'total' => $count];
-            return $arr;
-        }
-        $user = db::name('user')->where('type',2)->field('id,company_name')->page($page,10)->select();
-        $count = db::name('user')->count();
-        $arr = ['list' => $user,'total' => $count];
-        return $arr;
-    }
-
-
-    //修改位置
-    public function flag_edit(){
-        $row = $this->request->param();
-        $res = db::name('project')->where('id',$row['id'])->update(['flag' => $row['flag']]);
-        if($res == 1){
-             return  $this->success('修改成功');
-        }
-        return $this->error('修改失败');
-    }
-
-
-
-    //修改
-    public function edit($ids =null){
         $data = $this->model->get($ids);
         //查询出招商地区
         $data->city = db::name('china')->where('id','in',$data->city)->field('id,areaname')->select();
@@ -142,7 +117,9 @@ class Project extends Backend
 
         if ($this->request->isAjax()) {
             $row = $this->request->param('row/a');
+           
             $row['city'] = implode(',',$row['city']);
+            $row['content'] = str_replace(config('http'),"",$row['content']);
             $res = $data->save($row);
             if($res == 1){
                return  $this->success('修改成功');
@@ -153,7 +130,7 @@ class Project extends Backend
     }
 
 
-
+    
 
 
     /**
@@ -236,6 +213,55 @@ class Project extends Backend
         }
         $this->error(__('Parameter %s can not be empty', 'ids'));
     }
+
+
+
+    
+    //添加跟编辑的时候公司搜索
+    public function company(){
+        $name = $this->request->param('company_name');  //搜索公司名称
+        $page = $this->request->param('pageNumber');    //分页页码
+        $id = $this->request->param('keyValue');    //编辑时候传入的公司id
+
+        $where = empty($id) ? '' : ['id' => $id]; 
+
+        //模糊搜索
+        if($name != null){
+            $user = db::name('user')->where('type',2)->where('company_name','like','%'.$name.'%')->field('id,company_name')->page($page,10)->select();
+            $count =   db::name('user')->where('type',2)->where('company_name','like','%'.$name.'%')->count();
+            $arr = ['list' => $user,'total' => $count];
+            return $arr;
+        }
+
+        //查询全部
+        $user = db::name('user')->where('type',2)->where($where)->field('id,company_name')->page($page,10)->select();
+        $count = db::name('user')->count();
+        $arr = ['list' => $user,'total' => $count];
+        return $arr;
+    }
+
+
+    //修改位置
+    public function flag_edit(){
+        $row = $this->request->param();
+        $res = db::name('project')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+        if($res == 1){
+             return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
+    }
+
+
+    //修改权重
+    public function weigh_edit(){
+        $row = $this->request->param();
+        $res = db::name('project')->where('id',$row['id'])->update(['weigh' => $row['weigh']]);
+        if($res == 1){
+                return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
+    }
+    
 
 
 

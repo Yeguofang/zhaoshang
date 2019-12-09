@@ -60,8 +60,8 @@
                                 <ul>
                                     {volist name="slide" id="s"}
                                     <li>
-                                        <a href="{:url('/article_detail')}/{$s.category_id}/{$s.id}"
-                                            target="_blank"><img src="{$s.image}" /></a>
+                                        <A href="{:url('/article_detail')}/{$s.category_id}/{$s.id}"
+                                            target="_blank"><img src="{$s.image}" style="width: 100%;" /></A>
                                         <div class="divtitle">{$s.title}</div>
                                     </li>
                                     {/volist}
@@ -79,7 +79,7 @@
                                                 <A href="{:url('/article_detail')}/{$h.category_id}/{$h.id}"
                                                     target="_blank">{$h.title}</a>
                                             </div>
-                                            <div style="padding-bottom:10px">{$h.desc}</div>
+                                            <div style="padding-bottom:10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$h.desc|mb_substr=0,100}</div>
                                         </td>
                                     </tr>
                                     {/volist}
@@ -95,10 +95,10 @@
                 <div class="content1">
                     <ul>
                         {volist name="recommend" id="r"}
-                        <LI><span style='width:80px' title="阅832次">(832)</span>
+                        <LI><span style='width:50px' title="阅832次">(832)</span>
                             <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1 {else/}class=xuhao2{/if}>{$key+1}
                                 </font> <A href="{:url('/article_detail')}/{$r.category_id}/{$r.id}">
-                                {$r.title|mb_substr=0,11}...</A>
+                                {$r.title|mb_substr=0,13}</A>
                         </LI>
                         {/volist}
                     </ul>
@@ -114,7 +114,7 @@
         </div>
         <ul>
             {volist name="image" id="i"}
-            <li style='width:50%;float: left;' valign="top">
+            <li style='width:49.5%;float: left;' valign="top">
                 <div class='content2'>
                     <table border="0" cellspacing="0" cellpadding="0">
                         <tr>
@@ -132,9 +132,10 @@
                             </td>
                             <td style='padding-left:5px'>
                                 <a href="{:url('/article_detail')}/{$i.category_id}/{$i.id}" target="_blank">
-                                    <b>{$i.title}</b><br>
-                                </a>
-                                {$i.desc}<a href="{:url('/article_detail')}/{$i.category_id}/{$i.id}">[ 查看... ]</a>
+                                    <b>{$i.title|mb_substr=0,25}</b><br>
+                                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {$i.desc|mb_substr=0,100}...<a href="{:url('/article_detail')}/{$i.category_id}/{$i.id}">[查看...]</a>
+                                <span style="float: right;">{$i.createtime|date='Y-m-d',###}</span>
                             </td>
                         </tr>
 
@@ -145,6 +146,10 @@
             {/volist}
         </ul>
 
+
+
+
+
         <div class="bordercccccc">
             <table width="100%" border="0" cellspacing="10" cellpadding="0">
                 {volist name="home" id="h"}
@@ -152,13 +157,43 @@
                     <td style='width:33%;' valign="top">
                         <div class='titles'><span><a href="{:url('/article_list')}/{$h.id}"> 更多...</a></span>{$h.name}</div>
                         <div class='content2'>
+
+                               
+
                             <ul>
                                 {volist name="h.content" id="c"}
-                                <LI>
-                                    <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1
-                                        {else/}class=xuhao2{/if}>{$key+1} </font> <A
-                                        href="{:url('/article_detail')}/{$c.category_id}/{$c.id}">{$c.title}</A>
-                                </LI>
+
+                                {if($key == 0)}
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="90px">
+                                                <table border="0" cellspacing="1" cellpadding="0" class="bgcolor2">
+                                                    <tr>
+                                                        <td bgcolor="#FFFFFF" align="center" height="90px" width="100px">
+                                                            <a href="{:url('/article_detail')}/{$c.category_id}/{$c.id}"
+                                                                target="_blank">
+                                                                <img src="{$c.image}" width="100px" height="80px">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td style='padding-left:5px'>
+                                                <a href="{:url('/article_detail')}/{$c.category_id}/{$c.id}" target="_blank">
+                                                    <b>{$c.title}</b><br>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="boxxian"></div>
+                                    {else/}
+                                    <LI>
+                                        <font {if($key==0 ||$key==1 ||$key==2)} class=xuhao1  {else/}class=xuhao2{/if}>{$key+1} </font> 
+                                            <A href="{:url('/article_detail')}/{$c.category_id}/{$c.id}"> {$c.title|mb_substr=0,16}
+                                            <span style="float: right;">{$c.createtime|date='Y-m-d',###}</span>
+                                        </A>
+                                    </LI>
+                                    {/if}
                                 {/volist}
                             </ul>
                         </div>

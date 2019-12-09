@@ -71,9 +71,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                         { field: 'flag', title: '标志',width:200, formatter:Controller.api.formatter.flag,searchList: { "hot": '热门', "index": '首页', "recommend": '推荐' ,"slide":'轮播',"img":'图片',"home":'主页'}, operate: 'FIND_IN_SET' },
                         { field: '-', title:'',operate:false,width:50,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
                         { field: 'switch', title: '状态', searchList: { 1: "显示", 0: "隐藏" }, formatter: Table.api.formatter.toggle },
+                        { field: 'weigh', title: '排序',operate: false,formatter:Controller.api.formatter.weigh,},
                         { field: 'createtime', title: '创建时间', operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
                         { field: 'updatetime', title: '更新时间', operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
-                        { field: 'weigh', title: '排序',operate: false  },
                         { field: 'operate', title: '操作', table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate }
                     ]
                 ]
@@ -173,8 +173,34 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                     });
                     return html;
                 },
+                //权重
+                weigh:function (value,row,index) {
+                    return "<input type='text' style='width:50px;text-align: center;'  onBlur='weigh(this.value,this.name)' value='"+value+"' name='"+row.id+"'>";
+                }
+
             },
         }
     };
     return Controller;
 });
+
+// 修改权重的方法
+function weigh(value,name){
+    console.log(name);
+    $.ajax({
+        type: "post",
+        async: false,
+        url: "article/weigh_edit",
+        //后台数据处理-下面有具体实现
+        data: {id:name,weigh:value},
+        success: function (res) {
+            if (res.code == 1) {
+                layer.msg(res.msg, { icon: 1, time: 1000 });
+                //关闭当前frame
+                // $(".btn-refresh").trigger("click");
+            } else {
+                layer.msg(res.msg, { icon: 2, time: 1300 });
+            }
+        }
+    });
+}

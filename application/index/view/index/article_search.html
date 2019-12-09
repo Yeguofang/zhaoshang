@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-07 17:54:34
- * @LastEditTime: 2019-11-07 17:54:34
+ * @LastEditTime: 2019-12-01 16:18:56
  -->
 <!DOCTYPE html>
 
@@ -29,16 +29,26 @@
          
 
                 <div class="content">
-                    <div class="boxbigclass"></div>
+                    <div class="boxbigclass">
+                        {volist name="data" id="a"}
+                        <div style="width: 870px;margin-bottom: 20px;margin-bottom:10px">
+                            {if($a.image != null)}
+                            <img src="{$a.image}" style="width: 200px;height: 130px;float: left;margin-right: 10px;" />
+                            {/if}
+                            <div class="bigbigword2">
+                                <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title}</a>
+                                <span style="float: right;">{$a.createtime|date='Y-m-d',###}</span>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$a.desc}    
+                             <a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">[ 查看... ]</a>
+                           <br/>  阅读量：{$a.views}
+                        
+                        </div>
+                        {/volist}
+                    </div>
 
-                    {volist name="data" id="a"}
-                    <div class="bigbigword2"><a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">{$a.title}</a></div>
-                    <div>{$a.desc}<a href="{:url('/article_detail')}/{$a.category_id}/{$a.id}">[ 查看... ]</a></div>
-                    <div style="margin-bottom:10px">发布时间：{$a.createtime|@date="Y-m-d H:i:s"} 点击：{$a.views}</div>
-                    {/volist}
-                 
+                    {$data->render()}
                 </div>
-                        {$data->render()}
 
             </div>
    

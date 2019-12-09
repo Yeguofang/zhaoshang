@@ -49,6 +49,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                 ];
 
              
+
+
+             
             Fast.config.openArea = ['90%','90%']; //控制弹窗大小
 
             var table = $("#table");
@@ -71,7 +74,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                         { field: 'flag', title: '标志',operate: 'FIND_IN_SET',width:200,formatter:Controller.api.formatter.falg,searchList: { "hot": '热门', "index": '首页', "recommend": '推荐',"menu":'菜单',"navs":'导航' }},
                         { field: '-', title:'',operate:false,table: table,events: Table.api.events.operate,buttons:buttons,formatter: Table.api.formatter.buttons},
                         { field: 'switch', title: '状态', searchList: { 1: "显示", 0: "隐藏" }, formatter: Table.api.formatter.toggle },
-                        { field: 'weigh', title: '排序' ,operate:false},
+                        { field: 'weigh', title: '排序' ,formatter:Controller.api.formatter.weigh,operate:false},
                         { field: 'createtime', title: '创建时间', operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
                         { field: 'updatetime', title: '更新时间', operate: 'RANGE', addclass: 'datetimerange', formatter: Table.api.formatter.datetime },
                         { field: 'operate', title: '操作', table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate, },
@@ -118,20 +121,20 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                         {
                             field: 'operate',
                             width: '130px',
-                            title: '操作',
+                            title: __('Operate'),
                             table: table,
                             events: Table.api.events.operate,
                             butts: [{
-                                    name: '还原',
-                                    text: '还原',
+                                    name: 'Restore',
+                                    text: __('Restore'),
                                     classname: 'btn btn-xs btn-info btn-ajax btn-restoreit',
                                     icon: 'fa fa-rotate-left',
                                     url: 'project/restore',
                                     refresh: true
                                 },
                                 {
-                                    name: '永久删除',
-                                    text: '永久删除',
+                                    name: 'Destroy',
+                                    text: __('Destroy'),
                                     classname: 'btn btn-xs btn-danger btn-ajax btn-destroyit',
                                     icon: 'fa fa-times',
                                     url: 'project/destroy',
@@ -177,9 +180,35 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function($, undefine
                     });
                     return html;
                 },
+
+                weigh:function (value,row,index) {
+                    return "<input type='text' style='width:50px;text-align: center;'  onBlur='weigh(this.value,this.name)' value='"+value+"' name='"+row.id+"'>";
+                }
+
             },
         },
     };
-  
+
     return Controller;
 });
+// 修改权重的方法
+function weigh(value,name){
+    console.log(name);
+    $.ajax({
+        type: "post",
+        async: false,
+        url: "project/weigh_edit",
+        //后台数据处理-下面有具体实现
+        data: {id:name,weigh:value},
+        success: function (res) {
+            if (res.code == 1) {
+                layer.msg(res.msg, { icon: 1, time: 1000 });
+                //关闭当前frame
+                // $(".btn-refresh").trigger("click");
+            } else {
+                layer.msg(res.msg, { icon: 2, time: 1300 });
+            }
+        }
+    });
+}
+

@@ -1,186 +1,282 @@
 <!DOCTYPE html>
+<html>
 
 <head>
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>{$data.title}</title>
-	<meta name="keywords" content="{$data.keywords}" />
-	<meta name="description" content="{$data.description}" />
-	{include file="mobile/head" /}
-	<style type="text/css">
-		body {
-			background: url({#bodybg}) {
-				#bodybgrepeat
-			}
-
-			;
-		}
-	</style>
-	<script language="JavaScript" type="text/JavaScript" src="__CDN__/static/mobile/js/qt.js"></script>
-	<script language="JavaScript" type="text/JavaScript" src="__CDN__/static/home/js/msg.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("#tel").blur(function () { //jquery 中change()函数  
-				$("#ts_tel").load(encodeURI("/ajax/dl_liuyan_check_ajax.php?action=checktel&id=" + $("#tel").val()));
-			});
-
-		});  
-	</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="wap-font-scale" content="no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>{$data.title}_{$web.web_name}</title>
+  <meta name="keywords" content="{$data.keywords}" />
+  <meta name="description" content="{$data.description}" />
+  <link href="__CDN__/static/mobile/css/swiper.css" rel="stylesheet">
+  <link rel="stylesheet" href="__CDN__/static/mobile/css/layer.css">
+  <script src="__CDN__/static/mobile/js/jquery-1.11.3.min.js"></script>
+  <script src="__CDN__/static/mobile/js/jquery.lazyload.js"></script>
+  <script src="__CDN__/static/mobile/js/swiper.js"></script>
+  <script src="__CDN__/static/mobile/js/layer.js"></script>
+  <script type="text/javascript" src="__CDN__/static/mobile/js/common.js"></script>
+  <script type="text/javascript" src="__CDN__/static/mobile/js/xm_info_common.js"></script>
+  <script type="text/javascript" src="__CDN__/static/mobile/js/xm_info_other.js"></script>
+  <link href="__CDN__/static/mobile/css/xm_info.css" rel="stylesheet">
 </head>
 
 <body>
+  <header class="header header_xm" >
+    <div class="top_bar">
+      <div class="top_bar_item"  style="background-color: black;opacity: 0.5;position:fixed;" >
+        <div class="return"><a class="btn back" href="javascript:history.go(-1)"></a></div>
+        <div class="icon_bar">
+          <a class="index" href="/"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="item-xmbanner">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img class="swiper-lazy" data-src="{$data.image}">
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <section class="item-section itme_xminfo"  >
+    <div class="cont">
+      <div class="info">
+        <div class="brand"><img class="lazy" src="{$data.image}"></div>
+        <div class="tit_info">
+          <h1 class="tit">{$data.name}
+            <em>
+                {if($data.price == 1 )}
+                ￥1-3万
+                {elseif($data.price == 2)}
+                ￥3-5万
+                {elseif($data.price == 3)}
+                ￥5-10万
+                {elseif($data.price == 4)}
+                ￥10万以上
+            {/if}
+            </em>
+          </h1>
+          <p> {$data.bname}<a >  {$data.cname}</a></p>
+          <p>{$data.company_name}</p>
+        </div>
+      </div>
+      <div class="getInfo">
+        <input class="inpt" type="text" id="Tel3" name="tel" placeholder="请输入手机号" maxlength="11" value="">
+        <input class="btn" type="submit" onclick="myform1()" name="" value="获取费用底价">
+      </div>
+    </div>
+  </section>
+  <section class="item-section item_jminfo">
+    <div class="tabs-cont">
+      <div class="jm_tab_boxs" id="js_join_1">
+        <div class="tit"><span class="name"><em>项目</em>详情</span></div>
+        <div class="jm_tab_item">
+            {$data.content}
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <section class="item-section item_zx">
+    <div class="common_tit">咨询花样美腩项目</div>
+    <div class="cont">
+      <ul>
+        <li>
+          <span>姓名</span>
+          <div class="p">
+            <input class="inpt" type="text" id="Name2" name="name" placeholder="请输入您的姓名" maxlength="11" value="">
+            {:token()}
+          </div>
+        </li>
+        <li>
+          <span>电话</span>
+          <div class="p">
+            <input class="inpt" type="text" id="Tel2" name="tel" placeholder="请输入您的常用手机号" maxlength="11" value="">
+          </div>
+        </li>
+        <li class="area">
+          <span>留言</span>
+          <div class="p">
+            <textarea class="textarea" name="msg" id="msg2" cols="30" rows="10" placeholder="请输入你想咨询的内容"></textarea>
+          </div>
+        </li>
+      </ul>
+      <!-- <div class="agree on"><i class="icon-circle"></i>我已阅读并同意 <a href="/explain/" rel="nofollow">《91创业网服务条款》</a></div> -->
+      <div class="btn-box"><input type="submit" name="" onclick="myform2()" value="提交咨询" class="btn"></div>
+    </div>
+  </section>
+ 
+  {include file="mobile/footer"}
 
-	{include file="mobile/header"}
-
-	<div class="boxitem2" id="A">
-		<ul>
-			<!-- <li><a id="A1" href="###" onMouseOver="javascript:doClick(this,'A','current2')" class="current2">项目信息</a></li> -->
-			<li><a id="A2" href="###" onMouseOver="javascript:doClick(this,'A','current2')">项目详情</a></li>
-			<!-- <li><a id="A3" href="###" onMouseOver="javascript:doClick(this,'A','current2')">公司信息</a></li> -->
-		</ul>
-	</div>
-
-
-	<!-- <div style="display:block;" id="A_con1" class="content">
-		{$data.poster}
-
-	</div> -->
-	<div style="display:block;" id="A_con2" class="content bgcolor3">
-		<table width="100%" border="0" cellspacing="0" cellpadding="5">
-			<tr>
-				<td> </td>
-				<td   class="bigbigword">{$data.name}</td>
-			</tr>
-			<tr>
-				<td width="40%" align="center"><img src='{$data.image}' style="width: 100%;"/></td>
-				<td width="60%">
-					<table width="100%" border="0" cellpadding="5" cellspacing="1">
-
-						<tr>
-							<td>项目分类：{$data.cname}-{$data.bname}</td>
-						</tr>
-						
-						<tr>
-							<td>所在地区：</td>
-						</tr>
-						<tr>
-							<td>
-								投资金额：{if($data.price == 1 )}
-								1-3万
-								{elseif($data.price == 2)}
-								3-5万
-								{elseif($data.price == 3)}
-								5-10万
-								{elseif($data.price == 4)}
-								10万以上
-								{/if}
-							</td>
-						</tr>
-						<tr>
-							<td>加盟电话：{$data.moblie|substr=0,3}****{$data.moblie|substr=7,4}</td>
-						</tr>
-						<tr>
-								<td>代理留言：{$data.sum} 条</td>
-							</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input name="Submit" type="button" class="button_big" value="我想加盟该项目"
-						onClick="location.href='#guestbook'" /></td>
-			</tr>
-		</table>
-
-		<hr>
-		{$data.content}
-
-	</div>
-	<div style="display:none;" id="A_con3" class="content">
-		<table width="95%" border="0" cellpadding="7" cellspacing="1">
-			<tr>
-				<td>
-					<p align="left">公司名称：{$data.company_name}</p>
-				</td>
-			</tr>
-			<tr>
-				<td>公司地址：{$data.address}</td>
-			</tr>
-			<td>企业介绍：
-				<hr>{$data.company_desc}</td>
-			</tr>
-		</table>
-	</div>
-
-
-
-	<div class="titles">代理留言</div>
-	<div class="content" style="text-align: center;">
-		<form action="dl_liuyan_save.php" method="post" name="ly">
-			<a name="guestbook" id="guestbook"></a>
-			{:token()}
-			<div class="liuyanbg">
-				<table width="100%" border="0" cellpadding="5" cellspacing="0">
-					<tr>
-						<td>
-							<input name="name" type="text" size="26" maxlength="50" onblur="check_somane()" placeholder="请输入姓名（必填）" />
-							<span id="ts_name"></span>
-							<input type="hidden" name="id"  value="{$data.id}" />
-							<input type="hidden" name="company_id"  value="{$data.company_id}"/>
-							<input type="hidden" name="url"  value="{:url('/project_detail')}/"/>
-						</td>
-					</tr>
-					<tr>
-						<td><input name='tel' type='text' id='tel' size='26' maxlength='50' onblur="check_mobile()" placeholder="请输入电话（必填）"/>
-							<span id="phone"></span></td>
-					</tr>
-					<tr>
-						<td><input name="email" type="text" id="email" size="26" maxlength="50" placeholder="请输入邮箱（可不填）"/></td>
-					</tr>
-					<tr>
-						<td>
-							<textarea rows=5 cols=30 name='contents' id='contents' onfocus='check_contents()'
-								onblur='check_contents()'>我对这个产品感兴趣，请与我联系。</textarea>
-							<input name="contents2" id="contents2" style="display:none" />
-							<span id="ts_contents"></span>
-							<br />
-							<span class="liuyanbg2">
-								<input name='chcontent' type='checkbox' id='chcontent1' onClick="showinfo('content',1)"
-									value='有兴趣开一个店，请寄资料或给我打电话。' />
-								<label for='chcontent1' id='content1'>有兴趣开一个店，请寄资料或给我打电话。 </label>
-								<br />
-								<input name='chcontent' type='checkbox' id='chcontent2' onClick="showinfo('content',2);"
-									value='想了解招商细节，请尽快寄一份资料。' />
-								<label for='chcontent2' id='content2'>想了解招商细节，请尽快寄一份资料。</label>
-								<br />
-								<input name='chcontent' type='checkbox' id='chcontent3' onClick="showinfo('content',3);"
-									value='我想找一个合适的项目做，想加入您们。' />
-								<label for='chcontent3' id='content3'>我想找一个合适的项目做，想加入您们。</label>
-								<br />
-								<input name='chcontent' type='checkbox' id='chcontent4' onClick="showinfo('content',4);"
-									value='我加入你们后，您们还会提供哪些服务？' />
-								<label for='chcontent4' id='content4'>我加入你们后，您们还会提供哪些服务？</label>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td align="center">
-							<input type="button" onclick="CheckForms()"  name="tj" id="tj" value="提交" class="button_big" /> </td>
-					</tr>
-				</table>
-			</div>
-		</form>
-	</div>
-	<div style="height:30px"></div>
-	<div id="divbottomtouming">
-	</div>
-	<div id="divbottom">
-			招商电话：<a href="tel:{$web.web_phone}" style="color:#FFFFFF">{$web.web_phone|substr=0,3}-{$web.web_phone|substr=3,4}-{$web.web_phone|substr=7,4}</a>
-	</div>
+  <footer class="footer">
+    <ul>
+      <li>
+        <a href="https://tb.53kf.com/code/client/{$web.web_53kf}" rel="nofollow">
+          <img src="__CDN__/static/mobile/picture/b752ee03b0ac95ff658ad3f45fc42ac0.png">
+          <span>客服</span>
+        </a>
+      </li>
+      <li id="bvzlico">
+        <a href="#">
+          <img src="__CDN__/static/mobile/picture/91bfe48ca5f44b577ea5ead0eec94b33.png">
+          <span>资料</span>
+        </a>
+      </li>
+      <li class="zixun">
+        <a href="https://tb.53kf.com/code/client/{$web.web_53kf}">
+          <img src="__CDN__/static/mobile/picture/d4fc46679a1de7421871cace872fb698.png">
+          <span>立即咨询</span>
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <div class="commonTop">
+    <img src="__CDN__/static/mobile/picture/fc51cd31a0b75c3aa1f88cc11f63ed1b.png">
+  </div>
 
 
-	{include file="mobile/footer"}
+  <div class="popups" id="popups-msg">
+      <div class="form">
+        <div class="formTips" style="text-align: center;"><h3>获取加盟资料</h3><img class="closebtn" onclick="layer.closeAll();" src="__CDN__/static/mobile/picture/close_1.png"></div>
+        <label for="">
+          <input type="text" data-type="names" class="name" name="name" id="name" placeholder="请输入您的姓名">
+          <input type="hidden" name="company_id"  value="{$data.company_id}"/>
+        </label>
+        <label for="">
+          <input type="text" data-type="phone" class="tel" name="tel" id="tel" maxlength="11" placeholder="请输入您的手机号码">
+        </label>
+        <div class="tipsbox"></div>
+        <input type="submit" id="popupsBtn" onclick="myform3()" class="mysubmit" value="立即获取">
+  </div>
 
-</body>
 
 </html>
+<script>
+  function myform1() {
+    var tel = $("#Tel3").val();
+    var token = $("input[name='__token__']").val();
+    var mobile = /^1[3|4|5|6|7|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+    if (tel == "" || (tel != "" && !mobile.test(tel) && !phone.test(tel))) {
+      layer.msg('请输入正确有效的手机号码！');
+      $("#Tel3").focus();
+      return false;
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "{:url('/project_detail')}/{$data.id}",
+        data: { phone: tel,token:token},
+        dataType: "json",
+        success: function (data) {
+          if (data.code == 1) {
+            layer.msg(data.msg);
+            setTimeout(function () {
+                window.location.reload()
+            }, 1000)
+          } else {
+            layer.msg(data.msg);
+            setTimeout(function () {
+                window.location.reload()
+            }, 1000)
+          }
+        }
+      });
+    }
+  };
+  function myform2() {
+    var username = $("#Name2").val();
+    var token = $("input[name='__token__']").val();
+    var tel = $("#Tel2").val();
+    var msg = $("#msg2").val();
+    var cn = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;
+    var mobile = /^1[3|4|5|6|7|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+    var http = /^http[s]?:\/\/([\w-]+\.)+[\w-]+([\w-./?%&=]*)?$/;
+    if (username == "" || username == "请输入姓名") {
+      layer.msg('请输入您的中文姓名');
+      $("#Name2").focus();
+      return false;
+    } else if ((username != "" && !cn.test(username))) {
+      layer.msg('中文名称不合法');
+      $("#Name2").focus();
+      return false;
+    } else if (username.length > 5) {
+      layer.msg('请控制在5个字以内！');
+      $("#Name2").focus();
+      return false;
+    } else if (tel == "" || (tel != "" && !mobile.test(tel) && !phone.test(tel))) {
+      layer.msg('请输入正确有效的手机号码');
+      $("#Tel2").focus();
+      return false;
+    }  else {
+      $.ajax({
+        type: "POST",
+        url: "{:url('/project_detail')}/{$data.id}",
+        data: { name: username, phone: tel, content: msg, token: token },
+        dataType: "json",
+        success: function (data) {
+          if (data.code == 1) {
+            layer.msg(data.msg);
+            setTimeout(function () {
+                window.location.reload()
+            }, 1000)
+          } else {
+            layer.msg(data.msg);
+            setTimeout(function () {
+                window.location.reload()
+            }, 1000)
+          }
+        }
+      });
+    }
+  };
+
+
+  function myform3() {
+    var username = $("#name").val();
+    var token = $("input[name='__token__']").val();
+    var tel = $("#tel").val();
+    var cn = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/;
+    var mobile = /^1[3|4|5|6|7|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+    if (username == "" || username == "请输入姓名") {
+      layer.msg('请输入您的中文姓名');
+      $("#name").focus();
+      return false;
+    } else if ((username != "" && !cn.test(username))) {
+      layer.msg('中文名称不合法');
+      $("#Name2").focus();
+      return false;
+    } else if (username.length > 5) {
+      layer.msg('请控制在5个字以内！');
+      $("#name").focus();
+      return false;
+    } else if (tel == "" || (tel != "" && !mobile.test(tel) && !phone.test(tel))) {
+      layer.msg('请输入正确有效的手机号码');
+      $("#tel").focus();
+      return false;
+    } else {
+
+      $.ajax({
+        type: "POST",
+        url: "{:url('/project_detail')}/{$data.id}",
+        data: { name: username, phone: tel,token:token },
+        dataType: "json",
+        success: function (data) {
+          if (data.code == 1) {
+            layer.msg(data.msg);
+            setTimeout(function () {
+                window.location.reload()
+            }, 1000)
+          } else {
+            layer.msg(data.msg);
+            setTimeout(function () {
+                window.location.reload()
+            }, 1000)
+          }
+        }
+      });
+    }
+  };
+</script>

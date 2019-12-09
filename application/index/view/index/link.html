@@ -52,7 +52,7 @@
                             {volist name="image" id="a"}
                             <li>
                                 <a href="{$a.url}" target="_blank" >
-                                    <img data-original="{$a.image}" alt="{$a.title}" src="{$a.image}" style="width:125px;height:94px;"
+                                    <img data-original="{$a.image}" title="{$a.title}" src="{$a.image}" style="height:94px;"
                                         style="display: inline;">
                                 </a>
                             </li>
@@ -89,7 +89,7 @@
                         <ul>
                             {volist name="$project.hot" id="h"}
                             <li><span style="width:80px" title="阅832次">({$h.views})</span>
-                                <font {if($key == 0 || $key == 1 || $key==2)}class="xuhao1" {/if}>{$key+1}</font>
+                                <font {if($key == 0 || $key == 1 || $key==2)}class="xuhao1"{/else}class="xuhao2"{/if}>{$key+1}</font>
                                 <a target="_bank" href="{:url('/project_detail')}/{$h.id}">{$h.name}</a>
                             </li>
                             {/volist}

@@ -39,7 +39,7 @@ class Advert extends Backend
             if ($this->request->request('keyField')) {
                 return $this->selectpage();
             }
-            list($where, $sort, $order, $offset, $limit) = $this->buildparams('name');
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams('title');
 
             $total = $this->model
                 ->with(["user"])
@@ -90,15 +90,6 @@ class Advert extends Backend
     }
 
 
-      //修改位置
-      public function flag_edit(){
-        $row = $this->request->param();
-        $res = db::name('advert')->where('id',$row['id'])->update(['flag' => $row['flag']]);
-        if($res == 1){
-             return  $this->success('修改成功');
-        }
-        return $this->error('修改失败');
-    }
 
      /**
      * 回收站
@@ -173,5 +164,27 @@ class Advert extends Backend
         $this->error(__('Parameter %s can not be empty', 'ids'));
     }
 
+
+    
+      //修改位置
+      public function flag_edit(){
+        $row = $this->request->param();
+        $res = db::name('advert')->where('id',$row['id'])->update(['flag' => $row['flag']]);
+        if($res == 1){
+             return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
+    }
+
+    
+     //修改权重
+     public function weigh_edit(){
+        $row = $this->request->param();
+        $res = db::name('advert')->where('id',$row['id'])->update(['weigh' => $row['weigh']]);
+        if($res == 1){
+                return  $this->success('修改成功');
+        }
+        return $this->error('修改失败');
+    }
 
 }

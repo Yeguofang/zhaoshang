@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @Author: Jason
+ * @Date: 2019-12-01 17:31:30
+ * @LastEditTime: 2019-12-04 12:19:33
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{$tdk[8]->title}</title>
+    <meta content="{$tdk[8]->description}" name="description" />
+    <meta content="{$tdk[8]->keyword}" name="keywords" />
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/swiper.css">
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/common.css">
+    <link rel="stylesheet" href="__CDN__/static/mobile/css/redundant.css">
+</head>
+<body>
+    <header class="header second active">
+        <div class="title">关于我们</div>
+	
+    </header>
+    <section class="redundant">
+        <div class="banner"><img src="{$web.web_logo}"></div>
+        <div class="new-redundant-title"></div>
+       {$data.content}
+    </section>
+
+    {include file="mobile/footer"}
+</body>
+</html>

@@ -33,6 +33,15 @@
             <li>
                 <a href="#tdk" data-toggle="tab">TDK</a>
             </li>
+            <li>
+                <a href="#about" data-toggle="tab">关于我们</a>
+            </li>
+            <li>
+                <a href="#mzsm" data-toggle="tab">免责申明</a>
+            </li>
+            <li>
+                <a href="#tssc" data-toggle="tab">投诉删除</a>
+            </li>
         </ul>
     </div>
 
@@ -68,24 +77,21 @@
                                     <td></td>
                                 </tr>
 
-
                                 <tr>
-                                        <td>手机站二维码</td>
-                                        <td>
-                                            <div class="input-group">
-                                                <input id="d-avatar" data-rule="" class="form-control" size="50" name="row[web_ewm]" type="text" value="{$date->web_ewm}">
-                                                <div class="input-group-addon no-border no-padding">
-                                                    <span><button type="button" id="d-plupload-avatar" class="btn btn-danger plupload" data-input-id="d-avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="pd-avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
-                                                    <span><button type="button" id="d-fachoose-avatar" class="btn btn-primary fachoose" data-input-id="d-avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
-                                                </div>
-                                                <span class="msg-box n-right" for="d-avatar"></span>
+                                    <td>手机站二维码</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <input id="d-avatar" data-rule="" class="form-control" size="50" name="row[web_ewm]" type="text" value="{$date->web_ewm}">
+                                            <div class="input-group-addon no-border no-padding">
+                                                <span><button type="button" id="d-plupload-avatar" class="btn btn-danger plupload" data-input-id="d-avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="pd-avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                                                <span><button type="button" id="d-fachoose-avatar" class="btn btn-primary fachoose" data-input-id="d-avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
                                             </div>
-                                            <ul class="row list-inline plupload-preview" id="pd-avatar"></ul>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-    
-                            
+                                            <span class="msg-box n-right" for="d-avatar"></span>
+                                        </div>
+                                        <ul class="row list-inline plupload-preview" id="pd-avatar"></ul>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td> 网站名称</td>
                                     <td>
@@ -149,6 +155,14 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td>本站申明</td>
+                                    <td style="width: 50%;">
+                                        <script id="web_avow" name="row[web_avow]"  type="text/plain">{$date->web_avow}</script>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                               
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -242,6 +256,8 @@
             </div>
 
 
+
+
             <div class="tab-pane fade" id="tdk">
                 <div class="widget-body no-padding">
                     <form id="web-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/tdk')}">
@@ -289,6 +305,67 @@
                 </div>
             </div>
 
+            <div class="tab-pane fade" id="about">
+                <div class="widget-body no-padding">
+                    <form id="about-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/sm')}?id=1">
+                        <div class="form-group">
+                        <script id="about1" name="content"  type="text/plain">{$sm[0]['content']}</script>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="mzsm">
+                <div class="widget-body no-padding">
+                    <form id="mzsm-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/sm')}?id=2">
+                        <div class="form-group">
+                        <script id="mzsm2" name="content"  type="text/plain">{$sm[1]['content']}</script>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="tssc">
+                <div class="widget-body no-padding">
+                    <form id="tssc-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.web/sm')}?id=3">
+                        <script id="tssc3" name="content"  type="text/plain">{$sm[2]['content']}</script>
+                        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+                        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+                    </form>
+                </div>
+            </div>
+
+                    
+
+
         </div>
     </div>
 </div>
+
+  <!-- 配置文件 -->
+  <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.config.js"></script>
+  <!-- 编辑器源码文件 -->
+  <script type="text/javascript" src="__CDN__/static/ueditor/ueditor.all.js"></script>
+
+<script>
+        // 实例化编辑器 
+        UE.getEditor('web_avow');
+        UE.getEditor('about1');
+        UE.getEditor('mzsm2');
+        UE.getEditor('tssc3');
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function (action) {
+            console.log(action);
+            if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'catchimage') {
+                return "{:url('ajax/ue_upload')}";//此处写自定义的图片上传路径
+            } else if (action == 'uploadvideo') {
+                return '';
+            } else {
+                return this._bkGetActionUrl.call(this, action);
+            }
+        }   
+    </script>

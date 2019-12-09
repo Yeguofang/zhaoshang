@@ -24519,21 +24519,20 @@ UE.plugin.register('simpleupload', function (){
                     try{
                         var link, json, loader,
                             body = (iframe.contentDocument || iframe.contentWindow.document).body,
-                            result = body.innerText || body.textContent || '';
-                        json = (new Function("return " + result))();
-                        // link = me.options.imageUrlPrefix + json.url;
-                        link = json.data.url;
-                        if(json.code == 1 && json.data.url) {
-                            loader = me.document.getElementById(loadingId);
-                            loader.setAttribute('src', link);
-                            loader.setAttribute('_src', link);
-                            loader.setAttribute('title', '');
-                            // loader.setAttribute('alt', json.original || '');
-                            loader.removeAttribute('id');
-                            domUtils.removeClasses(loader, 'loadingclass');
-                        } else {
-                            showErrorLoader && showErrorLoader(json.state);
-                        }
+                            result = body.innerText || body.textContent || ''; 
+                            json = (new Function("return " + result))();
+                            link = me.options.imageUrlPrefix + json.url;
+                            if(json.state == 'SUCCESS' && json.url) {
+                                loader = me.document.getElementById(loadingId);
+                                loader.setAttribute('src', link);
+                                loader.setAttribute('_src', link);
+                                loader.setAttribute('title', json.title || '');
+                                loader.setAttribute('alt', json.original || '');
+                                loader.removeAttribute('id');
+                                domUtils.removeClasses(loader, 'loadingclass');
+                            } else {
+                                showErrorLoader && showErrorLoader(json.state);
+                            }
                     }catch(er){
                         showErrorLoader && showErrorLoader(me.getLang('simpleupload.loadError'));
                     }

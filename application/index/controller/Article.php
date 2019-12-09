@@ -73,7 +73,7 @@ class Article extends Frontend
         }
 
         $name = db::name('category')->where('id',$id)->field('name')->find();
-        $data = db::name('article')->where('category_id',$id)->where('switch',1)->paginate(1);
+        $data = db::name('article')->where('category_id',$id)->whereNull('deletetime')->where('switch',1)->paginate(10);
         $recommend =self::getData('recommend',15,$id); 
         $hot = self::getData('hot',15,$id);
 
@@ -82,7 +82,14 @@ class Article extends Frontend
         $this->assign('hot',$hot);
         $this->assign('data',$data);
 
-        $this->buildHtml($page,'article/list/'.$id.'/','article/list.html');
+         
+        //是否手机端访问
+        $temp = 'article/list.html';
+        if(request()->isMobile()){
+            $temp ='mobile/article/list.html';
+        }
+
+        $this->buildHtml($page,'article/list/'.$id.'/',$temp);
     }
 
 
@@ -103,18 +110,16 @@ class Article extends Frontend
             $content = $this->request->param('content');
             $token = $this->request->param('token');
             $aid = $this->request->param('id');
-            $company_id = $this->request->param('company_id');
 
             $rule = [
                 'phone'  => 'require|length:11',
                 'content'  => 'require|length:3,100',
-                // '__token__' => 'require|token',
+                '__token__' => 'require|token',
             ];
             $res = [
                 'phone'  => $phone,
                 'content' => $content,
-                // '__token__' => $token,
-                'company_id' =>$company_id,
+                '__token__' => $token,
                 'aid' =>$aid,
                 'createtime' => time()
             ];
@@ -125,19 +130,17 @@ class Article extends Frontend
                 $msg = $validate->getError();
                 return $this->error($msg);
             }
-            // unset($res['__token__']);
+            unset($res['__token__']);
             $msg = db::name('comment')->where('phone',$phone)->find();
             if($msg){
                 $this->error('你已评论过了！');
             }
-
             $result =db::name('comment')->insert($res);
             if ($result == 1) {
-              return  $this->success('评论提交成功，正在审核...感谢参与！');
+              return  $this->success('提交成功，正在审核...感谢参与！');
             }
 
         }
-
 
         db::name('article')->where('id',$id)->setInc('views',1);
 
@@ -149,19 +152,20 @@ class Article extends Frontend
 
         $data = db::name('article')
                 ->alias('a')
-                ->field('a.id,a.category_id,a.company_id,a.title,a.createtime,a.tdk_key,a.tdk_desc,a.content,c.name,u.company_name')
+                ->field('a.id,a.category_id,a.company_id,a.title,a.createtime,a.views,a.tdk_key,a.tdk_desc,a.content,c.name,u.company_name')
                 ->join('category c','a.category_id=c.id','LEFT')
                 ->join('user u','a.company_id=u.id','LEFT')
                 ->where('a.id',$id)
                 ->find();
 
-        $data['comment'] = db::name('comment')->where('switch',1)->where('aid',$id)->select();
+        $data['comment'] = db::name('comment')->whereNull('deletetime')->where('switch',1)->where('aid',$id)->select();
 
         //上一篇
         $prv = db::name('article')
                 ->field('id,title,category_id')
                 ->where('category_id',$cid)
                 ->where('id','>',$id)
+                ->whereNull('deletetime')
                 ->order('id desc')
                 ->limit(1)
                 ->find();
@@ -170,9 +174,12 @@ class Article extends Frontend
                 ->field('id,title,category_id')
                 ->where('category_id',$cid)
                 ->where('id','<',$id)
+                ->whereNull('deletetime')
                 ->order('id desc')
                 ->limit(1)
                 ->find();
+
+        
 
         $recommend =self::getData('recommend',15,$cid); 
         $hot = self::getData('hot',15,$cid);
@@ -210,8 +217,9 @@ class Article extends Frontend
         $where = $cid == null ? '': ['category_id' => $cid];
 
         $result = db::name('article')
-                ->field('id,title,image,desc,views,category_id')
+                ->field('id,title,image,desc,views,category_id,createtime')
                 ->where($where)
+                ->whereNull('deletetime')
                 ->where('flag', 'like', "%".$flag."%")
                 ->order('createtime desc')
                 ->limit($limit)

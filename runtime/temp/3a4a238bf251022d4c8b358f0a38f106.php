@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"D:\Project\zhaoshang\public/../application/admin\view\project\add.html";i:1574395330;s:63:"D:\Project\zhaoshang\application\admin\view\layout\default.html";i:1572765525;s:60:"D:\Project\zhaoshang\application\admin\view\common\meta.html";i:1572765525;s:62:"D:\Project\zhaoshang\application\admin\view\common\script.html";i:1572765525;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"D:\Project\zhaoshang\public/../application/admin\view\project\add.html";i:1575801281;s:63:"D:\Project\zhaoshang\application\admin\view\layout\default.html";i:1572765525;s:60:"D:\Project\zhaoshang\application\admin\view\common\meta.html";i:1572765525;s:62:"D:\Project\zhaoshang\application\admin\view\common\script.html";i:1572765525;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -52,11 +52,11 @@
                             <div class="content">
                                 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
     <div class="form-group">
-            <label class="control-label col-xs-12 col-sm-1">所属公司</label>
-            <div class="col-xs-12 col-sm-4">
-                <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text" value="">
-            </div> 
+        <label class="control-label col-xs-12 col-sm-1">所属公司</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text" value="">
         </div> 
+    </div> 
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">所属分类</label>
@@ -75,16 +75,11 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1">位置</label>
         <div class="col-xs-12 col-sm-4">
-            <select id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
-                    <?php if(is_array($flagList) || $flagList instanceof \think\Collection || $flagList instanceof \think\Paginator): if( count($flagList)==0 ) : echo "" ;else: foreach($flagList as $key=>$vo): ?>
-                        <option value="<?php echo $key; ?>" ><?php echo $vo; ?> </option>
-                    <?php endforeach; endif; else: echo "" ;endif; ?> 
-            </select>
+            <?php if(is_array($flagList) || $flagList instanceof \think\Collection || $flagList instanceof \think\Paginator): if( count($flagList)==0 ) : echo "" ;else: foreach($flagList as $key=>$vo): ?>
+            <input type='checkbox'  value="<?php echo $key; ?>" name="row[flag][]"> <label><?php echo $vo; ?></label>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
     </div>
-
-    
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-1"><?php echo __('项目名称'); ?>:</label>
@@ -104,9 +99,9 @@
                             data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false"
                             data-preview-id="p-image"><i class="fa fa-upload"></i>
                             <?php echo __('Upload'); ?></button></span>
-                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image"
+                    <!-- <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image"
                             data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i>
-                            <?php echo __('Choose'); ?></button></span>
+                            <?php echo __('Choose'); ?></button></span> -->
                 </div>
                 <span class="msg-box n-right" for="c-image"></span>
             </div>
@@ -137,7 +132,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1">点击量</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-views" data-rule="required" class="form-control" name="row[views]" type="number">
+                    <input id="c-views"  class="form-control" name="row[views]" value="<?php echo rand(1000,2999) ?>" type="number">
                 </div>
             </div>
 
@@ -145,7 +140,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1">权重排序</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]" type="number" >
+                    <input id="c-weigh" class="form-control" name="row[weigh]" type="number" >
                 </div>
             </div>
             <div class="form-group">
@@ -205,14 +200,14 @@
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1"><?php echo __('tdk-关键字'); ?>:</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-keywords" data-rule="required" class="form-control" name="row[keywords]"
+                    <input id="c-keywords"  class="form-control" name="row[keywords]"
                         type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-xs-12 col-sm-1"><?php echo __('tdk-描述'); ?>:</label>
                 <div class="col-xs-12 col-sm-4">
-                    <input id="c-description" data-rule="required" class="form-control" name="row[description]"
+                    <input id="c-description"  class="form-control" name="row[description]"
                         type="text" >
                 </div>
             </div>
@@ -259,9 +254,8 @@ $(document).ready(function(){
             UE.getEditor('poster');
             UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
             UE.Editor.prototype.getActionUrl = function (action) {
-                console.log(action);
-                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage') {
-                    return "<?php echo url('ajax/upload'); ?>";//此处写自定义的图片上传路径
+                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'catchimage') {
+                    return "<?php echo url('ajax/ue_upload'); ?>";//此处写自定义的图片上传路径
                 } else if (action == 'uploadvideo') {
                     return '';
                 } else {

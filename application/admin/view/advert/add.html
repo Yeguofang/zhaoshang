@@ -2,21 +2,16 @@
  * @Descripttion: 
  * @Author: Jason
  * @Date: 2019-11-07 16:44:20
- * @LastEditTime: 2019-11-07 17:21:45
+ * @LastEditTime: 2019-12-08 18:33:56
  -->
 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">所属公司</label>
-        <div class="col-xs-12 col-sm-8">
-            <select id="c-company_id" data-rule="required" class="form-control selectpicker" name="row[company_id]">
-                <option value="">请选择</option>
-                {volist name="user" id="u"}
-                <option value="{$u.id}">{$u.company_name}</option>
-                {/volist}
-            </select>
+        <div class="col-xs-12 col-sm-4">
+            <input id="company_id" data-rule="required" data-source="project/company" data-pagination="true" data-page-size="10" data-field="company_name" class="form-control selectpage" name="row[company_id]" type="text" value="">
         </div> 
-    </div> 
+    </div>  -->
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">类型</label>
@@ -26,6 +21,8 @@
                 <input id="row[type]-normal" checked="checked" name="row[type]" type="radio" value="1"> 图片</label>
                 <label for="row[type]-hidden">
                 <input id="row[type]-hidden" name="row[type]" type="radio" value="0">文字</label>
+                <label for="row[type]-hidden">
+                <input id="row[type]-hidden" name="row[type]" type="radio" value="2">友链</label>
             </div>
         </div>
     </div>
@@ -44,32 +41,12 @@
         </div>
     </div>
     
-    <div class="form-group">
+    <div class="form-group" id="flags">
         <label class="control-label col-xs-12 col-sm-2">位置</label>
         <div class="col-xs-12 col-sm-8">
-
-            <select  id="c-flag" class="form-control selectpicker" multiple="" name="row[flag][]">
-                {foreach name="flagList" item="vo"}
-                <option value="{$key}">{$vo}</option>
-                {/foreach}
-            </select>
-
-        </div>
-    </div>
-
-    
-    <div class="form-group" id="img">
-        <label class="control-label col-xs-12 col-sm-2">图片</label>
-        <div class="col-xs-12 col-sm-8">
-            <div class="input-group">
-                <input id="c-image" class="form-control" size="50" name="row[image]" type="text" >
-                <div class="input-group-addon no-border no-padding">
-                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
-                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
-                </div>
-                <span class="msg-box n-right" for="c-image"></span>
-            </div>
-            <ul class="row list-inline plupload-preview" id="p-image"></ul>
+            {foreach name="flagList" item="vo"}
+            <input type='checkbox'  value="{$key}" name="row[flag][]"> <label>{$vo}</label> 
+            {/foreach}
         </div>
     </div>
 
@@ -79,6 +56,35 @@
             <input id="c-weigh" class="form-control" name="row[weigh]" type="number">
         </div>
     </div>
+    
+    <div class="form-group" id="img">
+        <label class="control-label col-xs-12 col-sm-2">图片</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-image" class="form-control" size="50" name="row[image]" type="text" >
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <!-- <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span> -->
+                </div>
+                <span class="msg-box n-right" for="c-image"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-image"></ul>
+        </div>
+    </div>
+
+    <div class="form-group" id="nofo">
+            <label class="control-label col-xs-12 col-sm-2">nofollow</label>
+            <div class="col-xs-12 col-sm-8">
+                <div class="radio">
+                    <label for="row[nofollow]-normal">
+                    <input id="row[nofollow]-normal" name="row[nofollow]" type="radio" value="1"> 显示</label>
+                    <label for="row[nofollow]-hidden">
+                    <input id="row[nofollow]-hidden" checked="checked"  name="row[nofollow]" type="radio" value="0">隐藏</label>
+                </div>
+            </div>
+        </div>
+
+  
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">状态</label>
         <div class="col-xs-12 col-sm-8">
@@ -103,17 +109,26 @@
 <script type="text/javascript" src="__CDN__/static/home/js/jquery.js"></script>
 <script>
 $(document).ready(function(){
+    $('#nofo').hide();   //隐藏nofo
     $("input[name=row[type]]").click(function(){  
         var type = $('input[name="row[type]"]:checked').val(); 
         if(type == 1){  //图片类型
             $('#img').show();
         }
-        if(type == 0){ //文字类型
+        if(type != 1){ //文字类型
             $('#c-image').val('');
             var a  = $('#c-image').val();   //清空图片地址
             $('.col-xs-3').remove(); //删除预览图
             $('#img').hide();   //隐藏上传控件
         }
+        if(type == 2){
+            $('#nofo').show();   //显示nofo
+            $('#flags').hide();   //隐藏位置
+        }else{
+            $('#nofo').hide();   //隐藏nofo
+            $('#flags').show();   //显示位置
+        }
+
     });
 });
 </script>
